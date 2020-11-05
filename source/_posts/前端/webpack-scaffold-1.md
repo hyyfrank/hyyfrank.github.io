@@ -2,8 +2,8 @@
 title: introduction to webpack4
 date: 2020-09-28 13:34:00
 author: hyyfrank
-cover: true
-top: true
+cover: false
+top: false
 categories: 前端
 tags:
   - Webpack4

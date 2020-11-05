@@ -2,8 +2,8 @@
 title: Hot Module Replacement
 date: 2020-10-1 00:30:00
 author: hyyfrank
-cover: true
-top: true
+cover: false
+top: false
 categories: 前端
 tags:
   - Webpack4
