@@ -2,8 +2,289 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df30567e-aabb-43e4-9e51-7367f9d4fc71" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2018/09/13/hou-duan/java/commons/commons-collections-bao-he-jian-jie/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2018/09/13/hou-duan/java/java-8-zhong-guan-yu-ri-qi-he-shi-jian-api-de-20-ge-shi-yong-shi-li/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2018/09/14/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-ce-lue-mo-shi/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2018/09/14/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-gong-han-fang-fa-mo-shi/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2018/09/14/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-zhuang-shi-mo-shi/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2018/09/17/hou-duan/spring/spring-ji-chu-jie-shao/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2018/09/18/hou-duan/java/mvel2.x-yu-fa-zhi-nan/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2018/09/19/hou-duan/java/mvel2.x-mo-ban-zhi-nan/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2018/09/20/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-dai-li-mo-shi/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2018/09/21/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-zhuang-tai-mo-shi/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2018/09/24/ruan-jian-gong-ju/git/git-zhi-shi-dian-zheng-li/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2018/09/25/shu-ju-ku/postgresql-ji-chu-zhi-shi-zheng-li/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2018/09/27/hou-duan/java/commons/apache-commons-lang-zhi-stringutils/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2018/09/28/hou-duan/java/commons/apache-commons-lang-zhi-arrayutils/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2018/09/29/hou-duan/java/commons/apache-commons-lang-zhi-ri-qi-shi-jian-gong-ju-lei/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2018/10/01/hou-duan/java/shi-yong-java-diao-yong-phantomjs-dong-tai-dao-chu-echarts-tu-pian-dao-word-wen-jian-zhong/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2018/10/05/bian-cheng-zhi-dao/google-java-bian-cheng-feng-ge-zhi-nan/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2018/10/09/ruan-jian-gong-ju/linux/chang-yong-bash-ming-ling-zheng-li-zhi-cha-kan-wen-jian-he-mu-lu/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2018/10/10/ruan-jian-gong-ju/linux/chang-yong-bash-ming-ling-zheng-li-zhi-cao-zuo-wen-jian-he-mu-lu/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2018/10/11/ruan-jian-gong-ju/linux/chang-yong-bash-ming-ling-zheng-li-zhi-wen-ben-chu-li/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2018/10/13/ruan-jian-gong-ju/linux/chang-yong-bash-ming-ling-zheng-li-zhi-qi-ta-chang-yong-ming-ling/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2018/10/14/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-guan-cha-zhe-mo-shi/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2018/10/15/bian-cheng-zhi-dao/dai-ma-zheng-ji-zhi-dao-nei-rong-gai-yao/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2018/10/16/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-ming-ling-mo-shi/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2018/10/17/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-zhong-jie-zhe-mo-shi/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2018/10/18/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-wai-guan-mo-shi/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2018/10/20/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-jian-zao-zhe-mo-shi/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2018/10/21/bian-cheng-zhi-dao/mian-xiang-dui-xiang-bian-cheng-de-li-jie/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2018/10/22/ruan-jian-she-ji/uml-ge-lei-guan-xi-jie-shao/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2018/10/24/hou-duan/java/java-ji-he-kuang-jia-zhi-shi-zheng-li/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2018/10/27/hou-duan/java/ni-xu-yao-zhi-dao-de-java-mei-ju-zhi-shi/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2018/10/28/hou-duan/java/java-yi-chang-zhi-shi-hui-zong/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2018/10/29/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-dan-li-mo-shi/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2018/11/04/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-ze-ren-lian-mo-shi/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2018/11/05/hou-duan/java/java-io-zhi-shi-zheng-li/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2018/11/07/hou-duan/java/java-fan-she-ji-chu/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2018/11/08/hou-duan/java/java-zhu-jie-de-li-jie-he-ying-yong/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2018/11/09/hou-duan/java/java5-xin-te-xing-ji-shi-yong/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2018/11/11/hou-duan/java/java6-xin-te-xing-ji-shi-yong/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2018/11/12/hou-duan/java/java7-xin-te-xing-ji-shi-yong/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2018/11/13/hou-duan/java/java8-xin-te-xing-ji-shi-yong-yi/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2018/11/14/hou-duan/java/java8-xin-te-xing-ji-shi-yong-er/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2018/11/15/hou-duan/java/dan-yuan-ce-shi-zhi-nan/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2018/11/18/ruan-jian-gong-ju/cpu-duo-ji-huan-cun/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2018/11/19/ruan-jian-gong-ju/markdown/vue-wen-dang-feng-ge-de-typora-zhu-ti/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2018/11/22/ruan-jian-gong-ju/devops/gitlab-ci-jie-shao-he-shi-yong/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2018/11/24/ruan-jian-she-ji/ruan-jian-cheng-xu-she-ji-yuan-ze/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2018/12/12/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-gua-pei-qi-mo-shi/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2018/12/19/ruan-jian-she-ji/she-ji-mo-shi/java-mian-xiang-dui-xiang-she-ji-zhi-qiao-jie-mo-shi/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2019/01/25/hou-duan/java/yi-ge-ji-jian-de-java-ascii-biao-ge-sheng-cheng-ku/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2019/02/14/hou-duan/java/java-dai-ma-xing-neng-ping-gu-ku-stalker-jie-shao/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2019/03/02/hou-duan/spring/springboot2.x-dan-yuan-ce-shi/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2019/08/20/hou-duan/jpa/fenix-bi-mybatis-geng-jia-qiang-da-de-spring-data-jpa-kuo-zhan-ku/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2020/09/28/qian-duan/webpack-scaffold-1/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2020/10/01/qian-duan/webpack-scaffold-2/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2020/10/02/hou-duan/redis/redis-1/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2020/10/02/qian-duan/webpack-scaffold-3/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2020/10/02/qian-duan/webpack-scaffold-4/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2020/10/02/qian-duan/webpack-scaffold-5/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2020/10/02/qian-duan/webpack-scaffold-6/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/2020/10/03/qian-duan/webpack-scaffold-7/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/about/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/archives/2018/09/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/archives/2018/09/page/2/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/archives/2018/10/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/archives/2018/10/page/2/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/archives/2018/11/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/archives/2018/11/page/2/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/archives/2018/12/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/archives/2018/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/archives/2018/page/2/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/archives/2018/page/3/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/archives/2018/page/4/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/archives/2018/page/5/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/archives/2019/01/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/archives/2019/02/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/archives/2019/03/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/archives/2019/08/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/archives/2019/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/archives/2020/09/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/archives/2020/10/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/archives/2020/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/archives/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/archives/page/2/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/archives/page/3/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/archives/page/4/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/archives/page/5/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/archives/page/6/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/atom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/categories/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/categories/前端/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/categories/后端/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/categories/后端/page/2/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/categories/后端/page/3/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/categories/数据库/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/categories/编程之道/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/categories/软件工具/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/categories/软件设计/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/categories/软件设计/page/2/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/gitment.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/matery.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/my-gitalk.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/my.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/prism-tomorrow.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/favicon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/friends/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/react-redux-workflow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/react_redux.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/redis.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/redis2.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/matery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/search.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/animate/animate.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/aos/aos.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/aos/aos.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/aplayer/APlayer.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/aplayer/APlayer.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/awesome/css/all.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/awesome/webfonts/fa-brands-400.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/awesome/webfonts/fa-brands-400.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/awesome/webfonts/fa-brands-400.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/awesome/webfonts/fa-brands-400.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/awesome/webfonts/fa-brands-400.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/awesome/webfonts/fa-regular-400.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/awesome/webfonts/fa-regular-400.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/awesome/webfonts/fa-regular-400.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/awesome/webfonts/fa-regular-400.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/awesome/webfonts/fa-regular-400.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/awesome/webfonts/fa-solid-900.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/awesome/webfonts/fa-solid-900.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/awesome/webfonts/fa-solid-900.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/awesome/webfonts/fa-solid-900.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/awesome/webfonts/fa-solid-900.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/background/canvas-nest.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/background/ribbon-dynamic.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/background/ribbon-refresh.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/background/ribbon.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/codeBlock/codeBlockFuction.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/codeBlock/codeCopy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/codeBlock/codeLang.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/codeBlock/codeShrink.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/cryptojs/crypto-js.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/dplayer/DPlayer.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/dplayer/DPlayer.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/echarts/echarts.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/gitalk/gitalk.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/gitalk/gitalk.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/gitment/gitment-default.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/gitment/gitment.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/instantpage/instantpage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/jqcloud/jqcloud-1.0.4.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/jqcloud/jqcloud.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/jquery/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/lightGallery/css/lightgallery.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/lightGallery/fonts/lg.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/lightGallery/fonts/lg.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/lightGallery/fonts/lg.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/lightGallery/fonts/lg.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/lightGallery/img/loading.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/lightGallery/img/video-play.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/lightGallery/img/vimeo-play.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/lightGallery/img/youtube-play.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/lightGallery/js/lightgallery-all.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/masonry/masonry.pkgd.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/materialize/materialize.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/materialize/materialize.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/others/busuanzi.pure.mini.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/others/clicklove.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/scrollprogress/scrollProgress.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/share/css/share.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/share/fonts/iconfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/share/fonts/iconfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/share/fonts/iconfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/share/fonts/iconfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/share/js/jquery.share.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/share/js/social-share.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/tocbot/tocbot.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/tocbot/tocbot.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/valine/Valine.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/libs/valine/av-min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/medias/avatar.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/medias/banner/0.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/medias/banner/1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/medias/banner/2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/medias/banner/3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/medias/banner/4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/medias/banner/5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/medias/banner/6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/medias/comment_bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/medias/cover.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/medias/featureimages/0.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/medias/featureimages/1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/medias/featureimages/10.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/medias/featureimages/11.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/medias/featureimages/12.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/medias/featureimages/13.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/medias/featureimages/14.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/medias/featureimages/15.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/medias/featureimages/16.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/medias/featureimages/17.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/medias/featureimages/18.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/medias/featureimages/19.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/medias/featureimages/2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/medias/featureimages/20.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/medias/featureimages/21.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/medias/featureimages/22.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/medias/featureimages/23.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/medias/featureimages/3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/medias/featureimages/4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/medias/featureimages/5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/medias/featureimages/6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/medias/featureimages/7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/medias/featureimages/8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/medias/featureimages/9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/medias/icp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/medias/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/medias/reward/alipay.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/medias/reward/wechat.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/medias/videos/demo-pic.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/medias/videos/demo.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/page/2/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/page/3/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/page/4/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/page/5/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/page/6/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/search.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/tags/Apache/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/tags/CPU缓存/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/tags/DevOps/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/tags/Fenix/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/tags/Git/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/tags/GitLab-CI/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/tags/Google/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/tags/JPA/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/tags/Java/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/tags/Java/page/2/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/tags/Java/page/3/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/tags/Java/page/4/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/tags/JavaScript/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/tags/Jenkins/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/tags/Linux/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/tags/MVEL/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/tags/Markdown/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/tags/PostgreSQL/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/tags/Redis/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/tags/Redux/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/tags/Spring/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/tags/SpringBoot/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/tags/Typora/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/tags/UML/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/tags/Vue/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/tags/Webpack4/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/tags/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/tags/单元测试/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/tags/性能测试/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/tags/数据库/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/tags/整洁代码/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/tags/测试/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/tags/设计原则/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/tags/设计模式/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/tags/设计模式/page/2/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/tags/重构/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/tags/面向对象编程/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/前端/webpack-scaffold-3.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/前端/webpack-scaffold-4.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/前端/webpack-scaffold-5.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/前端/webpack-scaffold-6.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/前端/webpack-scaffold-7.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/_posts/后端/redis/redis-1.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/images/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/images/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/images/react-redux-workflow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/images/react_redux.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/images/redis.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/images/redis2.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/db.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/hello-world.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/前端/webpack-scaffold-1.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/前端/webpack-scaffold-1.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/前端/webpack-scaffold-2.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/前端/webpack-scaffold-2.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,17 +295,31 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1jqqRcYNBamdHX3igstecHoFehU" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/source/_posts/后端/redis" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/source/images" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/source/_posts/后端/redis" />
+      <recent name="$PROJECT_DIR$/source/_posts/前端" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -34,11 +329,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1604541963800</updated>
-      <workItem from="1604541965290" duration="78000" />
+      <workItem from="1604541965290" duration="9853000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="464" y="188" width="602" height="522" key="find.popup" timestamp="1604586097706">
+      <screen x="0" y="23" width="1440" height="840" />
+    </state>
+    <state x="464" y="188" width="602" height="522" key="find.popup/0.23.1440.840@0.23.1440.840" timestamp="1604586097706" />
+    <state x="430" y="187" width="670" height="676" key="search.everywhere.popup" timestamp="1604590599208">
+      <screen x="0" y="23" width="1440" height="840" />
+    </state>
+    <state x="430" y="187" width="670" height="676" key="search.everywhere.popup/0.23.1440.840@0.23.1440.840" timestamp="1604590599208" />
   </component>
 </project>
