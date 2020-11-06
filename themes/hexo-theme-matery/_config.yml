@@ -235,13 +235,40 @@ mySkills:
     HTML5:
       background: 'linear-gradient(to right, #2196F3 0%, #42A5F5 100%)'
       percent: 80%
-    CSS:
+    CSS3:
       background: 'linear-gradient(to right, #00BCD4 0%, #80DEEA 100%)'
       percent: 70%
-    SQL:
+    Javascript:
       background: 'linear-gradient(to right, #4CAF50 0%, #81C784 100%)'
       percent: 90%
-    程序设计:
+    Python:
+      background: 'linear-gradient(to right, #FFEB3B 0%, #FFF176 100%)'
+      percent: 80%
+    NodeJS:
+      background: 'linear-gradient(to right, #FF0066 0%, #FF00CC 100%)'
+      percent: 90%
+    Docker:
+      background: 'linear-gradient(to right, #9900FF 0%, #CC66FF 100%)'
+      percent: 80%
+    Jenkins:
+      background: 'linear-gradient(to right, #2196F3 0%, #42A5F5 100%)'
+      percent: 80%
+    Git:
+      background: 'linear-gradient(to right, #00BCD4 0%, #80DEEA 100%)'
+      percent: 70%
+    Shell:
+      background: 'linear-gradient(to right, #4CAF50 0%, #81C784 100%)'
+      percent: 90%
+    Scala:
+      background: 'linear-gradient(to right, #FFEB3B 0%, #FFF176 100%)'
+      percent: 50%
+    MySQL:
+      background: 'linear-gradient(to right, #00BCD4 0%, #80DEEA 100%)'
+      percent: 70%
+    Redis:
+      background: 'linear-gradient(to right, #4CAF50 0%, #81C784 100%)'
+      percent: 90%
+    Kafka:
       background: 'linear-gradient(to right, #FFEB3B 0%, #FFF176 100%)'
       percent: 80%
 
