@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>激水漂石</title>
+  
+  <subtitle>Brevity is the soul of wit</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://www.yy-tech.online/"/>
+  <updated>2020-11-06T08:27:40.281Z</updated>
+  <id>http://www.yy-tech.online/</id>
+  
+  <author>
+    <name>hyyfrank</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>how to devOps - Basic</title>
+    <link href="http://www.yy-tech.online/2020/10/03/ruan-jian-gong-ju/devops/devops-de-zuo-fa/"/>
+    <id>http://www.yy-tech.online/2020/10/03/ruan-jian-gong-ju/devops/devops-de-zuo-fa/</id>
+    <published>2020-10-03T15:30:00.000Z</published>
+    <updated>2020-11-06T08:27:40.281Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;一、持续集成介绍&quot;&gt;&lt;a href=&quot;#一、持续集成介绍&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="软件工具" scheme="http://www.yy-tech.online/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="DevOps" scheme="http://www.yy-tech.online/tags/DevOps/"/>
+    
+      <category term="Jenkins" scheme="http://www.yy-tech.online/tags/Jenkins/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>how to add redux</title>
+    <link href="http://www.yy-tech.online/2020/10/03/qian-duan/webpack-scaffold-7/"/>
+    <id>http://www.yy-tech.online/2020/10/03/qian-duan/webpack-scaffold-7/</id>
+    <published>2020-10-03T13:55:00.000Z</published>
+    <updated>2020-11-06T05:56:57.098Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;这是一个webpack4的前端架构主题，主要涉及怎么从0到1构建前端脚手架&lt;br&gt;如何把最新流行的技术整合在一起,涉及react,redux,webpack4相关技术&lt;br&gt;也包含一些项目构建需要的东西，比如gitignore,code
+        
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://www.yy-tech.online/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="Webpack4" scheme="http://www.yy-tech.online/tags/Webpack4/"/>
+    
+      <category term="JavaScript" scheme="http://www.yy-tech.online/tags/JavaScript/"/>
+    
+      <category term="Redux" scheme="http://www.yy-tech.online/tags/Redux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Git Most Used Command</title>
+    <link href="http://www.yy-tech.online/2020/10/03/ruan-jian-gong-ju/git/git-zhi-shi-dian-zheng-li/"/>
+    <id>http://www.yy-tech.online/2020/10/03/ruan-jian-gong-ju/git/git-zhi-shi-dian-zheng-li/</id>
+    <published>2020-10-03T13:50:00.000Z</published>
+    <updated>2020-11-06T08:32:46.010Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;常用命令&quot;&gt;&lt;a href=&quot;#常用命令&quot; class=&quot;headerlink&quot; title=&quot;常用命令&quot;&gt;&lt;/a&gt;常用命令&lt;/h2&gt;&lt;h3 id=&quot;1-submit-feature-branch-code&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="软件工具" scheme="http://www.yy-tech.online/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="Git" scheme="http://www.yy-tech.online/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux常用命令</title>
+    <link href="http://www.yy-tech.online/2020/10/03/ruan-jian-gong-ju/linux/chang-yong-bash-ming-ling-zheng-li-zhi-qi-ta-chang-yong-ming-ling/"/>
+    <id>http://www.yy-tech.online/2020/10/03/ruan-jian-gong-ju/linux/chang-yong-bash-ming-ling-zheng-li-zhi-qi-ta-chang-yong-ming-ling/</id>
+    <published>2020-10-03T10:15:00.000Z</published>
+    <updated>2020-11-06T10:03:46.487Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;todo&quot;&gt;&lt;a href=&quot;#todo&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="软件工具" scheme="http://www.yy-tech.online/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="Linux" scheme="http://www.yy-tech.online/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>how webpack handle font and image</title>
+    <link href="http://www.yy-tech.online/2020/10/02/qian-duan/webpack-scaffold-6/"/>
+    <id>http://www.yy-tech.online/2020/10/02/qian-duan/webpack-scaffold-6/</id>
+    <published>2020-10-02T15:55:00.000Z</published>
+    <updated>2020-11-06T05:56:57.098Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;这是一个webpack4的前端架构主题，主要涉及怎么从0到1构建前端脚手架&lt;br&gt;如何把最新流行的技术整合在一起,涉及react,redux,webpack4相关技术&lt;br&gt;也包含一些项目构建需要的东西，比如gitignore,code
+        
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://www.yy-tech.online/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="Webpack4" scheme="http://www.yy-tech.online/tags/Webpack4/"/>
+    
+      <category term="JavaScript" scheme="http://www.yy-tech.online/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>how webpack handle css</title>
+    <link href="http://www.yy-tech.online/2020/10/02/qian-duan/webpack-scaffold-5/"/>
+    <id>http://www.yy-tech.online/2020/10/02/qian-duan/webpack-scaffold-5/</id>
+    <published>2020-10-02T15:50:00.000Z</published>
+    <updated>2020-11-06T05:56:57.098Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;这是一个webpack4的前端架构主题，主要涉及怎么从0到1构建前端脚手架&lt;br&gt;如何把最新流行的技术整合在一起,涉及react,redux,webpack4相关技术&lt;br&gt;也包含一些项目构建需要的东西，比如gitignore,code
+        
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://www.yy-tech.online/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="Webpack4" scheme="http://www.yy-tech.online/tags/Webpack4/"/>
+    
+      <category term="JavaScript" scheme="http://www.yy-tech.online/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>start from a easy demo</title>
+    <link href="http://www.yy-tech.online/2020/10/02/qian-duan/webpack-scaffold-4/"/>
+    <id>http://www.yy-tech.online/2020/10/02/qian-duan/webpack-scaffold-4/</id>
+    <published>2020-10-02T15:45:00.000Z</published>
+    <updated>2020-11-06T05:56:57.097Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;这是一个webpack4的前端架构主题，主要涉及怎么从0到1构建前端脚手架&lt;br&gt;如何把最新流行的技术整合在一起,涉及react,redux,webpack4相关技术&lt;br&gt;也包含一些项目构建需要的东西，比如gitignore,code
+        
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://www.yy-tech.online/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="Webpack4" scheme="http://www.yy-tech.online/tags/Webpack4/"/>
+    
+      <category term="JavaScript" scheme="http://www.yy-tech.online/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>webpack fundamentals</title>
+    <link href="http://www.yy-tech.online/2020/10/02/qian-duan/webpack-scaffold-3/"/>
+    <id>http://www.yy-tech.online/2020/10/02/qian-duan/webpack-scaffold-3/</id>
+    <published>2020-10-02T14:30:00.000Z</published>
+    <updated>2020-11-06T05:56:57.097Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;这是一个webpack4的前端架构主题，主要涉及怎么从0到1构建前端脚手架&lt;br&gt;如何把最新流行的技术整合在一起,涉及react,redux,webpack4相关技术&lt;br&gt;也包含一些项目构建需要的东西，比如gitignore,code
+        
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://www.yy-tech.online/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="Webpack4" scheme="http://www.yy-tech.online/tags/Webpack4/"/>
+    
+      <category term="JavaScript" scheme="http://www.yy-tech.online/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>introduction to redis</title>
+    <link href="http://www.yy-tech.online/2020/10/02/hou-duan/redis/redis-1/"/>
+    <id>http://www.yy-tech.online/2020/10/02/hou-duan/redis/redis-1/</id>
+    <published>2020-10-02T06:34:00.000Z</published>
+    <updated>2020-11-06T05:56:57.110Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;这个主要记录一些使用Redis的心得&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;#Redis包括什么&lt;br&gt;&lt;img src=&quot;/images/redis.jpg&quot; alt=&quot;Redis
+        
+      
+    
+    </summary>
+    
+      <category term="后端" scheme="http://www.yy-tech.online/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="Redis" scheme="http://www.yy-tech.online/tags/Redis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hot Module Replacement</title>
+    <link href="http://www.yy-tech.online/2020/10/01/qian-duan/webpack-scaffold-2/"/>
+    <id>http://www.yy-tech.online/2020/10/01/qian-duan/webpack-scaffold-2/</id>
+    <published>2020-09-30T16:30:00.000Z</published>
+    <updated>2020-11-06T05:56:57.097Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;这是一个webpack4的前端架构主题，主要涉及怎么从0到1构建前端脚手架&lt;br&gt;如何把最新流行的技术整合在一起,涉及react,redux,webpack4相关技术&lt;br&gt;也包含一些项目构建需要的东西，比如gitignore,code
+        
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://www.yy-tech.online/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="Webpack4" scheme="http://www.yy-tech.online/tags/Webpack4/"/>
+    
+      <category term="JavaScript" scheme="http://www.yy-tech.online/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>introduction to webpack4</title>
+    <link href="http://www.yy-tech.online/2020/09/28/qian-duan/webpack-scaffold-1/"/>
+    <id>http://www.yy-tech.online/2020/09/28/qian-duan/webpack-scaffold-1/</id>
+    <published>2020-09-28T05:34:00.000Z</published>
+    <updated>2020-11-06T05:56:57.097Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;这是一个webpack4的前端架构主题，主要涉及怎么从0到1构建前端脚手架&lt;br&gt;如何把最新流行的技术整合在一起,涉及react,redux,webpack4相关技术&lt;br&gt;也包含一些项目构建需要的东西，比如gitignore,code
+        
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://www.yy-tech.online/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="Webpack4" scheme="http://www.yy-tech.online/tags/Webpack4/"/>
+    
+      <category term="JavaScript" scheme="http://www.yy-tech.online/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SpringBoot2.x 单元测试</title>
+    <link href="http://www.yy-tech.online/2019/03/02/hou-duan/spring/springboot2.x-dan-yuan-ce-shi/"/>
+    <id>http://www.yy-tech.online/2019/03/02/hou-duan/spring/springboot2.x-dan-yuan-ce-shi/</id>
+    <published>2019-03-02T09:20:00.000Z</published>
+    <updated>2020-11-06T05:56:57.110Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;一个 bug 被隐藏的时间越长，修复这个 bug 的代价就越大。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;我曾经在 &lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="后端" scheme="http://www.yy-tech.online/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="单元测试" scheme="http://www.yy-tech.online/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/"/>
+    
+      <category term="Java" scheme="http://www.yy-tech.online/tags/Java/"/>
+    
+      <category term="Spring" scheme="http://www.yy-tech.online/tags/Spring/"/>
+    
+      <category term="SpringBoot" scheme="http://www.yy-tech.online/tags/SpringBoot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PostgreSQL基础知识整理</title>
+    <link href="http://www.yy-tech.online/2018/09/25/shu-ju-ku/postgresql-ji-chu-zhi-shi-zheng-li/"/>
+    <id>http://www.yy-tech.online/2018/09/25/shu-ju-ku/postgresql-ji-chu-zhi-shi-zheng-li/</id>
+    <published>2018-09-24T16:33:00.000Z</published>
+    <updated>2020-11-06T05:56:57.111Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;数据库操作DML&quot;&gt;&lt;a href=&quot;#数据库操作DML&quot; class=&quot;headerlink&quot; title=&quot;数据库操作DML&quot;&gt;&lt;/a&gt;数据库操作DML&lt;/h2&gt;&lt;h3 id=&quot;CREATE-TABLE&quot;&gt;&lt;a href=&quot;#CREATE-TABLE&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="数据库" scheme="http://www.yy-tech.online/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="PostgreSQL" scheme="http://www.yy-tech.online/tags/PostgreSQL/"/>
+    
+      <category term="数据库" scheme="http://www.yy-tech.online/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spring基础介绍</title>
+    <link href="http://www.yy-tech.online/2018/09/17/hou-duan/spring/spring-ji-chu-jie-shao/"/>
+    <id>http://www.yy-tech.online/2018/09/17/hou-duan/spring/spring-ji-chu-jie-shao/</id>
+    <published>2018-09-17T14:32:00.000Z</published>
+    <updated>2020-11-06T05:56:57.111Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;一、Spring-概述&quot;&gt;&lt;a href=&quot;#一、Spring-概述&quot; class=&quot;headerlink&quot; title=&quot;一、Spring 概述&quot;&gt;&lt;/a&gt;一、Spring 概述&lt;/h2&gt;&lt;h3 id=&quot;（一）Spring-的简史&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="后端" scheme="http://www.yy-tech.online/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="Java" scheme="http://www.yy-tech.online/tags/Java/"/>
+    
+      <category term="Spring" scheme="http://www.yy-tech.online/tags/Spring/"/>
+    
+  </entry>
+  
+</feed>
