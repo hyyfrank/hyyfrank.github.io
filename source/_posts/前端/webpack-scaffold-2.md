@@ -1,6 +1,6 @@
 ---
-title: Hot Module Replacement
-date: 2020-10-1 00:30:00
+title: react with webpack(二）
+date: 2017-10-1 00:30:00
 author: hyyfrank
 cover: false
 top: false

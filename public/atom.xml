@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>激水漂石</title>
+  
+  <subtitle>Brevity is the soul of wit</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://www.yy-tech.online/"/>
+  <updated>2021-05-02T18:59:43.504Z</updated>
+  <id>http://www.yy-tech.online/</id>
+  
+  <author>
+    <name>hyyfrank</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux服务器简单的性能分析方法</title>
+    <link href="http://www.yy-tech.online/2021/05/03/linux/linux-jian-dan-xing-neng-fen-xi/"/>
+    <id>http://www.yy-tech.online/2021/05/03/linux/linux-jian-dan-xing-neng-fen-xi/</id>
+    <published>2021-05-03T10:34:00.000Z</published>
+    <updated>2021-05-02T18:59:43.504Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Linux服务器性能分析&quot;&gt;&lt;a href=&quot;#Linux服务器性能分析&quot; class=&quot;headerlink&quot; title=&quot;Linux服务器性能分析&quot;&gt;&lt;/a&gt;Linux服务器性能分析&lt;/h1&gt;&lt;h2 id=&quot;目标&quot;&gt;&lt;a href=&quot;#目标&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://www.yy-tech.online/categories/Linux/"/>
+    
+    
+      <category term="linux" scheme="http://www.yy-tech.online/tags/linux/"/>
+    
+      <category term="optimization" scheme="http://www.yy-tech.online/tags/optimization/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《大型网站技术架构》- 重温</title>
+    <link href="http://www.yy-tech.online/2021/02/03/hou-duan/book/da-xing-wang-zhan-ji-zhu-jia-gou/"/>
+    <id>http://www.yy-tech.online/2021/02/03/hou-duan/book/da-xing-wang-zhan-ji-zhu-jia-gou/</id>
+    <published>2021-02-03T01:34:00.000Z</published>
+    <updated>2021-05-03T11:17:41.869Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;日日新&quot;&gt;&lt;a href=&quot;#日日新&quot; class=&quot;headerlink&quot; title=&quot;日日新&quot;&gt;&lt;/a&gt;日日新&lt;/h1&gt;&lt;h2 id=&quot;感受&quot;&gt;&lt;a href=&quot;#感受&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="后端" scheme="http://www.yy-tech.online/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="web" scheme="http://www.yy-tech.online/tags/web/"/>
+    
+      <category term="architecture" scheme="http://www.yy-tech.online/tags/architecture/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>BloomFilter的应用</title>
+    <link href="http://www.yy-tech.online/2020/07/02/hou-duan/bloomfilter/bloomfilter/"/>
+    <id>http://www.yy-tech.online/2020/07/02/hou-duan/bloomfilter/bloomfilter/</id>
+    <published>2020-07-02T10:34:00.000Z</published>
+    <updated>2021-05-03T11:17:33.851Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;BloomFilter概念&quot;&gt;&lt;a href=&quot;#BloomFilter概念&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="后端" scheme="http://www.yy-tech.online/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="bloom filter" scheme="http://www.yy-tech.online/tags/bloom-filter/"/>
+    
+      <category term="algorithms" scheme="http://www.yy-tech.online/tags/algorithms/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>求指数的另一种算法</title>
+    <link href="http://www.yy-tech.online/2020/04/02/hou-duan/suan-fa/pow/"/>
+    <id>http://www.yy-tech.online/2020/04/02/hou-duan/suan-fa/pow/</id>
+    <published>2020-04-02T12:34:00.000Z</published>
+    <updated>2021-05-03T12:46:11.995Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;从一道算法题开始&quot;&gt;&lt;a href=&quot;#从一道算法题开始&quot; class=&quot;headerlink&quot; title=&quot;从一道算法题开始&quot;&gt;&lt;/a&gt;从一道算法题开始&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;Problem: Implement pow(x, n), which
+        
+      
+    
+    </summary>
+    
+      <category term="后端" scheme="http://www.yy-tech.online/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="algorithms" scheme="http://www.yy-tech.online/tags/algorithms/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>how autodesk use webassembly</title>
+    <link href="http://www.yy-tech.online/2019/10/02/qian-duan/webassembly/"/>
+    <id>http://www.yy-tech.online/2019/10/02/qian-duan/webassembly/</id>
+    <published>2019-10-02T10:34:00.000Z</published>
+    <updated>2021-05-06T12:00:27.011Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;什么是web-assembly&quot;&gt;&lt;a href=&quot;#什么是web-assembly&quot; class=&quot;headerlink&quot; title=&quot;什么是web assembly&quot;&gt;&lt;/a&gt;什么是web
+        
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://www.yy-tech.online/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="web assembly" scheme="http://www.yy-tech.online/tags/web-assembly/"/>
+    
+      <category term="web worker" scheme="http://www.yy-tech.online/tags/web-worker/"/>
+    
+      <category term="service worker" scheme="http://www.yy-tech.online/tags/service-worker/"/>
+    
+      <category term="emscripten" scheme="http://www.yy-tech.online/tags/emscripten/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>redis消息队列实现的一些考虑</title>
+    <link href="http://www.yy-tech.online/2019/06/01/hou-duan/redis/redis-1/"/>
+    <id>http://www.yy-tech.online/2019/06/01/hou-duan/redis/redis-1/</id>
+    <published>2019-06-01T13:34:00.000Z</published>
+    <updated>2021-05-03T11:17:55.222Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Redis作为队列的一些优缺点&quot;&gt;&lt;a href=&quot;#Redis作为队列的一些优缺点&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="后端" scheme="http://www.yy-tech.online/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="Redis" scheme="http://www.yy-tech.online/tags/Redis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Docker镜像最小化</title>
+    <link href="http://www.yy-tech.online/2019/04/02/hou-duan/rong-qi-bian-pai/docker/"/>
+    <id>http://www.yy-tech.online/2019/04/02/hou-duan/rong-qi-bian-pai/docker/</id>
+    <published>2019-04-02T11:34:00.000Z</published>
+    <updated>2021-05-03T11:16:31.577Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;docker&quot;&gt;&lt;a href=&quot;#docker&quot; class=&quot;headerlink&quot; title=&quot;docker&quot;&gt;&lt;/a&gt;docker&lt;/h1&gt;&lt;p&gt;这里不谈论一些基础的使用，主要说说，我怎么让docker镜像变小的方法&lt;/p&gt;
+&lt;h1
+        
+      
+    
+    </summary>
+    
+      <category term="后端" scheme="http://www.yy-tech.online/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="docker" scheme="http://www.yy-tech.online/tags/docker/"/>
+    
+      <category term="shell" scheme="http://www.yy-tech.online/tags/shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>指数退避算法的应用</title>
+    <link href="http://www.yy-tech.online/2019/03/02/hou-duan/zhi-shu-hui-tui/backoff/"/>
+    <id>http://www.yy-tech.online/2019/03/02/hou-duan/zhi-shu-hui-tui/backoff/</id>
+    <published>2019-03-02T06:34:00.000Z</published>
+    <updated>2021-05-03T11:16:24.625Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;什么是指数退避算法&quot;&gt;&lt;a href=&quot;#什么是指数退避算法&quot; class=&quot;headerlink&quot; title=&quot;什么是指数退避算法&quot;&gt;&lt;/a&gt;什么是指数退避算法&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;维基百科概念：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In a
+        
+      
+    
+    </summary>
+    
+      <category term="后端" scheme="http://www.yy-tech.online/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="algorithms" scheme="http://www.yy-tech.online/tags/algorithms/"/>
+    
+      <category term="backoff" scheme="http://www.yy-tech.online/tags/backoff/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>几种负载均衡的方法</title>
+    <link href="http://www.yy-tech.online/2019/01/02/hou-duan/fu-zai-jun-heng/loadbalance/"/>
+    <id>http://www.yy-tech.online/2019/01/02/hou-duan/fu-zai-jun-heng/loadbalance/</id>
+    <published>2019-01-02T12:34:00.000Z</published>
+    <updated>2021-05-03T12:28:30.047Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;负载均衡&quot;&gt;&lt;a href=&quot;#负载均衡&quot; class=&quot;headerlink&quot; title=&quot;负载均衡&quot;&gt;&lt;/a&gt;负载均衡&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;常见算法&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Round Robin&lt;/li&gt;
+&lt;li&gt;Weight Round
+        
+      
+    
+    </summary>
+    
+      <category term="后端" scheme="http://www.yy-tech.online/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="algorithms" scheme="http://www.yy-tech.online/tags/algorithms/"/>
+    
+      <category term="load balance" scheme="http://www.yy-tech.online/tags/load-balance/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>一致性哈希算法</title>
+    <link href="http://www.yy-tech.online/2018/07/03/hou-duan/redis/consistenthashing/"/>
+    <id>http://www.yy-tech.online/2018/07/03/hou-duan/redis/consistenthashing/</id>
+    <published>2018-07-03T11:04:00.000Z</published>
+    <updated>2021-05-03T14:16:03.503Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;一致性哈希算法&quot;&gt;&lt;a href=&quot;#一致性哈希算法&quot; class=&quot;headerlink&quot; title=&quot;一致性哈希算法&quot;&gt;&lt;/a&gt;一致性哈希算法&lt;/h2&gt;&lt;p&gt;TODO&lt;/p&gt;
+&lt;p&gt;[1] Karger, D.; Lehman, E.; Leighton,
+        
+      
+    
+    </summary>
+    
+      <category term="后端" scheme="http://www.yy-tech.online/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="web" scheme="http://www.yy-tech.online/tags/web/"/>
+    
+      <category term="algorithm" scheme="http://www.yy-tech.online/tags/algorithm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>react with webpack(七)</title>
+    <link href="http://www.yy-tech.online/2017/10/03/qian-duan/webpack-scaffold-7/"/>
+    <id>http://www.yy-tech.online/2017/10/03/qian-duan/webpack-scaffold-7/</id>
+    <published>2017-10-03T13:55:00.000Z</published>
+    <updated>2021-05-03T12:30:10.509Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;这是一个webpack4的前端架构主题，主要涉及怎么从0到1构建前端脚手架&lt;br&gt;如何把最新流行的技术整合在一起,涉及react,redux,webpack4相关技术&lt;br&gt;也包含一些项目构建需要的东西，比如gitignore,code
+        
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://www.yy-tech.online/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="Webpack4" scheme="http://www.yy-tech.online/tags/Webpack4/"/>
+    
+      <category term="JavaScript" scheme="http://www.yy-tech.online/tags/JavaScript/"/>
+    
+      <category term="Redux" scheme="http://www.yy-tech.online/tags/Redux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>react with webpack(六)</title>
+    <link href="http://www.yy-tech.online/2017/10/02/qian-duan/webpack-scaffold-6/"/>
+    <id>http://www.yy-tech.online/2017/10/02/qian-duan/webpack-scaffold-6/</id>
+    <published>2017-10-02T15:55:00.000Z</published>
+    <updated>2021-05-03T12:30:15.232Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;这是一个webpack4的前端架构主题，主要涉及怎么从0到1构建前端脚手架&lt;br&gt;如何把最新流行的技术整合在一起,涉及react,redux,webpack4相关技术&lt;br&gt;也包含一些项目构建需要的东西，比如gitignore,code
+        
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://www.yy-tech.online/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="Webpack4" scheme="http://www.yy-tech.online/tags/Webpack4/"/>
+    
+      <category term="JavaScript" scheme="http://www.yy-tech.online/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>react with webpack(五)</title>
+    <link href="http://www.yy-tech.online/2017/10/02/qian-duan/webpack-scaffold-5/"/>
+    <id>http://www.yy-tech.online/2017/10/02/qian-duan/webpack-scaffold-5/</id>
+    <published>2017-10-02T15:50:00.000Z</published>
+    <updated>2021-05-03T12:30:20.031Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;这是一个webpack4的前端架构主题，主要涉及怎么从0到1构建前端脚手架&lt;br&gt;如何把最新流行的技术整合在一起,涉及react,redux,webpack4相关技术&lt;br&gt;也包含一些项目构建需要的东西，比如gitignore,code
+        
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://www.yy-tech.online/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="Webpack4" scheme="http://www.yy-tech.online/tags/Webpack4/"/>
+    
+      <category term="JavaScript" scheme="http://www.yy-tech.online/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>react with webpack(四)</title>
+    <link href="http://www.yy-tech.online/2017/10/02/qian-duan/webpack-scaffold-4/"/>
+    <id>http://www.yy-tech.online/2017/10/02/qian-duan/webpack-scaffold-4/</id>
+    <published>2017-10-02T15:45:00.000Z</published>
+    <updated>2021-05-03T12:30:23.604Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;这是一个webpack4的前端架构主题，主要涉及怎么从0到1构建前端脚手架&lt;br&gt;如何把最新流行的技术整合在一起,涉及react,redux,webpack4相关技术&lt;br&gt;也包含一些项目构建需要的东西，比如gitignore,code
+        
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://www.yy-tech.online/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="Webpack4" scheme="http://www.yy-tech.online/tags/Webpack4/"/>
+    
+      <category term="JavaScript" scheme="http://www.yy-tech.online/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>react with webpack(三)</title>
+    <link href="http://www.yy-tech.online/2017/10/02/qian-duan/webpack-scaffold-3/"/>
+    <id>http://www.yy-tech.online/2017/10/02/qian-duan/webpack-scaffold-3/</id>
+    <published>2017-10-02T14:30:00.000Z</published>
+    <updated>2021-05-03T12:30:27.016Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;这是一个webpack4的前端架构主题，主要涉及怎么从0到1构建前端脚手架&lt;br&gt;如何把最新流行的技术整合在一起,涉及react,redux,webpack4相关技术&lt;br&gt;也包含一些项目构建需要的东西，比如gitignore,code
+        
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://www.yy-tech.online/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="Webpack4" scheme="http://www.yy-tech.online/tags/Webpack4/"/>
+    
+      <category term="JavaScript" scheme="http://www.yy-tech.online/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>react with webpack(二）</title>
+    <link href="http://www.yy-tech.online/2017/10/01/qian-duan/webpack-scaffold-2/"/>
+    <id>http://www.yy-tech.online/2017/10/01/qian-duan/webpack-scaffold-2/</id>
+    <published>2017-09-30T16:30:00.000Z</published>
+    <updated>2021-05-03T12:30:30.810Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;这是一个webpack4的前端架构主题，主要涉及怎么从0到1构建前端脚手架&lt;br&gt;如何把最新流行的技术整合在一起,涉及react,redux,webpack4相关技术&lt;br&gt;也包含一些项目构建需要的东西，比如gitignore,code
+        
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://www.yy-tech.online/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="Webpack4" scheme="http://www.yy-tech.online/tags/Webpack4/"/>
+    
+      <category term="JavaScript" scheme="http://www.yy-tech.online/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>react with webpack(一)</title>
+    <link href="http://www.yy-tech.online/2017/09/28/qian-duan/webpack-scaffold-1/"/>
+    <id>http://www.yy-tech.online/2017/09/28/qian-duan/webpack-scaffold-1/</id>
+    <published>2017-09-28T05:34:00.000Z</published>
+    <updated>2021-05-03T12:30:35.879Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;这是一个webpack4的前端架构主题，主要涉及怎么从0到1构建前端脚手架&lt;br&gt;如何把最新流行的技术整合在一起,涉及react,redux,webpack4相关技术&lt;br&gt;也包含一些项目构建需要的东西，比如gitignore,code
+        
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://www.yy-tech.online/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="Webpack4" scheme="http://www.yy-tech.online/tags/Webpack4/"/>
+    
+      <category term="JavaScript" scheme="http://www.yy-tech.online/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>成神之路</title>
+    <link href="http://www.yy-tech.online/2015/01/02/wu-nao-xiao-shuo/cheng-shen-zhi-lu/"/>
+    <id>http://www.yy-tech.online/2015/01/02/wu-nao-xiao-shuo/cheng-shen-zhi-lu/</id>
+    <published>2015-01-02T06:34:00.000Z</published>
+    <updated>2021-05-03T12:32:23.739Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;魔界篇&quot;&gt;&lt;a href=&quot;#魔界篇&quot; class=&quot;headerlink&quot; title=&quot;魔界篇&quot;&gt;&lt;/a&gt;魔界篇&lt;/h1&gt;&lt;h2 id=&quot;第一章：初入魔界&quot;&gt;&lt;a href=&quot;#第一章：初入魔界&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="无脑小说" scheme="http://www.yy-tech.online/categories/%E6%97%A0%E8%84%91%E5%B0%8F%E8%AF%B4/"/>
+    
+    
+      <category term="小说" scheme="http://www.yy-tech.online/tags/%E5%B0%8F%E8%AF%B4/"/>
+    
+  </entry>
+  
+</feed>

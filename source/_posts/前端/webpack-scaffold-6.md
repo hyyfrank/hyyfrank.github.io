@@ -1,6 +1,6 @@
 ---
-title: how webpack handle font and image
-date: 2020-10-2 23:55:00
+title: react with webpack(六)
+date: 2017-10-2 23:55:00
 author: hyyfrank
 cover: true
 top: true

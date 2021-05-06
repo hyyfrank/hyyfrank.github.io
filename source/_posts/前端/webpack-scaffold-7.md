@@ -1,6 +1,6 @@
 ---
-title: how to add redux
-date: 2020-10-3 21:55:00
+title: react with webpack(七)
+date: 2017-10-3 21:55:00
 author: hyyfrank
 cover: true
 top: true

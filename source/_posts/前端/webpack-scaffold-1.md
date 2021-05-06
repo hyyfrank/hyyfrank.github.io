@@ -1,6 +1,6 @@
 ---
-title: introduction to webpack4
-date: 2020-09-28 13:34:00
+title: react with webpack(一)
+date: 2017-09-28 13:34:00
 author: hyyfrank
 cover: false
 top: false

@@ -1,6 +1,6 @@
 ---
-title: start from a easy demo
-date: 2020-10-2 23:45:00
+title: react with webpack(四)
+date: 2017-10-2 23:45:00
 author: hyyfrank
 cover: true
 top: true
