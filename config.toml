@@ -40,8 +40,8 @@ defaultContentLanguage = "en"           # Default language to use
 [[menu.main]]
   name = "Tech"
   weight = 10
-  identifier = "tech"
-  url = "/tech/"
+  identifier = "post"
+  url = "/post/"
 [[menu.main]]
   name = "Project"
   weight = 20
@@ -58,10 +58,10 @@ defaultContentLanguage = "en"           # Default language to use
   identifier = "life"
   url = "/life/"
 [[menu.main]]
-  name = "Archives"
-  weight = 40
-  identifier = "archives"
-  url = "/post/"
+  name = "About"
+  weight = 50
+  identifier = "about"
+  url = "/about/"
 # [[menu.main]]
 #   name = "Tags"
 #   weight = 50
