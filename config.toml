@@ -29,21 +29,32 @@ defaultContentLanguage = "en"           # Default language to use
   priority = 0.5
   filename = "sitemap.xml"
 
-[[menu.main]]             # config your menu              # 配置目录
-  name = "Home"
-  weight = 10
-  identifier = "home"
-  url = "/"
+# [[menu.main]]             # config your menu              # 配置目录
+#   name = "Home"
+#   weight = 10
+#   identifier = "home"
+#   url = "/"
+
 
 
 [[menu.main]]
-  name = "Books"
+  name = "Tech"
+  weight = 10
+  identifier = "tech"
+  url = "/tech/"
+[[menu.main]]
+  name = "Project"
   weight = 20
+  identifier = "project"
+  url = "/project/"
+[[menu.main]]
+  name = "Books"
+  weight = 30
   identifier = "books"
   url = "/books/"
 [[menu.main]]
   name = "Life"
-  weight = 30
+  weight = 35
   identifier = "life"
   url = "/life/"
 [[menu.main]]
@@ -51,11 +62,11 @@ defaultContentLanguage = "en"           # Default language to use
   weight = 40
   identifier = "archives"
   url = "/post/"
-[[menu.main]]
-  name = "Tags"
-  weight = 50
-  identifier = "tags"
-  url = "/tags/"
+# [[menu.main]]
+#   name = "Tags"
+#   weight = 50
+#   identifier = "tags"
+#   url = "/tags/"
 
 
 [params]
