@@ -6,7 +6,7 @@ baseURL = "http://localhost:1313/"
 title = "Jane - A super concise theme for Hugo"
 enableRobotsTXT = true
 enableEmoji = true
-theme = "jane"
+theme = "hugo-theme-jane"
 # theme = "go-hugo-theme"
 
 hasCJKLanguage = true     # has chinese/japanese/korean ? # 自动检测是否包含 中文\日文\韩文
