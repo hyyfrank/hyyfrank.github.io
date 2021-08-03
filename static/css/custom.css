@@ -1,3 +1,10 @@
+.post .post-content > table tr:nth-child(even) {
+  background-color: lightblue;
+}
 .post .post-content > table td {
+  background-color: transparent;
+}
+.post .post-content > table th {
   background-color: paleturquoise;
+  color: black;
 }
