@@ -38,6 +38,8 @@
   box-sizing: border-box;
 }
 body {
+  background-image: url('../images/bg.png');
+
   background-color: transparent;
   display: flex;
   justify-content: center;
