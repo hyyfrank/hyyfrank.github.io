@@ -1,8 +1,11 @@
 .post .post-content > table tr:nth-child(even) {
-  background-color: lightblue;
+  background-color: rgb(245, 246, 246);
 }
 .post .post-content > table td {
   background-color: transparent;
+}
+.post .post-content > table tr:hover{
+  background-color: rgb(206, 232, 248);
 }
 .post .post-content > table td:nth-child(3) {
   transform: scale(2);
