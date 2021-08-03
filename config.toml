@@ -3,7 +3,7 @@
 # And see https://gohugo.io/getting-started/configuration/ .
 
 baseURL = "http://localhost:1313/"
-title = "Jane - A super concise theme for Hugo"
+title = "H&W"
 enableRobotsTXT = true
 enableEmoji = true
 theme = "hugo-theme-jane"
@@ -56,14 +56,10 @@ defaultContentLanguage = "en"           # Default language to use
   weight = 50
   identifier = "tags"
   url = "/tags/"
-# [[menu.main]]
-#   name = "external-link"
-#   weight = 50
-#   url = "https://gohugo.io"
 
 
 [params]
-  since = "2017"            # Site creation time          # 站点建立时间
+  since = "2012"            # Site creation time          # 站点建立时间
   homeFullContent = false   # if false, show post summaries on home page. Otherwise show full content.
   rssFullContent = true     # if false, Rss feed instead of the summary
 
