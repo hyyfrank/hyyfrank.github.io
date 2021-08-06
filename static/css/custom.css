@@ -20,3 +20,6 @@
   background-color: paleturquoise;
   color: black;
 }
+.post .post-content code{
+  background: transparent !important;
+}

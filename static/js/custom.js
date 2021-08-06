@@ -251,3 +251,8 @@ const PAPER = anime({
   opacity: [0.3, .7, 0],
   easing: 'easeInOutSine',
 })
+(function(){
+  hljs.highlightAll();
+})();
+
+

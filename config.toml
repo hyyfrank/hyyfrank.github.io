@@ -53,20 +53,15 @@ defaultContentLanguage = "en"           # Default language to use
   identifier = "books"
   url = "/books/"
 [[menu.main]]
-  name = "Life"
+  name = "Tags"
   weight = 35
-  identifier = "life"
-  url = "/life/"
+  identifier = "tags"
+  url = "/tags/"
 [[menu.main]]
   name = "About"
   weight = 50
   identifier = "about"
   url = "/about/"
-# [[menu.main]]
-#   name = "Tags"
-#   weight = 50
-#   identifier = "tags"
-#   url = "/tags/"
 
 
 [params]
@@ -90,8 +85,8 @@ defaultContentLanguage = "en"           # Default language to use
 
   # Link custom CSS and JS assets
   #   (relative to /static/css and /static/js respectively)
-  customCSS = ['custom.css']            # if ['custom.css'], load '/static/css/custom.css' file
-  customJS = ['custom.js','anime.js']             # if ['custom.js'], load '/static/js/custom.js' file
+  customCSS = ['prism.css','custom.css']            # if ['custom.css'], load '/static/css/custom.css' file
+  customJS = ['anime.js','prism.js','custom.js']             # if ['custom.js'], load '/static/js/custom.js' file
 
   [params.social]                                         # 社交链接
     a-email = "mailto:your@email.com"
@@ -115,3 +110,24 @@ defaultContentLanguage = "en"           # Default language to use
     s-mastodon = "http://hyyfrank.github.io"
     t-youtube = "http://hyyfrank.github.io"
     u-twitch = "http://hyyfrank.github.io"
+# [markup]
+#   defaultMarkdownHandler = "goldmark"  # blackfriday or goldmark
+#   [markup.goldmark]
+#     [markup.goldmark.renderer]
+#       unsafe = true
+  # [markup.highlight]
+  #     anchorLineNos = false
+  #     codeFences = false
+  #     guessSyntax = false
+  #     hl_Lines = ''
+  #     lineAnchors = ''
+  #     lineNoStart = 1
+  #     lineNos = false
+  #     lineNumbersInTable = true
+  #     noClasses = true
+  #     style = 'solarized.dark'
+  #     tabWidth = 4
+  # [markup.tableOfContents]
+  #     endLevel = 3
+  #     ordered = false
+  #     startLevel = 2    
