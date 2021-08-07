@@ -1,7 +1,7 @@
 ---
 title: "how autodesk use webassembly "
-date: 2021-08-07T11:53:41+08:00
-lastmod: 2021-08-07T11:53:41+08:00
+date: 2018-07-17T11:53:41+08:00
+lastmod: 2018-07-19T11:53:41+08:00
 draft: true
 tags: ["webassembly","emscripten","web_worker","service_worker"]
 categories: ["frontend","technology"]

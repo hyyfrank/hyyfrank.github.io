@@ -1,7 +1,7 @@
 ---
 title: "React With Webpack(七)"
-date: 2021-08-07T11:11:44+08:00
-lastmod: 2021-08-07T11:11:44+08:00
+date: 2019-08-19T20:11:44+08:00
+lastmod: 2019-08-20T19:11:44+08:00
 draft: false
 tags: ["webpack4","react18","babel","HMR","DevServer"]
 categories: ["frontend","technology"]
