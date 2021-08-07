@@ -10,6 +10,7 @@
   </title>
   
   {{ partial "head.html" . }}
+  
   {{ range .Site.Params.customCSS -}}
   <link rel="stylesheet" href="{{ . | relURL }}">
   {{- end }} 
