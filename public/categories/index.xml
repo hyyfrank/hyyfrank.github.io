@@ -6,31 +6,22 @@
     <description>Recent content in Categories on H&amp;W</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 07 Aug 2021 11:39:04 +0800</lastBuildDate><atom:link href="http://hyyfrank.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 19 Aug 2019 20:11:44 +0800</lastBuildDate><atom:link href="http://hyyfrank.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>backend</title>
-      <link>http://hyyfrank.github.io/categories/backend/</link>
-      <pubDate>Sat, 07 Aug 2021 11:39:04 +0800</pubDate>
+      <title>frontend</title>
+      <link>http://hyyfrank.github.io/categories/frontend/</link>
+      <pubDate>Mon, 19 Aug 2019 20:11:44 +0800</pubDate>
       
-      <guid>http://hyyfrank.github.io/categories/backend/</guid>
+      <guid>http://hyyfrank.github.io/categories/frontend/</guid>
       <description></description>
     </item>
     
     <item>
       <title>technology</title>
       <link>http://hyyfrank.github.io/categories/technology/</link>
-      <pubDate>Sat, 07 Aug 2021 11:39:04 +0800</pubDate>
+      <pubDate>Mon, 19 Aug 2019 20:11:44 +0800</pubDate>
       
       <guid>http://hyyfrank.github.io/categories/technology/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>frontend</title>
-      <link>http://hyyfrank.github.io/categories/frontend/</link>
-      <pubDate>Sat, 07 Aug 2021 11:11:44 +0800</pubDate>
-      
-      <guid>http://hyyfrank.github.io/categories/frontend/</guid>
       <description></description>
     </item>
     

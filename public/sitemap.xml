@@ -2,258 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://hyyfrank.github.io/categories/backend/</loc>
-    <lastmod>2021-08-07T11:39:04+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/categories/</loc>
-    <lastmod>2021-08-07T11:39:04+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/</loc>
-    <lastmod>2021-08-07T11:39:04+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/tags/opencv/</loc>
-    <lastmod>2021-08-07T11:39:04+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/post/backend/play-with-computer-vision-1/</loc>
-    <lastmod>2021-08-07T11:39:04+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/post/</loc>
-    <lastmod>2021-08-07T11:39:04+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/tags/</loc>
-    <lastmod>2021-08-07T11:39:04+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/categories/technology/</loc>
-    <lastmod>2021-08-07T11:39:04+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/tags/algorithm/</loc>
-    <lastmod>2021-08-07T11:38:41+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/tags/bigdata/</loc>
-    <lastmod>2021-08-07T11:38:41+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/tags/bloomfilter/</loc>
-    <lastmod>2021-08-07T11:38:41+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/tags/cache/</loc>
-    <lastmod>2021-08-07T11:38:41+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/post/backend/play-with-bloomfilter/</loc>
-    <lastmod>2021-08-07T11:38:41+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/tags/kubernate/</loc>
-    <lastmod>2021-08-07T11:37:01+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/post/backend/play-with-kubernate-1/</loc>
-    <lastmod>2021-08-07T11:37:01+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/tags/java/</loc>
-    <lastmod>2021-08-07T11:36:45+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/post/backend/play-with-java-1/</loc>
-    <lastmod>2021-08-07T11:36:45+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/tags/mysql/</loc>
-    <lastmod>2021-08-07T11:36:34+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/post/backend/play-with-mysql-1/</loc>
-    <lastmod>2021-08-07T11:36:34+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/tags/nginx/</loc>
-    <lastmod>2021-08-07T11:36:26+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/post/backend/play-with-nginx-1/</loc>
-    <lastmod>2021-08-07T11:36:26+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/post/backend/play-with-redis-1/</loc>
-    <lastmod>2021-08-07T11:33:39+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/tags/redis/</loc>
-    <lastmod>2021-08-07T11:33:39+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/tags/babel/</loc>
-    <lastmod>2021-08-07T11:11:44+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/tags/devserver/</loc>
-    <lastmod>2021-08-07T11:11:44+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/categories/frontend/</loc>
-    <lastmod>2021-08-07T11:11:44+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/tags/hmr/</loc>
-    <lastmod>2021-08-07T11:11:44+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/post/frontend/react-with-webpack-7/</loc>
-    <lastmod>2021-08-07T11:11:44+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/tags/react18/</loc>
-    <lastmod>2021-08-07T11:11:44+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/tags/webpack4/</loc>
-    <lastmod>2021-08-07T11:11:44+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/post/frontend/react-with-webpack-6/</loc>
-    <lastmod>2021-08-07T11:11:39+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/post/frontend/react-with-webpack-5/</loc>
-    <lastmod>2021-08-07T11:11:36+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/post/frontend/react-with-webpack-4/</loc>
-    <lastmod>2021-08-07T11:11:33+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/post/frontend/react-with-webpack-3/</loc>
-    <lastmod>2021-08-07T11:11:30+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/post/frontend/react-with-webpack-2/</loc>
-    <lastmod>2021-08-07T11:07:49+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/post/frontend/react-with-webpack-1/</loc>
-    <lastmod>2021-08-06T23:36:30+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>http://hyyfrank.github.io/about/</loc>
     <lastmod>2021-08-03T22:13:10+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -270,6 +18,132 @@
   <url>
     <loc>http://hyyfrank.github.io/books/</loc>
     <lastmod>2021-08-02T21:14:52+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://hyyfrank.github.io/tags/babel/</loc>
+    <lastmod>2019-08-20T19:11:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://hyyfrank.github.io/categories/</loc>
+    <lastmod>2019-08-20T19:11:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://hyyfrank.github.io/tags/devserver/</loc>
+    <lastmod>2019-08-20T19:11:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://hyyfrank.github.io/categories/frontend/</loc>
+    <lastmod>2019-08-20T19:11:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://hyyfrank.github.io/</loc>
+    <lastmod>2019-08-20T19:11:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://hyyfrank.github.io/tags/hmr/</loc>
+    <lastmod>2019-08-20T19:11:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://hyyfrank.github.io/post/</loc>
+    <lastmod>2019-08-20T19:11:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://hyyfrank.github.io/post/frontend/react-with-webpack-7/</loc>
+    <lastmod>2019-08-20T19:11:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://hyyfrank.github.io/tags/react18/</loc>
+    <lastmod>2019-08-20T19:11:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://hyyfrank.github.io/tags/</loc>
+    <lastmod>2019-08-20T19:11:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://hyyfrank.github.io/categories/technology/</loc>
+    <lastmod>2019-08-20T19:11:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://hyyfrank.github.io/tags/webpack4/</loc>
+    <lastmod>2019-08-20T19:11:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://hyyfrank.github.io/post/frontend/react-with-webpack-6/</loc>
+    <lastmod>2019-08-19T13:11:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://hyyfrank.github.io/post/frontend/react-with-webpack-5/</loc>
+    <lastmod>2019-08-16T07:11:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://hyyfrank.github.io/post/frontend/react-with-webpack-4/</loc>
+    <lastmod>2019-08-14T11:11:33+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://hyyfrank.github.io/post/frontend/react-with-webpack-3/</loc>
+    <lastmod>2019-08-11T11:11:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://hyyfrank.github.io/post/frontend/react-with-webpack-2/</loc>
+    <lastmod>2019-08-10T11:07:49+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://hyyfrank.github.io/post/frontend/react-with-webpack-1/</loc>
+    <lastmod>2019-08-06T23:36:30+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
