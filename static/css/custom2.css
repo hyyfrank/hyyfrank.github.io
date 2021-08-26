@@ -1,6 +1,7 @@
 body {
   /* font-family: 'Open Sans'; */
-  font-family: 'Arial';
+  font-family: 'Trebuchet MS, Arial';
+  /* background-image: url(../images/bg.png); */
 
   color: rgb(75, 75, 75);
 }
@@ -15,11 +16,18 @@ body {
 }
 .content-wrapper {
   background: url('../images/bg.png');
+  background-attachment: scroll;
 }
 .bg-white {
   /* background-color: #f9f6f6; */
   background-color: rgb(125 80 32 / 6%);
-  background-image: url(../images/bg.png);
+  background-image: url(../images/bg.jpeg);
+  border: 1px solid lightgrey;
+}
+.archive {
+  background-color: rgb(125 80 32 / 6%);
+  background-image: url(../images/bg.jpeg);
+  border: 1px solid lightgrey;
 }
 .post .post-content > table tr:nth-child(even) {
   background-color: rgb(245, 246, 246);
