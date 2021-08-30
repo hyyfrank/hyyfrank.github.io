@@ -151,35 +151,60 @@ categories: ["backend"]
     * 建立一个简单的torado web服务器
     * 把上面三个文件拷贝到对应目录
     * 代码如下：
-    ```python
-    /* 这里要注意ssl_options,要把证书链也加进去，不然是不行的 */
-    import tornado.ioloop
-    import tornado.web
-    import ssl
-    class MainHandler(tornado.web.RequestHandler):
-        def get(self):
-            self.write("Hello, world")
-    def make_app():
-        return tornado.web.Application([
-            (r"/", MainHandler),
-        ])
-    if __name__ == "__main__":
-        application = make_app()
-        chainpath="./ca-chain.cert.pem"
-        crtpath="./localhost.cert.pem"
-        keypath="./localhost.key.pem"
-        ssl_ctx= ssl.create_default_context(ssl.Purpose.CLIENT_AUTH,cafile=chainpath)
-        ssl_ctx.load_cert_chain(crtpath,keypath)
-        http_server = tornado.httpserver.HTTPServer(application, ssl_options=ssl_ctx)
-        http_server.listen(443)
-        tornado.ioloop.IOLoop.current().start()
-    ```
+        ```python
+        /* 这里要注意ssl_options,要把证书链也加进去，不然是不行的 */
+        import tornado.ioloop
+        import tornado.web
+        import ssl
+        class MainHandler(tornado.web.RequestHandler):
+            def get(self):
+                self.write("Hello, world")
+        def make_app():
+            return tornado.web.Application([
+                (r"/", MainHandler),
+            ])
+        if __name__ == "__main__":
+            application = make_app()
+            chainpath="./ca-chain.cert.pem"
+            crtpath="./localhost.cert.pem"
+            keypath="./localhost.key.pem"
+            ssl_ctx= ssl.create_default_context(ssl.Purpose.CLIENT_AUTH,cafile=chainpath)
+            ssl_ctx.load_cert_chain(crtpath,keypath)
+            http_server = tornado.httpserver.HTTPServer(application, ssl_options=ssl_ctx)
+            http_server.listen(443)
+            tornado.ioloop.IOLoop.current().start()
+        ```
 
 
 * 如何测试
     * ![result](/images/sslverify.png)
     *  浏览器上的话，可以考虑firefox,chrome也可以，不过要自己导入证书，可能还要做格式转化，下面直接在firefox里导入证书，结果如下：
     ![result](/images/result.jpeg)
+    * 如果你是用request这类的库，可以像这样做,因为我们对key是做加密的，所以要把密码也传到后端，不能直接request直接用key,cert请求，除非你生成证书的时候不加密码。
+    ```python
+    import requests
+    from urllib3.util.ssl_ import create_urllib3_context
+    from requests.adapters import HTTPAdapter
+    import urllib3
+
+    urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+    cert_path = "./localhost.cert.pem"
+    private_key_path = "./localhost.key.pem"
+    passphrase_key = "xxx"
+    class SSLAdapter(HTTPAdapter):
+        def init_poolmanager(self, *args, **kwargs):
+            context = create_urllib3_context()
+            context.load_cert_chain(
+                certfile=cert_path, keyfile=private_key_path, password=passphrase_key)
+            kwargs['ssl_context'] = context
+            return super().init_poolmanager(*args, **kwargs)
+    session = requests.Session()
+    session.verify = False  # If you don't want to validate server's public certificate
+    session.mount("https://", SSLAdapter())
+    url = "https://localhost:20191/inference"
+    response = session.post(url)
+    print(response.json())
+    ```
 * 总结
-    * 这里还有些其他可能碰到的问题，比如，证书回收，格式转换方法，测速，当前最佳实践等主题，这里主要记录下做这种证书的步骤
+    * 这里还有些其他主题，比如，证书回收，格式转换方法，测速，最佳实践等，这里主要记录下做这种证书的步骤，其他的值得一提的是，最佳实践，我们一般是做在CI/CD的pipline里边，证书也要做个定时更新，这些都是必不可少的，当然在生成证书之前还有一些对比和选择加密算法的细节，这里就不一一讲了，有兴趣可以自己去找下。
 

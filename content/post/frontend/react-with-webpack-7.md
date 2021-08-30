@@ -69,7 +69,10 @@ type Reducer<S, A> = (state: S, action: A) => S
   applyMiddleware(thunk)
   )
   ```
-
+### todo
+* add typescript支持
+* add hook支持
+* 这两个其实都不难弄，就不写了
 ### 参考资料
 
 - https://redux.js.org/
