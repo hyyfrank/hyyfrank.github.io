@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>React With Webpack(五) - H&amp;W</title>
+  
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="hyyfrank" />
+  <meta name="description" content="这是一个webpack4的前端架构主题，主要涉及怎么从0到1构建前端脚手架 如何把最新流行的技术整合在一起,涉及react,redux,web" />
+
+  <meta name="keywords" content="Hugo, theme, jane" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.84.2" />
+
+
+<link rel="canonical" href="http://hyyfrank.github.io/post/frontend/react-with-webpack-5/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.fa4b2b9f31b5c6d0b683db81157a9226e17b06e61911791ab547242a4a0556f2.css" integrity="sha256-&#43;ksrnzG1xtC2g9uBFXqSJuF7BuYZEXkatUckKkoFVvI=" media="screen" crossorigin="anonymous">
+
+
+
+
+<link rel="stylesheet" href="/css/prism.css">
+
+<link rel="stylesheet" href="/css/custom2.css">
+
+
+<meta property="og:title" content="React With Webpack(五)" />
+<meta property="og:description" content="这是一个webpack4的前端架构主题，主要涉及怎么从0到1构建前端脚手架 如何把最新流行的技术整合在一起,涉及react,redux,web" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://hyyfrank.github.io/post/frontend/react-with-webpack-5/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2019-08-15T11:11:36&#43;08:00" />
+<meta property="article:modified_time" content="2019-08-16T07:11:36&#43;08:00" />
+
+<meta itemprop="name" content="React With Webpack(五)">
+<meta itemprop="description" content="这是一个webpack4的前端架构主题，主要涉及怎么从0到1构建前端脚手架 如何把最新流行的技术整合在一起,涉及react,redux,web"><meta itemprop="datePublished" content="2019-08-15T11:11:36&#43;08:00" />
+<meta itemprop="dateModified" content="2019-08-16T07:11:36&#43;08:00" />
+<meta itemprop="wordCount" content="1619">
+<meta itemprop="keywords" content="webpack4,react18,babel,HMR,DevServer," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="React With Webpack(五)"/>
+<meta name="twitter:description" content="这是一个webpack4的前端架构主题，主要涉及怎么从0到1构建前端脚手架 如何把最新流行的技术整合在一起,涉及react,redux,web"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  
+  <link rel="stylesheet" href="/prism.css"><link rel="stylesheet" href="/custom2.css"> 
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">F&W</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://hyyfrank.github.io/post/">Tech</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://hyyfrank.github.io/project/">Project</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://hyyfrank.github.io/books/">Books</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://hyyfrank.github.io/tags/">Tags</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://hyyfrank.github.io/about/">About</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    <span class="logoF">F</span><span class="logoA">&</span><span class="logoW">J</span>
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://hyyfrank.github.io/post/">Tech</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://hyyfrank.github.io/project/">Project</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://hyyfrank.github.io/books/">Books</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://hyyfrank.github.io/tags/">Tags</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://hyyfrank.github.io/about/">About</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">React With Webpack(五)</h1>
+      
+      <div class="post-meta">
+        <time datetime="2019-08-15" class="post-time">
+          2019-08-15
+        </time>
+        <div class="post-category">
+            <a href="http://hyyfrank.github.io/categories/frontend/"> frontend </a>
+            <a href="http://hyyfrank.github.io/categories/technology/"> technology </a>
+            
+          </div>
+        
+
+        
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    
+    <div class="post-content">
+      <blockquote>
+<p>这是一个webpack4的前端架构主题，主要涉及怎么从0到1构建前端脚手架
+如何把最新流行的技术整合在一起,涉及react,redux,webpack4相关技术
+也包含一些项目构建需要的东西，比如gitignore,code format，不同环境设置，
+热部署，调试环境等等问题</p>
+</blockquote>
+<h1 id="webpack4-如何处理-css">Webpack4 如何处理 css</h1>
+<ul>
+<li><a href="https://github.com/hyyfrank/webpack4">github demo</a> branch: feature/lesson5</li>
+</ul>
+<h2 id="我们需要做什么">我们需要做什么</h2>
+<ul>
+<li>支持 css 的处理</li>
+<li>把 css 抽取成单独的 css 文件</li>
+<li>支持 css module</li>
+<li>支持 css next 等新特性</li>
+<li>支持 css style lint 校验</li>
+<li>减少无用的 css 代码</li>
+<li>使用 post css 做些处理比如 autoprefix,css-next</li>
+<li>最小化 css 文件</li>
+</ul>
+<h2 id="需要什么-loader-和-plugin">需要什么 loader 和 plugin</h2>
+<blockquote>
+<p>loader 用于对模块的源代码进行转换。loader 可以使你在 import 或&quot;加载&quot;模块时预处理文件。因此，loader 类似于其他构建工具中“任务(task)”，并提供了处理前端构建步骤的强大方法。loader 可以将文件从不同的语言（如 TypeScript）转换为 JavaScript，或将内联图像转换为 data URL。loader 甚至允许你直接在 JavaScript 模块中 import CSS 文件！</p>
+</blockquote>
+<ul>
+<li><strong>loader</strong>:
+<ul>
+<li>sass-loader: 简单说就是 sass 转换成 css</li>
+<li>postcss-loader: postcss 很强大，可以这么简单理解下，css&ndash;&gt;ast&ndash;&gt;plugin&ndash;&gt;xxxx,大概就是，先把 css 转化为抽象语法树，然后使用 javascript 处理，然后厉害的就是，真的啥都有个插件，只有想不到!</li>
+<li>css-loader:**The <code>css-loader</code> interprets <code>@import</code> and <code>url()</code> like <code>import/require()</code> and will resolve them.**选项我们会用到 modules, localIdentName</li>
+<li>style-loader:<strong>Adds CSS to the DOM by injecting a <code>&lt;style&gt;</code> tag</strong></li>
+</ul>
+</li>
+<li><strong>plugin</strong>:
+<ul>
+<li>mini-css-extract-plugin：抽取 css 成单独文件</li>
+<li>purifycss-webpack： 删除没使用的 css 选择器</li>
+<li>stylelint-webpack-plugin：对 css 做 lint</li>
+<li>optimize-css-assets-webpack-plugin:webpack 在 build 的过程中优化和最小化 css，默认使用 cssnano 做预处理器，cssnano 也是个 postcss 的 plugin
+好了，废话到此为止，上代码看下就都明了，为了让代码更清晰，我们把对 css 的处理单独拉出来，再通过 webpack-merge 合到一起，下面是 css 的处理代码：
+抽取代码成单独文件，现在目测原来的 extract-text-webpack-plugin 还是能用的，如果是使用 webpack4 的话，也得更新 extract-text-webpack-plugin 的版本到^4.0.0-beta.0，下面注释掉的，大家可以加回来试试，因为 webpack4 推荐使用 mini-css-extract-plugin，所以我们就使用这个,而且 mini-css-extract-plugin 不支持 hmr,但是不是在开发环境，我们只放在生产环境，其实还是 ok 的。
+第一步：<strong>support style-loader,css-loader,sass-loader</strong></li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">cssDevRules</span><span style="color:#f92672">=</span>[
+    {
+        <span style="color:#a6e22e">loader</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;style-loader&#39;</span>
+    },
+    {
+        <span style="color:#a6e22e">loader</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;css-loader?modules&amp;localIdentName=[name]_[local]_[hash:base64:5]&#39;</span>,
+    },
+    {
+        <span style="color:#a6e22e">loader</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;sass-loader&#39;</span>,
+    }
+];
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">cssProdRules</span><span style="color:#f92672">=</span>[
+    {
+        <span style="color:#a6e22e">loader</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">MiniCssExtractPlugin</span>.<span style="color:#a6e22e">loader</span>,
+    },
+    {
+        <span style="color:#a6e22e">loader</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;css-loader?modules&amp;localIdentName=[name]_[local]_[hash:base64:5]&#39;</span>,
+    },
+    {
+        <span style="color:#a6e22e">loader</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;sass-loader&#39;</span>,
+    }
+];
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;is prod:&#34;</span><span style="color:#f92672">+</span><span style="color:#a6e22e">isProd</span>);
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">baseConfig</span> <span style="color:#f92672">=</span> {
+    <span style="color:#a6e22e">module</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">rules</span><span style="color:#f92672">:</span> [
+            {
+                <span style="color:#a6e22e">test</span><span style="color:#f92672">:</span> <span style="color:#e6db74">/\.(css|sass|scss)$/</span>,
+                <span style="color:#a6e22e">use</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">isProd</span><span style="color:#f92672">?</span> <span style="color:#a6e22e">cssProdRules</span><span style="color:#f92672">:</span><span style="color:#a6e22e">cssDevRules</span>,
+                <span style="color:#a6e22e">exclude</span><span style="color:#f92672">:</span> <span style="color:#e6db74">/node_modules/</span>,
+            },
+        ]
+    },
+    <span style="color:#a6e22e">plugins</span><span style="color:#f92672">:</span> [
+    ],
+};
+</code></pre></div><h2 id="css支持">css支持</h2>
+<p>第二步：<strong>css-next /autoprefixer support</strong>
+加上 posts-loader 来支持 auto-prfix 自动增加，同时，为了支持 css-next 最新的特性，现在不需要单独加，看官方文档有个 postcss-preset-env，直接加了支持 autoprefixer,<a href="https://github.com/csstools/postcss-preset-env">PostCSS Preset Env</a> 能把现代的 css 转化成大部分浏览器都能解析的样式，会根据浏览器的版本决定加什么样的 polyfill.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">npm install postcss-preset-env
+</code></pre></div><p>简单修改下 postcss.config.js</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">plugins</span><span style="color:#f92672">:</span> {
+    <span style="color:#e6db74">&#34;postcss-import&#34;</span><span style="color:#f92672">:</span> {},
+    <span style="color:#e6db74">&#34;postcss-preset-env&#34;</span><span style="color:#f92672">:</span> {
+      <span style="color:#a6e22e">browsers</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;last 2 versions&#34;</span>
+    },
+    <span style="color:#a6e22e">cssnano</span><span style="color:#f92672">:</span> {}
+  }
+};
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">    {
+        <span style="color:#a6e22e">loader</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;postcss-loader&#39;</span>,
+        <span style="color:#a6e22e">options</span><span style="color:#f92672">:</span> {
+            <span style="color:#a6e22e">sourceMap</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+            <span style="color:#a6e22e">config</span><span style="color:#f92672">:</span> {
+                <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">__</span><span style="color:#a6e22e">dirname</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;/postcss.config.js&#39;</span>
+            }
+        },
+    },
+</code></pre></div><h2 id="风格校验">风格校验</h2>
+<p>第三步：<strong>add style-lint support</strong>
+加 style-lint 来控制代码质量，当然我只是加上而已，具体规则要自己去定，或者你可以用标准的 stylelint-config-standard,对应的 plugin 是 stylelint-config-standard</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">StyleCssLintPlugin</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;stylelint-webpack-plugin&#34;</span>);
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">StyleLintPlugin</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">StyleCssLintPlugin</span>({
+  <span style="color:#a6e22e">configFile</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;.stylelintrc&#34;</span>,
+  <span style="color:#a6e22e">context</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;src&#34;</span>,
+  <span style="color:#a6e22e">files</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;**/*.scss&#34;</span>,
+  <span style="color:#a6e22e">failOnError</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+  <span style="color:#a6e22e">quiet</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>
+});
+<span style="color:#a6e22e">baseConfig</span>.<span style="color:#a6e22e">plugins</span> <span style="color:#f92672">=</span> [<span style="color:#a6e22e">StyleLintPlugin</span>, <span style="color:#a6e22e">MiniCssPlugin</span>, <span style="color:#a6e22e">OptimizeCSSPlugin</span>];
+</code></pre></div><p>当然也要加个.stylelintrc 文件,现在简单先用 stylelint-config-standard。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">{
+  <span style="color:#e6db74">&#34;extends&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;stylelint-config-standard&#34;</span>
+}
+</code></pre></div><h2 id="移除冗余css">移除冗余css</h2>
+<p>第四步：<strong>remove unused css</strong>
+purifycss： 移除无用 css,有人使用 css tree shake 这种术语，anyway,感觉差不多</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">PurifyCSSPlugin</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;purifycss-webpack&#34;</span>);
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">PurifyCssPlugin</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">PurifyCSSPlugin</span>({
+  <span style="color:#a6e22e">paths</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">glob</span>.<span style="color:#a6e22e">sync</span>(<span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">join</span>(<span style="color:#ae81ff">__</span><span style="color:#a6e22e">dirname</span>, <span style="color:#e6db74">&#34;../src/index.js&#34;</span>)),
+  <span style="color:#a6e22e">styleExtensions</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;.css&#34;</span>, <span style="color:#e6db74">&#34;.scss&#34;</span>],
+  <span style="color:#a6e22e">purifyOptions</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">whitelist</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;*purify*&#34;</span>]
+  }
+});
+<span style="color:#a6e22e">baseConfig</span>.<span style="color:#a6e22e">plugins</span> <span style="color:#f92672">=</span> [
+  <span style="color:#a6e22e">MiniCssPlugin</span>,
+  <span style="color:#a6e22e">PurifyCssPlugin</span>,
+  <span style="color:#a6e22e">StyleLintPlugin</span>,
+  <span style="color:#a6e22e">OptimizeCSSPlugin</span>
+  <span style="color:#75715e">// new ExtractTextPlugin(&#34;styles.css&#34;),
+</span><span style="color:#75715e"></span>];
+</code></pre></div><h2 id="最小化css">最小化CSS</h2>
+<p>第五步：<strong>minimize css</strong>
+optimize-css-assets-webpack-plugin
+<strong>cssProcessor</strong>: 压缩和优化 CSS 的预处理器，现在默认是 cssnano.这是一个函数，接受一个 CSS 和 options 参数，返回 promise
+<strong>canPrint</strong>: {bool} 表示插件能够在 console 中打印信息，默认值是 true</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">OptimizeCSSAssetsPlugin</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;optimize-css-assets-webpack-plugin&#34;</span>);
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">OptimizeCSSPlugin</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">OptimizeCSSAssetsPlugin</span>({
+  <span style="color:#a6e22e">cssProcessor</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">cssnano</span>,
+  <span style="color:#a6e22e">cssProcessorOptions</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">discardComments</span><span style="color:#f92672">:</span> {
+      <span style="color:#a6e22e">removeAll</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>
+    },
+    <span style="color:#75715e">// Run cssnano in safe mode to avoid
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// potentially unsafe transformations.
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">safe</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>
+  },
+  <span style="color:#a6e22e">canPrint</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>
+});
+
+<span style="color:#a6e22e">baseConfig</span>.<span style="color:#a6e22e">plugins</span> <span style="color:#f92672">=</span> [
+  <span style="color:#a6e22e">MiniCssPlugin</span>,
+  <span style="color:#a6e22e">PurifyCssPlugin</span>,
+  <span style="color:#a6e22e">StyleLintPlugin</span>,
+  <span style="color:#a6e22e">OptimizeCSSPlugin</span>
+  <span style="color:#75715e">// new ExtractTextPlugin(&#34;styles.css&#34;),
+</span><span style="color:#75715e"></span>];
+</code></pre></div><h2 id="最后">最后</h2>
+<p>OK，好了，大概该做的都做完了，如果需要进一步处理，可以考虑 postcss 的一些 plugin，甚至可以自己写点 plugin,因为这是讲 webpack 不是 postcss，所以留给你自己探索吧～</p>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">hyyfrank</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+      2019-08-16
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">Apache-2.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="http://hyyfrank.github.io/tags/webpack4/">webpack4</a>
+          <a href="http://hyyfrank.github.io/tags/react18/">react18</a>
+          <a href="http://hyyfrank.github.io/tags/babel/">babel</a>
+          <a href="http://hyyfrank.github.io/tags/hmr/">HMR</a>
+          <a href="http://hyyfrank.github.io/tags/devserver/">DevServer</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/frontend/react-with-webpack-6/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">React With Webpack(六)</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+          <a class="next" href="/post/frontend/react-with-webpack-4/">
+            <span class="next-text nav-default">React With Webpack(四)</span>
+            <span class="prev-text nav-mobile">Next</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+    
+
+  
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="icon-links">
+  
+  
+    <a href="mailto:hyyfrank@email.com" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+  
+    <a href="http://www.github.com/hyyfrank" rel="me noopener" class="iconfont"
+      title="github"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M512 12.672c-282.88 0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667 0-12.16-0.426667-44.373333-0.64-87.04-142.421333 30.890667-172.458667-68.693333-172.458667-68.693333C188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333 0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333 0 0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52 0.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667 0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72 0 68.522667-0.64 123.562667-0.64 140.202666 0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"></path>
+</svg>
+
+    </a>
+
+
+<a href="http://hyyfrank.github.io/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+   
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+      2012 -
+    2021
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        hyyfrank
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="/js/anime.js"></script>
+
+  <script src="/js/prism.js"></script>
+
+  <script src="/js/custom.js"></script>
+
+
+
+  <script src="/anime.js"></script><script src="/prism.js"></script><script src="/custom.js"></script>
+
+</body>
+</html>
