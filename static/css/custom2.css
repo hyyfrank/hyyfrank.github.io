@@ -54,6 +54,7 @@ body {
 .post .post-content code {
   background: transparent;
   color: #ff7161fc;
+  padding: 3px 0px;
 }
 
 ::selection {
