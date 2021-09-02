@@ -13,4 +13,4 @@ draft: false
 ----------------------------------------------------------------------------------------
 
 ## projects
-   2. [website for algorithm setting](http://www.ramb.ethz.ch/CDstore/www8/data/2181/pdf/pd1.pdf)
+   
