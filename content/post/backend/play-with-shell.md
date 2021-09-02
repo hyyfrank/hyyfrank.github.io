@@ -1,7 +1,7 @@
 ---
 title: "Play With Shell"
-date: 2018-08-31T22:13:56+08:00
-lastmod: 2018-08-31T22:13:56+08:00
+date: 2020-06-07T11:33:39+08:00
+lastmod: 2020-08-07T11:33:39+08:00
 draft: false
 tags: ["shell"]
 categories: ["backend","technology"]

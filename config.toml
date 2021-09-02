@@ -86,7 +86,7 @@ defaultContentLanguage = "en"           # Default language to use
 
   # Link custom CSS and JS assets
   #   (relative to /static/css and /static/js respectively)
-  customCSS = ['prism.css','custom2.css']            # if ['custom.css'], load '/static/css/custom.css' file
+  customCSS = ['prism.css','custom.css']            # if ['custom.css'], load '/static/css/custom.css' file
   customJS = ['anime.js','prism.js','custom.js']             # if ['custom.js'], load '/static/js/custom.js' file
 
   [params.social]                                         # 社交链接
