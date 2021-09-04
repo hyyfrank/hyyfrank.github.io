@@ -1,8 +1,8 @@
 ---
-title: "Play With Emacs(一)"
-date: 2020-09-02T23:03:48+08:00
-lastmod: 2020-09-02T23:03:48+08:00
-draft: false
+title: "[Emacs] Play With Emacs(二)"
+date: 2020-09-07T23:03:48+08:00
+lastmod: 2020-09-22T23:03:48+08:00
+draft: true
 tags: ["emacs"]
 categories: ["backend","technology"]
 ---

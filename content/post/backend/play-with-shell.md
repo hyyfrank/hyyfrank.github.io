@@ -37,7 +37,7 @@ categories: ["backend","technology"]
     }
     ```
 
-* 简单的任务
+* 简单的部署任务
     * 任务描述，拷贝文件夹到远程目录
     * 一般来说一句命令就行了```scp /home/frank/local.txt root@192.168.1.100:/home/frank/```
     * 但是我们想写个shell脚本，自动拷贝目录到15台远程机器上
@@ -70,7 +70,7 @@ categories: ["backend","technology"]
         
         ..以下还有50条
       ```
-    * 处理成以下
+    * emacs宏命令处理这种就挺方便的
       ```shell
          园区1,100001,user1,pass1,类型1,类型2
          园区2,100002,user2,pass,类型3,类型4

@@ -1,7 +1,7 @@
 ---
 title: "Play With Redis (一)"
-date: 2018-06-07T11:33:39+08:00
-lastmod: 2018-08-07T11:33:39+08:00
+date: 2017-05-07T12:33:21+08:00
+lastmod: 2017-09-07T19:33:29+08:00
 draft: false
 tags: ["redis"]
 categories: ["backend","technology"]
