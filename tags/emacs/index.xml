@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>emacs on H&amp;W</title>
+    <link>http://hyyfrank.github.io/tags/emacs/</link>
+    <description>Recent content in emacs on H&amp;W</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 02 Sep 2020 23:03:48 +0800</lastBuildDate><atom:link href="http://hyyfrank.github.io/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Emacs] Play With Emacs(一)</title>
+      <link>http://hyyfrank.github.io/post/emacs/play-with-emacs-1/</link>
+      <pubDate>Wed, 02 Sep 2020 23:03:48 +0800</pubDate>
+      
+      <guid>http://hyyfrank.github.io/post/emacs/play-with-emacs-1/</guid>
+      <description>emacs循序渐进 基本设置如下 emacs setting org mode除了可以写备忘录，TODO,还可以做其他的 org文件来管理emacs的配置 org文件可以用rev</description>
+    </item>
+    
+  </channel>
+</rss>

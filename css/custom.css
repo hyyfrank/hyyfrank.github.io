@@ -1,0 +1,73 @@
+body {
+  /* font-family: 'Open Sans'; */
+  font-family: 'Trebuchet MS, Arial';
+  /* background-image: url(../images/bg.png); */
+
+  color: rgb(75, 75, 75);
+}
+.logoF {
+  color: #af1f53;
+}
+.logoW {
+  color: #380ba2;
+}
+.logoA {
+  color: #583bf1;
+}
+.content-wrapper {
+  background: url('../images/bg.png');
+  background-attachment: scroll;
+}
+.bg-white {
+  /* background-color: #f9f6f6; */
+  background-color: rgb(125 80 32 / 6%);
+  background-image: url(../images/bg.jpeg);
+  border: 1px solid lightgrey;
+}
+.archive {
+  background-color: rgb(125 80 32 / 6%);
+  background-image: url(../images/bg.jpeg);
+  border: 1px solid lightgrey;
+}
+.post .post-content > table tr:nth-child(even) {
+  background-color: rgb(245, 246, 246);
+}
+.post .post-content > table td {
+  background-color: transparent;
+}
+.post .post-content > table tr:hover {
+  background-color: rgb(206, 232, 248);
+}
+.post .post-content > table td:nth-child(3) {
+  transform: scale(2);
+  color: green;
+  font-weight: bold;
+  text-align: center;
+}
+.post .post-content > table td:nth-child(1) {
+  width: 70%;
+}
+.post .post-content > table th {
+  background-color: paleturquoise;
+  color: black;
+}
+.post .post-content code {
+  background: transparent;
+  color: #ff7161fc;
+  padding: 3px 0px;
+}
+
+::selection {
+  background: #d3d3d3;
+  color: #555;
+}
+
+::-moz-selection {
+  background: #d3d3d3;
+  color: #555;
+}
+
+::-webkit-selection {
+  background: #d3d3d3;
+  color: #555;
+}

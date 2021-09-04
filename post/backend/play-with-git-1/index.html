@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Play With Git (一) - H&amp;W</title>
+  
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="hyyfrank" />
+  <meta name="description" content="1. Git基本概念。 repository config init clone fetch pull commit push branch head tag merge conflict diff log show status 2. Git工作空间和文件状态 (1).工作空间 ![Git工作空间][1] 左侧为工作区，右侧为" />
+
+  <meta name="keywords" content="Hugo, theme, jane" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.84.3" />
+
+
+<link rel="canonical" href="http://hyyfrank.github.io/post/backend/play-with-git-1/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.fa4b2b9f31b5c6d0b683db81157a9226e17b06e61911791ab547242a4a0556f2.css" integrity="sha256-&#43;ksrnzG1xtC2g9uBFXqSJuF7BuYZEXkatUckKkoFVvI=" media="screen" crossorigin="anonymous">
+
+
+
+
+<link rel="stylesheet" href="/css/prism.css">
+
+<link rel="stylesheet" href="/css/custom.css">
+
+
+<meta property="og:title" content="Play With Git (一)" />
+<meta property="og:description" content="1. Git基本概念。 repository config init clone fetch pull commit push branch head tag merge conflict diff log show status 2. Git工作空间和文件状态 (1).工作空间 ![Git工作空间][1] 左侧为工作区，右侧为" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://hyyfrank.github.io/post/backend/play-with-git-1/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2017-01-07T12:33:21&#43;08:00" />
+<meta property="article:modified_time" content="2017-07-07T19:33:29&#43;08:00" />
+
+<meta itemprop="name" content="Play With Git (一)">
+<meta itemprop="description" content="1. Git基本概念。 repository config init clone fetch pull commit push branch head tag merge conflict diff log show status 2. Git工作空间和文件状态 (1).工作空间 ![Git工作空间][1] 左侧为工作区，右侧为"><meta itemprop="datePublished" content="2017-01-07T12:33:21&#43;08:00" />
+<meta itemprop="dateModified" content="2017-07-07T19:33:29&#43;08:00" />
+<meta itemprop="wordCount" content="5891">
+<meta itemprop="keywords" content="git," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Play With Git (一)"/>
+<meta name="twitter:description" content="1. Git基本概念。 repository config init clone fetch pull commit push branch head tag merge conflict diff log show status 2. Git工作空间和文件状态 (1).工作空间 ![Git工作空间][1] 左侧为工作区，右侧为"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  
+  <link rel="stylesheet" href="/prism.css"><link rel="stylesheet" href="/custom.css"> 
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">F&W</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://hyyfrank.github.io/post/">Tech</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://hyyfrank.github.io/project/">Project</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://hyyfrank.github.io/books/">Books</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://hyyfrank.github.io/tags/">Tags</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://hyyfrank.github.io/about/">About</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    <span class="logoF">F</span><span class="logoA">&</span><span class="logoW">J</span>
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://hyyfrank.github.io/post/">Tech</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://hyyfrank.github.io/project/">Project</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://hyyfrank.github.io/books/">Books</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://hyyfrank.github.io/tags/">Tags</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://hyyfrank.github.io/about/">About</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">Play With Git (一)</h1>
+      
+      <div class="post-meta">
+        <time datetime="2017-01-07" class="post-time">
+          2017-01-07
+        </time>
+        <div class="post-category">
+            <a href="http://hyyfrank.github.io/categories/backend/"> backend </a>
+            <a href="http://hyyfrank.github.io/categories/technology/"> technology </a>
+            
+          </div>
+        
+
+        
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    
+    <div class="post-content">
+      <h2 id="1-git基本概念">1. Git基本概念。</h2>
+<ul>
+<li><code>repository</code></li>
+<li><code>config</code></li>
+<li><code>init</code></li>
+<li><code>clone</code></li>
+<li><code>fetch</code></li>
+<li><code>pull</code></li>
+<li><code>commit</code></li>
+<li><code>push</code></li>
+<li><code>branch</code></li>
+<li><code>head</code></li>
+<li><code>tag</code></li>
+<li><code>merge</code></li>
+<li><code>conflict</code></li>
+<li><code>diff</code></li>
+<li><code>log</code></li>
+<li><code>show</code></li>
+<li><code>status</code></li>
+</ul>
+<h2 id="2-git工作空间和文件状态">2. Git工作空间和文件状态</h2>
+<h3 id="1工作空间">(1).工作空间</h3>
+<p>![Git工作空间][1]</p>
+<p>左侧为工作区，右侧为版本库。</p>
+<ul>
+<li>工作区（<code>Working Directory</code>） 就是在电脑里能看到的目录，比如learngit文件夹就是一个工作区。</li>
+<li>版本库（<code>Repository</code>）工作区有一个隐藏目录<code>.git</code>，是Git的版本库。</li>
+</ul>
+<p>在版本库中标记为<code>index</code>的区域为暂存区，标记为<code>master</code>的是Git为我们自动创建的第一个分支，代表的是目录树。此时<code>HEAD</code>实际是指向<code>master</code>分支的一个“游标”，所以图示的命令中出现HEAD的地方可以用<code>master</code>来替换。图中的objects标识的区域为git的对象库，实际位于<code>.git/objects</code>目录下。</p>
+<ul>
+<li>当对工作区修改（或新增）的文件执行<code>git add</code>命令时，暂存区的目录树会被更新，同时工作区修改（或新增）的文件内容会被写入到对象库中的一个新的对象中，而该对象的id被记录在暂存区的文件索引中。</li>
+<li>当执行提交操作<code>git commit</code>时，暂存区的目录树会写到版本库（对象库）中，master分支会做相应的更新，即master最新指向的目录树就是提交时原暂存区的目录树。</li>
+<li>当执行<code>git reset HEAD</code>命令时，暂存区的目录树会被重写，会被master分支指向的目录树所替换，但是工作区不受影响。</li>
+<li>当执行<code>git rm --cached</code>命令时，会直接从暂存区删除文件，工作区则不做出改变。</li>
+<li>当执行<code>git checkout .</code>或<code>git checkout --</code> 命令时，会用暂存区全部的文件或指定的文件替换工作区的文件。这个操作很危险，会清楚工作区中未添加到暂存区的改动。</li>
+<li>当执行<code>git checkout HEAD .</code>或<code>git checkout HEAD</code>命令时，会用HEAD指向的master分支中的全部或部分文件替换暂存区和工作区中的文件。这个命令也是极度危险的。因为不但会清楚工作区中未提交的改动，也会清楚暂存区中未提交的改动。</li>
+</ul>
+<h3 id="1文件状态">(1).文件状态</h3>
+<p>Git 有三种状态，你的文件可能处于其中之一：<strong>已提交(<code>committed</code>)</strong>、<strong>已修改(<code>modified</code>)<strong>和</strong>已暂存(<code>staged</code>)</strong>。</p>
+<h2 id="3-git配置系统级全局当前仓库用户名邮箱的命令">3. Git配置系统级、全局、当前仓库用户名、邮箱的命令</h2>
+<p>系统级、全局、当前仓库选项分别是:仓库-system、-global、-local(或默认不填)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git config --global user.name <span style="color:#e6db74">&#34;Jerry Mouse&#34;</span>
+git config --global user.email <span style="color:#e6db74">&#34;jerry@yiibai.com&#34;</span>
+</code></pre></div><p>列出Git设置</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+git config --list
+git config -l
+</code></pre></div><h2 id="4-git-fetch和pull的区别">4. Git fetch和pull的区别</h2>
+<ul>
+<li><code>git fetch</code>：相当于是从远程获取最新版本到本地，不会自动merge.</li>
+<li><code>git pull</code>：相当于是从远程获取最新版本并merge到本地.</li>
+</ul>
+<h3 id="1-git-fetch示例">(1). git fetch示例：</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Git fetch origin master
+git log -p master..origin/master
+git merge origin/master
+</code></pre></div><p>以上命令的含义：</p>
+<ul>
+<li>首先从远程的<code>origin</code>的<code>master</code>主分支下载最新的版本到<code>origin/master</code>分支上</li>
+<li>然后比较本地的<code>master</code>分支和<code>origin/master</code>分支的差别</li>
+<li>最后进行合并</li>
+<li>上述过程其实可以用以下更清晰的方式来进行：</li>
+</ul>
+<h3 id="1-git-pull示例">(1). git pull示例：</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git pull origin master
+</code></pre></div><p>上述命令其实相当于<code>git fetch</code>和<code>git merge</code>。在实际使用中，<code>git fetch</code>更安全一些，因为在merge前，我们可以查看更新情况，然后再决定是否合并。</p>
+<h2 id="5-git-reset和revert的区别">5. Git reset和revert的区别</h2>
+<ul>
+<li><code>git revert</code>是用一次新的commit来回滚之前的commit，<code>git reset</code>是直接删除指定的commit。</li>
+<li>在回滚这一操作上看，效果差不多。但是在日后继续merge以前的老版本时有区别。因为<code>git revert</code>是用一次逆向的commit“中和”之前的提交，因此日后合并老的branch时，导致这部分改变不会再次出现，但是<code>git reset</code>是之间把某些commit在某个branch上删除，因而和老的branch再次merge时，这些被回滚的commit应该还会被引入。</li>
+<li><code>git reset</code>是把HEAD向后移动了一下，而<code>git revert</code>是HEAD继续前进，只是新的commit的内容和要revert的内容正好相反，能够抵消要被revert的内容。</li>
+<li>git revert与git reset最大的不同是，git revert 仅仅是撤销某次提交。</li>
+</ul>
+<p>另外，说一下<code>git revert</code>， <code>git reset –hard</code>和 <code>–soft</code>的区别</p>
+<ul>
+<li><code>git reset –mixed id</code>: 是将git的HEAD变了（也就是提交记录变了），但文件并没有改变，（也就是working tree并没有改变）。</li>
+<li><code>git reset –soft id</code>: 实际上，是<code>git reset –mixed id</code>后，又做了一次<code>git add</code>。</li>
+<li><code>git reset –herd id</code>: 是将git的HEAD变了，文件也变了。</li>
+</ul>
+<h2 id="6-git-merge和reabse的相同点和不同点">6. Git merge和reabse的相同点和不同点</h2>
+<p><code>merge</code>是合并的意思，<code>rebase</code>是复位基底的意思，相同点都是用来合并分支的。</p>
+<p>![merge和rebase][2]</p>
+<p>不同点:</p>
+<ul>
+<li><code>merge</code>操作会生成一个新的节点，之前的提交分开显示。而<code>rebase</code>操作不会生成新的节点，是将两个分支融合成一个线性的提交。</li>
+<li>解决冲突时。merge操作遇到冲突的时候，当前merge不能继续进行下去。手动修改冲突内容后，add 修改，commit就可以了。而<code>rebase</code>操作的话，会中断rebase,同时会提示去解决冲突。解决冲突后,将修改add后执行<code>git rebase –continue</code>继续操作，或者<code>git rebase –skip</code>忽略冲突。</li>
+<li><code>git pull</code>和<code>git pull --rebase</code>区别：<code>git pull</code>做了两个操作分别是&quot;获取&quot;和&quot;合并&quot;。所以加了rebase就是以rebase的方式进行合并分支，默认为merge。</li>
+</ul>
+<p><strong>总结</strong>：选择 merge 还是 rebase？</p>
+<ul>
+<li>merge 是一个合并操作，会将两个分支的修改合并在一起，默认操作的情况下会提交合并中修改的内容</li>
+<li>merge 的提交历史忠实地记录了实际发生过什么，关注点在真实的提交历史上面</li>
+<li>rebase 并没有进行合并操作，只是提取了当前分支的修改，将其复制在了目标分支的最新提交后面</li>
+<li>rebase 的提交历史反映了项目过程中发生了什么，关注点在开发过程上面</li>
+<li>merge 与 rebase 都是非常强大的分支整合命令，没有优劣之分，使用哪一个应由项目和团队的开发需求决定</li>
+<li>merge 和 rebase 还有很多强大的选项，可以使用 git help <!-- raw HTML omitted --> 查看</li>
+</ul>
+<h2 id="7-git-stash是什么它的相关使用方式命令">7. Git stash是什么？它的相关使用方式命令</h2>
+<ul>
+<li>git stash: 备份当前的工作区的内容，从最近的一次提交中读取相关内容，让工作区保证和上次提交的内容一致。同时，将当前的工作区内容保存到Git栈中。</li>
+<li>git stash pop: 从Git栈中读取最近一次保存的内容，恢复工作区的相关内容。由于可能存在多个Stash的内容，所以用栈来管理，pop会从最近的一个stash中读取内容并恢复。</li>
+<li>git stash pop &ndash;index stash@{0}: 恢复编号为0的进度的工作区和暂存区。</li>
+<li>git stash apply stash@{1} 以将你指定版本号为stash@{1}的工作取出来</li>
+<li>git stash drop[<!-- raw HTML omitted -->] 删除某一个进度，默认删除最新进度</li>
+<li>git stash list: 显示Git栈内的所有备份，可以利用这个列表来决定从那个地方恢复。</li>
+<li>git stash clear: 清空Git栈。此时使用gitg等图形化工具会发现，原来stash的哪些节点都消失了</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 恢复工作进度</span>
+git stash pop <span style="color:#f92672">[</span>--index<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>&lt;stash&gt;<span style="color:#f92672">]</span>
+--index 参数：不仅恢复工作区，还恢复暂存区
+&lt;stash&gt; 指定恢复某一个具体进度。如果没有这个参数，默认恢复最新进度
+
+<span style="color:#75715e"># 这是git stash保存进度的完整命令形式</span>
+git stash <span style="color:#f92672">[</span>save message<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>-k|--no-keep-index<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>--patch<span style="color:#f92672">]</span>
+-k和--no-keep-index指定保存进度后，是否重置暂存区
+--patch 会显示工作区和HEAD的差异,通过编辑差异文件，排除不需要保存的内容。和git add -p命令类似
+
+使用save可以对进度添加备注
+<span style="color:#75715e"># git stash save &#34;这是保存的进度&#34;</span>
+</code></pre></div><h2 id="8-git只从暂存区删除从工作空间删除的命令分别是什么">8. Git只从暂存区删除，从工作空间删除的命令分别是什么?</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git rm --cached
+
+git rm
+git commit
+</code></pre></div><h2 id="9-git标签的使用">9. Git标签的使用</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 列出现有的标签</span>
+git tag
+
+<span style="color:#75715e"># 打标签</span>
+git tag -a v1.01 -m <span style="color:#e6db74">&#34;Relase version 1.01&#34;</span>
+
+<span style="color:#75715e"># 查看相应标签的版本信息</span>
+git show v1.4
+</code></pre></div><ul>
+<li>-a 选项,创建一个含附注类型的标签</li>
+<li>-m 选项,指定了对应的标签说明</li>
+</ul>
+<h2 id="9-git分支的使用">9. Git分支的使用</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 查看本地分支</span>
+git branch
+
+<span style="color:#75715e"># 查看远程分支</span>
+git branch -r
+
+<span style="color:#75715e"># 创建本地分支(注意新分支创建后不会自动切换为当前分支)</span>
+git branch <span style="color:#f92672">[</span>name<span style="color:#f92672">]</span>
+
+<span style="color:#75715e"># 切换分支</span>
+git checkout <span style="color:#f92672">[</span>name<span style="color:#f92672">]</span>
+
+<span style="color:#75715e"># 创建新分支并立即切换到新分支</span>
+git checkout -b <span style="color:#f92672">[</span>name<span style="color:#f92672">]</span>
+
+<span style="color:#75715e"># 强制删除一个分支</span>
+git branch -D <span style="color:#f92672">[</span>name<span style="color:#f92672">]</span>
+
+<span style="color:#75715e"># 合并分支(将名称为[name]的分支与当前分支合并)</span>
+git merge <span style="color:#f92672">[</span>name<span style="color:#f92672">]</span>
+
+<span style="color:#75715e"># 查看各个分支最后提交信息</span>
+git br -v
+
+<span style="color:#75715e"># 查看已经被合并到当前分支的分支</span>
+git br --merged
+
+<span style="color:#75715e"># 查看尚未被合并到当前分支的分支</span>
+git br --no-merged
+</code></pre></div><h2 id="10-介绍git冲突处理经验以及merge和rebase中的ours和theirs的差别">10. 介绍Git冲突处理经验，以及merge和rebase中的ours和theirs的差别。</h2>
+<p>merge和rebase对于ours和theirs的定义是完全相反的。在merge时，ours指代的是当前分支，theirs代表需要被合并的分支。而在rebase过程中，ours指向了修改参考分支，theirs却是当前分支。因为rebase 隐含了一个<code>git checkout upstream</code>的过程，将<code>HEAD</code>从local分支变成了upstream分支。git会在rebase结束后撤销这个改变，但它已经不可避免地影响了冲突的状态，使rebase中ours和theirs的定义与merge 截然相反。因此，在使用ours与theirs时请格外小心。</p>
+<h2 id="11-git远程操作相关">11. Git远程操作相关</h2>
+<h3 id="1-clone">(1). clone</h3>
+<blockquote>
+<p>git clone &lt;版本库的网址&gt;
+git clone &lt;版本库的网址&gt; &lt;本地目录名&gt;</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 克隆jQuery的版本库</span>
+ git clone https://github.com/jquery/jquery.git
+ 
+ git clone -o jQuery https://github.com/jquery/jquery.git
+</code></pre></div><h3 id="2-remote">(2). remote</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 列出所有远程主机</span>
+git remote
+
+<span style="color:#75715e"># 使用-v选项，可以参看远程主机的网址</span>
+git remote -v
+ 
+<span style="color:#75715e"># 可以查看该主机的详细信息</span>
+git remote show &lt;主机名&gt;
+ 
+<span style="color:#75715e"># 添加远程主机</span>
+git remote add &lt;主机名&gt; &lt;网址&gt;
+
+<span style="color:#75715e"># 删除远程主机</span>
+git remote rm &lt;主机名&gt;
+
+<span style="color:#75715e"># 修改远程主机名称</span>
+git remote rename &lt;原主机名&gt; &lt;新主机名&gt;
+</code></pre></div><h3 id="3-fetch">(3). fetch</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 取回所有分支(branch)的更新到本地</span>
+git fetch &lt;远程主机名&gt;
+
+<span style="color:#75715e"># 取回某的特定分支的更新</span>
+git fetch &lt;远程主机名&gt; &lt;分支名&gt;
+
+<span style="color:#75715e"># 取回origin主机的master分支的更新</span>
+git fetch origin master
+
+<span style="color:#75715e"># 所取回的更新，在本地主机上要用”远程主机名/分支名”的形式读取。比如origin主机的master，就要用origin/master读取。可以使用git merge命令或者git rebase命令，在本地分支上合并远程分支</span>
+git merge origin/master
+git rebase origin/master
+</code></pre></div><h3 id="4-pull">(4). pull</h3>
+<blockquote>
+<p>git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 取回origin主机的next分支，与本地的master分支合并</span>
+git pull origin next:master
+
+<span style="color:#75715e"># 如果远程分支是与当前分支合并，则冒号后面的部分可以省略。</span>
+git pull origin next
+
+<span style="color:#75715e"># 上面的命令实质上等同于先做git fetch，再做git merge。</span>
+git fetch origin
+git merge origin/next
+
+<span style="color:#75715e"># 合并需要采用rebase模式</span>
+git pull --rebase &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;
+</code></pre></div><h3 id="5-push">(5). push</h3>
+<blockquote>
+<p>git push &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;</p>
+</blockquote>
+<p><strong>注意</strong>:分支推送顺序的写法是&quot;&lt;来源地&gt;:&lt;目的地&gt;&quot;，所以git pull是&quot;&lt;远程分支&gt;:&lt;本地分支&gt;&quot;，而git push是&quot;&lt;本地分支&gt;:&lt;远程分支&gt;&quot;。</p>
+<ul>
+<li>如果省略远程分支名，则表示将本地分支推送与之存在”追踪关系”的远程分支(通常两者同名)，如果该远程分支不存在，则会被新建。</li>
+<li>如果省略本地分支名，则表示删除指定的远程分支，因为这等同于推送一个空的本地分支到远程分支。</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 将本地的master分支推送到origin主机的master分支。如果后者不存在，则会被新建</span>
+git push origin master
+
+<span style="color:#75715e"># 省略了本地分支，以下等同，删除origin主机的master分支</span>
+git push origin :master
+git push origin --delete master
+
+<span style="color:#75715e"># 如果当前分支与远程分支之间存在追踪关系，则本地分支和远程分支都可以省略</span>
+git push origin
+
+<span style="color:#75715e"># 如果当前分支只有一个追踪分支，那么主机名都可以省略。</span>
+git push
+
+<span style="color:#75715e"># 如果当前分支与多个主机存在追踪关系，则可以使用-u选项指定一个默认主机，这样后面就可以不加任何参数使用git push</span>
+git push -u origin master
+
+<span style="color:#75715e"># 不管是否存在对应的远程分支，将本地的所有分支都推送到远程主机</span>
+git push --all origin
+
+<span style="color:#75715e"># 强制推送</span>
+git push --force origin
+
+<span style="color:#75715e"># git push不会推送标签(tag)，除非使用–tags选项</span>
+git push origin --tags
+</code></pre></div><h2 id="12-git-flow使用简介">12. Git Flow使用简介</h2>
+<p>就像代码需要代码规范一样，代码管理同样需要一个清晰的流程和规范。三种广泛使用的工作流程：</p>
+<ul>
+<li>Git flow</li>
+<li>Github flow</li>
+<li>Gitlab flow</li>
+</ul>
+<p>三种工作流程，有一个共同点：都采用&quot;功能驱动式开发&quot;（Feature-driven development，简称FDD）。它指的是，需求是开发的起点，先有需求再有功能分支（feature branch）或者补丁分支（hotfix branch）。完成开发后，该分支就合并到主分支，然后被删除。最早诞生、并得到广泛采用的一种工作流程，就是[Git flow][3]。</p>
+<p>它最主要的特点有两个。首先，项目存在两个长期分支，分别是：主分支master、开发分支develop。其次，项目存在三种短期分支，分别是：功能分支（feature branch）、补丁分支（hotfix branch）、预发分支（release branch），一旦完成开发，它们就会被合并进develop或master，然后被删除。</p>
+<h3 id="1-git-flow流程图">(1). Git Flow流程图</h3>
+<p>![Git Flow流程图][4]</p>
+<h3 id="2-git-flow常用的分支">(2). Git Flow常用的分支</h3>
+<ul>
+<li><code>Production</code>分支。也就是我们经常使用的Master分支，这个分支最近发布到生产环境的代码，最近发布的Release， 这个分支只能从其他分支合并，不能在这个分支直接修改。</li>
+<li><code>Develop</code>分支。这个分支是我们是我们的主开发分支，包含所有要发布到下一个Release的代码，这个主要合并与其他分支，比如Feature分支。</li>
+<li><code>Feature</code>分支。这个分支主要是用来开发一个新的功能，一旦开发完成，我们合并回Develop分支进入下一个Release。</li>
+<li><code>Release</code>分支。当你需要一个发布一个新Release的时候，我们基于Develop分支创建一个Release分支，完成Release后，我们合并到Master和Develop分支。</li>
+<li><code>Hotfix</code>分支。当我们在Production发现新的Bug时候，我们需要创建一个Hotfix, 完成Hotfix后，我们合并回Master和Develop分支，所以Hotfix的改动会进入下一个Release。</li>
+</ul>
+<h3 id="3-git-flow代码示例">(3). Git Flow代码示例</h3>
+<h4 id="a-创建develop分支">a. 创建develop分支</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git branch develop
+git push -u origin develop
+</code></pre></div><h4 id="b-开始新feature开发">b. 开始新Feature开发</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git checkout -b some-feature develop
+<span style="color:#75715e"># Optionally, push branch to origin:</span>
+git push -u origin some-feature
+
+<span style="color:#75715e"># 做一些改动</span>
+git status
+git add some-file
+git commit
+</code></pre></div><h4 id="c-完成feature">c. 完成Feature</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git pull origin develop
+git checkout develop
+git merge --no-ff some-feature
+git push origin develop
+
+git branch -d some-feature
+
+<span style="color:#75715e"># If you pushed branch to origin:</span>
+git push origin --delete some-feature
+</code></pre></div><h4 id="d-开始relase">d. 开始Relase</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git checkout -b release-0.1.0 develop
+
+<span style="color:#75715e"># Optional: Bump version number, commit</span>
+<span style="color:#75715e"># Prepare release, commit</span>
+</code></pre></div><h4 id="e-完成release">e. 完成Release</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git checkout master
+git merge --no-ff release-0.1.0
+git push
+
+git checkout develop
+git merge --no-ff release-0.1.0
+git push
+
+git branch -d release-0.1.0
+
+<span style="color:#75715e"># If you pushed branch to origin:</span>
+git push origin --delete release-0.1.0   
+
+git tag -a v0.1.0 master
+git push --tags
+</code></pre></div><h4 id="f-开始hotfix">f. 开始Hotfix</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git checkout -b hotfix-0.1.1 master
+</code></pre></div><h4 id="g-完成hotfix">g. 完成Hotfix</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git checkout master
+git merge --no-ff hotfix-0.1.1
+git push
+
+git checkout develop
+git merge --no-ff hotfix-0.1.1
+git push
+
+git branch -d hotfix-0.1.1
+
+git tag -a v0.1.1 master
+git push --tags
+</code></pre></div>
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">hyyfrank</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+      2017-07-07
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">Apache-2.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="http://hyyfrank.github.io/tags/git/">git</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/backend/play-with-git-2/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">Play With Git (二)</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+    
+
+  
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="icon-links">
+  
+  
+    <a href="mailto:hyyfrank@email.com" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+  
+    <a href="http://www.github.com/hyyfrank" rel="me noopener" class="iconfont"
+      title="github"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M512 12.672c-282.88 0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667 0-12.16-0.426667-44.373333-0.64-87.04-142.421333 30.890667-172.458667-68.693333-172.458667-68.693333C188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333 0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333 0 0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52 0.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667 0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72 0 68.522667-0.64 123.562667-0.64 140.202666 0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"></path>
+</svg>
+
+    </a>
+
+
+<a href="http://hyyfrank.github.io/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+   
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+      2012 -
+    2021
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        hyyfrank
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="/js/anime.js"></script>
+
+  <script src="/js/prism.js"></script>
+
+  <script src="/js/custom.js"></script>
+
+
+
+  <script src="/anime.js"></script><script src="/prism.js"></script><script src="/custom.js"></script>
+
+</body>
+</html>

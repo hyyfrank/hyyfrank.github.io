@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Spring on H&amp;W</title>
+    <link>http://hyyfrank.github.io/tags/spring/</link>
+    <description>Recent content in Spring on H&amp;W</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 04 Aug 2018 09:33:39 +0800</lastBuildDate><atom:link href="http://hyyfrank.github.io/tags/spring/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java With Spring (四)</title>
+      <link>http://hyyfrank.github.io/post/backend/java-with-spring-4/</link>
+      <pubDate>Sat, 04 Aug 2018 09:33:39 +0800</pubDate>
+      
+      <guid>http://hyyfrank.github.io/post/backend/java-with-spring-4/</guid>
+      <description>增加多个环境支持 目录结构如下： └── resources ├── application-dev.properties ├── application-pre-prod.properties ├── application-prod.properties ├── application-staging.properties ├── application-test.properties ├── application.properties ├── customize.properties 对于每个配置文件会包含热加载，log, database, mybatis, redis, k</description>
+    </item>
+    
+    <item>
+      <title>Java With Spring (三)</title>
+      <link>http://hyyfrank.github.io/post/backend/java-with-spring-3/</link>
+      <pubDate>Sat, 28 Jul 2018 09:33:39 +0800</pubDate>
+      
+      <guid>http://hyyfrank.github.io/post/backend/java-with-spring-3/</guid>
+      <description>配置kombok 介绍：Lombok 是一个jar包，可以节约很多敲代码的工作 安装其实很简单，就是IDEA里找到插件，安装一下 增加pom的依赖 &amp;lt;dependency&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title>Java With Spring (二)</title>
+      <link>http://hyyfrank.github.io/post/backend/java-with-spring-2/</link>
+      <pubDate>Sat, 21 Jul 2018 09:33:39 +0800</pubDate>
+      
+      <guid>http://hyyfrank.github.io/post/backend/java-with-spring-2/</guid>
+      <description>增删改查 作为一个简单的脚手架程序，我们先从最基本的功能开始，增删改查，返回json,包装JSON数据 配置好依赖，可以看到我们仅有最简单的三个</description>
+    </item>
+    
+    <item>
+      <title>Java With Spring (一)</title>
+      <link>http://hyyfrank.github.io/post/backend/java-with-spring-1/</link>
+      <pubDate>Sat, 14 Jul 2018 09:33:39 +0800</pubDate>
+      
+      <guid>http://hyyfrank.github.io/post/backend/java-with-spring-1/</guid>
+      <description>一个Java的脚手架需要些什么 增删改查,mybatics(分页有需要可以自己加下) 配置kombok 增加gitignore,支持热部署,JSO</description>
+    </item>
+    
+  </channel>
+</rss>

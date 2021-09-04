@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>git on H&amp;W</title>
+    <link>http://hyyfrank.github.io/tags/git/</link>
+    <description>Recent content in git on H&amp;W</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 07 Feb 2017 12:33:21 +0800</lastBuildDate><atom:link href="http://hyyfrank.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Play With Git (二)</title>
+      <link>http://hyyfrank.github.io/post/backend/play-with-git-2/</link>
+      <pubDate>Tue, 07 Feb 2017 12:33:21 +0800</pubDate>
+      
+      <guid>http://hyyfrank.github.io/post/backend/play-with-git-2/</guid>
+      <description>How to: Remove large file in git problem description i have a git repository in github, it is kindof 20M at the most.but when i try to clone it to my local machine, it takes 10 min to clone the repository. That is wired. so i start to check the git file, and i find some big file out there. i check with a script to list the big file</description>
+    </item>
+    
+    <item>
+      <title>Play With Git (一)</title>
+      <link>http://hyyfrank.github.io/post/backend/play-with-git-1/</link>
+      <pubDate>Sat, 07 Jan 2017 12:33:21 +0800</pubDate>
+      
+      <guid>http://hyyfrank.github.io/post/backend/play-with-git-1/</guid>
+      <description>1. Git基本概念。 repository config init clone fetch pull commit push branch head tag merge conflict diff log show status 2. Git工作空间和文件状态 (1).工作空间 ![Git工作空间][1] 左侧为工作区，右侧为</description>
+    </item>
+    
+  </channel>
+</rss>
