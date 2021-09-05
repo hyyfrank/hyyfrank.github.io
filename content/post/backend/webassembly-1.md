@@ -4,7 +4,7 @@ date: 2020-01-25T11:53:41+08:00
 lastmod: 2020-07-19T11:53:41+08:00
 draft: false
 tags: ["webassembly","emscripten","web_worker","service_worker"]
-categories: ["frontend","technology"]
+categories: ["technology"]
 ---
 
 ## 什么是web assembly

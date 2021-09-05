@@ -4,7 +4,7 @@ date: 2018-10-20T20:11:39+08:00
 lastmod: 2018-10-27T22:12:12+08:00
 draft: true
 tags: ["java","Spring"]
-categories: ["backend","technology"]
+categories: ["Spring"]
 ---
 
 # google style code format

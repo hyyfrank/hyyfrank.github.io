@@ -4,7 +4,7 @@ date: 2018-07-21T09:33:39+08:00
 lastmod: 2018-12-28T22:33:39+08:00
 draft: false
 tags: ["java","Spring"]
-categories: ["backend","technology"]
+categories: [ "Spring" ]
 ---
 
 ## 增删改查

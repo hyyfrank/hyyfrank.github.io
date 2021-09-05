@@ -35,7 +35,13 @@ defaultContentLanguage = "en"           # Default language to use
 #   identifier = "home"
 #   url = "/"
 
+# Enable author pages
+[taxonomies]
+ tag = "tags"
+ category = "categories"
 
+[permalinks]
+    categories =  "/:section/:slug"
 
 [[menu.main]]
   name = "Tech"
@@ -43,20 +49,15 @@ defaultContentLanguage = "en"           # Default language to use
   identifier = "post"
   url = "/post/"
 [[menu.main]]
-  name = "Project"
-  weight = 20
-  identifier = "project"
-  url = "/project/"
-[[menu.main]]
-  name = "Books"
-  weight = 30
-  identifier = "books"
-  url = "/books/"
-[[menu.main]]
   name = "Tags"
   weight = 35
   identifier = "tags"
   url = "/tags/"
+[[menu.main]]
+  name = "Categories"
+  weight = 40
+  identifier = "categories"
+  url = "/categories/"
 [[menu.main]]
   name = "About"
   weight = 50
@@ -131,4 +132,4 @@ defaultContentLanguage = "en"           # Default language to use
   # [markup.tableOfContents]
   #     endLevel = 3
   #     ordered = false
-  #     startLevel = 2    
+  #     startLevel = 2      

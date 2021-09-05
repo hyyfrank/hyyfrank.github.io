@@ -1,14 +1,13 @@
 ---
-title: "Java With Spring (八)"
-date: 2018-09-01T11:35:32+08:00
-lastmod: 2018-09-08T19:20:12+08:00
+title: "Java With Spring (十一)"
+date: 2018-09-22T13:01:39+08:00
+lastmod: 2018-09-29T19:12:12+08:00
 draft: true
 tags: ["java","Spring"]
-categories: ["backend","technology"]
+categories: ["Spring"]
 ---
 
-# 自定义异常处理
-
+# 增加redis
 ![Project Link](https://github.com/hyyfrank/play_with_springboot/tree/feature/lesson1)
 
 * 增删改查

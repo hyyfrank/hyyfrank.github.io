@@ -4,7 +4,7 @@ date: 2018-09-29T14:11:39+08:00
 lastmod: 2018-10-06T21:12:12+08:00
 draft: true
 tags: ["java","Spring"]
-categories: ["backend","technology"]
+categories: ["Spring"]
 ---
 
 # 增加自定义线程池

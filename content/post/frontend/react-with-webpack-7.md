@@ -4,7 +4,7 @@ date: 2019-08-19T20:11:44+08:00
 lastmod: 2019-08-20T19:11:44+08:00
 draft: false
 tags: ["webpack4","react18","babel","HMR","DevServer"]
-categories: ["frontend","technology"]
+categories: ["frontend"]
 ---
 
 > 这是一个webpack4的前端架构主题，主要涉及怎么从0到1构建前端脚手架

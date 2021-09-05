@@ -4,7 +4,7 @@ date: 2018-12-15T19:18:39+08:00
 lastmod: 2018-12-22T20:22:12+08:00
 draft: true
 tags: ["java","Spring"]
-categories: ["backend","technology"]
+categories: ["Spring"]
 ---
 # 读写分离和分库分表，shardingsphere
 

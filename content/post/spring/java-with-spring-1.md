@@ -4,7 +4,7 @@ date: 2018-07-14T09:33:39+08:00
 lastmod: 2018-12-21T22:33:39+08:00
 draft: false
 tags: ["java","Spring"]
-categories: ["backend","technology"]
+categories: ["Spring"]
 ---
 
 # 一个Java的脚手架需要些什么

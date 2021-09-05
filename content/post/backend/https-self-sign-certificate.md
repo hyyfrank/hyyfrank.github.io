@@ -4,7 +4,7 @@ date: 2020-04-07T12:20:45+08:00
 lastmod: 2020-05-07T12:20:45+08:00
 draft: false
 tags: ["https","CA", "Self-Signed"]
-categories: ["backend"]
+categories: ["technology"]
 ---
 
 ## 动机

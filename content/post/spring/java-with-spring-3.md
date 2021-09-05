@@ -4,7 +4,7 @@ date: 2018-07-28T09:33:39+08:00
 lastmod: 2018-08-04T22:33:39+08:00
 draft: false
 tags: ["java","Spring"]
-categories: ["backend","technology"]
+categories: ["Spring"]
 ---
 
 # 配置kombok

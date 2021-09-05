@@ -4,7 +4,7 @@ date: 2018-08-04T09:33:39+08:00
 lastmod: 2018-08-11T20:33:39+08:00
 draft: false
 tags: ["java","Spring"]
-categories: ["backend","technology"]
+categories: ["Spring"]
 ---
 
 # 增加多个环境支持

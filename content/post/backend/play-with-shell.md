@@ -4,7 +4,7 @@ date: 2020-06-07T11:33:39+08:00
 lastmod: 2020-08-07T11:33:39+08:00
 draft: false
 tags: ["shell"]
-categories: ["backend","technology"]
+categories: ["shell"]
 ---
 
 ## shell逐行处理两种常用速度较快的方法

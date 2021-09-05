@@ -4,7 +4,7 @@ date: 2018-11-24T19:18:39+08:00
 lastmod: 2018-12-01T20:22:12+08:00
 draft: true
 tags: ["java","Spring"]
-categories: ["backend","technology"]
+categories: ["Spring"]
 ---
 # job注册调度zookeeper
 

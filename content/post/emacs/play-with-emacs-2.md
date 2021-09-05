@@ -4,7 +4,7 @@ date: 2020-09-07T23:03:48+08:00
 lastmod: 2020-09-22T23:03:48+08:00
 draft: true
 tags: ["emacs"]
-categories: ["backend","technology"]
+categories: ["emacs"]
 ---
 
 ## emacs循序渐进

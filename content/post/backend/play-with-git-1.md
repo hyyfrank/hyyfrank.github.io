@@ -4,7 +4,7 @@ date: 2017-01-07T12:33:21+08:00
 lastmod: 2017-07-07T19:33:29+08:00
 draft: false
 tags: ["git"]
-categories: ["backend","technology"]
+categories: ["git"]
 ---
 
 ## 1. Git基本概念。
