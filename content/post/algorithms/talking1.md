@@ -4,7 +4,7 @@ date: 2021-07-07T11:36:45+08:00
 lastmod: 2021-08-07T11:36:45+08:00
 draft: false
 tags: ["algorithm"]
-categories: ["technology"]
+categories: ["algorithm"]
 ---
 * 今天一个同事甩我一段代码，让我实现功能，说是对图片做半透明太慢了
 * 我拿到手头一看，代码是这样的，据说是一个别的组算法厉害的大神写的

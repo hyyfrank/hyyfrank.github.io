@@ -2,9 +2,9 @@
 title: "[Autodesk] how autodesk use webassembly "
 date: 2020-01-25T11:53:41+08:00
 lastmod: 2020-07-19T11:53:41+08:00
-draft: false
+draft: true
 tags: ["webassembly","emscripten","web_worker","service_worker"]
-categories: ["technology"]
+categories: ["frontend"]
 ---
 
 ## 什么是web assembly
