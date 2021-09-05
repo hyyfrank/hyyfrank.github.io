@@ -9,19 +9,19 @@
     <lastBuildDate>Wed, 07 Jul 2021 11:36:45 +0800</lastBuildDate><atom:link href="http://hyyfrank.github.io/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Algorithm Guy Always Good?</title>
-      <link>http://hyyfrank.github.io/post/backend/talking1/</link>
+      <link>http://hyyfrank.github.io/post/algorithms/talking1/</link>
       <pubDate>Wed, 07 Jul 2021 11:36:45 +0800</pubDate>
       
-      <guid>http://hyyfrank.github.io/post/backend/talking1/</guid>
+      <guid>http://hyyfrank.github.io/post/algorithms/talking1/</guid>
       <description>今天一个同事甩我一段代码，让我实现功能，说是对图片做半透明太慢了 我拿到手头一看，代码是这样的，据说是一个别的组算法厉害的大神写的 # -*- coding: utf-8 -*- import</description>
     </item>
     
     <item>
       <title>[Autodesk] Play With bloomfilter</title>
-      <link>http://hyyfrank.github.io/post/backend/play-with-bloomfilter/</link>
+      <link>http://hyyfrank.github.io/post/redis/play-with-bloomfilter/</link>
       <pubDate>Fri, 07 Aug 2020 11:38:41 +0800</pubDate>
       
-      <guid>http://hyyfrank.github.io/post/backend/play-with-bloomfilter/</guid>
+      <guid>http://hyyfrank.github.io/post/redis/play-with-bloomfilter/</guid>
       <description>BloomFilter概念 布隆过滤器的原理是，当一个元素被加入集合时，通过K个散列函数将这个元素映射成一个位数组中的K个点，把它们置为1。检</description>
     </item>
     

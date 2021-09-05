@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>algorithm on H&amp;W</title>
+    <link>http://hyyfrank.github.io/categories/algorithm/</link>
+    <description>Recent content in algorithm on H&amp;W</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 07 Jul 2021 11:36:45 +0800</lastBuildDate><atom:link href="http://hyyfrank.github.io/categories/algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Algorithm Guy Always Good?</title>
+      <link>http://hyyfrank.github.io/post/algorithms/talking1/</link>
+      <pubDate>Wed, 07 Jul 2021 11:36:45 +0800</pubDate>
+      
+      <guid>http://hyyfrank.github.io/post/algorithms/talking1/</guid>
+      <description>今天一个同事甩我一段代码，让我实现功能，说是对图片做半透明太慢了 我拿到手头一看，代码是这样的，据说是一个别的组算法厉害的大神写的 # -*- coding: utf-8 -*- import</description>
+    </item>
+    
+  </channel>
+</rss>

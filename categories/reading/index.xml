@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Reading on H&amp;W</title>
+    <link>http://hyyfrank.github.io/categories/reading/</link>
+    <description>Recent content in Reading on H&amp;W</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 04 Sep 2021 10:36:30 +0800</lastBuildDate><atom:link href="http://hyyfrank.github.io/categories/reading/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Reading List</title>
+      <link>http://hyyfrank.github.io/post/books/list/</link>
+      <pubDate>Sat, 04 Sep 2021 10:36:30 +0800</pubDate>
+      
+      <guid>http://hyyfrank.github.io/post/books/list/</guid>
+      <description>[To do] [Reading] [I have Read] 深入理解 Java 虚拟机 Java 并发编程实战 effective java UNIX 网络编程 卷 2 进程间通信 UNIX 网络编程 卷 1 套接字联网 API 高性能 MySQL 重构：改善既有代码设计 UNIX 环境高级编程</description>
+    </item>
+    
+  </channel>
+</rss>

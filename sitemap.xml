@@ -2,22 +2,57 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://hyyfrank.github.io/categories/</loc>
+    <lastmod>2021-09-04T13:36:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://hyyfrank.github.io/</loc>
+    <lastmod>2021-09-04T13:36:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://hyyfrank.github.io/post/</loc>
+    <lastmod>2021-09-04T13:36:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://hyyfrank.github.io/categories/reading/</loc>
+    <lastmod>2021-09-04T13:36:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://hyyfrank.github.io/tags/reading/</loc>
+    <lastmod>2021-09-04T13:36:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://hyyfrank.github.io/post/books/list/</loc>
+    <lastmod>2021-09-04T13:36:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://hyyfrank.github.io/tags/</loc>
+    <lastmod>2021-09-04T13:36:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://hyyfrank.github.io/about/</loc>
     <lastmod>2021-08-03T22:13:10+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/project/</loc>
-    <lastmod>2021-08-03T15:42:42+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/books/</loc>
-    <lastmod>2021-08-02T21:14:52+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -30,42 +65,14 @@
   </url>
   
   <url>
-    <loc>http://hyyfrank.github.io/post/backend/talking1/</loc>
+    <loc>http://hyyfrank.github.io/categories/algorithm/</loc>
     <lastmod>2021-08-07T11:36:45+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://hyyfrank.github.io/categories/backend/</loc>
-    <lastmod>2021-08-07T11:36:45+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/categories/</loc>
-    <lastmod>2021-08-07T11:36:45+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/</loc>
-    <lastmod>2021-08-07T11:36:45+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/post/</loc>
-    <lastmod>2021-08-07T11:36:45+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/tags/</loc>
+    <loc>http://hyyfrank.github.io/post/algorithms/talking1/</loc>
     <lastmod>2021-08-07T11:36:45+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -86,14 +93,14 @@
   </url>
   
   <url>
-    <loc>http://hyyfrank.github.io/categories/technology/</loc>
+    <loc>http://hyyfrank.github.io/categories/emacs/</loc>
     <lastmod>2020-09-02T23:03:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://hyyfrank.github.io/post/backend/play-with-bloomfilter/</loc>
+    <loc>http://hyyfrank.github.io/post/redis/play-with-bloomfilter/</loc>
     <lastmod>2020-08-07T11:38:41+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -121,7 +128,14 @@
   </url>
   
   <url>
-    <loc>http://hyyfrank.github.io/post/backend/play-with-shell/</loc>
+    <loc>http://hyyfrank.github.io/categories/technology/</loc>
+    <lastmod>2020-08-07T11:38:41+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://hyyfrank.github.io/post/linux/play-with-shell/</loc>
     <lastmod>2020-08-07T11:33:39+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -135,7 +149,14 @@
   </url>
   
   <url>
-    <loc>http://hyyfrank.github.io/post/backend/https-self-sign-certificate/</loc>
+    <loc>http://hyyfrank.github.io/categories/shell/</loc>
+    <lastmod>2020-08-07T11:33:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://hyyfrank.github.io/post/ops/https-self-sign-certificate/</loc>
     <lastmod>2020-05-07T12:20:45+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -143,6 +164,13 @@
   
   <url>
     <loc>http://hyyfrank.github.io/tags/ca/</loc>
+    <lastmod>2020-05-07T12:20:45+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://hyyfrank.github.io/categories/devops/</loc>
     <lastmod>2020-05-07T12:20:45+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -163,48 +191,6 @@
   </url>
   
   <url>
-    <loc>http://hyyfrank.github.io/post/backend/webassembly-1/</loc>
-    <lastmod>2020-07-19T11:53:41+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/tags/emscripten/</loc>
-    <lastmod>2020-07-19T11:53:41+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/categories/frontend/</loc>
-    <lastmod>2020-07-19T11:53:41+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/tags/service_worker/</loc>
-    <lastmod>2020-07-19T11:53:41+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/tags/web_worker/</loc>
-    <lastmod>2020-07-19T11:53:41+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/tags/webassembly/</loc>
-    <lastmod>2020-07-19T11:53:41+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>http://hyyfrank.github.io/tags/babel/</loc>
     <lastmod>2019-08-20T19:11:44+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -213,6 +199,13 @@
   
   <url>
     <loc>http://hyyfrank.github.io/tags/devserver/</loc>
+    <lastmod>2019-08-20T19:11:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://hyyfrank.github.io/categories/frontend/</loc>
     <lastmod>2019-08-20T19:11:44+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -303,7 +296,7 @@
   </url>
   
   <url>
-    <loc>http://hyyfrank.github.io/post/backend/java-with-spring-4/</loc>
+    <loc>http://hyyfrank.github.io/post/spring/java-with-spring-4/</loc>
     <lastmod>2018-08-11T20:33:39+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -317,49 +310,56 @@
   </url>
   
   <url>
-    <loc>http://hyyfrank.github.io/post/backend/java-with-spring-3/</loc>
-    <lastmod>2018-08-04T22:33:39+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/post/backend/java-with-spring-2/</loc>
+    <loc>http://hyyfrank.github.io/categories/spring/</loc>
     <lastmod>2018-12-28T22:33:39+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://hyyfrank.github.io/post/backend/java-with-spring-1/</loc>
+    <loc>http://hyyfrank.github.io/post/spring/java-with-spring-3/</loc>
+    <lastmod>2018-08-04T22:33:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://hyyfrank.github.io/post/spring/java-with-spring-2/</loc>
+    <lastmod>2018-12-28T22:33:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://hyyfrank.github.io/post/spring/java-with-spring-1/</loc>
     <lastmod>2018-12-21T22:33:39+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://hyyfrank.github.io/categories/crontab/</loc>
+    <loc>http://hyyfrank.github.io/post/linux/play-with-contab/</loc>
     <lastmod>2017-09-07T19:33:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://hyyfrank.github.io/post/backend/play-with-contab/</loc>
+    <loc>http://hyyfrank.github.io/categories/linux/</loc>
     <lastmod>2017-09-07T19:33:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://hyyfrank.github.io/tags/linux/</loc>
+    <loc>http://hyyfrank.github.io/post/redis/play-with-redis-1/</loc>
     <lastmod>2017-09-07T19:33:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://hyyfrank.github.io/post/backend/play-with-redis-1/</loc>
+    <loc>http://hyyfrank.github.io/categories/redis/</loc>
     <lastmod>2017-09-07T19:33:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -380,14 +380,21 @@
   </url>
   
   <url>
-    <loc>http://hyyfrank.github.io/post/backend/play-with-git-2/</loc>
+    <loc>http://hyyfrank.github.io/categories/git/</loc>
     <lastmod>2017-08-07T19:33:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://hyyfrank.github.io/post/backend/play-with-git-1/</loc>
+    <loc>http://hyyfrank.github.io/post/git/play-with-git-2/</loc>
+    <lastmod>2017-08-07T19:33:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://hyyfrank.github.io/post/git/play-with-git-1/</loc>
     <lastmod>2017-07-07T19:33:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

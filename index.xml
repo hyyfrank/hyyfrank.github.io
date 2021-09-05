@@ -6,10 +6,55 @@
     <description>Recent content on H&amp;W</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 07 Jul 2021 11:36:45 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 04 Sep 2021 10:36:30 +0800</lastBuildDate>
     
         <atom:link href="http://hyyfrank.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Reading List</title>
+      <link>http://hyyfrank.github.io/post/books/list/</link>
+      <pubDate>Sat, 04 Sep 2021 10:36:30 +0800</pubDate>
+      
+      <guid>http://hyyfrank.github.io/post/books/list/</guid>
+      
+        <description>&lt;h1 id=&#34;to-do&#34;&gt;[To do]&lt;/h1&gt;
+&lt;h1 id=&#34;reading&#34;&gt;[Reading]&lt;/h1&gt;
+&lt;h1 id=&#34;i-have-read&#34;&gt;[I have Read]&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 深入理解 Java 虚拟机&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Java 并发编程实战&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; effective java&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; UNIX 网络编程 卷 2 进程间通信&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; UNIX 网络编程 卷 1 套接字联网 API&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 高性能 MySQL&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 重构：改善既有代码设计&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; UNIX 环境高级编程&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 设计模式 : 可复用面向对象软件的基础&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Java 编程思想&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 编程珠玑&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 代码整洁之道&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 计算机程序的构造和解释&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 计算机程序设计艺术(组合卷)&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 计算机程序设计艺术(排序卷)&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; The Little Schema&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; The Seasoned Schema&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Don&amp;rsquo;t make me think&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; lisp common programming&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 鸟哥私房菜系列&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 面向方面的软件开发&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Eclipse 插件开发&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Eclipse 插件开发笔记&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Eclipse 插件开发方法和实战&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Java 与 CORBA 客户 服务器编程&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 深入理解 MYSQL&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Design Data Intensive System&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; AKKA 实战&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Python 核心编程&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      
+    </item>
     
     <item>
       <title>About</title>
@@ -27,210 +72,11 @@
     </item>
     
     <item>
-      <title>Project</title>
-      <link>http://hyyfrank.github.io/project/</link>
-      <pubDate>Tue, 03 Aug 2021 15:42:42 +0800</pubDate>
-      
-      <guid>http://hyyfrank.github.io/project/</guid>
-      
-        <description>&lt;hr&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;&lt;strong&gt;Skill Set&lt;/strong&gt;&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Java, C++, Python, Javascript, Ruby, Shell, Scala, Akka, Groovy, Docker, Kubernate&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Design Pattern, Jira, Agile Method, Lucene, Elastic Search, Redis, Jenkins, Nginx&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;SpringBoot, AOP, Jsonet, AWS Cloud, Numpy, scipy, conda, tensorflow, pytorch, cs231n&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;projects&#34;&gt;projects&lt;/h2&gt;
-</description>
-      
-    </item>
-    
-    <item>
-      <title>Books</title>
-      <link>http://hyyfrank.github.io/books/</link>
-      <pubDate>Mon, 02 Aug 2021 21:14:52 +0800</pubDate>
-      
-      <guid>http://hyyfrank.github.io/books/</guid>
-      
-        <description>&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Book Name&lt;/th&gt;
-&lt;th&gt;Type&lt;/th&gt;
-&lt;th&gt;Completed&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;深入理解 Java 虚拟机&lt;/td&gt;
-&lt;td&gt;Java&lt;/td&gt;
-&lt;td&gt;☑&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Java 并发编程实战&lt;/td&gt;
-&lt;td&gt;Java&lt;/td&gt;
-&lt;td&gt;☑&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;effective java&lt;/td&gt;
-&lt;td&gt;Java&lt;/td&gt;
-&lt;td&gt;☑&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;UNIX 网络编程 卷 2 进程间通信&lt;/td&gt;
-&lt;td&gt;Linux&lt;/td&gt;
-&lt;td&gt;☑&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;UNIX 网络编程 卷 1 套接字联网 API&lt;/td&gt;
-&lt;td&gt;Linux&lt;/td&gt;
-&lt;td&gt;☑&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;高性能 MySQL&lt;/td&gt;
-&lt;td&gt;Database&lt;/td&gt;
-&lt;td&gt;☑&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;重构：改善既有代码设计&lt;/td&gt;
-&lt;td&gt;Programming&lt;/td&gt;
-&lt;td&gt;☑&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;UNIX 环境高级编程&lt;/td&gt;
-&lt;td&gt;Linux&lt;/td&gt;
-&lt;td&gt;☑&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;设计模式 : 可复用面向对象软件的基础&lt;/td&gt;
-&lt;td&gt;Programming&lt;/td&gt;
-&lt;td&gt;☑&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Java 编程思想&lt;/td&gt;
-&lt;td&gt;Java&lt;/td&gt;
-&lt;td&gt;☑&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;编程珠玑&lt;/td&gt;
-&lt;td&gt;Programming&lt;/td&gt;
-&lt;td&gt;☑&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;代码整洁之道&lt;/td&gt;
-&lt;td&gt;Programming&lt;/td&gt;
-&lt;td&gt;☑&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;计算机程序的构造和解释&lt;/td&gt;
-&lt;td&gt;Programming&lt;/td&gt;
-&lt;td&gt;☑&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;计算机程序设计艺术(组合卷)&lt;/td&gt;
-&lt;td&gt;Programming&lt;/td&gt;
-&lt;td&gt;☑&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;计算机程序设计艺术(排序卷)&lt;/td&gt;
-&lt;td&gt;Programming&lt;/td&gt;
-&lt;td&gt;☑&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;The Little Schema&lt;/td&gt;
-&lt;td&gt;FP&lt;/td&gt;
-&lt;td&gt;☑&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;The Seasoned Schema&lt;/td&gt;
-&lt;td&gt;FP&lt;/td&gt;
-&lt;td&gt;☑&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Don&amp;rsquo;t make me think&lt;/td&gt;
-&lt;td&gt;Design&lt;/td&gt;
-&lt;td&gt;☑&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;lisp common programming&lt;/td&gt;
-&lt;td&gt;FP&lt;/td&gt;
-&lt;td&gt;☑&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;鸟哥私房菜系列&lt;/td&gt;
-&lt;td&gt;Linux&lt;/td&gt;
-&lt;td&gt;☑&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;面向方面的软件开发&lt;/td&gt;
-&lt;td&gt;Programming&lt;/td&gt;
-&lt;td&gt;☑&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Eclipse 插件开发&lt;/td&gt;
-&lt;td&gt;Programming&lt;/td&gt;
-&lt;td&gt;☑&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Eclipse 插件开发笔记&lt;/td&gt;
-&lt;td&gt;Programming&lt;/td&gt;
-&lt;td&gt;☑&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Eclipse 插件开发方法和实战&lt;/td&gt;
-&lt;td&gt;Programming&lt;/td&gt;
-&lt;td&gt;☑&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Java 与 CORBA 客户 服务器编程&lt;/td&gt;
-&lt;td&gt;Programming&lt;/td&gt;
-&lt;td&gt;☑&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;深入理解 MYSQL&lt;/td&gt;
-&lt;td&gt;Database&lt;/td&gt;
-&lt;td&gt;☑&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Design Data Intensive System&lt;/td&gt;
-&lt;td&gt;Big Data&lt;/td&gt;
-&lt;td&gt;☑&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;AKKA 实战&lt;/td&gt;
-&lt;td&gt;Programming&lt;/td&gt;
-&lt;td&gt;☑&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Python 核心编程&lt;/td&gt;
-&lt;td&gt;Programming&lt;/td&gt;
-&lt;td&gt;☑&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-</description>
-      
-    </item>
-    
-    <item>
       <title>Algorithm Guy Always Good?</title>
-      <link>http://hyyfrank.github.io/post/backend/talking1/</link>
+      <link>http://hyyfrank.github.io/post/algorithms/talking1/</link>
       <pubDate>Wed, 07 Jul 2021 11:36:45 +0800</pubDate>
       
-      <guid>http://hyyfrank.github.io/post/backend/talking1/</guid>
+      <guid>http://hyyfrank.github.io/post/algorithms/talking1/</guid>
       
         <description>&lt;ul&gt;
 &lt;li&gt;今天一个同事甩我一段代码，让我实现功能，说是对图片做半透明太慢了&lt;/li&gt;
@@ -403,10 +249,10 @@
     
     <item>
       <title>[Autodesk] Play With bloomfilter</title>
-      <link>http://hyyfrank.github.io/post/backend/play-with-bloomfilter/</link>
+      <link>http://hyyfrank.github.io/post/redis/play-with-bloomfilter/</link>
       <pubDate>Fri, 07 Aug 2020 11:38:41 +0800</pubDate>
       
-      <guid>http://hyyfrank.github.io/post/backend/play-with-bloomfilter/</guid>
+      <guid>http://hyyfrank.github.io/post/redis/play-with-bloomfilter/</guid>
       
         <description>&lt;h1 id=&#34;bloomfilter概念&#34;&gt;BloomFilter概念&lt;/h1&gt;
 &lt;p&gt;布隆过滤器的原理是，当一个元素被加入集合时，通过K个散列函数将这个元素映射成一个位数组中的K个点，把它们置为1。检索时，我们只要看看这些点是不是都是1就（大约）知道集合中有没有它了：如果这些点有任何一个0，则被检元素一定不在；如果都是1，则被检元素很可能在。这就是布隆过滤器的基本思想。
@@ -486,10 +332,10 @@ Bloom Filter跟单哈希函数Bit-Map不同之处在于：Bloom Filter使用了k
     
     <item>
       <title>[Autodesk] Play With Shell</title>
-      <link>http://hyyfrank.github.io/post/backend/play-with-shell/</link>
+      <link>http://hyyfrank.github.io/post/linux/play-with-shell/</link>
       <pubDate>Sun, 07 Jun 2020 11:33:39 +0800</pubDate>
       
-      <guid>http://hyyfrank.github.io/post/backend/play-with-shell/</guid>
+      <guid>http://hyyfrank.github.io/post/linux/play-with-shell/</guid>
       
         <description>&lt;h2 id=&#34;shell逐行处理两种常用速度较快的方法&#34;&gt;shell逐行处理两种常用速度较快的方法&lt;/h2&gt;
 &lt;ul&gt;
@@ -640,10 +486,10 @@ exec 4&amp;gt;&amp;amp;-
     
     <item>
       <title>[Autodesk] How to create https self-signed certificate</title>
-      <link>http://hyyfrank.github.io/post/backend/https-self-sign-certificate/</link>
+      <link>http://hyyfrank.github.io/post/ops/https-self-sign-certificate/</link>
       <pubDate>Tue, 07 Apr 2020 12:20:45 +0800</pubDate>
       
-      <guid>http://hyyfrank.github.io/post/backend/https-self-sign-certificate/</guid>
+      <guid>http://hyyfrank.github.io/post/ops/https-self-sign-certificate/</guid>
       
         <description>&lt;h2 id=&#34;动机&#34;&gt;动机&lt;/h2&gt;
 &lt;p&gt;公司内网想做一个小型的https，不想申请https证书，想自己做自验证的证书&lt;/p&gt;
@@ -866,70 +712,6 @@ print(response&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;json())
 &lt;li&gt;这里还有些其他主题，比如，证书回收，格式转换方法，测速，最佳实践等，这里主要记录下做这种证书的步骤，其他的值得一提的是，最佳实践，我们一般是做在CI/CD的pipline里边，证书也要做个定时更新，这些都是必不可少的，当然在生成证书之前还有一些对比和选择加密算法的细节，这里就不一一讲了，有兴趣可以自己去找下。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      
-    </item>
-    
-    <item>
-      <title>[Autodesk] how autodesk use webassembly </title>
-      <link>http://hyyfrank.github.io/post/backend/webassembly-1/</link>
-      <pubDate>Sat, 25 Jan 2020 11:53:41 +0800</pubDate>
-      
-      <guid>http://hyyfrank.github.io/post/backend/webassembly-1/</guid>
-      
-        <description>&lt;h2 id=&#34;什么是web-assembly&#34;&gt;什么是web assembly&lt;/h2&gt;
-&lt;p&gt;就是一个可移植、体积小、加载快并且兼容 Web 的全新格式。可以使用C、C++、Rust、Go、Java、C#等编译器来生成wasm,以二进制的方式发送给浏览器，可以增强javascript的效率。目前的实践情况有c++开发的大型游戏，google earth, Magnum，Blazor，我司的autocad.这里主要介绍我司的autocad.&lt;/p&gt;
-&lt;h2 id=&#34;为什么用web-assembly&#34;&gt;为什么用web assembly&lt;/h2&gt;
-&lt;p&gt;这个就不必说了，主要是效率问题，js显然对于效率这块有点无能为力。对于大型游戏和对于画图这种很重cpu,内存的，以及高并发的场景，javascript支持其实有限，当然也有增加这方面的能力，比如sharedArrayBuffer来提供某种程度的并发，但是其实还是相当有限。我司的使用是emScripten和asm.js然后，后面用更加优化的Binaryen,整体速度提高了大概12%-15%左右。&lt;/p&gt;
-&lt;h2 id=&#34;我们怎么用&#34;&gt;我们怎么用&lt;/h2&gt;
-&lt;p&gt;我们主要是用emScripten来把c++编译成wasm.主要问题在于：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;代码code base太大&lt;/li&gt;
-&lt;li&gt;应用启动时间长&lt;/li&gt;
-&lt;li&gt;桌面应用和网站的区别
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;同步和异步IO&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;浏览器主线程不允许阻塞调用，不然就很卡了，重写可能比较麻烦，第三方库可能也需要重写&lt;/li&gt;
-&lt;li&gt;弄个web worker来做也有点问题，比如阻塞的调用，我后面onMessage接受不到数据，也没有共享内存，没有类似信号量的机制来保证我的通讯机制&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;缺乏共享内存&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Emterpreter: 他是可以把asm.js编译成bytecode,然后有个解释器可以来跑，可以支持同步,主要是有可以保存执行的状态和堆栈，然后有个定时器，然后恢复堆栈和状态这样的方式来支持同步。问题是执行太慢，而且没有一种确切的方式来识别栈中的函数，维护也困难。&lt;/li&gt;
-&lt;li&gt;SharedArrayBuffer:很快，但是要手动去处理序列化，更大的问题是有幽灵攻击的漏洞存在，所以也不行
-&lt;img src=&#34;http://hyyfrank.github.io/images/9.png&#34; alt=&#34;SharedArrayBuffer&#34;&gt;&lt;/li&gt;
-&lt;li&gt;service worker &amp;amp; xhr: 使用同步XHR来模拟阻塞调用，用service worker来拦截网络调用，当有新版本的service worker上线的时候，用户要刷新才能看到,这里就要自己管理版本保证一致性，所以需要做个后台更新,还有就是启动的时候需要等待service worker的启动完成，这也算是一个启动时间的一种负担
-&lt;img src=&#34;http://hyyfrank.github.io/images/11.png&#34; alt=&#34;Service Worker &amp; Sync XHR&#34;&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;内存访问不一致性的问题
-第一，asm.js直接不支持，wasm跑的很慢，主要是涉及一些强制类型转换的时候的内存拷贝，比如char的指针拷贝到int的指针的位置，所以后来统一换成了memcpy,主要是code修改，避免wasm变慢影响性能。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-C++&#34; data-lang=&#34;C++&#34;&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; a &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt;;
-  &lt;span style=&#34;color:#66d9ef&#34;&gt;unsigned&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;char&lt;/span&gt; b &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
-  a &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;b;
-  &lt;span style=&#34;color:#75715e&#34;&gt;/*改成*/&lt;/span&gt;
-  memcpy(a,&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;b,&lt;span style=&#34;color:#66d9ef&#34;&gt;sizeof&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt;))
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;第二是：函数指针的转换，emscripten的函数指针需要严格类型&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-C++&#34; data-lang=&#34;C++&#34;&gt;   &lt;span style=&#34;color:#66d9ef&#34;&gt;typedef&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;void&lt;/span&gt; (&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;voidType)(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt;);
-   &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;myfun&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; a){}
-   voidType fn &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (voidType)myfun; &lt;span style=&#34;color:#75715e&#34;&gt;//这里报错 
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;优化后82个子项目提升了50%左右，构建从90分钟降低到50分钟&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;不支持异常：移除部分异常，提高效率&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;总结&#34;&gt;总结&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;启动过程，从UI主线程开始，首先是UI初始化，service worker初始化，初始化web worker,web worker里边又包括wasm初始化，下载资源（font, 国际化的数据等等），然后是c++初始化启动的代码。&lt;/li&gt;
-&lt;li&gt;启动优化：因为web worker中的wasm实例化占了大部分的时间，所以web assembly实例化的速度可以优化，还有就是代码优化比如O3(采取很多向量化算法，提高代码的并行执行程度，利用现代CPU中的流水线，Cache等),降低code size移除异常等等&lt;/li&gt;
 &lt;/ul&gt;
 </description>
       
@@ -2119,10 +1901,10 @@ extentsions:[&#39;.ts&#39;,&#39;.js&#39;,&#39;.json&#39;]
     
     <item>
       <title>Java With Spring (四)</title>
-      <link>http://hyyfrank.github.io/post/backend/java-with-spring-4/</link>
+      <link>http://hyyfrank.github.io/post/spring/java-with-spring-4/</link>
       <pubDate>Sat, 04 Aug 2018 09:33:39 +0800</pubDate>
       
-      <guid>http://hyyfrank.github.io/post/backend/java-with-spring-4/</guid>
+      <guid>http://hyyfrank.github.io/post/spring/java-with-spring-4/</guid>
       
         <description>&lt;h1 id=&#34;增加多个环境支持&#34;&gt;增加多个环境支持&lt;/h1&gt;
 &lt;ol&gt;
@@ -2210,10 +1992,10 @@ mybatis&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#
     
     <item>
       <title>Java With Spring (三)</title>
-      <link>http://hyyfrank.github.io/post/backend/java-with-spring-3/</link>
+      <link>http://hyyfrank.github.io/post/spring/java-with-spring-3/</link>
       <pubDate>Sat, 28 Jul 2018 09:33:39 +0800</pubDate>
       
-      <guid>http://hyyfrank.github.io/post/backend/java-with-spring-3/</guid>
+      <guid>http://hyyfrank.github.io/post/spring/java-with-spring-3/</guid>
       
         <description>&lt;h1 id=&#34;配置kombok&#34;&gt;配置kombok&lt;/h1&gt;
 &lt;ol&gt;
@@ -2397,10 +2179,10 @@ logging.level.com.example.datas.manager.mapper=debug
     
     <item>
       <title>Java With Spring (二)</title>
-      <link>http://hyyfrank.github.io/post/backend/java-with-spring-2/</link>
+      <link>http://hyyfrank.github.io/post/spring/java-with-spring-2/</link>
       <pubDate>Sat, 21 Jul 2018 09:33:39 +0800</pubDate>
       
-      <guid>http://hyyfrank.github.io/post/backend/java-with-spring-2/</guid>
+      <guid>http://hyyfrank.github.io/post/spring/java-with-spring-2/</guid>
       
         <description>&lt;h2 id=&#34;增删改查&#34;&gt;增删改查&lt;/h2&gt;
 &lt;ol&gt;
@@ -2664,6 +2446,100 @@ mybatis.configuration.log-impl= org.apache.ibatis.logging.stdout.StdOutImpl
 &lt;blockquote&gt;
 &lt;p&gt;不积小流，无以成江海&lt;/p&gt;
 &lt;/blockquote&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Java With Spring (一)</title>
+      <link>http://hyyfrank.github.io/post/spring/java-with-spring-1/</link>
+      <pubDate>Sat, 14 Jul 2018 09:33:39 +0800</pubDate>
+      
+      <guid>http://hyyfrank.github.io/post/spring/java-with-spring-1/</guid>
+      
+        <description>&lt;h1 id=&#34;一个java的脚手架需要些什么&#34;&gt;一个Java的脚手架需要些什么&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;增删改查,mybatics(分页有需要可以自己加下)&lt;/li&gt;
+&lt;li&gt;配置kombok&lt;/li&gt;
+&lt;li&gt;增加gitignore,支持热部署,JSON包装结果&lt;/li&gt;
+&lt;li&gt;增加多个环境支持&lt;/li&gt;
+&lt;li&gt;自定义异常处理&lt;/li&gt;
+&lt;li&gt;日志处理&lt;/li&gt;
+&lt;li&gt;增加过滤器,如cros&lt;/li&gt;
+&lt;li&gt;增加redis&lt;/li&gt;
+&lt;li&gt;增加kafka&lt;/li&gt;
+&lt;li&gt;增加自定义线程池&lt;/li&gt;
+&lt;li&gt;事务处理方式&lt;/li&gt;
+&lt;li&gt;swagger支持&lt;/li&gt;
+&lt;li&gt;google style code format&lt;/li&gt;
+&lt;li&gt;分布式任务调度elastic-job&lt;/li&gt;
+&lt;li&gt;配置中心apollo&lt;/li&gt;
+&lt;li&gt;注册中心eureka&lt;/li&gt;
+&lt;li&gt;链路追踪skywalking&lt;/li&gt;
+&lt;li&gt;job注册调度zookeeper&lt;/li&gt;
+&lt;li&gt;熔断器hystrix&lt;/li&gt;
+&lt;li&gt;RPC, OpenFeign&lt;/li&gt;
+&lt;li&gt;读写分离和分库分表，shardingsphere&lt;/li&gt;
+&lt;li&gt;全文检索elastic-search&lt;/li&gt;
+&lt;li&gt;security&lt;/li&gt;
+&lt;li&gt;AOP&lt;/li&gt;
+&lt;li&gt;spring cloud&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;技术决策和架构选择&#34;&gt;技术决策和架构选择&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;具体使用什么技术要看具体的条件和业务的需要，不可一概而论，生搬硬套！&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;麻雀虽小，五脏俱全！&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Crontab Issue Tracking</title>
+      <link>http://hyyfrank.github.io/post/linux/play-with-contab/</link>
+      <pubDate>Mon, 07 Aug 2017 12:33:21 +0800</pubDate>
+      
+      <guid>http://hyyfrank.github.io/post/linux/play-with-contab/</guid>
+      
+        <description>&lt;ul&gt;
+&lt;li&gt;how to track issue
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo /var/log/syslog | grep cron
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;capture the output
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; * * * /home/hyy/Start.py &amp;gt;/tmp/output.log 2&amp;gt;&amp;amp;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;check cron is running
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;  ps -ef | grep cron | grep -v grep
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;check the path is correct
+crontab  is running in with cwd == $HOME, if you using python os.getcwd() in different folder structure, make sure you cd to the correct place or else it will affect your code by output &amp;ldquo;can not find module&amp;rdquo; stuff.&lt;/li&gt;
+&lt;li&gt;last command in crontab should have a blank line
+this is tricky, if you didn&amp;rsquo;t notice it.&lt;/li&gt;
+&lt;li&gt;be careful the dot thing
+Debian Linux and its derivative (Ubuntu, Mint, etc) have some peculiarities that may prevent your cron jobs from executing; in particular, the files in /etc/cron.d, /etc/cron.{hourly,daily,weekly,monthly} must :
+&lt;ul&gt;
+&lt;li&gt;be owned by root&lt;/li&gt;
+&lt;li&gt;only be writable by root&lt;/li&gt;
+&lt;li&gt;not be writable by group or other users&lt;/li&gt;
+&lt;li&gt;have a name without any dots &amp;lsquo;.&amp;rsquo; or any other special character but &amp;lsquo;-&amp;rsquo; and &amp;lsquo;_&amp;rsquo; .&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;python issue run in crontab
+&lt;ul&gt;
+&lt;li&gt;make sure python script have #!/usr/bin/python at the beginning, not neccessary&lt;/li&gt;
+&lt;li&gt;make sure log the output, so you can debug in a smooth way&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;chmod to the script
+&lt;ul&gt;
+&lt;li&gt;always run in normal user mode, not root user, and do not use&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# don&amp;#39;t do this&lt;/span&gt;
+  sudo contab -e  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
       
     </item>

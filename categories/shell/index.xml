@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>shell on H&amp;W</title>
+    <link>http://hyyfrank.github.io/categories/shell/</link>
+    <description>Recent content in shell on H&amp;W</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 07 Jun 2020 11:33:39 +0800</lastBuildDate><atom:link href="http://hyyfrank.github.io/categories/shell/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Autodesk] Play With Shell</title>
+      <link>http://hyyfrank.github.io/post/linux/play-with-shell/</link>
+      <pubDate>Sun, 07 Jun 2020 11:33:39 +0800</pubDate>
+      
+      <guid>http://hyyfrank.github.io/post/linux/play-with-shell/</guid>
+      <description>shell逐行处理两种常用速度较快的方法 使用文件描述符，把标准输出关联到文件描述符4上面，然后重定向标准输出到$OUTFILE,然后回复标准</description>
+    </item>
+    
+  </channel>
+</rss>

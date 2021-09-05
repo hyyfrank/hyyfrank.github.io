@@ -9,10 +9,10 @@
     <lastBuildDate>Sun, 07 May 2017 12:33:21 +0800</lastBuildDate><atom:link href="http://hyyfrank.github.io/tags/redis/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Play With Redis (一)</title>
-      <link>http://hyyfrank.github.io/post/backend/play-with-redis-1/</link>
+      <link>http://hyyfrank.github.io/post/redis/play-with-redis-1/</link>
       <pubDate>Sun, 07 May 2017 12:33:21 +0800</pubDate>
       
-      <guid>http://hyyfrank.github.io/post/backend/play-with-redis-1/</guid>
+      <guid>http://hyyfrank.github.io/post/redis/play-with-redis-1/</guid>
       <description>Redis作为队列的一些优缺点 设计决策考虑 redis做消息队列的方式 基于List的LPUSH+BRPOP的实现 PUB/SUB，订阅/发布模式</description>
     </item>
     

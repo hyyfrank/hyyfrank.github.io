@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Java With Spring (二) - H&amp;W</title>
+  
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="hyyfrank" />
+  <meta name="description" content="增删改查 作为一个简单的脚手架程序，我们先从最基本的功能开始，增删改查，返回json,包装JSON数据 配置好依赖，可以看到我们仅有最简单的三个" />
+
+  <meta name="keywords" content="Hugo, theme, jane" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.84.3" />
+
+
+<link rel="canonical" href="http://hyyfrank.github.io/post/spring/java-with-spring-2/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.fa4b2b9f31b5c6d0b683db81157a9226e17b06e61911791ab547242a4a0556f2.css" integrity="sha256-&#43;ksrnzG1xtC2g9uBFXqSJuF7BuYZEXkatUckKkoFVvI=" media="screen" crossorigin="anonymous">
+
+
+
+
+<link rel="stylesheet" href="/css/prism.css">
+
+<link rel="stylesheet" href="/css/custom.css">
+
+
+<meta property="og:title" content="Java With Spring (二)" />
+<meta property="og:description" content="增删改查 作为一个简单的脚手架程序，我们先从最基本的功能开始，增删改查，返回json,包装JSON数据 配置好依赖，可以看到我们仅有最简单的三个" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://hyyfrank.github.io/post/spring/java-with-spring-2/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2018-07-21T09:33:39&#43;08:00" />
+<meta property="article:modified_time" content="2018-12-28T22:33:39&#43;08:00" />
+
+<meta itemprop="name" content="Java With Spring (二)">
+<meta itemprop="description" content="增删改查 作为一个简单的脚手架程序，我们先从最基本的功能开始，增删改查，返回json,包装JSON数据 配置好依赖，可以看到我们仅有最简单的三个"><meta itemprop="datePublished" content="2018-07-21T09:33:39&#43;08:00" />
+<meta itemprop="dateModified" content="2018-12-28T22:33:39&#43;08:00" />
+<meta itemprop="wordCount" content="991">
+<meta itemprop="keywords" content="java,Spring," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Java With Spring (二)"/>
+<meta name="twitter:description" content="增删改查 作为一个简单的脚手架程序，我们先从最基本的功能开始，增删改查，返回json,包装JSON数据 配置好依赖，可以看到我们仅有最简单的三个"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  
+  <link rel="stylesheet" href="/prism.css"><link rel="stylesheet" href="/custom.css"> 
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">F&W</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://hyyfrank.github.io/post/">Tech</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://hyyfrank.github.io/tags/">Tags</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://hyyfrank.github.io/categories/">Categories</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://hyyfrank.github.io/about/">About</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    <span class="logoF">F</span><span class="logoA">&</span><span class="logoW">J</span>
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://hyyfrank.github.io/post/">Tech</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://hyyfrank.github.io/tags/">Tags</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://hyyfrank.github.io/categories/">Categories</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://hyyfrank.github.io/about/">About</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">Java With Spring (二)</h1>
+      
+      <div class="post-meta">
+        <time datetime="2018-07-21" class="post-time">
+          2018-07-21
+        </time>
+        <div class="post-category">
+            <a href="http://hyyfrank.github.io/categories/spring/"> Spring </a>
+            
+          </div>
+        
+
+        
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    
+    <div class="post-content">
+      <h2 id="增删改查">增删改查</h2>
+<ol>
+<li>作为一个简单的脚手架程序，我们先从最基本的功能开始，增删改查，返回json,包装JSON数据</li>
+<li>配置好依赖，可以看到我们仅有最简单的三个依赖
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">&lt;</span>dependency<span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;</span>groupId<span style="color:#f92672">&gt;</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">springframework</span><span style="color:#f92672">.</span><span style="color:#a6e22e">boot</span><span style="color:#f92672">&lt;/</span>groupId<span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;</span>artifactId<span style="color:#f92672">&gt;</span>spring<span style="color:#f92672">-</span>boot<span style="color:#f92672">-</span>starter<span style="color:#f92672">&lt;/</span>artifactId<span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;/</span>dependency<span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;</span>dependency<span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;</span>groupId<span style="color:#f92672">&gt;</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">springframework</span><span style="color:#f92672">.</span><span style="color:#a6e22e">boot</span><span style="color:#f92672">&lt;/</span>groupId<span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;</span>artifactId<span style="color:#f92672">&gt;</span>spring<span style="color:#f92672">-</span>boot<span style="color:#f92672">-</span>starter<span style="color:#f92672">-</span>web<span style="color:#f92672">&lt;/</span>artifactId<span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;/</span>dependency<span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;</span>dependency<span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;</span>groupId<span style="color:#f92672">&gt;</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">mybatis</span><span style="color:#f92672">.</span><span style="color:#a6e22e">spring</span><span style="color:#f92672">.</span><span style="color:#a6e22e">boot</span><span style="color:#f92672">&lt;/</span>groupId<span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;</span>artifactId<span style="color:#f92672">&gt;</span>mybatis<span style="color:#f92672">-</span>spring<span style="color:#f92672">-</span>boot<span style="color:#f92672">-</span>starter<span style="color:#f92672">&lt;/</span>artifactId<span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;</span>version<span style="color:#f92672">&gt;</span>2<span style="color:#f92672">.</span><span style="color:#a6e22e">1</span><span style="color:#f92672">.</span><span style="color:#a6e22e">1</span><span style="color:#f92672">&lt;/</span>version<span style="color:#f92672">&gt;</span>
+<span style="color:#f92672">&lt;/</span>dependency<span style="color:#f92672">&gt;</span>
+
+<span style="color:#f92672">&lt;</span>dependency<span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;</span>groupId<span style="color:#f92672">&gt;</span>com<span style="color:#f92672">.</span><span style="color:#a6e22e">alibaba</span><span style="color:#f92672">&lt;/</span>groupId<span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;</span>artifactId<span style="color:#f92672">&gt;</span>druid<span style="color:#f92672">-</span>spring<span style="color:#f92672">-</span>boot<span style="color:#f92672">-</span>starter<span style="color:#f92672">&lt;/</span>artifactId<span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;</span>version<span style="color:#f92672">&gt;</span>1<span style="color:#f92672">.</span><span style="color:#a6e22e">1</span><span style="color:#f92672">.</span><span style="color:#a6e22e">10</span><span style="color:#f92672">&lt;/</span>version<span style="color:#f92672">&gt;</span>
+<span style="color:#f92672">&lt;/</span>dependency<span style="color:#f92672">&gt;</span>
+
+<span style="color:#f92672">&lt;</span>dependency<span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;</span>groupId<span style="color:#f92672">&gt;</span>mysql<span style="color:#f92672">&lt;/</span>groupId<span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;</span>artifactId<span style="color:#f92672">&gt;</span>mysql<span style="color:#f92672">-</span>connector<span style="color:#f92672">-</span>java<span style="color:#f92672">&lt;/</span>artifactId<span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;</span>scope<span style="color:#f92672">&gt;</span>runtime<span style="color:#f92672">&lt;/</span>scope<span style="color:#f92672">&gt;</span>
+<span style="color:#f92672">&lt;/</span>dependency<span style="color:#f92672">&gt;</span>
+</code></pre></div></li>
+<li>从基本的目录结构
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">main
+<span style="color:#960050;background-color:#1e0010">├──</span> java
+<span style="color:#960050;background-color:#1e0010">│</span>   <span style="color:#960050;background-color:#1e0010">└──</span> com
+<span style="color:#960050;background-color:#1e0010">│</span>       <span style="color:#960050;background-color:#1e0010">└──</span> autodesk
+<span style="color:#960050;background-color:#1e0010">│</span>           <span style="color:#960050;background-color:#1e0010">└──</span> www
+<span style="color:#960050;background-color:#1e0010">│</span>               <span style="color:#960050;background-color:#1e0010">├──</span> PlayWithBootApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">java</span>
+<span style="color:#960050;background-color:#1e0010">│</span>               <span style="color:#960050;background-color:#1e0010">├──</span> controller
+<span style="color:#960050;background-color:#1e0010">│</span>               <span style="color:#960050;background-color:#1e0010">│</span>   <span style="color:#960050;background-color:#1e0010">└──</span> PostController<span style="color:#f92672">.</span><span style="color:#a6e22e">java</span>
+<span style="color:#960050;background-color:#1e0010">│</span>               <span style="color:#960050;background-color:#1e0010">├──</span> dao
+<span style="color:#960050;background-color:#1e0010">│</span>               <span style="color:#960050;background-color:#1e0010">│</span>   <span style="color:#960050;background-color:#1e0010">└──</span> PostDao<span style="color:#f92672">.</span><span style="color:#a6e22e">java</span>
+<span style="color:#960050;background-color:#1e0010">│</span>               <span style="color:#960050;background-color:#1e0010">├──</span> exception
+<span style="color:#960050;background-color:#1e0010">│</span>               <span style="color:#960050;background-color:#1e0010">│</span>   <span style="color:#960050;background-color:#1e0010">└──</span> CustomExceptionHandler<span style="color:#f92672">.</span><span style="color:#a6e22e">java</span>
+<span style="color:#960050;background-color:#1e0010">│</span>               <span style="color:#960050;background-color:#1e0010">├──</span> model
+<span style="color:#960050;background-color:#1e0010">│</span>               <span style="color:#960050;background-color:#1e0010">│</span>   <span style="color:#960050;background-color:#1e0010">└──</span> Post<span style="color:#f92672">.</span><span style="color:#a6e22e">java</span>
+<span style="color:#960050;background-color:#1e0010">│</span>               <span style="color:#960050;background-color:#1e0010">├──</span> services
+<span style="color:#960050;background-color:#1e0010">│</span>               <span style="color:#960050;background-color:#1e0010">│</span>   <span style="color:#960050;background-color:#1e0010">├──</span> PostService<span style="color:#f92672">.</span><span style="color:#a6e22e">java</span>
+<span style="color:#960050;background-color:#1e0010">│</span>               <span style="color:#960050;background-color:#1e0010">│</span>   <span style="color:#960050;background-color:#1e0010">└──</span> impl
+<span style="color:#960050;background-color:#1e0010">│</span>               <span style="color:#960050;background-color:#1e0010">│</span>       <span style="color:#960050;background-color:#1e0010">└──</span> PostServiceImpl<span style="color:#f92672">.</span><span style="color:#a6e22e">java</span>
+<span style="color:#960050;background-color:#1e0010">│</span>               <span style="color:#960050;background-color:#1e0010">└──</span> utils
+<span style="color:#960050;background-color:#1e0010">│</span>                   <span style="color:#960050;background-color:#1e0010">└──</span> JsonWrapResult<span style="color:#f92672">.</span><span style="color:#a6e22e">java</span>
+<span style="color:#960050;background-color:#1e0010">└──</span> resources
+    <span style="color:#960050;background-color:#1e0010">├──</span> application<span style="color:#f92672">.</span><span style="color:#a6e22e">properties</span>
+    <span style="color:#960050;background-color:#1e0010">├──</span> customize<span style="color:#f92672">.</span><span style="color:#a6e22e">properties</span>
+    <span style="color:#960050;background-color:#1e0010">└──</span> mybatis
+        <span style="color:#960050;background-color:#1e0010">├──</span> mapper
+        <span style="color:#960050;background-color:#1e0010">│</span>   <span style="color:#960050;background-color:#1e0010">└──</span> PostMapper<span style="color:#f92672">.</span><span style="color:#a6e22e">xml</span>
+        <span style="color:#960050;background-color:#1e0010">└──</span> mybatis<span style="color:#f92672">-</span>config<span style="color:#f92672">.</span><span style="color:#a6e22e">xml</span>
+</code></pre></div></li>
+<li>基本的目录结构大体如此，测试目录就不列出来了，mybatic配置如下：
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"># database
+spring.datasource.url=jdbc:mysql://127.0.0.1:3306/springboot?useUnicode=true<span style="color:#960050;background-color:#1e0010">&amp;</span>characterEncoding=utf8<span style="color:#960050;background-color:#1e0010">&amp;</span>useSSL=false<span style="color:#960050;background-color:#1e0010">&amp;</span>serverTimezone=GMT%2B8
+spring.datasource.username=root
+spring.datasource.password=test
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+# MyBatis
+mybatis.type-aliases-package=com.autodesk.www.model
+mybatis.config-locations=classpath:mybatis/mybatis-config.xml
+mybatis.mapper-locations=classpath:mybatis/mapper/*.xml
+mybatis.configuration.log-impl= org.apache.ibatis.logging.stdout.StdOutImpl
+</code></pre></div></li>
+<li><code>PostController.java</code>代码如下
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@RestController</span>
+<span style="color:#a6e22e">@RequestMapping</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/post&#34;</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PostController</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> PostService postService<span style="color:#f92672">;</span>
+    <span style="color:#a6e22e">@Autowired</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">PostController</span><span style="color:#f92672">(</span>PostService postService<span style="color:#f92672">){</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">postService</span> <span style="color:#f92672">=</span> postService<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#a6e22e">@PostMapping</span><span style="color:#f92672">(</span>path<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/add&#34;</span><span style="color:#f92672">,</span> consumes <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;application/json&#34;</span><span style="color:#f92672">,</span> produces <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;application/json&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> JsonWrapResult <span style="color:#a6e22e">addEmployee</span><span style="color:#f92672">(</span><span style="color:#a6e22e">@RequestBody</span> Post post<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">postService</span><span style="color:#f92672">.</span><span style="color:#a6e22e">createPost</span><span style="color:#f92672">(</span>post<span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">return</span> JsonWrapResult<span style="color:#f92672">.</span><span style="color:#a6e22e">ok</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">postService</span><span style="color:#f92672">.</span><span style="color:#a6e22e">findAllPosts</span><span style="color:#f92672">());</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#a6e22e">@RequestMapping</span><span style="color:#f92672">(</span>value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/delete/{postId}&#34;</span><span style="color:#f92672">,</span> method <span style="color:#f92672">=</span> RequestMethod<span style="color:#f92672">.</span><span style="color:#a6e22e">DELETE</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> JsonWrapResult <span style="color:#a6e22e">deletePost</span><span style="color:#f92672">(</span><span style="color:#a6e22e">@PathVariable</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;postId&#34;</span><span style="color:#f92672">)</span> Long postId<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">postService</span><span style="color:#f92672">.</span><span style="color:#a6e22e">deletePost</span><span style="color:#f92672">(</span>postId<span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">return</span> JsonWrapResult<span style="color:#f92672">.</span><span style="color:#a6e22e">ok</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Delete Successful.&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#a6e22e">@PostMapping</span><span style="color:#f92672">(</span>path<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/update&#34;</span><span style="color:#f92672">,</span> consumes <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;application/json&#34;</span><span style="color:#f92672">,</span> produces <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;application/json&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> JsonWrapResult <span style="color:#a6e22e">updateEmployee</span><span style="color:#f92672">(</span><span style="color:#a6e22e">@RequestBody</span> Post post<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">postService</span><span style="color:#f92672">.</span><span style="color:#a6e22e">updatePost</span><span style="color:#f92672">(</span>post<span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">return</span> JsonWrapResult<span style="color:#f92672">.</span><span style="color:#a6e22e">ok</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">postService</span><span style="color:#f92672">.</span><span style="color:#a6e22e">findAllPosts</span><span style="color:#f92672">());</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#a6e22e">@RequestMapping</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/query/{id}&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> JsonWrapResult <span style="color:#a6e22e">testQuery</span><span style="color:#f92672">(</span><span style="color:#a6e22e">@PathVariable</span> Long id<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> JsonWrapResult<span style="color:#f92672">.</span><span style="color:#a6e22e">ok</span><span style="color:#f92672">(</span>postService<span style="color:#f92672">.</span><span style="color:#a6e22e">findPost</span><span style="color:#f92672">(</span>id<span style="color:#f92672">));</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#a6e22e">@RequestMapping</span><span style="color:#f92672">(</span>value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/all&#34;</span><span style="color:#f92672">,</span> method <span style="color:#f92672">=</span> RequestMethod<span style="color:#f92672">.</span><span style="color:#a6e22e">GET</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> JsonWrapResult <span style="color:#a6e22e">listAllPosts</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>  
+    List<span style="color:#f92672">&lt;</span>Post<span style="color:#f92672">&gt;</span> allPosts <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">postService</span><span style="color:#f92672">.</span><span style="color:#a6e22e">findAllPosts</span><span style="color:#f92672">();</span>
+    <span style="color:#66d9ef">return</span> JsonWrapResult<span style="color:#f92672">.</span><span style="color:#a6e22e">ok</span><span style="color:#f92672">(</span>allPosts<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+</code></pre></div></li>
+<li><code>PostDao.java</code>代码如下
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Repository</span>
+<span style="color:#a6e22e">@Mapper</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">PostDao</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">save</span><span style="color:#f92672">(</span>Post post<span style="color:#f92672">);</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">delete</span><span style="color:#f92672">(</span>Long postId<span style="color:#f92672">);</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">update</span><span style="color:#f92672">(</span>Post post<span style="color:#f92672">);</span>
+    Post <span style="color:#a6e22e">find</span><span style="color:#f92672">(</span>Long postId<span style="color:#f92672">);</span>
+    List<span style="color:#f92672">&lt;</span>Post<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">findAll</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
+<li><code>PostService.java</code>代码如下
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">PostService</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">createPost</span><span style="color:#f92672">(</span>Post post<span style="color:#f92672">);</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">deletePost</span><span style="color:#f92672">(</span>Long postId<span style="color:#f92672">);</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">updatePost</span><span style="color:#f92672">(</span>Post post<span style="color:#f92672">);</span>
+    Map<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> Object<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">findPost</span><span style="color:#f92672">(</span>Long postId<span style="color:#f92672">);</span>
+    List<span style="color:#f92672">&lt;</span>Post<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">findAllPosts</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
+<li><code>Post.java</code>代码如下
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Post</span> <span style="color:#66d9ef">implements</span> Serializable <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">long</span> serialVersionUID <span style="color:#f92672">=</span> 1L<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> Long id<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> String title<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> String content<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> Timestamp creationDate<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">public</span> Long <span style="color:#a6e22e">getId</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> id<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setId</span><span style="color:#f92672">(</span>Long id<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">id</span> <span style="color:#f92672">=</span> id<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getTitle</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> title<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setTitle</span><span style="color:#f92672">(</span>String title<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">title</span> <span style="color:#f92672">=</span> title<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getContent</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> content<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setContent</span><span style="color:#f92672">(</span>String content<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">content</span> <span style="color:#f92672">=</span> content<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#66d9ef">public</span> Timestamp <span style="color:#a6e22e">getCreationDate</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> creationDate<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setCreationDate</span><span style="color:#f92672">(</span>Timestamp creationDate<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">creationDate</span> <span style="color:#f92672">=</span> creationDate<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">toString</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Post [id=&#34;</span> <span style="color:#f92672">+</span> id <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;, title=&#34;</span> <span style="color:#f92672">+</span> title <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;, content=&#34;</span> <span style="color:#f92672">+</span> content <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;, creationDate=&#34;</span> <span style="color:#f92672">+</span> creationDate <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;]&#34;</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
+<li><code>PostServiceImpl.java</code>代码如下
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Service</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;postService&#34;</span><span style="color:#f92672">)</span>
+<span style="color:#a6e22e">@Transactional</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PostServiceImpl</span> <span style="color:#66d9ef">implements</span> PostService <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> PostDao postDao<span style="color:#f92672">;</span>
+    <span style="color:#a6e22e">@Autowired</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">PostServiceImpl</span><span style="color:#f92672">(</span>PostDao postDao<span style="color:#f92672">){</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">postDao</span> <span style="color:#f92672">=</span> postDao<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">createPost</span><span style="color:#f92672">(</span>Post post<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        post<span style="color:#f92672">.</span><span style="color:#a6e22e">setCreationDate</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Timestamp<span style="color:#f92672">(</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">currentTimeMillis</span><span style="color:#f92672">()));</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">postDao</span><span style="color:#f92672">.</span><span style="color:#a6e22e">save</span><span style="color:#f92672">(</span>post<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">deletePost</span><span style="color:#f92672">(</span>Long postId<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">postDao</span><span style="color:#f92672">.</span><span style="color:#a6e22e">delete</span><span style="color:#f92672">(</span>postId<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">updatePost</span><span style="color:#f92672">(</span>Post post<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">postDao</span><span style="color:#f92672">.</span><span style="color:#a6e22e">update</span><span style="color:#f92672">(</span>post<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> Map<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> Object<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">findPost</span><span style="color:#f92672">(</span>Long postId<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        Map<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> Object<span style="color:#f92672">&gt;</span> attributes <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">&lt;&gt;();</span>
+        Post post <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">postDao</span><span style="color:#f92672">.</span><span style="color:#a6e22e">find</span><span style="color:#f92672">(</span>postId<span style="color:#f92672">);</span>
+        attributes<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;post&#34;</span><span style="color:#f92672">,</span> post<span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">return</span> attributes<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> List<span style="color:#f92672">&lt;</span>Post<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">findAllPosts</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">postDao</span><span style="color:#f92672">.</span><span style="color:#a6e22e">findAll</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
+<li><code>postMapper.xml</code>配置的mybatic如下：
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;mapper</span> <span style="color:#a6e22e">namespace=</span><span style="color:#e6db74">&#34;com.autodesk.www.dao.PostDao&#34;</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;resultMap</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;PostResultMap&#34;</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;com.autodesk.www.model.Post&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;id</span> <span style="color:#a6e22e">property=</span><span style="color:#e6db74">&#34;id&#34;</span> <span style="color:#a6e22e">column=</span><span style="color:#e6db74">&#34;post_id&#34;</span><span style="color:#f92672">/&gt;</span>
+        <span style="color:#f92672">&lt;result</span> <span style="color:#a6e22e">property=</span><span style="color:#e6db74">&#34;title&#34;</span> <span style="color:#a6e22e">column=</span><span style="color:#e6db74">&#34;post_title&#34;</span><span style="color:#f92672">/&gt;</span>
+        <span style="color:#f92672">&lt;result</span> <span style="color:#a6e22e">property=</span><span style="color:#e6db74">&#34;content&#34;</span> <span style="color:#a6e22e">column=</span><span style="color:#e6db74">&#34;post_content&#34;</span><span style="color:#f92672">/&gt;</span>
+        <span style="color:#f92672">&lt;result</span> <span style="color:#a6e22e">property=</span><span style="color:#e6db74">&#34;creationDate&#34;</span> <span style="color:#a6e22e">column=</span><span style="color:#e6db74">&#34;post_creation_date&#34;</span><span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;/resultMap&gt;</span>
+    <span style="color:#f92672">&lt;insert</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;save&#34;</span><span style="color:#f92672">&gt;</span>
+        INSERT INTO `T_POST` (title, content, creationDate) VALUES (#{title}, #{content}, #{creationDate})
+    <span style="color:#f92672">&lt;/insert&gt;</span>
+    <span style="color:#f92672">&lt;select</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;findAll&#34;</span> <span style="color:#a6e22e">resultMap=</span><span style="color:#e6db74">&#34;PostResultMap&#34;</span><span style="color:#f92672">&gt;</span>
+        SELECT
+            p.id as post_id,
+            p.title as post_title,
+            p.content as post_content,
+            p.creationDate as post_creation_date
+        FROM T_POST p
+        ORDER BY p.creationDate DESC
+    <span style="color:#f92672">&lt;/select&gt;</span>
+    <span style="color:#f92672">&lt;select</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;find&#34;</span> <span style="color:#a6e22e">resultMap=</span><span style="color:#e6db74">&#34;PostResultMap&#34;</span><span style="color:#f92672">&gt;</span>
+        SELECT
+            p.id as post_id,
+            p.title as post_title,
+            p.content as post_content,
+            p.creationDate as post_creation_date
+        FROM T_POST p
+        WHERE p.id = #{postId}
+    <span style="color:#f92672">&lt;/select&gt;</span>
+    <span style="color:#f92672">&lt;update</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;update&#34;</span><span style="color:#f92672">&gt;</span>
+        UPDATE T_POST SET 
+            title = #{title},
+            content = #{content}
+        WHERE id = #{id}
+    <span style="color:#f92672">&lt;/update&gt;</span>
+    <span style="color:#f92672">&lt;delete</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;delete&#34;</span> <span style="color:#a6e22e">parameterType=</span><span style="color:#e6db74">&#34;Long&#34;</span><span style="color:#f92672">&gt;</span>
+        DELETE FROM T_POST WHERE id = #{postId}
+    <span style="color:#f92672">&lt;/delete&gt;</span>
+<span style="color:#f92672">&lt;/mapper&gt;</span>
+</code></pre></div></li>
+<li>mybatic基本配置如下<code>mybatis-config.xml</code>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; ?&gt;</span>
+<span style="color:#75715e">&lt;!DOCTYPE configuration PUBLIC &#34;-//mybatis.org//DTD Config 3.0//EN&#34; &#34;http://mybatis.org/dtd/mybatis-3-config.dtd&#34;&gt;</span>
+<span style="color:#f92672">&lt;configuration&gt;</span>
+    <span style="color:#f92672">&lt;typeAliases&gt;</span>
+        <span style="color:#f92672">&lt;typeAlias</span> <span style="color:#a6e22e">alias=</span><span style="color:#e6db74">&#34;Integer&#34;</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;java.lang.Integer&#34;</span> <span style="color:#f92672">/&gt;</span>
+        <span style="color:#f92672">&lt;typeAlias</span> <span style="color:#a6e22e">alias=</span><span style="color:#e6db74">&#34;Long&#34;</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;java.lang.Long&#34;</span> <span style="color:#f92672">/&gt;</span>
+        <span style="color:#f92672">&lt;typeAlias</span> <span style="color:#a6e22e">alias=</span><span style="color:#e6db74">&#34;String&#34;</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;java.lang.String&#34;</span> <span style="color:#f92672">/&gt;</span>
+        <span style="color:#f92672">&lt;typeAlias</span> <span style="color:#a6e22e">alias=</span><span style="color:#e6db74">&#34;HashMap&#34;</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;java.util.HashMap&#34;</span> <span style="color:#f92672">/&gt;</span>
+        <span style="color:#f92672">&lt;typeAlias</span> <span style="color:#a6e22e">alias=</span><span style="color:#e6db74">&#34;Date&#34;</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;java.util.Date&#34;</span> <span style="color:#f92672">/&gt;</span>
+        <span style="color:#f92672">&lt;typeAlias</span> <span style="color:#a6e22e">alias=</span><span style="color:#e6db74">&#34;LinkedHashMap&#34;</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;java.util.LinkedHashMap&#34;</span> <span style="color:#f92672">/&gt;</span>
+        <span style="color:#f92672">&lt;typeAlias</span> <span style="color:#a6e22e">alias=</span><span style="color:#e6db74">&#34;ArrayList&#34;</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;java.util.ArrayList&#34;</span> <span style="color:#f92672">/&gt;</span>
+        <span style="color:#f92672">&lt;typeAlias</span> <span style="color:#a6e22e">alias=</span><span style="color:#e6db74">&#34;LinkedList&#34;</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;java.util.LinkedList&#34;</span> <span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;/typeAliases&gt;</span>
+<span style="color:#f92672">&lt;/configuration&gt;</span>
+</code></pre></div></li>
+</ol>
+<h2 id="完成基本的curd">完成基本的curd</h2>
+<ul>
+<li>这样我们就有了基本的CURD,接着会在接下来的文章中，一步步的添加成具有完备功能的脚手架</li>
+<li>Happy hacking&hellip;</li>
+</ul>
+<blockquote>
+<p>不积小流，无以成江海</p>
+</blockquote>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">hyyfrank</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+      2018-12-28
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">Apache-2.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="http://hyyfrank.github.io/tags/java/">java</a>
+          <a href="http://hyyfrank.github.io/tags/spring/">Spring</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/spring/java-with-spring-3/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">Java With Spring (三)</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+          <a class="next" href="/post/spring/java-with-spring-1/">
+            <span class="next-text nav-default">Java With Spring (一)</span>
+            <span class="prev-text nav-mobile">Next</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+    
+
+  
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="icon-links">
+  
+  
+    <a href="mailto:hyyfrank@email.com" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+  
+    <a href="http://www.github.com/hyyfrank" rel="me noopener" class="iconfont"
+      title="github"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M512 12.672c-282.88 0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667 0-12.16-0.426667-44.373333-0.64-87.04-142.421333 30.890667-172.458667-68.693333-172.458667-68.693333C188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333 0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333 0 0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52 0.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667 0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72 0 68.522667-0.64 123.562667-0.64 140.202666 0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"></path>
+</svg>
+
+    </a>
+
+
+<a href="http://hyyfrank.github.io/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+   
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+      2012 -
+    2021
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        hyyfrank
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="/js/anime.js"></script>
+
+  <script src="/js/prism.js"></script>
+
+  <script src="/js/custom.js"></script>
+
+
+
+  <script src="/anime.js"></script><script src="/prism.js"></script><script src="/custom.js"></script>
+
+</body>
+</html>
