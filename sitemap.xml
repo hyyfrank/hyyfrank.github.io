@@ -2,55 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://hyyfrank.github.io/categories/</loc>
-    <lastmod>2021-09-04T13:36:30+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/</loc>
-    <lastmod>2021-09-04T13:36:30+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/post/</loc>
-    <lastmod>2021-09-04T13:36:30+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/categories/reading/</loc>
-    <lastmod>2021-09-04T13:36:30+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/tags/reading/</loc>
-    <lastmod>2021-09-04T13:36:30+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/post/books/list/</loc>
-    <lastmod>2021-09-04T13:36:30+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/tags/</loc>
-    <lastmod>2021-09-04T13:36:30+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>http://hyyfrank.github.io/about/</loc>
     <lastmod>2021-08-03T22:13:10+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -73,6 +24,34 @@
   
   <url>
     <loc>http://hyyfrank.github.io/post/algorithms/talking1/</loc>
+    <lastmod>2021-08-07T11:36:45+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://hyyfrank.github.io/categories/</loc>
+    <lastmod>2021-08-07T11:36:45+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://hyyfrank.github.io/</loc>
+    <lastmod>2021-08-07T11:36:45+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://hyyfrank.github.io/post/</loc>
+    <lastmod>2021-08-07T11:36:45+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://hyyfrank.github.io/tags/</loc>
     <lastmod>2021-08-07T11:36:45+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -338,14 +317,21 @@
   </url>
   
   <url>
-    <loc>http://hyyfrank.github.io/post/linux/play-with-contab/</loc>
+    <loc>http://hyyfrank.github.io/categories/linux/</loc>
     <lastmod>2017-09-07T19:33:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://hyyfrank.github.io/categories/linux/</loc>
+    <loc>http://hyyfrank.github.io/post/linux/play-with-linux/</loc>
+    <lastmod>2017-09-07T19:33:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://hyyfrank.github.io/post/linux/play-with-contab/</loc>
     <lastmod>2017-09-07T19:33:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

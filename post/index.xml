@@ -6,16 +6,7 @@
     <description>Recent content in Posts on H&amp;W</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 04 Sep 2021 10:36:30 +0800</lastBuildDate><atom:link href="http://hyyfrank.github.io/post/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Reading List</title>
-      <link>http://hyyfrank.github.io/post/books/list/</link>
-      <pubDate>Sat, 04 Sep 2021 10:36:30 +0800</pubDate>
-      
-      <guid>http://hyyfrank.github.io/post/books/list/</guid>
-      <description>[To do] [Reading] [I have Read] 深入理解 Java 虚拟机 Java 并发编程实战 effective java UNIX 网络编程 卷 2 进程间通信 UNIX 网络编程 卷 1 套接字联网 API 高性能 MySQL 重构：改善既有代码设计 UNIX 环境高级编程</description>
-    </item>
-    
+    <lastBuildDate>Wed, 07 Jul 2021 11:36:45 +0800</lastBuildDate><atom:link href="http://hyyfrank.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Algorithm Guy Always Good?</title>
       <link>http://hyyfrank.github.io/post/algorithms/talking1/</link>
@@ -170,12 +161,21 @@
     </item>
     
     <item>
+      <title>Some Useful Command</title>
+      <link>http://hyyfrank.github.io/post/linux/play-with-linux/</link>
+      <pubDate>Thu, 07 Sep 2017 12:33:21 +0800</pubDate>
+      
+      <guid>http://hyyfrank.github.io/post/linux/play-with-linux/</guid>
+      <description>window文件的CRLF转成linux文件 经常碰到window提交的文件，然后在linux拉下来有这个问题，下面列举几种解决法子 sed sed &amp;#39;s/\r$//&amp;#39; winfile.txt &amp;gt;</description>
+    </item>
+    
+    <item>
       <title>Crontab Issue Tracking</title>
       <link>http://hyyfrank.github.io/post/linux/play-with-contab/</link>
       <pubDate>Mon, 07 Aug 2017 12:33:21 +0800</pubDate>
       
       <guid>http://hyyfrank.github.io/post/linux/play-with-contab/</guid>
-      <description>how to track issue sudo /var/log/syslog | grep cron  capture the output 1 2 * * * /home/hyy/Start.py &amp;gt;/tmp/output.log 2&amp;gt;&amp;amp;1  check cron is running ps -ef | grep cron | grep -v grep  check the path is correct crontab is running in with cwd == $HOME, if you using python os.getcwd() in different folder structure, make sure you cd to the correct place or else it will affect your code by output &amp;ldquo;can not find module&amp;rdquo; stuff.</description>
+      <description>how to track the crontab issue  how to track issue sudo /var/log/syslog | grep cron  capture the output 1 2 * * * /home/hyy/Start.py &amp;gt;/tmp/output.log 2&amp;gt;&amp;amp;1  check cron is running ps -ef | grep cron | grep -v grep   check the path is correct  crontab is running in with cwd == $HOME, if you using python os.getcwd() in different folder structure, make sure you cd to the correct place or else it will affect your code by output &amp;ldquo;can not find module&amp;rdquo; stuff.</description>
     </item>
     
     <item>

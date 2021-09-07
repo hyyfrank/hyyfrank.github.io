@@ -74,7 +74,7 @@
 <meta itemprop="name" content="Java With Spring (三)">
 <meta itemprop="description" content="配置kombok 介绍：Lombok 是一个jar包，可以节约很多敲代码的工作 安装其实很简单，就是IDEA里找到插件，安装一下 增加pom的依赖 &lt;dependency&gt;"><meta itemprop="datePublished" content="2018-07-28T09:33:39&#43;08:00" />
 <meta itemprop="dateModified" content="2018-08-04T22:33:39&#43;08:00" />
-<meta itemprop="wordCount" content="839">
+<meta itemprop="wordCount" content="473">
 <meta itemprop="keywords" content="java,Spring," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Java With Spring (三)"/>
 <meta name="twitter:description" content="配置kombok 介绍：Lombok 是一个jar包，可以节约很多敲代码的工作 安装其实很简单，就是IDEA里找到插件，安装一下 增加pom的依赖 &lt;dependency&gt;"/>
@@ -305,7 +305,7 @@
     
     <div class="post-content">
       <h1 id="配置kombok">配置kombok</h1>
-<ol>
+<ul>
 <li>介绍：Lombok 是一个jar包，可以节约很多敲代码的工作</li>
 <li>安装其实很简单，就是IDEA里找到插件，安装一下</li>
 <li>增加pom的依赖
@@ -317,9 +317,9 @@
 <span style="color:#f92672">&lt;/dependency&gt;</span>
 </code></pre></div></li>
 <li>增加@Data标签，可以直接看到生成的get set等结构了</li>
-</ol>
+</ul>
 <h1 id="增加gitignore">增加gitignore</h1>
-<ol>
+<ul>
 <li>gitignore帮我们把不需要提交到git的文件列出来
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">target
 .idea
@@ -328,9 +328,9 @@
 .classpath
 *.iml
 </code></pre></div></li>
-</ol>
+</ul>
 <h1 id="支持热部署">支持热部署</h1>
-<ol>
+<ul>
 <li>原理： 使用了两个ClassLoader，一个Classloader加载那些不会改变的类（第三方Jar包），另一个ClassLoader加载会更改的类，称为restart ClassLoader,这样在有代码更改的时候，原来的restart ClassLoader 被丢弃，重新创建一个restart ClassLoader，由于需要加载的类相比较少，所以实现了较快的重启时间</li>
 <li>增加dependency
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">    <span style="color:#f92672">&lt;dependency&gt;</span>
@@ -348,139 +348,42 @@
             <span style="color:#f92672">&lt;/configuration&gt;</span>
         <span style="color:#f92672">&lt;/plugin&gt;</span>
      <span style="color:#f92672">&lt;/plugins&gt;</span>
-</code></pre></div><ol start="4">
+</code></pre></div></li>
 <li>IDEA里的选项Build Project automatically配置为true</li>
-<li>配置文件可以这样配一下</li>
-</ol>
+<li>配置文件可以这样配一下
 <pre><code class="language-conf" data-lang="conf">spring.devtools.restart.enabled=true
 spring.devtools.restart.additional-paths=src/main/java/
 spring.devtools.restart.log-condition-evaluation-delta=false
 spring.devtools.livereload.enabled=false
 logging.level.com.example.datas.manager.mapper=debug
 </code></pre></li>
-</ol>
+</ul>
 <h1 id="json包装结果">JSON包装结果</h1>
-<ol>
-<li>其实就是把结果用JSON的格式包装一下，这样返回的结果才比较一致</li>
-</ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"> <span style="color:#f92672">package</span> com.autodesk.www.utils<span style="color:#f92672">;</span>
- <span style="color:#f92672">import</span> java.util.List<span style="color:#f92672">;</span>
- <span style="color:#f92672">import</span> com.fasterxml.jackson.databind.JsonNode<span style="color:#f92672">;</span>
- <span style="color:#f92672">import</span> com.fasterxml.jackson.databind.ObjectMapper<span style="color:#f92672">;</span>
- <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">JsonWrapResult</span> <span style="color:#f92672">{</span>
-     <span style="color:#75715e">// 定义jackson对象
-</span><span style="color:#75715e"></span>     <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> ObjectMapper MAPPER <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ObjectMapper<span style="color:#f92672">();</span>
-     <span style="color:#75715e">// 响应业务状态
-</span><span style="color:#75715e"></span>     <span style="color:#66d9ef">private</span> Integer status<span style="color:#f92672">;</span>
-     <span style="color:#75715e">// 响应消息
-</span><span style="color:#75715e"></span>     <span style="color:#66d9ef">private</span> String msg<span style="color:#f92672">;</span>
-     <span style="color:#75715e">// 响应中的数据
-</span><span style="color:#75715e"></span>     <span style="color:#66d9ef">private</span> Object data<span style="color:#f92672">;</span>
-     <span style="color:#66d9ef">private</span> String ok<span style="color:#f92672">;</span>	<span style="color:#75715e">// 不使用
-</span><span style="color:#75715e"></span>     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> JsonWrapResult <span style="color:#a6e22e">build</span><span style="color:#f92672">(</span>Integer status<span style="color:#f92672">,</span> String msg<span style="color:#f92672">,</span> Object data<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-         <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> JsonWrapResult<span style="color:#f92672">(</span>status<span style="color:#f92672">,</span> msg<span style="color:#f92672">,</span> data<span style="color:#f92672">);</span>
-     <span style="color:#f92672">}</span>
-     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> JsonWrapResult <span style="color:#a6e22e">ok</span><span style="color:#f92672">(</span>Object data<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-         <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> JsonWrapResult<span style="color:#f92672">(</span>data<span style="color:#f92672">);</span>
-     <span style="color:#f92672">}</span>
-     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> JsonWrapResult <span style="color:#a6e22e">ok</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-         <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> JsonWrapResult<span style="color:#f92672">(</span><span style="color:#66d9ef">null</span><span style="color:#f92672">);</span>
-     <span style="color:#f92672">}</span>
-     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> JsonWrapResult <span style="color:#a6e22e">errorMsg</span><span style="color:#f92672">(</span>String msg<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-         <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> JsonWrapResult<span style="color:#f92672">(</span>500<span style="color:#f92672">,</span> msg<span style="color:#f92672">,</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">);</span>
-     <span style="color:#f92672">}</span>
-     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> JsonWrapResult <span style="color:#a6e22e">errorMap</span><span style="color:#f92672">(</span>Object data<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-         <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> JsonWrapResult<span style="color:#f92672">(</span>501<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;error&#34;</span><span style="color:#f92672">,</span> data<span style="color:#f92672">);</span>
-     <span style="color:#f92672">}</span>
-     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> JsonWrapResult <span style="color:#a6e22e">errorTokenMsg</span><span style="color:#f92672">(</span>String msg<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-         <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> JsonWrapResult<span style="color:#f92672">(</span>502<span style="color:#f92672">,</span> msg<span style="color:#f92672">,</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">);</span>
-     <span style="color:#f92672">}</span>
-     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> JsonWrapResult <span style="color:#a6e22e">errorException</span><span style="color:#f92672">(</span>String msg<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-         <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> JsonWrapResult<span style="color:#f92672">(</span>555<span style="color:#f92672">,</span> msg<span style="color:#f92672">,</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">);</span>
-     <span style="color:#f92672">}</span>
-     <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">JsonWrapResult</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-     <span style="color:#f92672">}</span>
-     <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">JsonWrapResult</span><span style="color:#f92672">(</span>Integer status<span style="color:#f92672">,</span> String msg<span style="color:#f92672">,</span> Object data<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-         <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">status</span> <span style="color:#f92672">=</span> status<span style="color:#f92672">;</span>
-         <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">msg</span> <span style="color:#f92672">=</span> msg<span style="color:#f92672">;</span>
-         <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> data<span style="color:#f92672">;</span>
-     <span style="color:#f92672">}</span>
-     <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">JsonWrapResult</span><span style="color:#f92672">(</span>Object data<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-         <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">status</span> <span style="color:#f92672">=</span> 200<span style="color:#f92672">;</span>
-         <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">msg</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;OK&#34;</span><span style="color:#f92672">;</span>
-         <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> data<span style="color:#f92672">;</span>
-     <span style="color:#f92672">}</span>
-     <span style="color:#66d9ef">public</span> Boolean <span style="color:#a6e22e">isOK</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-         <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">status</span> <span style="color:#f92672">==</span> 200<span style="color:#f92672">;</span>
-     <span style="color:#f92672">}</span>
-     <span style="color:#66d9ef">public</span> Integer <span style="color:#a6e22e">getStatus</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-         <span style="color:#66d9ef">return</span> status<span style="color:#f92672">;</span>
-     <span style="color:#f92672">}</span>
-     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setStatus</span><span style="color:#f92672">(</span>Integer status<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-         <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">status</span> <span style="color:#f92672">=</span> status<span style="color:#f92672">;</span>
-     <span style="color:#f92672">}</span>
-     <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getMsg</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-         <span style="color:#66d9ef">return</span> msg<span style="color:#f92672">;</span>
-     <span style="color:#f92672">}</span>
-     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setMsg</span><span style="color:#f92672">(</span>String msg<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-         <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">msg</span> <span style="color:#f92672">=</span> msg<span style="color:#f92672">;</span>
-     <span style="color:#f92672">}</span>
-     <span style="color:#66d9ef">public</span> Object <span style="color:#a6e22e">getData</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-         <span style="color:#66d9ef">return</span> data<span style="color:#f92672">;</span>
-     <span style="color:#f92672">}</span>
-     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setData</span><span style="color:#f92672">(</span>Object data<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-         <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> data<span style="color:#f92672">;</span>
-     <span style="color:#f92672">}</span>
-     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> JsonWrapResult <span style="color:#a6e22e">formatToPojo</span><span style="color:#f92672">(</span>String jsonData<span style="color:#f92672">,</span> Class<span style="color:#f92672">&lt;?&gt;</span> clazz<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-         <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
-             <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>clazz <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-                 <span style="color:#66d9ef">return</span> MAPPER<span style="color:#f92672">.</span><span style="color:#a6e22e">readValue</span><span style="color:#f92672">(</span>jsonData<span style="color:#f92672">,</span> JsonWrapResult<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
-             <span style="color:#f92672">}</span>
-             JsonNode jsonNode <span style="color:#f92672">=</span> MAPPER<span style="color:#f92672">.</span><span style="color:#a6e22e">readTree</span><span style="color:#f92672">(</span>jsonData<span style="color:#f92672">);</span>
-             JsonNode data <span style="color:#f92672">=</span> jsonNode<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;data&#34;</span><span style="color:#f92672">);</span>
-             Object obj <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
-             <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>clazz <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-                 <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>data<span style="color:#f92672">.</span><span style="color:#a6e22e">isObject</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
-                     obj <span style="color:#f92672">=</span> MAPPER<span style="color:#f92672">.</span><span style="color:#a6e22e">readValue</span><span style="color:#f92672">(</span>data<span style="color:#f92672">.</span><span style="color:#a6e22e">traverse</span><span style="color:#f92672">(),</span> clazz<span style="color:#f92672">);</span>
-                 <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>data<span style="color:#f92672">.</span><span style="color:#a6e22e">isTextual</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
-                     obj <span style="color:#f92672">=</span> MAPPER<span style="color:#f92672">.</span><span style="color:#a6e22e">readValue</span><span style="color:#f92672">(</span>data<span style="color:#f92672">.</span><span style="color:#a6e22e">asText</span><span style="color:#f92672">(),</span> clazz<span style="color:#f92672">);</span>
-                 <span style="color:#f92672">}</span>
-             <span style="color:#f92672">}</span>
-             <span style="color:#66d9ef">return</span> build<span style="color:#f92672">(</span>jsonNode<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;status&#34;</span><span style="color:#f92672">).</span><span style="color:#a6e22e">intValue</span><span style="color:#f92672">(),</span> jsonNode<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;msg&#34;</span><span style="color:#f92672">).</span><span style="color:#a6e22e">asText</span><span style="color:#f92672">(),</span> obj<span style="color:#f92672">);</span>
-         <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>Exception e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-             <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
-         <span style="color:#f92672">}</span>
-     <span style="color:#f92672">}</span>
-     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> JsonWrapResult <span style="color:#a6e22e">format</span><span style="color:#f92672">(</span>String json<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-         <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
-             <span style="color:#66d9ef">return</span> MAPPER<span style="color:#f92672">.</span><span style="color:#a6e22e">readValue</span><span style="color:#f92672">(</span>json<span style="color:#f92672">,</span> JsonWrapResult<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
-         <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>Exception e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-             e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
-         <span style="color:#f92672">}</span>
-         <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
-     <span style="color:#f92672">}</span>
-     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> JsonWrapResult <span style="color:#a6e22e">formatToList</span><span style="color:#f92672">(</span>String jsonData<span style="color:#f92672">,</span> Class<span style="color:#f92672">&lt;?&gt;</span> clazz<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-         <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
-             JsonNode jsonNode <span style="color:#f92672">=</span> MAPPER<span style="color:#f92672">.</span><span style="color:#a6e22e">readTree</span><span style="color:#f92672">(</span>jsonData<span style="color:#f92672">);</span>
-             JsonNode data <span style="color:#f92672">=</span> jsonNode<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;data&#34;</span><span style="color:#f92672">);</span>
-             Object obj <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
-             <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>data<span style="color:#f92672">.</span><span style="color:#a6e22e">isArray</span><span style="color:#f92672">()</span> <span style="color:#f92672">&amp;&amp;</span> data<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">()</span> <span style="color:#f92672">&gt;</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-                 obj <span style="color:#f92672">=</span> MAPPER<span style="color:#f92672">.</span><span style="color:#a6e22e">readValue</span><span style="color:#f92672">(</span>data<span style="color:#f92672">.</span><span style="color:#a6e22e">traverse</span><span style="color:#f92672">(),</span>
-                         MAPPER<span style="color:#f92672">.</span><span style="color:#a6e22e">getTypeFactory</span><span style="color:#f92672">().</span><span style="color:#a6e22e">constructCollectionType</span><span style="color:#f92672">(</span>List<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span> clazz<span style="color:#f92672">));</span>
-             <span style="color:#f92672">}</span>
-             <span style="color:#66d9ef">return</span> build<span style="color:#f92672">(</span>jsonNode<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;status&#34;</span><span style="color:#f92672">).</span><span style="color:#a6e22e">intValue</span><span style="color:#f92672">(),</span> jsonNode<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;msg&#34;</span><span style="color:#f92672">).</span><span style="color:#a6e22e">asText</span><span style="color:#f92672">(),</span> obj<span style="color:#f92672">);</span>
-         <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>Exception e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-             <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
-         <span style="color:#f92672">}</span>
-     <span style="color:#f92672">}</span>
-     <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getOk</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-         <span style="color:#66d9ef">return</span> ok<span style="color:#f92672">;</span>
-     <span style="color:#f92672">}</span>
-     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setOk</span><span style="color:#f92672">(</span>String ok<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-         <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ok</span> <span style="color:#f92672">=</span> ok<span style="color:#f92672">;</span>
-     <span style="color:#f92672">}</span>
- <span style="color:#f92672">}</span>
-</code></pre></div>
+<ul>
+<li>其实就是把结果用JSON的格式包装一下，这样返回的结果才比较一致
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#960050;background-color:#1e0010">code:</span> <span style="color:#960050;background-color:#1e0010">200,</span>
+    <span style="color:#960050;background-color:#1e0010">message:</span> <span style="color:#f92672">&#34;successful!&#34;</span>,
+    <span style="color:#960050;background-color:#1e0010">data:</span> <span style="color:#960050;background-color:#1e0010">{</span>
+        <span style="color:#960050;background-color:#1e0010">result:</span> <span style="color:#960050;background-color:#1e0010">[</span>
+            <span style="color:#960050;background-color:#1e0010">{</span>
+                <span style="color:#960050;background-color:#1e0010">name:</span> <span style="color:#f92672">&#34;frank&#34;</span>
+                <span style="color:#960050;background-color:#1e0010">age</span>: <span style="color:#ae81ff">18</span>
+            }<span style="color:#960050;background-color:#1e0010">,</span>
+            {
+                <span style="color:#960050;background-color:#1e0010">name:</span> <span style="color:#f92672">&#34;alice&#34;</span>
+                <span style="color:#960050;background-color:#1e0010">age</span>: <span style="color:#ae81ff">38</span>
+            }<span style="color:#960050;background-color:#1e0010">,</span>
+            {
+                <span style="color:#960050;background-color:#1e0010">name:</span> <span style="color:#f92672">&#34;jane&#34;</span>
+                <span style="color:#960050;background-color:#1e0010">age</span>: <span style="color:#ae81ff">28</span>
+            }<span style="color:#960050;background-color:#1e0010">,</span>
+        <span style="color:#960050;background-color:#1e0010">]</span>
+    <span style="color:#960050;background-color:#1e0010">}</span>
+<span style="color:#960050;background-color:#1e0010">}</span>
+</code></pre></div></li>
+</ul>
+
     </div>
 
     
