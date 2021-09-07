@@ -24,7 +24,7 @@ categories: [ "emacs" ]
     ```
 2. Ace window
     * 不同子窗口切换的时候，会有个窗口编号，方便切换
-    ```lisp
+    ```emacs-lisp
     (use-package ace-window
         :ensure t
         :config
@@ -34,7 +34,7 @@ categories: [ "emacs" ]
     ```
 3. Swiper
     * 方便导航和搜索
-    ```lisp
+    ```emacs-lisp
     (use-package counsel
         :ensure t
         )
@@ -68,7 +68,7 @@ categories: [ "emacs" ]
     * JEDI
     * AUTO-COMPLETED
     * Yasnippet
-    ```lisp
+    ```emacs-lisp
         (use-package flycheck
             :ensure t
             :init
@@ -97,6 +97,5 @@ categories: [ "emacs" ]
             :ensure t
             :init
             (yas-global-mode 1))
-
 
     ```
