@@ -97,6 +97,4 @@ categories: [ "emacs" ]
             :ensure t
             :init
             (yas-global-mode 1))
-
-
     ```
