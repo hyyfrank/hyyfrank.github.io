@@ -6,7 +6,7 @@ draft: false
 tags: ["openssl"]
 categories: ["linux"]
 ---
-
+# 更新并替换原有openssl版本
 ## Remove Current Version of Openssl
 - 第一，先删除现在的openssl版本
 ```shell
