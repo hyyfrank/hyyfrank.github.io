@@ -58,6 +58,7 @@ make && make install
 ```
 ### (2) How to optimize the parameter in the server
 - go and edit the file `/etc/sysctl.conf` and activate it via `/sbin/sysctl -p`
+- kernel tunning for performance, go and edit the file `/etc/sysctl.conf` and activate it via `/sbin/sysctl -p`
 ```shell
 # here is some configuration of tcp/ip setting in kernel
 net.ipv4.tcp_max_tw_buckets = 6000
@@ -76,5 +77,13 @@ net.ipv4.tcp_syn_reties = 1
 net.ipv4.tcp_fin_timeout = 1
 net.ipv4.tcp_keepalive_time = 30
 ```
-
+### (3) how nginx process the request
+- nginx include two part, core and module. 
+- module include three part, core module、basic module and thirdparty module
+  - core module: `http module`, `event module` and `mail module`
+  - basic module: `http access module`, `http fastcgi module`, `http proxy module`, `http rewrite module`
+  - third party: `http upstream request hash module`, `Notice module`, `Http access key module`.
+- how to process request
+  - http request --> nginx core --> handlers --> filter1 --> filter2 --> ...more filters --> output
+  - more detail: 
 
