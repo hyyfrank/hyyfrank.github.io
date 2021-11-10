@@ -25,5 +25,23 @@
       <description>1. Git基本概念。 repository config init clone fetch pull commit push branch head tag merge conflict diff log show status 2. Git工作空间和文件状态 (1).工作空间 ![Git工作空间][1] 左侧为工作区，右侧为</description>
     </item>
     
+    <item>
+      <title>Play With Nginx (一)</title>
+      <link>http://hyyfrank.github.io/post/nginx/nginx-series-1/</link>
+      <pubDate>Sat, 07 Jan 2017 12:33:21 +0800</pubDate>
+      
+      <guid>http://hyyfrank.github.io/post/nginx/nginx-series-1/</guid>
+      <description>1. TODO LIST how to configure nginx when set up how to optimize the parameter how nginx process the request how to apply rolling log how to configure load balance why i have to use lua how to make force https in lua how to update the request header 2. Build from source(How To) (1).download the source file Download the nginx package from official website Download pcre(version 1 and version</description>
+    </item>
+    
+    <item>
+      <title>Play With Nginx (一)</title>
+      <link>http://hyyfrank.github.io/post/nginx/nginx-series-2/</link>
+      <pubDate>Sat, 07 Jan 2017 12:33:21 +0800</pubDate>
+      
+      <guid>http://hyyfrank.github.io/post/nginx/nginx-series-2/</guid>
+      <description>1. TODO LIST how to configure nginx when set up how to optimize the parameter how nginx process the request how to apply rolling log how to configure load balance why i have to use lua how to make force https in lua how to update the request header 2. Build from source(How To) (1).download the source file Download the nginx package from official website Download pcre(version 1 and version</description>
+    </item>
+    
   </channel>
 </rss>

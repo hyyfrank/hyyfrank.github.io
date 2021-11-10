@@ -6,10 +6,72 @@
     <description>Recent content on H&amp;W</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 07 Jul 2021 11:36:45 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 07 Sep 2021 18:29:48 +0800</lastBuildDate>
     
         <atom:link href="http://hyyfrank.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Compile openssl from source</title>
+      <link>http://hyyfrank.github.io/post/linux/play-with-openssl/</link>
+      <pubDate>Tue, 07 Sep 2021 18:29:48 +0800</pubDate>
+      
+      <guid>http://hyyfrank.github.io/post/linux/play-with-openssl/</guid>
+      
+        <description>&lt;h1 id=&#34;更新并替换原有openssl版本&#34;&gt;更新并替换原有openssl版本&lt;/h1&gt;
+&lt;h2 id=&#34;remove-current-version-of-openssl&#34;&gt;Remove Current Version of Openssl&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;第一，先删除现在的openssl版本&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo apt-get remove openssl
+sudo apt-get remove --auto-remove openssl
+sudo apt-get purge openssl
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;download-package-and-compile-from-source&#34;&gt;Download package and compile from source&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;第二，从源码安装&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;  ./config --prefix&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/opt/software/ssl --openssldir&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/opt/software/ssl shared zlib
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;configure-link-library&#34;&gt;configure link library&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;第三，链接库配置&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;cd /etc/ld.so.conf.d/
+sudo touch openssl-1.1.1.conf
+sudo echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/opt/software/ssl/lib&amp;#34;&lt;/span&gt; &amp;gt; openssl-1.1.1.conf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;重新加载动态连接&lt;code&gt;sudo ldconfig -v&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;configure-environment-path&#34;&gt;configure environment path&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;emacs ~/.zshrc  &lt;span style=&#34;color:#75715e&#34;&gt;# if you like bash, go and set in ~/.bashrc&lt;/span&gt;
+export PATH&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/opt/software/ssl/bin:$CONDA_HOME/bin:$PATH
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;确定你把路径放在conda前面，因为conda有时候会有自己的一个低版本1.1.1k这种&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;check-the-result&#34;&gt;check the result&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;openssl version -a
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;结果如下：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;OpenSSL 1.1.1l  &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt; Aug &lt;span style=&#34;color:#ae81ff&#34;&gt;2021&lt;/span&gt;
+
+built on: Tue Sep  &lt;span style=&#34;color:#ae81ff&#34;&gt;7&lt;/span&gt; 10:19:48 &lt;span style=&#34;color:#ae81ff&#34;&gt;2021&lt;/span&gt; UTC
+
+platform: linux-x86_64
+
+options:  bn&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;64,64&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; rc4&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;16x,int&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; des&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;int&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; idea&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;int&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; blowfish&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;ptr&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; 
+
+compiler: gcc -fPIC -pthread -m64 -Wa,--noexecstack -Wall -O3 -DOPENSSL_USE_NODELETE -DL_ENDIAN -DOPENSSL_PIC -DOPENSSL_CPUID_OBJ -DOPENSSL_IA32_SSE2 -DOPENSSL_BN_ASM_MONT -DOPENSSL_BN_ASM_MONT5 -DOPENSSL_BN_ASM_GF2m -DSHA1_ASM -DSHA256_ASM -DSHA512_ASM -DKECCAK1600_ASM -DRC4_ASM -DMD5_ASM -DAESNI_ASM -DVPAES_ASM -DGHASH_ASM -DECP_NISTZ256_ASM -DX25519_ASM -DPOLY1305_ASM -DZLIB -DNDEBUG
+
+OPENSSLDIR: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/opt/software/ssl&amp;#34;&lt;/span&gt;
+
+ENGINESDIR: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/opt/software/ssl/lib/engines-1.1&amp;#34;&lt;/span&gt;
+
+Seeding source: os-specific
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;完成&#34;&gt;完成&lt;/h2&gt;
+&lt;p&gt;最好，安装软件的时候，都从源码编译，你可以更了解你需要什么，定制安装你的软件，不要什么的apt-get install&lt;/p&gt;
+</description>
+      
+    </item>
     
     <item>
       <title>About</title>
@@ -22,71 +84,6 @@
 &lt;p&gt;激水之疾 ，至于漂石者，势也；鸷鸟之（疾）〔击〕，至于毁折者，节也。是故善战者，其势险，其节短；势如弩，节如发机。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;hello, 欢迎来到我的博客，我的博客主要是记录一些技术日记和读书笔记，欢迎交流。&lt;/p&gt;
-</description>
-      
-    </item>
-    
-    <item>
-      <title>Algorithm Guy Always Good?</title>
-      <link>http://hyyfrank.github.io/post/algorithms/talking1/</link>
-      <pubDate>Wed, 07 Jul 2021 11:36:45 +0800</pubDate>
-      
-      <guid>http://hyyfrank.github.io/post/algorithms/talking1/</guid>
-      
-        <description>&lt;ul&gt;
-&lt;li&gt;今天一个同事甩我一段代码，让我实现功能，说是对图片做半透明太慢了&lt;/li&gt;
-&lt;li&gt;我拿到手头一看，代码是这样的，据说是一个别的组算法厉害的大神写的
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
-&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; numpy &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; np
-&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; os
-&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; cv2
-&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;put_mask&lt;/span&gt;(img_path,output_fold):
-    image &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; cv2&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;imread(&lt;span style=&#34;color:#e6db74&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;E:\testdemo.jpg&amp;#39;&lt;/span&gt;)
-    bbox1 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [&lt;span style=&#34;color:#ae81ff&#34;&gt;72&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;41&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;208&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;330&lt;/span&gt;]
-    bbox2 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [&lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;80&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;248&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;334&lt;/span&gt;]
-    zeros1 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; np&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;zeros((image&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;shape), dtype&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;np&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;uint8)
-    zeros2 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; np&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;zeros((image&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;shape), dtype&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;np&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;uint8)
-    zeros_mask1 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; cv2&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;rectangle(zeros1, (bbox1[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;], bbox1[&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;]), (bbox1[&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;], bbox1[&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;]),color&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;255&lt;/span&gt;), thickness&lt;span style=&#34;color:#f92672&#34;&gt;=-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; ) 
-    zeros_mask2 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; cv2&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;rectangle(zeros2, (bbox2[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;], bbox2[&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;]), (bbox2[&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;], bbox2[&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;]),color&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;255&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;), thickness&lt;span style=&#34;color:#f92672&#34;&gt;=-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
-    zeros_mask &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; np&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;array((zeros_mask1 &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; zeros_mask2))
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt;:
-      &lt;span style=&#34;color:#75715e&#34;&gt;# alpha 为第一张图片的透明度&lt;/span&gt;
-        alpha &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
-        &lt;span style=&#34;color:#75715e&#34;&gt;# beta 为第二张图片的透明度&lt;/span&gt;
-        beta &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0.5&lt;/span&gt;
-        gamma &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
-        &lt;span style=&#34;color:#75715e&#34;&gt;# cv2.addWeighted 将原始图片与 mask 融合&lt;/span&gt;
-        mask_img &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; cv2&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;addWeighted(image, alpha, zeros_mask, beta, gamma)
-        cv2&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;imwrite(os&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;path&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;join(output_fold,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;mask_img.jpg&amp;#39;&lt;/span&gt;), mask_img)
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;except&lt;/span&gt;:
-        print(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;异常&amp;#39;&lt;/span&gt;)
-    put_mask(img_path &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;107.jpg&amp;#39;&lt;/span&gt;, output_fold&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;E:\output&amp;#39;&lt;/span&gt;)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;我看了之后只是觉得，这代码写的太草率了吧，大家都说python简单，没错，是简单，但是也不能乱写吧。这一看就是把mask层放大到和图片一样大，再做addWeighted，addweight本来就慢，还变成大的来做，就不能只对小的部分做完再拼回去么，于是我写了一下测试代码如下，这甚至都谈不上什么算法，只是工程上的直觉而已，一个个像素处理，自然是能少处理就少处理一些，也才能块一些呗&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
-&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; cv
-&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;combine_two_color_images&lt;/span&gt;(image1, image2):
-    masklayer, background &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; image1&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;copy(), image2&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;copy()
-    masklayer_height &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; masklayer&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;shape[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;]
-    masklayer_width &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; masklayer&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;shape[&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;]
-    alpha &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0.5&lt;/span&gt;
-    &lt;span style=&#34;color:#75715e&#34;&gt;# do composite on the upper-left corner of the background image.&lt;/span&gt;
-    blended_portion &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; cv&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;addWeighted(masklayer,
-                alpha,
-                background[:masklayer_height,:masklayer_width,:],
-                &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; alpha,
-                &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;,
-                background)
-    background[:masklayer_height,:masklayer_width,:] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; blended_portion
-    cv&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;imshow(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;composited image&amp;#39;&lt;/span&gt;, background)
-    cv&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;waitKey(&lt;span style=&#34;color:#ae81ff&#34;&gt;10000&lt;/span&gt;)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;结果测下来，快了非常多，以前慢的感觉完全不存在了，主要原因，我们的mask层，一般只有200 * 200，但是图片大小是1960 * 1080，这个处理级别一下就差了50倍左右，然后我们一般每小时要处理上万张图片的数量级，所以这个差距就差很多了。写代码还是要把效率放心上才是。&lt;/li&gt;
-&lt;li&gt;吐槽完毕。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
 </description>
       
     </item>
@@ -120,10 +117,10 @@
 &lt;ul&gt;
 &lt;li&gt;不同子窗口切换的时候，会有个窗口编号，方便切换&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;use-package&lt;/span&gt; ace-window
-    &lt;span style=&#34;color:#e6db74&#34;&gt;:ensure&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
-    &lt;span style=&#34;color:#e6db74&#34;&gt;:config&lt;/span&gt;
-    (&lt;span style=&#34;color:#66d9ef&#34;&gt;setq&lt;/span&gt; aw-scope &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;frame&lt;/span&gt;) &lt;span style=&#34;color:#75715e&#34;&gt;;; was global&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-emacs-lisp&#34; data-lang=&#34;emacs-lisp&#34;&gt;(use-package ace-window
+    :ensure &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
+    :config
+    (setq aw-scope &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;frame&lt;/span&gt;) &lt;span style=&#34;color:#75715e&#34;&gt;;; was global&lt;/span&gt;
     (global-set-key (kbd &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;C-x O&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;other-frame&lt;/span&gt;)
     (global-set-key [remap other-window] &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;ace-window&lt;/span&gt;))
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
@@ -131,16 +128,16 @@
 &lt;ul&gt;
 &lt;li&gt;方便导航和搜索&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;use-package&lt;/span&gt; counsel
-    &lt;span style=&#34;color:#e6db74&#34;&gt;:ensure&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-emacs-lisp&#34; data-lang=&#34;emacs-lisp&#34;&gt;(use-package counsel
+    :ensure &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
     )
 
-    (&lt;span style=&#34;color:#a6e22e&#34;&gt;use-package&lt;/span&gt; swiper
-    &lt;span style=&#34;color:#e6db74&#34;&gt;:ensure&lt;/span&gt; try
-    &lt;span style=&#34;color:#e6db74&#34;&gt;:config&lt;/span&gt;
-    (&lt;span style=&#34;color:#66d9ef&#34;&gt;progn&lt;/span&gt;
+    (use-package swiper
+    :ensure try
+    :config
+    (progn
     (ivy-mode &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
-    (&lt;span style=&#34;color:#66d9ef&#34;&gt;setq&lt;/span&gt; ivy-use-virtual-buffers &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
+    (setq ivy-use-virtual-buffers &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
     (global-set-key &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\C-s&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;swiper&lt;/span&gt;)
     (global-set-key (kbd &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;C-c C-r&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;ivy-resume&lt;/span&gt;)
     (global-set-key (kbd &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;lt;f6&amp;gt;&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;ivy-resume&lt;/span&gt;)
@@ -156,7 +153,7 @@
     (global-set-key (kbd &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;C-c k&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;counsel-ag&lt;/span&gt;)
     (global-set-key (kbd &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;C-x l&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;counsel-locate&lt;/span&gt;)
     (global-set-key (kbd &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;C-S-o&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;counsel-rhythmbox&lt;/span&gt;)
-    (define-key read-expression-map (kbd &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;C-r&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;counsel-expression-history&lt;/span&gt;)
+    (&lt;span style=&#34;color:#a6e22e&#34;&gt;define-key&lt;/span&gt; read-expression-map (kbd &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;C-r&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;counsel-expression-history&lt;/span&gt;)
     ))
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;Python Support
@@ -166,36 +163,34 @@
 &lt;li&gt;AUTO-COMPLETED&lt;/li&gt;
 &lt;li&gt;Yasnippet&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;    (&lt;span style=&#34;color:#a6e22e&#34;&gt;use-package&lt;/span&gt; flycheck
-        &lt;span style=&#34;color:#e6db74&#34;&gt;:ensure&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
-        &lt;span style=&#34;color:#e6db74&#34;&gt;:init&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-emacs-lisp&#34; data-lang=&#34;emacs-lisp&#34;&gt;    (use-package flycheck
+        :ensure &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
+        :init
         (global-flycheck-mode &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;))
 
-    (&lt;span style=&#34;color:#a6e22e&#34;&gt;use-package&lt;/span&gt; jedi
-        &lt;span style=&#34;color:#e6db74&#34;&gt;:ensure&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
-        &lt;span style=&#34;color:#e6db74&#34;&gt;:init&lt;/span&gt;
+    (use-package jedi
+        :ensure &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
+        :init
         (add-hook &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;python-mode-hook&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;jedi:setup&lt;/span&gt;)
         (add-hook &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;python-mode-hook&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;jedi:ac-setup&lt;/span&gt;))
 
-        (&lt;span style=&#34;color:#a6e22e&#34;&gt;use-package&lt;/span&gt; elpy
-        &lt;span style=&#34;color:#e6db74&#34;&gt;:ensure&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
-        &lt;span style=&#34;color:#e6db74&#34;&gt;:config&lt;/span&gt;
+        (use-package elpy
+        :ensure &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
+        :config
         (elpy-enable))
 
-    (&lt;span style=&#34;color:#a6e22e&#34;&gt;use-package&lt;/span&gt; auto-complete
-        &lt;span style=&#34;color:#e6db74&#34;&gt;:ensure&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
-        &lt;span style=&#34;color:#e6db74&#34;&gt;:init&lt;/span&gt;
-        (&lt;span style=&#34;color:#66d9ef&#34;&gt;progn&lt;/span&gt;
+    (use-package auto-complete
+        :ensure &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
+        :init
+        (progn
             (ac-config-default)
             (global-auto-complete-mode &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
         ))
 
-    (&lt;span style=&#34;color:#a6e22e&#34;&gt;use-package&lt;/span&gt; yasnippet
-        &lt;span style=&#34;color:#e6db74&#34;&gt;:ensure&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
-        &lt;span style=&#34;color:#e6db74&#34;&gt;:init&lt;/span&gt;
+    (use-package yasnippet
+        :ensure &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
+        :init
         (yas-global-mode &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;))
-
-
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ol&gt;
 </description>
@@ -665,6 +660,74 @@ print(response&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;json())
 &lt;p&gt;总结&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;这里还有些其他主题，比如，证书回收，格式转换方法，测速，最佳实践等，这里主要记录下做这种证书的步骤，其他的值得一提的是，最佳实践，我们一般是做在CI/CD的pipline里边，证书也要做个定时更新，这些都是必不可少的，当然在生成证书之前还有一些对比和选择加密算法的细节，这里就不一一讲了，有兴趣可以自己去找下。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>[Docker] container研究</title>
+      <link>http://hyyfrank.github.io/post/docker/docker/</link>
+      <pubDate>Mon, 02 Sep 2019 23:03:48 +0800</pubDate>
+      
+      <guid>http://hyyfrank.github.io/post/docker/docker/</guid>
+      
+        <description>&lt;h2 id=&#34;ppt&#34;&gt;PPT&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://hyyfrank.github.io/images/tom.key&#34;&gt;&lt;strong&gt;组内分享的PPT&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;conttainer&#34;&gt;conttainer&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;namespace&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;linux control group&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;UnionFS&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;veth&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;容器应该具备哪些东西
+&lt;ul&gt;
+&lt;li&gt;隔离文件系统： 通过 chroot 命令切换根目录的挂载点&lt;/li&gt;
+&lt;li&gt;隔离网络： 为了分布式环境下的通讯： 要有独立的 IP、端口和路由 veth, 每个容器用有其独立的网络设备，IP 地址，IP 路由表，/proc/net 目录，端口号等等。这也使得一个 host 上多个容器内的同一个应用都绑定到各自容器的 80 端口上&lt;/li&gt;
+&lt;li&gt;主机名：需要一个主机名方便在网络中标识自己&lt;/li&gt;
+&lt;li&gt;IPC: 每个容器有其自己的 System V IPC 和 POSIX 消息队列文件系统，因此，只有在同一个 IPC namespace 的进程之间才能互相通信&lt;/li&gt;
+&lt;li&gt;用户权限: 在 user namespace 中的进程的用户和组 ID 可以和在 host 上不同； 每个 container 可以有不同的 user 和 group id；一个 host 上的非特权用户可以成为 user namespace 中的特权用户&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;容器主要的部分
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;namespace&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;UTS, IPC, PID, NETWORK, MOUNT, USER&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cgroup&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;CPU, Memory, Blkio, Device&amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;UnionFS&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;aufs(ubuntu), btrfs(suse), vfs, devicemapper(centos), overlayer2(centos,ubuntu)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;veth&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;bridge, host, container, none&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;容器实现
+&lt;ul&gt;
+&lt;li&gt;容器是特殊的进程&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;int clone(int (*fn)(void *), void *child_stack, int flags, void *arg); &lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Fork = Clone + CLONE_VM | CLONE_VFORK | SIGHILD (NOTE: Fork和Clone都是对sys_clone的封装，所以其实这里表达有少许不准确)&lt;/li&gt;
+&lt;li&gt;fork是从调用点继续执行，clone是从fn(args)继续执行，因为子进程和父进程共享内存，但是维护单独的变量副本，所以需要为子进程单独分配栈，就是&lt;code&gt;child_stack&lt;/code&gt;指针指向的位置，flags有两个作用，低位字节可以放返回信号，flags和docker相关的flag就是上述的UTS, IPC, PID, NETWORK, MOUNT, USER对应的标签&lt;code&gt;CLONE_NEWUTS&lt;/code&gt;,&lt;code&gt;CLONE_NEWIPC&lt;/code&gt;,&lt;code&gt;CLONE_NEWPID&lt;/code&gt;,&lt;code&gt;CLONE_NEWNET&lt;/code&gt;,&lt;code&gt;CLONE_NEWNS&lt;/code&gt;,&lt;code&gt;CLONE_NEWUSER&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;cgroup包含着对资源的控制，对应linux下是在&lt;code&gt;/sys/fs/cgroup&lt;/code&gt;目录下&lt;/li&gt;
+&lt;li&gt;UnionFS对应overlay2FS的路径是&lt;code&gt;sudo ls /var/lib/docker/image/overlay2/layerdb/${id}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;veth:虚拟网卡&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -1653,6 +1716,43 @@ extentsions:[&#39;.ts&#39;,&#39;.js&#39;,&#39;.json&#39;]
     </item>
     
     <item>
+      <title>Flask With Mysql(一)</title>
+      <link>http://hyyfrank.github.io/post/python/playing-with-flask-1/</link>
+      <pubDate>Tue, 06 Aug 2019 23:36:30 +0800</pubDate>
+      
+      <guid>http://hyyfrank.github.io/post/python/playing-with-flask-1/</guid>
+      
+        <description>&lt;blockquote&gt;
+&lt;p&gt;这是一个flask基础框架，由于python之前只是写一些零散的脚本
+刚好使用python构建一个项目脚手架&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;1-需要哪些功能&#34;&gt;1. 需要哪些功能&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;flask&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;blueprint&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cros&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;output json format&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;easy debugging&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;health page&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;logging&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;multiple env support&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;flake8 for static code checking&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;yapf for code formatting&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;jwt token&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;crypt password&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mysql&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sphinx&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;postman&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;test&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;xss attack(orm and escape)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;parameter integrity-sha1&lt;/code&gt; (avoid middle man attack)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;timestamp validate&lt;/code&gt;(replay attack, doc attack）&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      
+    </item>
+    
+    <item>
       <title>React With Webpack(一)</title>
       <link>http://hyyfrank.github.io/post/frontend/react-with-webpack-1/</link>
       <pubDate>Tue, 06 Aug 2019 23:36:30 +0800</pubDate>
@@ -1953,7 +2053,7 @@ mybatis&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#
       <guid>http://hyyfrank.github.io/post/spring/java-with-spring-3/</guid>
       
         <description>&lt;h1 id=&#34;配置kombok&#34;&gt;配置kombok&lt;/h1&gt;
-&lt;ul&gt;
+&lt;ol&gt;
 &lt;li&gt;介绍：Lombok 是一个jar包，可以节约很多敲代码的工作&lt;/li&gt;
 &lt;li&gt;安装其实很简单，就是IDEA里找到插件，安装一下&lt;/li&gt;
 &lt;li&gt;增加pom的依赖
@@ -1965,9 +2065,9 @@ mybatis&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#
 &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;增加@Data标签，可以直接看到生成的get set等结构了&lt;/li&gt;
-&lt;/ul&gt;
+&lt;/ol&gt;
 &lt;h1 id=&#34;增加gitignore&#34;&gt;增加gitignore&lt;/h1&gt;
-&lt;ul&gt;
+&lt;ol&gt;
 &lt;li&gt;gitignore帮我们把不需要提交到git的文件列出来
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;target
 .idea
@@ -1976,9 +2076,9 @@ mybatis&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#
 .classpath
 *.iml
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;/ol&gt;
 &lt;h1 id=&#34;支持热部署&#34;&gt;支持热部署&lt;/h1&gt;
-&lt;ul&gt;
+&lt;ol&gt;
 &lt;li&gt;原理： 使用了两个ClassLoader，一个Classloader加载那些不会改变的类（第三方Jar包），另一个ClassLoader加载会更改的类，称为restart ClassLoader,这样在有代码更改的时候，原来的restart ClassLoader 被丢弃，重新创建一个restart ClassLoader，由于需要加载的类相比较少，所以实现了较快的重启时间&lt;/li&gt;
 &lt;li&gt;增加dependency
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
@@ -1996,42 +2096,139 @@ mybatis&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#
             &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/configuration&amp;gt;&lt;/span&gt;
         &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/plugin&amp;gt;&lt;/span&gt;
      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/plugins&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;4&#34;&gt;
 &lt;li&gt;IDEA里的选项Build Project automatically配置为true&lt;/li&gt;
-&lt;li&gt;配置文件可以这样配一下
+&lt;li&gt;配置文件可以这样配一下&lt;/li&gt;
+&lt;/ol&gt;
 &lt;pre&gt;&lt;code class=&#34;language-conf&#34; data-lang=&#34;conf&#34;&gt;spring.devtools.restart.enabled=true
 spring.devtools.restart.additional-paths=src/main/java/
 spring.devtools.restart.log-condition-evaluation-delta=false
 spring.devtools.livereload.enabled=false
 logging.level.com.example.datas.manager.mapper=debug
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;/ol&gt;
 &lt;h1 id=&#34;json包装结果&#34;&gt;JSON包装结果&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;其实就是把结果用JSON的格式包装一下，这样返回的结果才比较一致
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;{
-    &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;code:&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;200,&lt;/span&gt;
-    &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;message:&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;successful!&amp;#34;&lt;/span&gt;,
-    &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;data:&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;{&lt;/span&gt;
-        &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;result:&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;[&lt;/span&gt;
-            &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;{&lt;/span&gt;
-                &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;name:&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;frank&amp;#34;&lt;/span&gt;
-                &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;age&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;18&lt;/span&gt;
-            }&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;,&lt;/span&gt;
-            {
-                &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;name:&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;alice&amp;#34;&lt;/span&gt;
-                &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;age&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;38&lt;/span&gt;
-            }&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;,&lt;/span&gt;
-            {
-                &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;name:&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;jane&amp;#34;&lt;/span&gt;
-                &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;age&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;28&lt;/span&gt;
-            }&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;,&lt;/span&gt;
-        &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;]&lt;/span&gt;
-    &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;}&lt;/span&gt;
-&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+&lt;ol&gt;
+&lt;li&gt;其实就是把结果用JSON的格式包装一下，这样返回的结果才比较一致&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt; &lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; com.autodesk.www.utils&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+ &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; java.util.List&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+ &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; com.fasterxml.jackson.databind.JsonNode&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+ &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; com.fasterxml.jackson.databind.ObjectMapper&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+ &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;JsonWrapResult&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+     &lt;span style=&#34;color:#75715e&#34;&gt;// 定义jackson对象
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;     &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;final&lt;/span&gt; ObjectMapper MAPPER &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; ObjectMapper&lt;span style=&#34;color:#f92672&#34;&gt;();&lt;/span&gt;
+     &lt;span style=&#34;color:#75715e&#34;&gt;// 响应业务状态
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;     &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; Integer status&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+     &lt;span style=&#34;color:#75715e&#34;&gt;// 响应消息
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;     &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; String msg&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+     &lt;span style=&#34;color:#75715e&#34;&gt;// 响应中的数据
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;     &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; Object data&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+     &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; String ok&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;// 不使用
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;     &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; JsonWrapResult &lt;span style=&#34;color:#a6e22e&#34;&gt;build&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Integer status&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; String msg&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; Object data&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+         &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; JsonWrapResult&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;status&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; msg&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; data&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
+     &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+     &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; JsonWrapResult &lt;span style=&#34;color:#a6e22e&#34;&gt;ok&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Object data&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+         &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; JsonWrapResult&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;data&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
+     &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+     &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; JsonWrapResult &lt;span style=&#34;color:#a6e22e&#34;&gt;ok&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+         &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; JsonWrapResult&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
+     &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+     &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; JsonWrapResult &lt;span style=&#34;color:#a6e22e&#34;&gt;errorMsg&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;String msg&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+         &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; JsonWrapResult&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;500&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; msg&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
+     &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+     &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; JsonWrapResult &lt;span style=&#34;color:#a6e22e&#34;&gt;errorMap&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Object data&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+         &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; JsonWrapResult&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;501&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;error&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; data&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
+     &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+     &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; JsonWrapResult &lt;span style=&#34;color:#a6e22e&#34;&gt;errorTokenMsg&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;String msg&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+         &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; JsonWrapResult&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;502&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; msg&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
+     &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+     &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; JsonWrapResult &lt;span style=&#34;color:#a6e22e&#34;&gt;errorException&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;String msg&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+         &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; JsonWrapResult&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;555&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; msg&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
+     &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+     &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;JsonWrapResult&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+     &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+     &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;JsonWrapResult&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Integer status&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; String msg&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; Object data&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+         &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;status&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; status&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+         &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;msg&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; msg&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+         &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;data&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; data&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+     &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+     &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;JsonWrapResult&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Object data&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+         &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;status&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 200&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+         &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;msg&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;OK&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+         &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;data&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; data&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+     &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+     &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; Boolean &lt;span style=&#34;color:#a6e22e&#34;&gt;isOK&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+         &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;status&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; 200&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+     &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+     &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; Integer &lt;span style=&#34;color:#a6e22e&#34;&gt;getStatus&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+         &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; status&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+     &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+     &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;setStatus&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Integer status&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+         &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;status&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; status&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+     &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+     &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; String &lt;span style=&#34;color:#a6e22e&#34;&gt;getMsg&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+         &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; msg&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+     &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+     &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;setMsg&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;String msg&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+         &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;msg&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; msg&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+     &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+     &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; Object &lt;span style=&#34;color:#a6e22e&#34;&gt;getData&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+         &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; data&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+     &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+     &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;setData&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Object data&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+         &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;data&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; data&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+     &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+     &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; JsonWrapResult &lt;span style=&#34;color:#a6e22e&#34;&gt;formatToPojo&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;String jsonData&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; Class&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;?&amp;gt;&lt;/span&gt; clazz&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+         &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+             &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;clazz &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+                 &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; MAPPER&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;readValue&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;jsonData&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; JsonWrapResult&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
+             &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+             JsonNode jsonNode &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; MAPPER&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;readTree&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;jsonData&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
+             JsonNode data &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; jsonNode&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;get&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;data&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
+             Object obj &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+             &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;clazz &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+                 &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;data&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;isObject&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;())&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+                     obj &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; MAPPER&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;readValue&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;data&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;traverse&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(),&lt;/span&gt; clazz&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
+                 &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;data&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;isTextual&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;())&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+                     obj &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; MAPPER&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;readValue&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;data&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;asText&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(),&lt;/span&gt; clazz&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
+                 &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+             &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+             &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; build&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;jsonNode&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;get&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;status&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;).&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;intValue&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(),&lt;/span&gt; jsonNode&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;get&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;msg&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;).&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;asText&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(),&lt;/span&gt; obj&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
+         &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;catch&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Exception e&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+             &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+         &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+     &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+     &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; JsonWrapResult &lt;span style=&#34;color:#a6e22e&#34;&gt;format&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;String json&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+         &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+             &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; MAPPER&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;readValue&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;json&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; JsonWrapResult&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
+         &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;catch&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Exception e&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+             e&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;printStackTrace&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;();&lt;/span&gt;
+         &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+         &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+     &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+     &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; JsonWrapResult &lt;span style=&#34;color:#a6e22e&#34;&gt;formatToList&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;String jsonData&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; Class&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;?&amp;gt;&lt;/span&gt; clazz&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+         &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+             JsonNode jsonNode &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; MAPPER&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;readTree&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;jsonData&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
+             JsonNode data &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; jsonNode&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;get&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;data&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
+             Object obj &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+             &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;data&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;isArray&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; data&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;size&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; 0&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+                 obj &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; MAPPER&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;readValue&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;data&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;traverse&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(),&lt;/span&gt;
+                         MAPPER&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;getTypeFactory&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;constructCollectionType&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;List&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; clazz&lt;span style=&#34;color:#f92672&#34;&gt;));&lt;/span&gt;
+             &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+             &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; build&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;jsonNode&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;get&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;status&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;).&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;intValue&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(),&lt;/span&gt; jsonNode&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;get&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;msg&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;).&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;asText&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(),&lt;/span&gt; obj&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
+         &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;catch&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Exception e&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+             &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+         &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+     &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+     &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; String &lt;span style=&#34;color:#a6e22e&#34;&gt;getOk&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+         &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; ok&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+     &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+     &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;setOk&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;String ok&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+         &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;ok&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ok&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+     &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+ &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
       
     </item>
     
@@ -2350,124 +2547,6 @@ mybatis.configuration.log-impl= org.apache.ibatis.logging.stdout.StdOutImpl
 &lt;blockquote&gt;
 &lt;p&gt;麻雀虽小，五脏俱全！&lt;/p&gt;
 &lt;/blockquote&gt;
-</description>
-      
-    </item>
-    
-    <item>
-      <title>Some Useful Command</title>
-      <link>http://hyyfrank.github.io/post/linux/play-with-linux/</link>
-      <pubDate>Thu, 07 Sep 2017 12:33:21 +0800</pubDate>
-      
-      <guid>http://hyyfrank.github.io/post/linux/play-with-linux/</guid>
-      
-        <description>&lt;h2 id=&#34;window文件的crlf转成linux文件&#34;&gt;window文件的CRLF转成linux文件&lt;/h2&gt;
-&lt;p&gt;经常碰到window提交的文件，然后在linux拉下来有这个问题，下面列举几种解决法子&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;sed&lt;/code&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sed &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;s/\r$//&amp;#39;&lt;/span&gt; winfile.txt &amp;gt; unixfile.txt
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;awk&lt;/code&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;  awk &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;{ sub(&amp;#34;\r$&amp;#34;, &amp;#34;&amp;#34;); print }&amp;#39;&lt;/span&gt; winfile.txt &amp;gt; unixfile.txt
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;perl&lt;/code&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;  perl -lne &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;s/\r//g; print&amp;#39;&lt;/span&gt; winfile.txt &amp;gt; unixfile.txt
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;doc2unix&lt;/code&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;dos2unix -n winfile unixfile
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;fromdocs&lt;/code&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;  fromdos yourtextfile
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;bash&lt;/code&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;  tr -d &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;\r&amp;#39;&lt;/span&gt; &amp;lt; file1 &amp;gt; file2
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;emacs&lt;/code&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;  ctrl-s ctrl-q ctrl-j
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;格式转化&#34;&gt;格式转化&lt;/h2&gt;
-&lt;p&gt;碰到个有很多服务器信息是这种格式的&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;host
-port
-name
-address
-&lt;span style=&#34;color:#75715e&#34;&gt;#...还有五十个&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;需要转化为如下格式&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;host1,port1,name1,address1
-host2,port2,name2,address2
-&lt;span style=&#34;color:#75715e&#34;&gt;#...还有五十个&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;解决方法,定义宏命令，用F4做，也可以保存宏&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;emacs&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# macro definition&lt;/span&gt;
-  F3
-  &lt;span style=&#34;color:#75715e&#34;&gt;# start define action&lt;/span&gt;
-  ctrl+e  + , + -&amp;gt; + backspace
-  &lt;span style=&#34;color:#75715e&#34;&gt;# end of definition&lt;/span&gt;
-  F4
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;替换配置文件某一个字段的内容&#34;&gt;替换配置文件某一个字段的内容&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;匹配某一个配置文件，把配置文件里的&lt;code&gt;BASE_URL: http://www.baidu.com&lt;/code&gt;动态的配置为&lt;code&gt;BASE_URL: http:${var}&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt; sed -i &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;s|BASE_URL:.*,|BASE_URL: &amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\&amp;#34;&lt;/span&gt;http://&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;BASE_URL&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;|g&amp;#39;&lt;/span&gt; /fe/APIConst.json    
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;Note: 如果你是mac环境，用上面的脚本没问题，如果是linux环境，则要把&lt;code&gt;-i&lt;/code&gt;去掉才可以&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      
-    </item>
-    
-    <item>
-      <title>Crontab Issue Tracking</title>
-      <link>http://hyyfrank.github.io/post/linux/play-with-contab/</link>
-      <pubDate>Mon, 07 Aug 2017 12:33:21 +0800</pubDate>
-      
-      <guid>http://hyyfrank.github.io/post/linux/play-with-contab/</guid>
-      
-        <description>&lt;h2 id=&#34;how-to-track-the-crontab-issue&#34;&gt;how to track the crontab issue&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;how to track issue
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo /var/log/syslog | grep cron
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;capture the output
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; * * * /home/hyy/Start.py &amp;gt;/tmp/output.log 2&amp;gt;&amp;amp;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;check cron is running
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;  ps -ef | grep cron | grep -v grep
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;check-the-path-is-correct&#34;&gt;check the path is correct&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;crontab  is running in with cwd == $HOME, if you using python os.getcwd() in different folder structure, make sure you cd to the correct place or else it will affect your code by output &amp;ldquo;can not find module&amp;rdquo; stuff.&lt;/li&gt;
-&lt;li&gt;in short, use absolute path in your command or add source ~/.zshrc before your crontab script, so it can find the environment variable.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;last-command-in-crontab-should-have-a-blank-line&#34;&gt;last command in crontab should have a blank line&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;this is tricky, if you didn&amp;rsquo;t notice it.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;be-careful-the-dot-thing&#34;&gt;be careful the dot thing&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Debian Linux and its derivative (Ubuntu, Mint, etc) have some peculiarities that may prevent your cron jobs from executing; in particular, the files in /etc/cron.d, /etc/cron.{hourly,daily,weekly,monthly} must :&lt;/li&gt;
-&lt;li&gt;be owned by root&lt;/li&gt;
-&lt;li&gt;only be writable by root&lt;/li&gt;
-&lt;li&gt;not be writable by group or other users&lt;/li&gt;
-&lt;li&gt;have a name without any dots &amp;lsquo;.&amp;rsquo; or any other special character but &amp;lsquo;-&amp;rsquo; and &amp;lsquo;_&amp;rsquo; .&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;python-issue-run-in-crontab&#34;&gt;python issue run in crontab&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;make sure python script have #!/usr/bin/python at the beginning, not neccessary&lt;/li&gt;
-&lt;li&gt;make sure log the output, so you can debug in a smooth way&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;chmod-to-the-script&#34;&gt;chmod to the script&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;always run in normal user mode, not root user, and do not use&lt;/li&gt;
-&lt;li&gt;if you try to put your log in other file, make sure the perssion of the file is good, some times, guys delete the log file via root user and create a new one with root user, this will cause the permission error.the right way is &lt;code&gt;echo &amp;quot;&amp;quot; &amp;gt; logfile&lt;/code&gt;, then you won&amp;rsquo;t change the original file&amp;rsquo;s permission and group
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# don&amp;#39;t do this&lt;/span&gt;
-  sudo contab -e  
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ul&gt;
 </description>
       
     </item>

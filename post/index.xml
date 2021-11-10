@@ -6,14 +6,14 @@
     <description>Recent content in Posts on H&amp;W</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 07 Jul 2021 11:36:45 +0800</lastBuildDate><atom:link href="http://hyyfrank.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 07 Sep 2021 18:29:48 +0800</lastBuildDate><atom:link href="http://hyyfrank.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Algorithm Guy Always Good?</title>
-      <link>http://hyyfrank.github.io/post/algorithms/talking1/</link>
-      <pubDate>Wed, 07 Jul 2021 11:36:45 +0800</pubDate>
+      <title>Compile openssl from source</title>
+      <link>http://hyyfrank.github.io/post/linux/play-with-openssl/</link>
+      <pubDate>Tue, 07 Sep 2021 18:29:48 +0800</pubDate>
       
-      <guid>http://hyyfrank.github.io/post/algorithms/talking1/</guid>
-      <description>今天一个同事甩我一段代码，让我实现功能，说是对图片做半透明太慢了 我拿到手头一看，代码是这样的，据说是一个别的组算法厉害的大神写的 # -*- coding: utf-8 -*- import</description>
+      <guid>http://hyyfrank.github.io/post/linux/play-with-openssl/</guid>
+      <description>更新并替换原有openssl版本 Remove Current Version of Openssl 第一，先删除现在的openssl版本 sudo apt-get remove openssl sudo apt-get remove --auto-remove openssl sudo apt-get purge openssl Download package and compile from source 第二，从源码安装 ./config --prefix=/opt/software/ssl --openssldir=/opt/software/ssl shared</description>
     </item>
     
     <item>
@@ -50,6 +50,15 @@
       
       <guid>http://hyyfrank.github.io/post/ops/https-self-sign-certificate/</guid>
       <description>动机 公司内网想做一个小型的https，不想申请https证书，想自己做自验证的证书 关注点 https的握手流程 浏览器尝试连接网站 https://demowebsite.com. demowebsite.com server 会把证书</description>
+    </item>
+    
+    <item>
+      <title>[Docker] container研究</title>
+      <link>http://hyyfrank.github.io/post/docker/docker/</link>
+      <pubDate>Mon, 02 Sep 2019 23:03:48 +0800</pubDate>
+      
+      <guid>http://hyyfrank.github.io/post/docker/docker/</guid>
+      <description>PPT 组内分享的PPT conttainer namespace linux control group UnionFS veth 容器应该具备哪些东西 隔离文件系统： 通过 chroot 命令切换根目录的挂载点 隔离网络： 为了分布式环境下的通讯： 要有独立的 I</description>
     </item>
     
     <item>
@@ -116,6 +125,15 @@
     </item>
     
     <item>
+      <title>Flask With Mysql(一)</title>
+      <link>http://hyyfrank.github.io/post/python/playing-with-flask-1/</link>
+      <pubDate>Tue, 06 Aug 2019 23:36:30 +0800</pubDate>
+      
+      <guid>http://hyyfrank.github.io/post/python/playing-with-flask-1/</guid>
+      <description>这是一个flask基础框架，由于python之前只是写一些零散的脚本 刚好使用python构建一个项目脚手架 1. 需要哪些功能 flask blueprint cros output json format easy debugging health page</description>
+    </item>
+    
+    <item>
       <title>React With Webpack(一)</title>
       <link>http://hyyfrank.github.io/post/frontend/react-with-webpack-1/</link>
       <pubDate>Tue, 06 Aug 2019 23:36:30 +0800</pubDate>
@@ -167,24 +185,6 @@
       
       <guid>http://hyyfrank.github.io/post/linux/play-with-linux/</guid>
       <description>window文件的CRLF转成linux文件 经常碰到window提交的文件，然后在linux拉下来有这个问题，下面列举几种解决法子 sed sed &amp;#39;s/\r$//&amp;#39; winfile.txt &amp;gt;</description>
-    </item>
-    
-    <item>
-      <title>Crontab Issue Tracking</title>
-      <link>http://hyyfrank.github.io/post/linux/play-with-contab/</link>
-      <pubDate>Mon, 07 Aug 2017 12:33:21 +0800</pubDate>
-      
-      <guid>http://hyyfrank.github.io/post/linux/play-with-contab/</guid>
-      <description>how to track the crontab issue  how to track issue sudo /var/log/syslog | grep cron  capture the output 1 2 * * * /home/hyy/Start.py &amp;gt;/tmp/output.log 2&amp;gt;&amp;amp;1  check cron is running ps -ef | grep cron | grep -v grep   check the path is correct  crontab is running in with cwd == $HOME, if you using python os.getcwd() in different folder structure, make sure you cd to the correct place or else it will affect your code by output &amp;ldquo;can not find module&amp;rdquo; stuff.</description>
-    </item>
-    
-    <item>
-      <title>Play With Redis (一)</title>
-      <link>http://hyyfrank.github.io/post/redis/play-with-redis-1/</link>
-      <pubDate>Sun, 07 May 2017 12:33:21 +0800</pubDate>
-      
-      <guid>http://hyyfrank.github.io/post/redis/play-with-redis-1/</guid>
-      <description>Redis作为队列的一些优缺点 设计决策考虑 redis做消息队列的方式 基于List的LPUSH+BRPOP的实现 PUB/SUB，订阅/发布模式</description>
     </item>
     
   </channel>

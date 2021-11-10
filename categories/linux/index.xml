@@ -6,7 +6,16 @@
     <description>Recent content in linux on H&amp;W</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 07 Sep 2017 12:33:21 +0800</lastBuildDate><atom:link href="http://hyyfrank.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 07 Sep 2021 18:29:48 +0800</lastBuildDate><atom:link href="http://hyyfrank.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Compile openssl from source</title>
+      <link>http://hyyfrank.github.io/post/linux/play-with-openssl/</link>
+      <pubDate>Tue, 07 Sep 2021 18:29:48 +0800</pubDate>
+      
+      <guid>http://hyyfrank.github.io/post/linux/play-with-openssl/</guid>
+      <description>更新并替换原有openssl版本 Remove Current Version of Openssl 第一，先删除现在的openssl版本 sudo apt-get remove openssl sudo apt-get remove --auto-remove openssl sudo apt-get purge openssl Download package and compile from source 第二，从源码安装 ./config --prefix=/opt/software/ssl --openssldir=/opt/software/ssl shared</description>
+    </item>
+    
     <item>
       <title>Some Useful Command</title>
       <link>http://hyyfrank.github.io/post/linux/play-with-linux/</link>
@@ -22,7 +31,7 @@
       <pubDate>Mon, 07 Aug 2017 12:33:21 +0800</pubDate>
       
       <guid>http://hyyfrank.github.io/post/linux/play-with-contab/</guid>
-      <description>how to track the crontab issue  how to track issue sudo /var/log/syslog | grep cron  capture the output 1 2 * * * /home/hyy/Start.py &amp;gt;/tmp/output.log 2&amp;gt;&amp;amp;1  check cron is running ps -ef | grep cron | grep -v grep   check the path is correct  crontab is running in with cwd == $HOME, if you using python os.getcwd() in different folder structure, make sure you cd to the correct place or else it will affect your code by output &amp;ldquo;can not find module&amp;rdquo; stuff.</description>
+      <description>how to track issue sudo /var/log/syslog | grep cron capture the output 1 2 * * * /home/hyy/Start.py &amp;gt;/tmp/output.log 2&amp;gt;&amp;amp;1 check cron is running ps -ef | grep cron | grep -v grep check the path is correct  crontab is running in with cwd == $HOME, if you using python os.getcwd() in different folder structure, make sure you cd to the correct place or else it will affect your code by output &amp;ldquo;can not find module&amp;rdquo; stuff.</description>
     </item>
     
   </channel>

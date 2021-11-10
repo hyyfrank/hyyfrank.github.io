@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>docker on H&amp;W</title>
+    <link>http://hyyfrank.github.io/tags/docker/</link>
+    <description>Recent content in docker on H&amp;W</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 02 Sep 2019 23:03:48 +0800</lastBuildDate><atom:link href="http://hyyfrank.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Docker] container研究</title>
+      <link>http://hyyfrank.github.io/post/docker/docker/</link>
+      <pubDate>Mon, 02 Sep 2019 23:03:48 +0800</pubDate>
+      
+      <guid>http://hyyfrank.github.io/post/docker/docker/</guid>
+      <description>PPT 组内分享的PPT conttainer namespace linux control group UnionFS veth 容器应该具备哪些东西 隔离文件系统： 通过 chroot 命令切换根目录的挂载点 隔离网络： 为了分布式环境下的通讯： 要有独立的 I</description>
+    </item>
+    
+  </channel>
+</rss>

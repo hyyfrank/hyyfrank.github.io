@@ -71,6 +71,15 @@
     </item>
     
     <item>
+      <title>Flask With Mysql(一)</title>
+      <link>http://hyyfrank.github.io/post/python/playing-with-flask-1/</link>
+      <pubDate>Tue, 06 Aug 2019 23:36:30 +0800</pubDate>
+      
+      <guid>http://hyyfrank.github.io/post/python/playing-with-flask-1/</guid>
+      <description>这是一个flask基础框架，由于python之前只是写一些零散的脚本 刚好使用python构建一个项目脚手架 1. 需要哪些功能 flask blueprint cros output json format easy debugging health page</description>
+    </item>
+    
+    <item>
       <title>React With Webpack(一)</title>
       <link>http://hyyfrank.github.io/post/frontend/react-with-webpack-1/</link>
       <pubDate>Tue, 06 Aug 2019 23:36:30 +0800</pubDate>

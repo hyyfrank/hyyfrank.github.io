@@ -7,12 +7,17 @@ body {
 }
 .logoF {
   color: #af1f53;
+  font-style: oblique;
 }
 .logoW {
   color: #380ba2;
+  font-style: oblique;
+
 }
 .logoA {
   color: #583bf1;
+  font-style: oblique;
+
 }
 .content-wrapper {
   background: url('../images/bg.png');

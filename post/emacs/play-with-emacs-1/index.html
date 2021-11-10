@@ -326,10 +326,10 @@
 <ul>
 <li>不同子窗口切换的时候，会有个窗口编号，方便切换</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#a6e22e">use-package</span> ace-window
-    <span style="color:#e6db74">:ensure</span> <span style="color:#66d9ef">t</span>
-    <span style="color:#e6db74">:config</span>
-    (<span style="color:#66d9ef">setq</span> aw-scope <span style="color:#e6db74">&#39;frame</span>) <span style="color:#75715e">;; was global</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(use-package ace-window
+    :ensure <span style="color:#66d9ef">t</span>
+    :config
+    (setq aw-scope <span style="color:#e6db74">&#39;frame</span>) <span style="color:#75715e">;; was global</span>
     (global-set-key (kbd <span style="color:#e6db74">&#34;C-x O&#34;</span>) <span style="color:#e6db74">&#39;other-frame</span>)
     (global-set-key [remap other-window] <span style="color:#e6db74">&#39;ace-window</span>))
 </code></pre></div></li>
@@ -337,16 +337,16 @@
 <ul>
 <li>方便导航和搜索</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#a6e22e">use-package</span> counsel
-    <span style="color:#e6db74">:ensure</span> <span style="color:#66d9ef">t</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(use-package counsel
+    :ensure <span style="color:#66d9ef">t</span>
     )
 
-    (<span style="color:#a6e22e">use-package</span> swiper
-    <span style="color:#e6db74">:ensure</span> try
-    <span style="color:#e6db74">:config</span>
-    (<span style="color:#66d9ef">progn</span>
+    (use-package swiper
+    :ensure try
+    :config
+    (progn
     (ivy-mode <span style="color:#ae81ff">1</span>)
-    (<span style="color:#66d9ef">setq</span> ivy-use-virtual-buffers <span style="color:#66d9ef">t</span>)
+    (setq ivy-use-virtual-buffers <span style="color:#66d9ef">t</span>)
     (global-set-key <span style="color:#e6db74">&#34;\C-s&#34;</span> <span style="color:#e6db74">&#39;swiper</span>)
     (global-set-key (kbd <span style="color:#e6db74">&#34;C-c C-r&#34;</span>) <span style="color:#e6db74">&#39;ivy-resume</span>)
     (global-set-key (kbd <span style="color:#e6db74">&#34;&lt;f6&gt;&#34;</span>) <span style="color:#e6db74">&#39;ivy-resume</span>)
@@ -362,7 +362,7 @@
     (global-set-key (kbd <span style="color:#e6db74">&#34;C-c k&#34;</span>) <span style="color:#e6db74">&#39;counsel-ag</span>)
     (global-set-key (kbd <span style="color:#e6db74">&#34;C-x l&#34;</span>) <span style="color:#e6db74">&#39;counsel-locate</span>)
     (global-set-key (kbd <span style="color:#e6db74">&#34;C-S-o&#34;</span>) <span style="color:#e6db74">&#39;counsel-rhythmbox</span>)
-    (define-key read-expression-map (kbd <span style="color:#e6db74">&#34;C-r&#34;</span>) <span style="color:#e6db74">&#39;counsel-expression-history</span>)
+    (<span style="color:#a6e22e">define-key</span> read-expression-map (kbd <span style="color:#e6db74">&#34;C-r&#34;</span>) <span style="color:#e6db74">&#39;counsel-expression-history</span>)
     ))
 </code></pre></div></li>
 <li>Python Support
@@ -372,36 +372,34 @@
 <li>AUTO-COMPLETED</li>
 <li>Yasnippet</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">    (<span style="color:#a6e22e">use-package</span> flycheck
-        <span style="color:#e6db74">:ensure</span> <span style="color:#66d9ef">t</span>
-        <span style="color:#e6db74">:init</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">    (use-package flycheck
+        :ensure <span style="color:#66d9ef">t</span>
+        :init
         (global-flycheck-mode <span style="color:#66d9ef">t</span>))
 
-    (<span style="color:#a6e22e">use-package</span> jedi
-        <span style="color:#e6db74">:ensure</span> <span style="color:#66d9ef">t</span>
-        <span style="color:#e6db74">:init</span>
+    (use-package jedi
+        :ensure <span style="color:#66d9ef">t</span>
+        :init
         (add-hook <span style="color:#e6db74">&#39;python-mode-hook</span> <span style="color:#e6db74">&#39;jedi:setup</span>)
         (add-hook <span style="color:#e6db74">&#39;python-mode-hook</span> <span style="color:#e6db74">&#39;jedi:ac-setup</span>))
 
-        (<span style="color:#a6e22e">use-package</span> elpy
-        <span style="color:#e6db74">:ensure</span> <span style="color:#66d9ef">t</span>
-        <span style="color:#e6db74">:config</span>
+        (use-package elpy
+        :ensure <span style="color:#66d9ef">t</span>
+        :config
         (elpy-enable))
 
-    (<span style="color:#a6e22e">use-package</span> auto-complete
-        <span style="color:#e6db74">:ensure</span> <span style="color:#66d9ef">t</span>
-        <span style="color:#e6db74">:init</span>
-        (<span style="color:#66d9ef">progn</span>
+    (use-package auto-complete
+        :ensure <span style="color:#66d9ef">t</span>
+        :init
+        (progn
             (ac-config-default)
             (global-auto-complete-mode <span style="color:#66d9ef">t</span>)
         ))
 
-    (<span style="color:#a6e22e">use-package</span> yasnippet
-        <span style="color:#e6db74">:ensure</span> <span style="color:#66d9ef">t</span>
-        <span style="color:#e6db74">:init</span>
+    (use-package yasnippet
+        :ensure <span style="color:#66d9ef">t</span>
+        :init
         (yas-global-mode <span style="color:#ae81ff">1</span>))
-
-
 </code></pre></div></li>
 </ol>
 
@@ -441,7 +439,7 @@
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/algorithms/talking1/">
+          <a class="prev" href="/post/linux/play-with-openssl/">
             
             <i class="iconfont">
               <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
@@ -451,7 +449,7 @@
 </svg>
 
             </i>
-            <span class="prev-text nav-default">Algorithm Guy Always Good?</span>
+            <span class="prev-text nav-default">Compile openssl from source</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
         

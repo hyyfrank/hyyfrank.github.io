@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>openssl on H&amp;W</title>
+    <link>http://hyyfrank.github.io/tags/openssl/</link>
+    <description>Recent content in openssl on H&amp;W</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 07 Sep 2021 18:29:48 +0800</lastBuildDate><atom:link href="http://hyyfrank.github.io/tags/openssl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Compile openssl from source</title>
+      <link>http://hyyfrank.github.io/post/linux/play-with-openssl/</link>
+      <pubDate>Tue, 07 Sep 2021 18:29:48 +0800</pubDate>
+      
+      <guid>http://hyyfrank.github.io/post/linux/play-with-openssl/</guid>
+      <description>更新并替换原有openssl版本 Remove Current Version of Openssl 第一，先删除现在的openssl版本 sudo apt-get remove openssl sudo apt-get remove --auto-remove openssl sudo apt-get purge openssl Download package and compile from source 第二，从源码安装 ./config --prefix=/opt/software/ssl --openssldir=/opt/software/ssl shared</description>
+    </item>
+    
+  </channel>
+</rss>
