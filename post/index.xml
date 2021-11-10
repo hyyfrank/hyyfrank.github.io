@@ -17,6 +17,24 @@
     </item>
     
     <item>
+      <title>Flask With Mysql(二)</title>
+      <link>http://hyyfrank.github.io/post/python/playing-with-flask-2/</link>
+      <pubDate>Fri, 06 Aug 2021 23:36:30 +0800</pubDate>
+      
+      <guid>http://hyyfrank.github.io/post/python/playing-with-flask-2/</guid>
+      <description>这是一个flask基础框架，由于python之前只是写一些零散的脚本 刚好使用python构建一个项目脚手架 1. jwt token的流程 short live token to make application more</description>
+    </item>
+    
+    <item>
+      <title>Flask With Mysql(一)</title>
+      <link>http://hyyfrank.github.io/post/python/playing-with-flask-1/</link>
+      <pubDate>Tue, 03 Aug 2021 20:36:30 +0800</pubDate>
+      
+      <guid>http://hyyfrank.github.io/post/python/playing-with-flask-1/</guid>
+      <description>这是一个flask基础框架，由于python之前只是写一些零散的脚本 刚好使用python构建一个项目脚手架 1. 需要哪些功能 flask blueprint cros output json format easy debugging health page</description>
+    </item>
+    
+    <item>
       <title>[Emacs] Play With Emacs(一)</title>
       <link>http://hyyfrank.github.io/post/emacs/play-with-emacs-1/</link>
       <pubDate>Wed, 02 Sep 2020 23:03:48 +0800</pubDate>
@@ -125,15 +143,6 @@
     </item>
     
     <item>
-      <title>Flask With Mysql(一)</title>
-      <link>http://hyyfrank.github.io/post/python/playing-with-flask-1/</link>
-      <pubDate>Tue, 06 Aug 2019 23:36:30 +0800</pubDate>
-      
-      <guid>http://hyyfrank.github.io/post/python/playing-with-flask-1/</guid>
-      <description>这是一个flask基础框架，由于python之前只是写一些零散的脚本 刚好使用python构建一个项目脚手架 1. 需要哪些功能 flask blueprint cros output json format easy debugging health page</description>
-    </item>
-    
-    <item>
       <title>React With Webpack(一)</title>
       <link>http://hyyfrank.github.io/post/frontend/react-with-webpack-1/</link>
       <pubDate>Tue, 06 Aug 2019 23:36:30 +0800</pubDate>
@@ -176,15 +185,6 @@
       
       <guid>http://hyyfrank.github.io/post/spring/java-with-spring-1/</guid>
       <description>一个Java的脚手架需要些什么 增删改查,mybatics(分页有需要可以自己加下) 配置kombok 增加gitignore,支持热部署,JSO</description>
-    </item>
-    
-    <item>
-      <title>Some Useful Command</title>
-      <link>http://hyyfrank.github.io/post/linux/play-with-linux/</link>
-      <pubDate>Thu, 07 Sep 2017 12:33:21 +0800</pubDate>
-      
-      <guid>http://hyyfrank.github.io/post/linux/play-with-linux/</guid>
-      <description>window文件的CRLF转成linux文件 经常碰到window提交的文件，然后在linux拉下来有这个问题，下面列举几种解决法子 sed sed &amp;#39;s/\r$//&amp;#39; winfile.txt &amp;gt;</description>
     </item>
     
   </channel>

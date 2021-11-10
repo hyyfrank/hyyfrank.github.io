@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Compile openssl from source - H&amp;W</title>
+  <title>Flask With Mysql(二) - H&amp;W</title>
   
   
 
@@ -24,7 +24,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="hyyfrank" />
-  <meta name="description" content="更新并替换原有openssl版本 Remove Current Version of Openssl 第一，先删除现在的openssl版本 sudo apt-get remove openssl sudo apt-get remove --auto-remove openssl sudo apt-get purge openssl Download package and compile from source 第二，从源码安装 ./config --prefix=/opt/software/ssl --openssldir=/opt/software/ssl shared" />
+  <meta name="description" content="这是一个flask基础框架，由于python之前只是写一些零散的脚本 刚好使用python构建一个项目脚手架 1. jwt token的流程 short live token to make application more" />
 
   <meta name="keywords" content="Hugo, theme, jane" />
 
@@ -36,7 +36,7 @@
 <meta name="generator" content="Hugo 0.84.3" />
 
 
-<link rel="canonical" href="http://hyyfrank.github.io/post/linux/play-with-openssl/" />
+<link rel="canonical" href="http://hyyfrank.github.io/post/python/playing-with-flask-2/" />
 
 
 
@@ -64,20 +64,20 @@
 <link rel="stylesheet" href="/css/custom.css">
 
 
-<meta property="og:title" content="Compile openssl from source" />
-<meta property="og:description" content="更新并替换原有openssl版本 Remove Current Version of Openssl 第一，先删除现在的openssl版本 sudo apt-get remove openssl sudo apt-get remove --auto-remove openssl sudo apt-get purge openssl Download package and compile from source 第二，从源码安装 ./config --prefix=/opt/software/ssl --openssldir=/opt/software/ssl shared" />
+<meta property="og:title" content="Flask With Mysql(二)" />
+<meta property="og:description" content="这是一个flask基础框架，由于python之前只是写一些零散的脚本 刚好使用python构建一个项目脚手架 1. jwt token的流程 short live token to make application more" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://hyyfrank.github.io/post/linux/play-with-openssl/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-09-07T18:29:48&#43;08:00" />
-<meta property="article:modified_time" content="2021-09-07T19:29:48&#43;08:00" />
+<meta property="og:url" content="http://hyyfrank.github.io/post/python/playing-with-flask-2/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-08-06T23:36:30&#43;08:00" />
+<meta property="article:modified_time" content="2021-08-06T23:36:30&#43;08:00" />
 
-<meta itemprop="name" content="Compile openssl from source">
-<meta itemprop="description" content="更新并替换原有openssl版本 Remove Current Version of Openssl 第一，先删除现在的openssl版本 sudo apt-get remove openssl sudo apt-get remove --auto-remove openssl sudo apt-get purge openssl Download package and compile from source 第二，从源码安装 ./config --prefix=/opt/software/ssl --openssldir=/opt/software/ssl shared"><meta itemprop="datePublished" content="2021-09-07T18:29:48&#43;08:00" />
-<meta itemprop="dateModified" content="2021-09-07T19:29:48&#43;08:00" />
-<meta itemprop="wordCount" content="290">
-<meta itemprop="keywords" content="openssl," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Compile openssl from source"/>
-<meta name="twitter:description" content="更新并替换原有openssl版本 Remove Current Version of Openssl 第一，先删除现在的openssl版本 sudo apt-get remove openssl sudo apt-get remove --auto-remove openssl sudo apt-get purge openssl Download package and compile from source 第二，从源码安装 ./config --prefix=/opt/software/ssl --openssldir=/opt/software/ssl shared"/>
+<meta itemprop="name" content="Flask With Mysql(二)">
+<meta itemprop="description" content="这是一个flask基础框架，由于python之前只是写一些零散的脚本 刚好使用python构建一个项目脚手架 1. jwt token的流程 short live token to make application more"><meta itemprop="datePublished" content="2021-08-06T23:36:30&#43;08:00" />
+<meta itemprop="dateModified" content="2021-08-06T23:36:30&#43;08:00" />
+<meta itemprop="wordCount" content="1107">
+<meta itemprop="keywords" content="python,flask,mysql," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Flask With Mysql(二)"/>
+<meta name="twitter:description" content="这是一个flask基础框架，由于python之前只是写一些零散的脚本 刚好使用python构建一个项目脚手架 1. jwt token的流程 short live token to make application more"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -279,14 +279,14 @@
           <article class="post bg-white">
     
     <header class="post-header">
-      <h1 class="post-title">Compile openssl from source</h1>
+      <h1 class="post-title">Flask With Mysql(二)</h1>
       
       <div class="post-meta">
-        <time datetime="2021-09-07" class="post-time">
-          2021-09-07
+        <time datetime="2021-08-06" class="post-time">
+          2021-08-06
         </time>
         <div class="post-category">
-            <a href="http://hyyfrank.github.io/categories/linux/"> linux </a>
+            <a href="http://hyyfrank.github.io/categories/backend/"> backend </a>
             
           </div>
         
@@ -304,57 +304,112 @@
 
     
     <div class="post-content">
-      <h1 id="更新并替换原有openssl版本">更新并替换原有openssl版本</h1>
-<h2 id="remove-current-version-of-openssl">Remove Current Version of Openssl</h2>
+      <blockquote>
+<p>这是一个flask基础框架，由于python之前只是写一些零散的脚本
+刚好使用python构建一个项目脚手架</p>
+</blockquote>
+<h2 id="1-jwt-token的流程">1. jwt token的流程</h2>
 <ul>
-<li>第一，先删除现在的openssl版本</li>
-</ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt-get remove openssl
-sudo apt-get remove --auto-remove openssl
-sudo apt-get purge openssl
-</code></pre></div><h2 id="download-package-and-compile-from-source">Download package and compile from source</h2>
+<li>short live token to make application more secure</li>
+<li>工作流程
 <ul>
-<li>第二，从源码安装</li>
+<li>发送请求获取token+refreshToken(secure cookie, httponly,samesit)</li>
+<li>发送请求(payload + token) 到后端，token存于内存变量，退出就失效</li>
+<li>如果token失效，使用cookie的refresh token重新获取token</li>
+<li>一般token维持一分钟，一分钟后就会失效，这可以阻止中间人攻击</li>
+<li>同时要对参数加一个单项hash的加密，用来保证参数的完整性，最好包含请求时间</li>
+<li>header的部分也要做hmac的对称加密，后台刷新token是用hmac解密</li>
+<li>jwt token可以持久化到redis来做主动失效，例如白名单，因为我们应用想做成无状态的，方便其他系统调用，所以就没做成存token的机制</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">  ./config --prefix<span style="color:#f92672">=</span>/opt/software/ssl --openssldir<span style="color:#f92672">=</span>/opt/software/ssl shared zlib
-</code></pre></div><h2 id="configure-link-library">configure link library</h2>
+</li>
+<li>实现细节
 <ul>
-<li>第三，链接库配置</li>
+<li><code>set-cookie</code> 是在服务端做，不是在客户端做</li>
+<li>最主要是cookie的处理要注意httponly,secure,samesite都要加，不然可能会有后续请求拿不到之前服务器设置的cookie的问题</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cd /etc/ld.so.conf.d/
-sudo touch openssl-1.1.1.conf
-sudo echo <span style="color:#e6db74">&#34;/opt/software/ssl/lib&#34;</span> &gt; openssl-1.1.1.conf
+</li>
+<li>要注意的地方是这种方案还是有安全风险，虽然对secure cookie已经有一定的安全保证，但是无法保证不被一些扩展工具获取到cookie，所以为了无状态也是对安全这方面做了一点的折中。</li>
+</ul>
+<h2 id="2-授权模型">2. 授权模型</h2>
+<p><img src="/images/permission.png" alt="网络上的授权模型，大差不差"></p>
+<h2 id="3-客户端实现">3. 客户端实现</h2>
+<ul>
+<li>redux-thunk, redux, react, react-hook， konva实现单向数据流应用</li>
+<li>异步使用redux-thunk比redux-saga要方便使用，也基本能实现异步操作</li>
+<li>react-hook避免了写一大堆生命周期的代码</li>
+<li>konva画图可以兼容Typescript</li>
+</ul>
+<h2 id="4-数据库的安全xss防范">4. 数据库的安全(XSS防范)</h2>
+<ul>
+<li>尽量不要写raw sql,使用sqlchemy的ORM最好，如果使用raw-sql一定要转义，要检查，否则可能会有xss攻击的风险</li>
+<li>增加一些必要的索引，增加请求速度</li>
+<li>对每条sql语句进行explain,查找优化的点</li>
+</ul>
+<h2 id="5-flask后台需要支持一些基础功能">5. flask后台需要支持一些基础功能</h2>
+<ul>
+<li>
+<p>日志，按天滚动,写两个handler</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">  self<span style="color:#f92672">.</span>logger<span style="color:#f92672">.</span>setLevel(logging<span style="color:#f92672">.</span>DEBUG)
+  formatter <span style="color:#f92672">=</span> logging<span style="color:#f92672">.</span>Formatter(getattr(config, <span style="color:#e6db74">&#34;LOG_FORMAT&#34;</span>))
+  timedRotatingFileHandler <span style="color:#f92672">=</span> handlers<span style="color:#f92672">.</span>TimedRotatingFileHandler(
+      getattr(config, <span style="color:#e6db74">&#34;LOG_FILENAME&#34;</span>),
+      when<span style="color:#f92672">=</span>getattr(config, <span style="color:#e6db74">&#34;LOG_WHEN&#34;</span>),
+      interval<span style="color:#f92672">=</span>getattr(config, <span style="color:#e6db74">&#34;LOG_INTERVAL&#34;</span>),
+      backupCount<span style="color:#f92672">=</span>getattr(config, <span style="color:#e6db74">&#34;LOG_BACKUP_COUNT&#34;</span>),
+  )
+  timedRotatingFileHandler<span style="color:#f92672">.</span>setLevel(logging<span style="color:#f92672">.</span>INFO)
+  timedRotatingFileHandler<span style="color:#f92672">.</span>setFormatter(formatter)
+
+  errorLogHandler <span style="color:#f92672">=</span> handlers<span style="color:#f92672">.</span>RotatingFileHandler(
+      getattr(config, <span style="color:#e6db74">&#34;LOG_ROTATE_FILENAME&#34;</span>),
+      maxBytes<span style="color:#f92672">=</span>getattr(config, <span style="color:#e6db74">&#34;LOG_ROTATE_MAXBYTES&#34;</span>),
+      backupCount<span style="color:#f92672">=</span>getattr(config, <span style="color:#e6db74">&#34;LOG_ROTATE_BACKUP_COUNT&#34;</span>),
+  )
+  errorLogHandler<span style="color:#f92672">.</span>setLevel(logging<span style="color:#f92672">.</span>ERROR)
+  errorLogHandler<span style="color:#f92672">.</span>setFormatter(formatter)
+</code></pre></div></li>
+<li>
+<p>按环境区分配置</p>
+</li>
+<li>
+<p>跨域设置响应头，要有处理option请求的逻辑，无需使用flask-cros之类的library</p>
+</li>
+<li>
+<p>数据库返回的数据要序列化，写个通用的方法</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sqlalchemy.inspection <span style="color:#f92672">import</span> inspect
+  <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Serializer</span>(object):
+      <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">serialize</span>(self):
+          <span style="color:#66d9ef">return</span> {c: getattr(self, c) <span style="color:#66d9ef">for</span> c <span style="color:#f92672">in</span> inspect(self)<span style="color:#f92672">.</span>attrs<span style="color:#f92672">.</span>keys()}
+
+      <span style="color:#a6e22e">@staticmethod</span>
+      <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">serialize_list</span>(lo):
+          <span style="color:#66d9ef">return</span> [m<span style="color:#f92672">.</span>serialize() <span style="color:#66d9ef">for</span> m <span style="color:#f92672">in</span> lo]
+</code></pre></div></li>
+<li>
+<p>有些地方要做单例，比如配置，logger这类</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> threading
+  lock <span style="color:#f92672">=</span> threading<span style="color:#f92672">.</span>Lock()
+  <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Singleton</span>(type):
+      _instances <span style="color:#f92672">=</span> {}  <span style="color:#75715e"># type: ignore</span>
+      <span style="color:#66d9ef">def</span> __call__(cls, <span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kwargs):
+          <span style="color:#66d9ef">if</span> cls <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> cls<span style="color:#f92672">.</span>_instances:
+              <span style="color:#66d9ef">with</span> lock:
+                  <span style="color:#66d9ef">if</span> cls <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> cls<span style="color:#f92672">.</span>_instances:
+                      cls<span style="color:#f92672">.</span>_instances[cls] <span style="color:#f92672">=</span> super(Singleton, cls)<span style="color:#f92672">.</span>__call__(
+                          <span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kwargs
+                      )
+          <span style="color:#66d9ef">return</span> cls<span style="color:#f92672">.</span>_instances[cls]
+
 </code></pre></div><ul>
-<li>重新加载动态连接<code>sudo ldconfig -v</code></li>
+<li>sphinx文档生成
+<ul>
+<li>改成了支持markdown的方式，后面写文档直接写markdown文件就可以</li>
+<li>postman同样把api调用放到这里，可以方便团队使用postman配置文件快速开发</li>
 </ul>
-<h2 id="configure-environment-path">configure environment path</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">emacs ~/.zshrc  <span style="color:#75715e"># if you like bash, go and set in ~/.bashrc</span>
-export PATH<span style="color:#f92672">=</span>/opt/software/ssl/bin:$CONDA_HOME/bin:$PATH
-</code></pre></div><ul>
-<li>确定你把路径放在conda前面，因为conda有时候会有自己的一个低版本1.1.1k这种</li>
+</li>
 </ul>
-<h2 id="check-the-result">check the result</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">openssl version -a
-</code></pre></div><ul>
-<li>结果如下：</li>
+</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">OpenSSL 1.1.1l  <span style="color:#ae81ff">24</span> Aug <span style="color:#ae81ff">2021</span>
-
-built on: Tue Sep  <span style="color:#ae81ff">7</span> 10:19:48 <span style="color:#ae81ff">2021</span> UTC
-
-platform: linux-x86_64
-
-options:  bn<span style="color:#f92672">(</span>64,64<span style="color:#f92672">)</span> rc4<span style="color:#f92672">(</span>16x,int<span style="color:#f92672">)</span> des<span style="color:#f92672">(</span>int<span style="color:#f92672">)</span> idea<span style="color:#f92672">(</span>int<span style="color:#f92672">)</span> blowfish<span style="color:#f92672">(</span>ptr<span style="color:#f92672">)</span> 
-
-compiler: gcc -fPIC -pthread -m64 -Wa,--noexecstack -Wall -O3 -DOPENSSL_USE_NODELETE -DL_ENDIAN -DOPENSSL_PIC -DOPENSSL_CPUID_OBJ -DOPENSSL_IA32_SSE2 -DOPENSSL_BN_ASM_MONT -DOPENSSL_BN_ASM_MONT5 -DOPENSSL_BN_ASM_GF2m -DSHA1_ASM -DSHA256_ASM -DSHA512_ASM -DKECCAK1600_ASM -DRC4_ASM -DMD5_ASM -DAESNI_ASM -DVPAES_ASM -DGHASH_ASM -DECP_NISTZ256_ASM -DX25519_ASM -DPOLY1305_ASM -DZLIB -DNDEBUG
-
-OPENSSLDIR: <span style="color:#e6db74">&#34;/opt/software/ssl&#34;</span>
-
-ENGINESDIR: <span style="color:#e6db74">&#34;/opt/software/ssl/lib/engines-1.1&#34;</span>
-
-Seeding source: os-specific
-</code></pre></div><h2 id="完成">完成</h2>
-<p>最好，安装软件的时候，都从源码编译，你可以更了解你需要什么，定制安装你的软件，不要什么的apt-get install</p>
 
     </div>
 
@@ -368,7 +423,7 @@ Seeding source: os-specific
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-      2021-09-07
+      2021-08-06
       
     </span>
   </p>
@@ -385,16 +440,31 @@ Seeding source: os-specific
 
     <footer class="post-footer">
       <div class="post-tags">
-          <a href="http://hyyfrank.github.io/tags/openssl/">openssl</a>
+          <a href="http://hyyfrank.github.io/tags/python/">python</a>
+          <a href="http://hyyfrank.github.io/tags/flask/">flask</a>
+          <a href="http://hyyfrank.github.io/tags/mysql/">mysql</a>
           
         </div>
 
       
       <nav class="post-nav">
         
+          <a class="prev" href="/post/linux/play-with-openssl/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">Compile openssl from source</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
         
-          <a class="next" href="/post/python/playing-with-flask-2/">
-            <span class="next-text nav-default">Flask With Mysql(二)</span>
+          <a class="next" href="/post/python/playing-with-flask-1/">
+            <span class="next-text nav-default">Flask With Mysql(一)</span>
             <span class="prev-text nav-mobile">Next</span>
             
             <i class="iconfont">

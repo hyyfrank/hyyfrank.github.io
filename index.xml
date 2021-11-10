@@ -74,6 +74,123 @@ Seeding source: os-specific
     </item>
     
     <item>
+      <title>Flask With Mysql(二)</title>
+      <link>http://hyyfrank.github.io/post/python/playing-with-flask-2/</link>
+      <pubDate>Fri, 06 Aug 2021 23:36:30 +0800</pubDate>
+      
+      <guid>http://hyyfrank.github.io/post/python/playing-with-flask-2/</guid>
+      
+        <description>&lt;blockquote&gt;
+&lt;p&gt;这是一个flask基础框架，由于python之前只是写一些零散的脚本
+刚好使用python构建一个项目脚手架&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;1-jwt-token的流程&#34;&gt;1. jwt token的流程&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;short live token to make application more secure&lt;/li&gt;
+&lt;li&gt;工作流程
+&lt;ul&gt;
+&lt;li&gt;发送请求获取token+refreshToken(secure cookie, httponly,samesit)&lt;/li&gt;
+&lt;li&gt;发送请求(payload + token) 到后端，token存于内存变量，退出就失效&lt;/li&gt;
+&lt;li&gt;如果token失效，使用cookie的refresh token重新获取token&lt;/li&gt;
+&lt;li&gt;一般token维持一分钟，一分钟后就会失效，这可以阻止中间人攻击&lt;/li&gt;
+&lt;li&gt;同时要对参数加一个单项hash的加密，用来保证参数的完整性，最好包含请求时间&lt;/li&gt;
+&lt;li&gt;header的部分也要做hmac的对称加密，后台刷新token是用hmac解密&lt;/li&gt;
+&lt;li&gt;jwt token可以持久化到redis来做主动失效，例如白名单，因为我们应用想做成无状态的，方便其他系统调用，所以就没做成存token的机制&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;实现细节
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;set-cookie&lt;/code&gt; 是在服务端做，不是在客户端做&lt;/li&gt;
+&lt;li&gt;最主要是cookie的处理要注意httponly,secure,samesite都要加，不然可能会有后续请求拿不到之前服务器设置的cookie的问题&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;要注意的地方是这种方案还是有安全风险，虽然对secure cookie已经有一定的安全保证，但是无法保证不被一些扩展工具获取到cookie，所以为了无状态也是对安全这方面做了一点的折中。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;2-授权模型&#34;&gt;2. 授权模型&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;http://hyyfrank.github.io/images/permission.png&#34; alt=&#34;网络上的授权模型，大差不差&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;3-客户端实现&#34;&gt;3. 客户端实现&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;redux-thunk, redux, react, react-hook， konva实现单向数据流应用&lt;/li&gt;
+&lt;li&gt;异步使用redux-thunk比redux-saga要方便使用，也基本能实现异步操作&lt;/li&gt;
+&lt;li&gt;react-hook避免了写一大堆生命周期的代码&lt;/li&gt;
+&lt;li&gt;konva画图可以兼容Typescript&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;4-数据库的安全xss防范&#34;&gt;4. 数据库的安全(XSS防范)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;尽量不要写raw sql,使用sqlchemy的ORM最好，如果使用raw-sql一定要转义，要检查，否则可能会有xss攻击的风险&lt;/li&gt;
+&lt;li&gt;增加一些必要的索引，增加请求速度&lt;/li&gt;
+&lt;li&gt;对每条sql语句进行explain,查找优化的点&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;5-flask后台需要支持一些基础功能&#34;&gt;5. flask后台需要支持一些基础功能&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;日志，按天滚动,写两个handler&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;  self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;logger&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;setLevel(logging&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;DEBUG)
+  formatter &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; logging&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;Formatter(getattr(config, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;LOG_FORMAT&amp;#34;&lt;/span&gt;))
+  timedRotatingFileHandler &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; handlers&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;TimedRotatingFileHandler(
+      getattr(config, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;LOG_FILENAME&amp;#34;&lt;/span&gt;),
+      when&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;getattr(config, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;LOG_WHEN&amp;#34;&lt;/span&gt;),
+      interval&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;getattr(config, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;LOG_INTERVAL&amp;#34;&lt;/span&gt;),
+      backupCount&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;getattr(config, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;LOG_BACKUP_COUNT&amp;#34;&lt;/span&gt;),
+  )
+  timedRotatingFileHandler&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;setLevel(logging&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;INFO)
+  timedRotatingFileHandler&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;setFormatter(formatter)
+
+  errorLogHandler &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; handlers&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;RotatingFileHandler(
+      getattr(config, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;LOG_ROTATE_FILENAME&amp;#34;&lt;/span&gt;),
+      maxBytes&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;getattr(config, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;LOG_ROTATE_MAXBYTES&amp;#34;&lt;/span&gt;),
+      backupCount&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;getattr(config, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;LOG_ROTATE_BACKUP_COUNT&amp;#34;&lt;/span&gt;),
+  )
+  errorLogHandler&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;setLevel(logging&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;ERROR)
+  errorLogHandler&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;setFormatter(formatter)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;按环境区分配置&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;跨域设置响应头，要有处理option请求的逻辑，无需使用flask-cros之类的library&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;数据库返回的数据要序列化，写个通用的方法&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; sqlalchemy.inspection &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; inspect
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Serializer&lt;/span&gt;(object):
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;serialize&lt;/span&gt;(self):
+          &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; {c: getattr(self, c) &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; c &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; inspect(self)&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;attrs&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;keys()}
+
+      &lt;span style=&#34;color:#a6e22e&#34;&gt;@staticmethod&lt;/span&gt;
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;serialize_list&lt;/span&gt;(lo):
+          &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; [m&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;serialize() &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; m &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; lo]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;有些地方要做单例，比如配置，logger这类&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; threading
+  lock &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; threading&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;Lock()
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Singleton&lt;/span&gt;(type):
+      _instances &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; {}  &lt;span style=&#34;color:#75715e&#34;&gt;# type: ignore&lt;/span&gt;
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; __call__(cls, &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;args, &lt;span style=&#34;color:#f92672&#34;&gt;**&lt;/span&gt;kwargs):
+          &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; cls &lt;span style=&#34;color:#f92672&#34;&gt;not&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; cls&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;_instances:
+              &lt;span style=&#34;color:#66d9ef&#34;&gt;with&lt;/span&gt; lock:
+                  &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; cls &lt;span style=&#34;color:#f92672&#34;&gt;not&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; cls&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;_instances:
+                      cls&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;_instances[cls] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; super(Singleton, cls)&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;__call__(
+                          &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;args, &lt;span style=&#34;color:#f92672&#34;&gt;**&lt;/span&gt;kwargs
+                      )
+          &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; cls&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;_instances[cls]
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;sphinx文档生成
+&lt;ul&gt;
+&lt;li&gt;改成了支持markdown的方式，后面写文档直接写markdown文件就可以&lt;/li&gt;
+&lt;li&gt;postman同样把api调用放到这里，可以方便团队使用postman配置文件快速开发&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      
+    </item>
+    
+    <item>
       <title>About</title>
       <link>http://hyyfrank.github.io/about/</link>
       <pubDate>Tue, 03 Aug 2021 22:13:10 +0800</pubDate>
@@ -84,6 +201,43 @@ Seeding source: os-specific
 &lt;p&gt;激水之疾 ，至于漂石者，势也；鸷鸟之（疾）〔击〕，至于毁折者，节也。是故善战者，其势险，其节短；势如弩，节如发机。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;hello, 欢迎来到我的博客，我的博客主要是记录一些技术日记和读书笔记，欢迎交流。&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Flask With Mysql(一)</title>
+      <link>http://hyyfrank.github.io/post/python/playing-with-flask-1/</link>
+      <pubDate>Tue, 03 Aug 2021 20:36:30 +0800</pubDate>
+      
+      <guid>http://hyyfrank.github.io/post/python/playing-with-flask-1/</guid>
+      
+        <description>&lt;blockquote&gt;
+&lt;p&gt;这是一个flask基础框架，由于python之前只是写一些零散的脚本
+刚好使用python构建一个项目脚手架&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;1-需要哪些功能&#34;&gt;1. 需要哪些功能&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;flask&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;blueprint&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cros&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;output json format&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;easy debugging&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;health page&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;logging&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;multiple env support&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;flake8 for static code checking&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;yapf for code formatting&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;jwt token&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;crypt password&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mysql&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sphinx&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;postman&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;test&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;xss attack(orm and escape)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;parameter integrity-sha1&lt;/code&gt; (avoid middle man attack)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;timestamp validate&lt;/code&gt;(replay attack, doc attack）&lt;/li&gt;
+&lt;/ul&gt;
 </description>
       
     </item>
@@ -1716,43 +1870,6 @@ extentsions:[&#39;.ts&#39;,&#39;.js&#39;,&#39;.json&#39;]
     </item>
     
     <item>
-      <title>Flask With Mysql(一)</title>
-      <link>http://hyyfrank.github.io/post/python/playing-with-flask-1/</link>
-      <pubDate>Tue, 06 Aug 2019 23:36:30 +0800</pubDate>
-      
-      <guid>http://hyyfrank.github.io/post/python/playing-with-flask-1/</guid>
-      
-        <description>&lt;blockquote&gt;
-&lt;p&gt;这是一个flask基础框架，由于python之前只是写一些零散的脚本
-刚好使用python构建一个项目脚手架&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;1-需要哪些功能&#34;&gt;1. 需要哪些功能&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;flask&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;blueprint&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;cros&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;output json format&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;easy debugging&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;health page&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;logging&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;multiple env support&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;flake8 for static code checking&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;yapf for code formatting&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;jwt token&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;crypt password&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;mysql&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;sphinx&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;postman&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;test&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;xss attack(orm and escape)&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;parameter integrity-sha1&lt;/code&gt; (avoid middle man attack)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;timestamp validate&lt;/code&gt;(replay attack, doc attack）&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      
-    </item>
-    
-    <item>
       <title>React With Webpack(一)</title>
       <link>http://hyyfrank.github.io/post/frontend/react-with-webpack-1/</link>
       <pubDate>Tue, 06 Aug 2019 23:36:30 +0800</pubDate>
@@ -2500,52 +2617,6 @@ mybatis.configuration.log-impl= org.apache.ibatis.logging.stdout.StdOutImpl
 &lt;/ul&gt;
 &lt;blockquote&gt;
 &lt;p&gt;不积小流，无以成江海&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
-      
-    </item>
-    
-    <item>
-      <title>Java With Spring (一)</title>
-      <link>http://hyyfrank.github.io/post/spring/java-with-spring-1/</link>
-      <pubDate>Sat, 14 Jul 2018 09:33:39 +0800</pubDate>
-      
-      <guid>http://hyyfrank.github.io/post/spring/java-with-spring-1/</guid>
-      
-        <description>&lt;h1 id=&#34;一个java的脚手架需要些什么&#34;&gt;一个Java的脚手架需要些什么&lt;/h1&gt;
-&lt;ol&gt;
-&lt;li&gt;增删改查,mybatics(分页有需要可以自己加下)&lt;/li&gt;
-&lt;li&gt;配置kombok&lt;/li&gt;
-&lt;li&gt;增加gitignore,支持热部署,JSON包装结果&lt;/li&gt;
-&lt;li&gt;增加多个环境支持&lt;/li&gt;
-&lt;li&gt;自定义异常处理&lt;/li&gt;
-&lt;li&gt;日志处理&lt;/li&gt;
-&lt;li&gt;增加过滤器,如cros&lt;/li&gt;
-&lt;li&gt;增加redis&lt;/li&gt;
-&lt;li&gt;增加kafka&lt;/li&gt;
-&lt;li&gt;增加自定义线程池&lt;/li&gt;
-&lt;li&gt;事务处理方式&lt;/li&gt;
-&lt;li&gt;swagger支持&lt;/li&gt;
-&lt;li&gt;google style code format&lt;/li&gt;
-&lt;li&gt;分布式任务调度elastic-job&lt;/li&gt;
-&lt;li&gt;配置中心apollo&lt;/li&gt;
-&lt;li&gt;注册中心eureka&lt;/li&gt;
-&lt;li&gt;链路追踪skywalking&lt;/li&gt;
-&lt;li&gt;job注册调度zookeeper&lt;/li&gt;
-&lt;li&gt;熔断器hystrix&lt;/li&gt;
-&lt;li&gt;RPC, OpenFeign&lt;/li&gt;
-&lt;li&gt;读写分离和分库分表，shardingsphere&lt;/li&gt;
-&lt;li&gt;全文检索elastic-search&lt;/li&gt;
-&lt;li&gt;security&lt;/li&gt;
-&lt;li&gt;AOP&lt;/li&gt;
-&lt;li&gt;spring cloud&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;技术决策和架构选择&#34;&gt;技术决策和架构选择&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;具体使用什么技术要看具体的条件和业务的需要，不可一概而论，生搬硬套！&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;麻雀虽小，五脏俱全！&lt;/p&gt;
 &lt;/blockquote&gt;
 </description>
       

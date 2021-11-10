@@ -51,8 +51,50 @@
   </url>
   
   <url>
+    <loc>http://hyyfrank.github.io/categories/backend/</loc>
+    <lastmod>2021-08-06T23:36:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://hyyfrank.github.io/tags/flask/</loc>
+    <lastmod>2021-08-06T23:36:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://hyyfrank.github.io/post/python/playing-with-flask-2/</loc>
+    <lastmod>2021-08-06T23:36:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://hyyfrank.github.io/tags/mysql/</loc>
+    <lastmod>2021-08-06T23:36:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://hyyfrank.github.io/tags/python/</loc>
+    <lastmod>2021-08-06T23:36:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://hyyfrank.github.io/about/</loc>
     <lastmod>2021-08-03T22:13:10+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://hyyfrank.github.io/post/python/playing-with-flask-1/</loc>
+    <lastmod>2021-08-03T20:36:30+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -312,13 +354,6 @@
   <url>
     <loc>http://hyyfrank.github.io/post/frontend/react-with-webpack-2/</loc>
     <lastmod>2019-08-10T11:07:49+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://hyyfrank.github.io/post/python/playing-with-flask-1/</loc>
-    <lastmod>2019-08-06T23:36:30+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

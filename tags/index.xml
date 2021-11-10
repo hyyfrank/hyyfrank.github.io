@@ -17,6 +17,33 @@
     </item>
     
     <item>
+      <title>flask</title>
+      <link>http://hyyfrank.github.io/tags/flask/</link>
+      <pubDate>Fri, 06 Aug 2021 23:36:30 +0800</pubDate>
+      
+      <guid>http://hyyfrank.github.io/tags/flask/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mysql</title>
+      <link>http://hyyfrank.github.io/tags/mysql/</link>
+      <pubDate>Fri, 06 Aug 2021 23:36:30 +0800</pubDate>
+      
+      <guid>http://hyyfrank.github.io/tags/mysql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>http://hyyfrank.github.io/tags/python/</link>
+      <pubDate>Fri, 06 Aug 2021 23:36:30 +0800</pubDate>
+      
+      <guid>http://hyyfrank.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>emacs</title>
       <link>http://hyyfrank.github.io/tags/emacs/</link>
       <pubDate>Wed, 02 Sep 2020 23:03:48 +0800</pubDate>
@@ -157,33 +184,6 @@
       <pubDate>Wed, 21 Aug 2019 20:11:44 +0800</pubDate>
       
       <guid>http://hyyfrank.github.io/tags/devserver/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>HMR</title>
-      <link>http://hyyfrank.github.io/tags/hmr/</link>
-      <pubDate>Wed, 21 Aug 2019 20:11:44 +0800</pubDate>
-      
-      <guid>http://hyyfrank.github.io/tags/hmr/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>react18</title>
-      <link>http://hyyfrank.github.io/tags/react18/</link>
-      <pubDate>Wed, 21 Aug 2019 20:11:44 +0800</pubDate>
-      
-      <guid>http://hyyfrank.github.io/tags/react18/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>webpack4</title>
-      <link>http://hyyfrank.github.io/tags/webpack4/</link>
-      <pubDate>Wed, 21 Aug 2019 20:11:44 +0800</pubDate>
-      
-      <guid>http://hyyfrank.github.io/tags/webpack4/</guid>
       <description></description>
     </item>
     
