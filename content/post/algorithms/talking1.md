@@ -2,7 +2,7 @@
 title: "Algorithm Guy Always Good?"
 date: 2021-07-07T11:36:45+08:00
 lastmod: 2021-08-07T11:36:45+08:00
-draft: false
+draft: true
 tags: ["algorithm"]
 categories: ["algorithm"]
 ---

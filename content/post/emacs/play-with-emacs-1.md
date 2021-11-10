@@ -97,8 +97,4 @@ categories: [ "emacs" ]
             :ensure t
             :init
             (yas-global-mode 1))
-<<<<<<< HEAD
-
-=======
->>>>>>> 2126a2f897f87f4fc503377b29cd4de25e34785c
     ```

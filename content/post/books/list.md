@@ -2,7 +2,7 @@
 title: "Reading List"
 date: 2021-09-04T10:36:30+08:00
 lastmod: 2021-09-04T13:36:30+08:00
-draft: false
+draft: true
 tags: ["reading"]
 categories: [ "Reading" ]
 ---
