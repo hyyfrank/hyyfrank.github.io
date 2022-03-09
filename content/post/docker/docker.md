@@ -31,7 +31,7 @@ categories: [ "docker" ]
     - bridge, host, container, none
 - 容器实现
   - 容器是特殊的进程
-  - ```int clone(int (*fn)(void *), void *child_stack, int flags, void *arg); ```
+  - ```int clone(int (*fn)(void*), void *child_stack, int flags, void*arg);```
   - Fork = Clone + CLONE_VM | CLONE_VFORK | SIGHILD (NOTE: Fork和Clone都是对sys_clone的封装，所以其实这里表达有少许不准确)
   - fork是从调用点继续执行，clone是从fn(args)继续执行，因为子进程和父进程共享内存，但是维护单独的变量副本，所以需要为子进程单独分配栈，就是`child_stack`指针指向的位置，flags有两个作用，低位字节可以放返回信号，flags和docker相关的flag就是上述的UTS, IPC, PID, NETWORK, MOUNT, USER对应的标签`CLONE_NEWUTS`,`CLONE_NEWIPC`,`CLONE_NEWPID`,`CLONE_NEWNET`,`CLONE_NEWNS`,`CLONE_NEWUSER`
   - cgroup包含着对资源的控制，对应linux下是在`/sys/fs/cgroup`目录下
