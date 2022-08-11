@@ -6,10 +6,84 @@
     <description>Recent content on H&amp;W</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 10 Aug 2022 11:53:41 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 11 Aug 2022 11:53:41 +0800</lastBuildDate>
     
         <atom:link href="http://hyyfrank.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[跬步2] debounce with promise </title>
+      <link>http://hyyfrank.github.io/post/frontend/%E8%B7%AC%E6%AD%A5-2/</link>
+      <pubDate>Thu, 11 Aug 2022 11:53:41 +0800</pubDate>
+      
+      <guid>http://hyyfrank.github.io/post/frontend/%E8%B7%AC%E6%AD%A5-2/</guid>
+      
+        <description>&lt;h2 id=&#34;先写个debounce&#34;&gt;先写个debounce&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;_&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;debounce&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;fn&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;delay&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;immediate&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;) =&amp;gt; {
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;timer&lt;/span&gt;;
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; (...&lt;span style=&#34;color:#a6e22e&#34;&gt;args&lt;/span&gt;) =&amp;gt; {
+          &lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;callNow&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;immediate&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;timer&lt;/span&gt;;
+          &lt;span style=&#34;color:#a6e22e&#34;&gt;clearTimeout&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;timer&lt;/span&gt;);
+          &lt;span style=&#34;color:#a6e22e&#34;&gt;timer&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;setTimeout&lt;/span&gt;(() =&amp;gt; {
+              &lt;span style=&#34;color:#a6e22e&#34;&gt;timer&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;; 
+              &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (&lt;span style=&#34;color:#f92672&#34;&gt;!&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;immediate&lt;/span&gt;) &lt;span style=&#34;color:#a6e22e&#34;&gt;fn&lt;/span&gt;(...&lt;span style=&#34;color:#a6e22e&#34;&gt;args&lt;/span&gt;); 
+          }, &lt;span style=&#34;color:#a6e22e&#34;&gt;delay&lt;/span&gt;);
+          &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;callNow&lt;/span&gt;) &lt;span style=&#34;color:#a6e22e&#34;&gt;fn&lt;/span&gt;(...&lt;span style=&#34;color:#a6e22e&#34;&gt;args&lt;/span&gt;);
+      };
+  };
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;debounce-with-promise&#34;&gt;debounce with promise&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;如果我在拖动鼠标的时候，触发debounce, 但是其中的函数是去调用某个api，这样这个函数就是异步的，是一个promise,
+如果这个时候我想只执行最后一个promise，那我的debounce改怎么写，为什么这样问，因为我们看到lodash里边对调用的fn
+其实是有一个判断是不是函数的步骤的&lt;code&gt;if (typeof func !== &#39;function&#39;) {throw new TypeError(&#39;Expected a function&#39;)}&lt;/code&gt;
+所以，如果是个promise我们需要重写一下，逻辑也是很简单的，如下：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;debounce_promise_last&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;fn&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;delay&lt;/span&gt;) =&amp;gt; {
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;timer&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; (...&lt;span style=&#34;color:#a6e22e&#34;&gt;args&lt;/span&gt;) =&amp;gt; {
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;clearTimeout&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;timer&lt;/span&gt;);
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; Promise((&lt;span style=&#34;color:#a6e22e&#34;&gt;resolve&lt;/span&gt;) =&amp;gt; {
+      &lt;span style=&#34;color:#a6e22e&#34;&gt;timer&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;setTimeout&lt;/span&gt;(
+        () =&amp;gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;resolve&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;fn&lt;/span&gt;(...&lt;span style=&#34;color:#a6e22e&#34;&gt;args&lt;/span&gt;)),
+        &lt;span style=&#34;color:#a6e22e&#34;&gt;delay&lt;/span&gt;,
+      );
+    });
+  };
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;如果我还是需要所有的promise,每个promise之间有一个ms的间隔&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;debounce_promise_all&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;fn&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;delay&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;) {
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;timer&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;resolves&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [];
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; (...&lt;span style=&#34;color:#a6e22e&#34;&gt;args&lt;/span&gt;) {    
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;clearTimeout&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;timer&lt;/span&gt;);
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;timer&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;setTimeout&lt;/span&gt;(() =&amp;gt; {
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;result&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;fn&lt;/span&gt;(...&lt;span style=&#34;color:#a6e22e&#34;&gt;args&lt;/span&gt;);
+      &lt;span style=&#34;color:#a6e22e&#34;&gt;resolves&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;forEach&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;r&lt;/span&gt; =&amp;gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;r&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;result&lt;/span&gt;));
+      &lt;span style=&#34;color:#a6e22e&#34;&gt;resolves&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [];
+    }, &lt;span style=&#34;color:#a6e22e&#34;&gt;delay&lt;/span&gt;);
+
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; Promise(&lt;span style=&#34;color:#a6e22e&#34;&gt;r&lt;/span&gt; =&amp;gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;resolves&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;push&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;r&lt;/span&gt;));
+  };
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;其实如果是api调用，也有一种常见情况就是我们用throttle来保证一段时间内只有一个调用，
+这里其实还有更复杂的情况，比如cancel情况，retry情况，特别retry的时候，是不是用指数退化算法
+当然，如果promise量很大的时候，比如我们碰到过一次1000多个promise,那要做的更复杂，需要考虑如下情况：
+&lt;ul&gt;
+&lt;li&gt;第一，给promise分组,我们一般20个promise放一组&lt;/li&gt;
+&lt;li&gt;第二，每个promise有一个唯一ID,我们结合task给了一个唯一的ID&lt;/li&gt;
+&lt;li&gt;第三，记录每个promise的日志，方便错误追溯，我们放splunk log里&lt;/li&gt;
+&lt;li&gt;第四，是否需要cancel&lt;/li&gt;
+&lt;li&gt;第五，retry的逻辑，因为我们api是ajax请求，结合指数退化算法来做重试的时延是比较合适的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;这里代码就和具体业务相关了，就不贴出来了&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      
+    </item>
     
     <item>
       <title>[跬步1] debounce, throttle </title>
@@ -189,6 +263,113 @@
   &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;throttled&lt;/span&gt;;
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>FFMPEG</title>
+      <link>http://hyyfrank.github.io/post/algorithms/ffmpeg/</link>
+      <pubDate>Fri, 04 Mar 2022 10:36:30 +0800</pubDate>
+      
+      <guid>http://hyyfrank.github.io/post/algorithms/ffmpeg/</guid>
+      
+        <description>&lt;h2 id=&#34;基本组成&#34;&gt;基本组成&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;AVFormat: 包含绝大多数的媒体封装格式，封装和解封装（编译enable）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;AVCodec: 包含绝大多数的编解码格式（第三方要另外安装，比如x264, libfdk_aac等）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;AVFilter: 音频，视频，字幕等滤镜处理模块，可以有多个输入输出，e.g, crop flip使用的是同一个滤镜处理线性链，split和overlay使用的另一个滤镜处理线性链，可以理解为第一个分号，把视频流拆成2部分，第一部分标签main,第二部分叫tmp;第二个分号，把tmp作为输入，通过crop和vflip处理后，放到flip的标签里，第三个分号则是把main标签和flip标签合并作为输入，输出到output里面，最后完成镜像的效果&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;ffmpeg&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;INPUT&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;vf&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;split [main][tmp]; [tmp] crop=iw:ih/2:0:0, vflip [flip]; [main][flip] overlay=0:H/2&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;OUTPUT&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;视频图像计算模块swscale: 图像缩放和像素格式转换的功能&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;音频转换模块swresample: 音频采样，音频通道布局转换，布局调整&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;ffmpeg工作流程&#34;&gt;ffmpeg工作流程&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;读取文件&lt;/li&gt;
+&lt;li&gt;解封装 Demuxer&lt;/li&gt;
+&lt;li&gt;解码 Decoder&lt;/li&gt;
+&lt;li&gt;转换参数 Encoder&lt;/li&gt;
+&lt;li&gt;封装 Muxer&lt;/li&gt;
+&lt;li&gt;写入文件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;ffmpeg的编解码工具ffmpeg&#34;&gt;FFmpeg的编解码工具ffmpeg&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;主要注意格式就行&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ffmpeg&lt;/span&gt; [&lt;span style=&#34;color:#a6e22e&#34;&gt;options&lt;/span&gt;] [[&lt;span style=&#34;color:#a6e22e&#34;&gt;infile&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;options&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;infile&lt;/span&gt;]... {[&lt;span style=&#34;color:#a6e22e&#34;&gt;outfile&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;options&lt;/span&gt;] &lt;span style=&#34;color:#a6e22e&#34;&gt;outfile&lt;/span&gt;}...
+ &lt;span style=&#34;color:#a6e22e&#34;&gt;ffmpeg&lt;/span&gt; [&lt;span style=&#34;color:#a6e22e&#34;&gt;全局参数&lt;/span&gt;] 
+ [[&lt;span style=&#34;color:#a6e22e&#34;&gt;输入文件参数&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;i&lt;/span&gt; [&lt;span style=&#34;color:#a6e22e&#34;&gt;输入文件&lt;/span&gt;]] 
+ [[&lt;span style=&#34;color:#a6e22e&#34;&gt;输出文件参数&lt;/span&gt;]    [&lt;span style=&#34;color:#a6e22e&#34;&gt;输出文件&lt;/span&gt;]]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;ffmpeg的播放器ffplay&#34;&gt;FFmpeg的播放器ffplay&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;FFmpeg提供播放各种流和媒体文件(avformat, avcodec), ffplay需要SDL-2支持才能完整使用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;ffmpeg多媒体分析器ffprobe&#34;&gt;FFmpeg多媒体分析器ffprobe&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;多媒体分析工具可以查询以下信息：
+&lt;ul&gt;
+&lt;li&gt;音频参数（编码格式）&lt;/li&gt;
+&lt;li&gt;视频参数 （编码格式）&lt;/li&gt;
+&lt;li&gt;媒体容器的参数信息（时长，复合码率）&lt;/li&gt;
+&lt;li&gt;媒体文件中每个包长度，类型，帧的信息等&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;build-from-source&#34;&gt;build from source&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;我只需要mp4,h264,libfdk_aac,其他的暂时不需要，指定如下编译选项&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;.&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;configure&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;disable&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;filters&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;disable&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;encoders&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;disable&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;decoders&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;disable&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;hwaccels&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;disable&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;muxers&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;disable&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;demuxers&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;disable&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;parsers&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;disable&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;bsfs&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;disable&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;protocols&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;disable&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;indevs&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;disable&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;devices&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;enable&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;libx264&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;enable&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;libfdk_aac&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;enable&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;gpl&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;enable&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;nonfree&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;enable&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;muxer&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;mp4&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;安装完毕，查看编码器，解码器，封装，解封装和通讯协议的支持&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;.&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;configure&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;list&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;encoders&lt;/span&gt;
+.&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;configure&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;list&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;decoders&lt;/span&gt;
+.&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;configure&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;list&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;muxers&lt;/span&gt;
+.&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;configure&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;list&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;demuxers&lt;/span&gt;
+.&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;configure&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;list&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;protocols&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;常用命令&#34;&gt;常用命令&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;查看ffmpeg的格式和支持情况&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;查询支持情况&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;ffmpeg&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;formats&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;grep&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;aac&lt;/span&gt; .. &lt;span style=&#34;color:#a6e22e&#34;&gt;or&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;mp4&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;or&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;webm&lt;/span&gt;
+&lt;span style=&#34;color:#a6e22e&#34;&gt;ffmpeg&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;codes&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;grep&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;h264&lt;/span&gt;
+&lt;span style=&#34;color:#a6e22e&#34;&gt;ffmpeg&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;encoders&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;grep&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;libx264&lt;/span&gt;
+&lt;span style=&#34;color:#a6e22e&#34;&gt;ffmpeg&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;filters&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;grep&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;h264&lt;/span&gt;
+&lt;span style=&#34;color:#a6e22e&#34;&gt;ffmpeg&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;h&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;muxer&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;flv&lt;/span&gt;
+&lt;span style=&#34;color:#a6e22e&#34;&gt;ffmpeg&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;h&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;demuxer&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;flv&lt;/span&gt;
+&lt;span style=&#34;color:#a6e22e&#34;&gt;ffmpeg&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;h&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;encoder&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;h264&lt;/span&gt;
+&lt;span style=&#34;color:#a6e22e&#34;&gt;ffmpeg&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;h&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;decoder&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;h264&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;常见使用&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提取音频 &lt;code&gt;ffmpeg -i source.mp4 -vn -c:a copy target.aac&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;格式转化 &lt;code&gt;ffmpeg -i source.rmvb -vcodec mpeg4 -b:v 200k -r 15 -an target.mp4&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;调整码率 &lt;code&gt;ffmpeg -i source.mp4 -minrate 964K -maxrate 3856K -bufsize 2000K target.mp4&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;改分辨率 &lt;code&gt;ffmpeg -i source.mp4 -vf scale=480:-1 target.mp4&lt;/code&gt; (1080p -&amp;gt; 480p)&lt;/li&gt;
+&lt;li&gt;视频截图 &lt;code&gt;ffmpeg -y -i source.mp4 -ss 00:01:24 -t 00:00:01 target.jpg&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;裁剪视频 &lt;code&gt;ffmpeg -ss [start] -i [input] -t [duration] -c copy [output]&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 </description>
       
@@ -1082,7 +1263,7 @@ print(response&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;json())
 &lt;li&gt;容器实现
 &lt;ul&gt;
 &lt;li&gt;容器是特殊的进程&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;int clone(int (*fn)(void *), void *child_stack, int flags, void *arg); &lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;int clone(int (*fn)(void*), void *child_stack, int flags, void*arg);&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Fork = Clone + CLONE_VM | CLONE_VFORK | SIGHILD (NOTE: Fork和Clone都是对sys_clone的封装，所以其实这里表达有少许不准确)&lt;/li&gt;
 &lt;li&gt;fork是从调用点继续执行，clone是从fn(args)继续执行，因为子进程和父进程共享内存，但是维护单独的变量副本，所以需要为子进程单独分配栈，就是&lt;code&gt;child_stack&lt;/code&gt;指针指向的位置，flags有两个作用，低位字节可以放返回信号，flags和docker相关的flag就是上述的UTS, IPC, PID, NETWORK, MOUNT, USER对应的标签&lt;code&gt;CLONE_NEWUTS&lt;/code&gt;,&lt;code&gt;CLONE_NEWIPC&lt;/code&gt;,&lt;code&gt;CLONE_NEWPID&lt;/code&gt;,&lt;code&gt;CLONE_NEWNET&lt;/code&gt;,&lt;code&gt;CLONE_NEWNS&lt;/code&gt;,&lt;code&gt;CLONE_NEWUSER&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;cgroup包含着对资源的控制，对应linux下是在&lt;code&gt;/sys/fs/cgroup&lt;/code&gt;目录下&lt;/li&gt;
@@ -2274,284 +2455,6 @@ extentsions:[&#39;.ts&#39;,&#39;.js&#39;,&#39;.json&#39;]
 &lt;/li&gt;
 &lt;/ul&gt;
 </description>
-      
-    </item>
-    
-    <item>
-      <title>Java With Spring (四)</title>
-      <link>http://hyyfrank.github.io/post/spring/java-with-spring-4/</link>
-      <pubDate>Sat, 04 Aug 2018 09:33:39 +0800</pubDate>
-      
-      <guid>http://hyyfrank.github.io/post/spring/java-with-spring-4/</guid>
-      
-        <description>&lt;h1 id=&#34;增加多个环境支持&#34;&gt;增加多个环境支持&lt;/h1&gt;
-&lt;ol&gt;
-&lt;li&gt;目录结构如下：
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;└──&lt;/span&gt; resources
-        &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;├──&lt;/span&gt; application&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;dev&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;properties&lt;/span&gt;
-        &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;├──&lt;/span&gt; application&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;pre&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;prod&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;properties&lt;/span&gt;
-        &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;├──&lt;/span&gt; application&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;prod&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;properties&lt;/span&gt;
-        &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;├──&lt;/span&gt; application&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;staging&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;properties&lt;/span&gt;
-        &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;├──&lt;/span&gt; application&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;test&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;properties&lt;/span&gt;
-        &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;├──&lt;/span&gt; application&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;properties&lt;/span&gt;
-        &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;├──&lt;/span&gt; customize&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;properties&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;对于每个配置文件会包含热加载，log, database, mybatis, redis, kafka等等，这里不一一列举，当前只有log,database,热加载，mybatis,配置如下
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;server&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;port&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;9001
-&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt; HMR
-spring&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;devtools&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;restart&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;enabled&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
-spring&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;devtools&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;restart&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;additional&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;paths&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;src&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;main&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;java&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;
-spring&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;devtools&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;restart&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;condition&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;evaluation&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;delta&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;
-spring&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;devtools&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;livereload&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;enabled&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;
-logging&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;level&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;com&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;example&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;datas&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;manager&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;mapper&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;debug
-&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt; Database
-spring&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;datasource&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;url&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;jdbc&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;mysql&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//127.0.0.1:3306/springboot?useUnicode=true&amp;amp;characterEncoding=utf8&amp;amp;useSSL=false&amp;amp;serverTimezone=GMT%2B8
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;spring&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;datasource&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;username&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;root
-spring&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;datasource&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;password&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;pass123
-spring&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;datasource&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;driver&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;class&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;name&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;com&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;mysql&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;cj&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;jdbc&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;Driver&lt;/span&gt;
-&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt; MyBatis
-mybatis&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;aliases&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;package&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;com&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;autodesk&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;www&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;model&lt;/span&gt;
-mybatis&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;config&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;locations&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;classpath&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;mybatis&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;mybatis&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;config&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;xml&lt;/span&gt;
-mybatis&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;mapper&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;locations&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;classpath&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;mybatis&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;mapper&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;\&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;*.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;xml&lt;/span&gt; 
-mybatis&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;configuration&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;impl&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; org&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;apache&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;ibatis&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;logging&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;stdout&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;StdOutImpl&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;在application.properties中设置启动的环境&lt;code&gt;spring.profiles.active=dev&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;在不同的配置文件指定不同的端口&lt;/li&gt;
-&lt;li&gt;改用maven profile来配置多个环境，在pom.xml里指定
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;profiles&amp;gt;&lt;/span&gt;
-        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;profile&amp;gt;&lt;/span&gt;
-            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;id&amp;gt;&lt;/span&gt;dev&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/id&amp;gt;&lt;/span&gt;
-            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;activation&amp;gt;&lt;/span&gt;
-                &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;activeByDefault&amp;gt;&lt;/span&gt;true&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/activeByDefault&amp;gt;&lt;/span&gt;
-            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/activation&amp;gt;&lt;/span&gt;
-            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;properties&amp;gt;&lt;/span&gt;
-                &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;env&amp;gt;&lt;/span&gt;dev&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/env&amp;gt;&lt;/span&gt;
-            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/properties&amp;gt;&lt;/span&gt;
-        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/profile&amp;gt;&lt;/span&gt;
-        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;profile&amp;gt;&lt;/span&gt;
-            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;id&amp;gt;&lt;/span&gt;staging&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/id&amp;gt;&lt;/span&gt;
-            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;properties&amp;gt;&lt;/span&gt;
-                &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;env&amp;gt;&lt;/span&gt;staging&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/env&amp;gt;&lt;/span&gt;
-            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/properties&amp;gt;&lt;/span&gt;
-        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/profile&amp;gt;&lt;/span&gt;
-        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;profile&amp;gt;&lt;/span&gt;
-            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;id&amp;gt;&lt;/span&gt;preprod&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/id&amp;gt;&lt;/span&gt;
-            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;properties&amp;gt;&lt;/span&gt;
-                &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;env&amp;gt;&lt;/span&gt;pre-prod&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/env&amp;gt;&lt;/span&gt;
-            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/properties&amp;gt;&lt;/span&gt;
-        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/profile&amp;gt;&lt;/span&gt;
-        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;profile&amp;gt;&lt;/span&gt;
-            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;id&amp;gt;&lt;/span&gt;prod&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/id&amp;gt;&lt;/span&gt;
-            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;properties&amp;gt;&lt;/span&gt;
-                &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;env&amp;gt;&lt;/span&gt;prod&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/env&amp;gt;&lt;/span&gt;
-            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/properties&amp;gt;&lt;/span&gt;
-        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/profile&amp;gt;&lt;/span&gt;
-        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;profile&amp;gt;&lt;/span&gt;
-            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;id&amp;gt;&lt;/span&gt;test&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/id&amp;gt;&lt;/span&gt;
-            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;properties&amp;gt;&lt;/span&gt;
-                &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;env&amp;gt;&lt;/span&gt;test&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/env&amp;gt;&lt;/span&gt;
-            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/properties&amp;gt;&lt;/span&gt;
-        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/profile&amp;gt;&lt;/span&gt;
-    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/profiles&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;把上面application.properties中设置启动的环境&lt;code&gt;spring.profiles.active=@env@&lt;/code&gt;这样配置后，可以在IDEA的Maven Project小窗口看到我们的各个环境，&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;总结&#34;&gt;总结&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;这样就完成了对不同环境的管理和配置了，不同环境支持在大部分项目中都是需要的，所以这个我们先配置下&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;镇静待敌，众心则宁&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
-      
-    </item>
-    
-    <item>
-      <title>Java With Spring (三)</title>
-      <link>http://hyyfrank.github.io/post/spring/java-with-spring-3/</link>
-      <pubDate>Sat, 28 Jul 2018 09:33:39 +0800</pubDate>
-      
-      <guid>http://hyyfrank.github.io/post/spring/java-with-spring-3/</guid>
-      
-        <description>&lt;h1 id=&#34;配置kombok&#34;&gt;配置kombok&lt;/h1&gt;
-&lt;ol&gt;
-&lt;li&gt;介绍：Lombok 是一个jar包，可以节约很多敲代码的工作&lt;/li&gt;
-&lt;li&gt;安装其实很简单，就是IDEA里找到插件，安装一下&lt;/li&gt;
-&lt;li&gt;增加pom的依赖
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
-  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.projectlombok&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
-  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;lombok&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
-  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;1.18.2&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
-  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;scope&amp;gt;&lt;/span&gt;provided&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/scope&amp;gt;&lt;/span&gt;
-&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;增加@Data标签，可以直接看到生成的get set等结构了&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h1 id=&#34;增加gitignore&#34;&gt;增加gitignore&lt;/h1&gt;
-&lt;ol&gt;
-&lt;li&gt;gitignore帮我们把不需要提交到git的文件列出来
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;target
-.idea
-.project
-.settings
-.classpath
-*.iml
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h1 id=&#34;支持热部署&#34;&gt;支持热部署&lt;/h1&gt;
-&lt;ol&gt;
-&lt;li&gt;原理： 使用了两个ClassLoader，一个Classloader加载那些不会改变的类（第三方Jar包），另一个ClassLoader加载会更改的类，称为restart ClassLoader,这样在有代码更改的时候，原来的restart ClassLoader 被丢弃，重新创建一个restart ClassLoader，由于需要加载的类相比较少，所以实现了较快的重启时间&lt;/li&gt;
-&lt;li&gt;增加dependency
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
-        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.springframework.boot&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
-        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;spring-boot-devtools&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
-        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;optional&amp;gt;&lt;/span&gt;true&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/optional&amp;gt;&lt;/span&gt;
-     &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
-
-    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;plugins&amp;gt;&lt;/span&gt;
-        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;plugin&amp;gt;&lt;/span&gt;
-            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.springframework.boot&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
-            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;spring-boot-maven-plugin&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
-            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;configuration&amp;gt;&lt;/span&gt;
-                &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;fork&amp;gt;&lt;/span&gt;true&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/fork&amp;gt;&lt;/span&gt;
-            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/configuration&amp;gt;&lt;/span&gt;
-        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/plugin&amp;gt;&lt;/span&gt;
-     &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/plugins&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;4&#34;&gt;
-&lt;li&gt;IDEA里的选项Build Project automatically配置为true&lt;/li&gt;
-&lt;li&gt;配置文件可以这样配一下&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre&gt;&lt;code class=&#34;language-conf&#34; data-lang=&#34;conf&#34;&gt;spring.devtools.restart.enabled=true
-spring.devtools.restart.additional-paths=src/main/java/
-spring.devtools.restart.log-condition-evaluation-delta=false
-spring.devtools.livereload.enabled=false
-logging.level.com.example.datas.manager.mapper=debug
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h1 id=&#34;json包装结果&#34;&gt;JSON包装结果&lt;/h1&gt;
-&lt;ol&gt;
-&lt;li&gt;其实就是把结果用JSON的格式包装一下，这样返回的结果才比较一致&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt; &lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; com.autodesk.www.utils&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
- &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; java.util.List&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
- &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; com.fasterxml.jackson.databind.JsonNode&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
- &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; com.fasterxml.jackson.databind.ObjectMapper&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
- &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;JsonWrapResult&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-     &lt;span style=&#34;color:#75715e&#34;&gt;// 定义jackson对象
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;     &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;final&lt;/span&gt; ObjectMapper MAPPER &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; ObjectMapper&lt;span style=&#34;color:#f92672&#34;&gt;();&lt;/span&gt;
-     &lt;span style=&#34;color:#75715e&#34;&gt;// 响应业务状态
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;     &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; Integer status&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-     &lt;span style=&#34;color:#75715e&#34;&gt;// 响应消息
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;     &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; String msg&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-     &lt;span style=&#34;color:#75715e&#34;&gt;// 响应中的数据
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;     &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; Object data&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-     &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; String ok&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;// 不使用
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;     &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; JsonWrapResult &lt;span style=&#34;color:#a6e22e&#34;&gt;build&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Integer status&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; String msg&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; Object data&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-         &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; JsonWrapResult&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;status&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; msg&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; data&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-     &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-     &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; JsonWrapResult &lt;span style=&#34;color:#a6e22e&#34;&gt;ok&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Object data&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-         &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; JsonWrapResult&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;data&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-     &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-     &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; JsonWrapResult &lt;span style=&#34;color:#a6e22e&#34;&gt;ok&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-         &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; JsonWrapResult&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-     &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-     &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; JsonWrapResult &lt;span style=&#34;color:#a6e22e&#34;&gt;errorMsg&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;String msg&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-         &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; JsonWrapResult&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;500&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; msg&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-     &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-     &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; JsonWrapResult &lt;span style=&#34;color:#a6e22e&#34;&gt;errorMap&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Object data&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-         &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; JsonWrapResult&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;501&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;error&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; data&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-     &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-     &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; JsonWrapResult &lt;span style=&#34;color:#a6e22e&#34;&gt;errorTokenMsg&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;String msg&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-         &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; JsonWrapResult&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;502&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; msg&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-     &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-     &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; JsonWrapResult &lt;span style=&#34;color:#a6e22e&#34;&gt;errorException&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;String msg&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-         &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; JsonWrapResult&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;555&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; msg&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-     &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-     &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;JsonWrapResult&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-     &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-     &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;JsonWrapResult&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Integer status&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; String msg&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; Object data&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-         &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;status&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; status&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-         &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;msg&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; msg&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-         &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;data&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; data&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-     &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-     &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;JsonWrapResult&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Object data&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-         &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;status&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 200&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-         &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;msg&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;OK&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-         &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;data&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; data&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-     &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-     &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; Boolean &lt;span style=&#34;color:#a6e22e&#34;&gt;isOK&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-         &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;status&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; 200&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-     &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-     &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; Integer &lt;span style=&#34;color:#a6e22e&#34;&gt;getStatus&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-         &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; status&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-     &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-     &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;setStatus&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Integer status&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-         &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;status&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; status&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-     &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-     &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; String &lt;span style=&#34;color:#a6e22e&#34;&gt;getMsg&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-         &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; msg&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-     &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-     &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;setMsg&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;String msg&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-         &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;msg&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; msg&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-     &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-     &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; Object &lt;span style=&#34;color:#a6e22e&#34;&gt;getData&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-         &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; data&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-     &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-     &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;setData&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Object data&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-         &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;data&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; data&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-     &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-     &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; JsonWrapResult &lt;span style=&#34;color:#a6e22e&#34;&gt;formatToPojo&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;String jsonData&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; Class&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;?&amp;gt;&lt;/span&gt; clazz&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-         &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-             &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;clazz &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-                 &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; MAPPER&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;readValue&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;jsonData&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; JsonWrapResult&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-             &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-             JsonNode jsonNode &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; MAPPER&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;readTree&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;jsonData&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-             JsonNode data &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; jsonNode&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;get&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;data&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-             Object obj &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-             &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;clazz &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-                 &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;data&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;isObject&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;())&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-                     obj &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; MAPPER&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;readValue&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;data&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;traverse&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(),&lt;/span&gt; clazz&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-                 &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;data&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;isTextual&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;())&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-                     obj &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; MAPPER&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;readValue&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;data&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;asText&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(),&lt;/span&gt; clazz&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-                 &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-             &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-             &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; build&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;jsonNode&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;get&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;status&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;).&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;intValue&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(),&lt;/span&gt; jsonNode&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;get&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;msg&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;).&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;asText&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(),&lt;/span&gt; obj&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-         &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;catch&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Exception e&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-             &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-         &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-     &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-     &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; JsonWrapResult &lt;span style=&#34;color:#a6e22e&#34;&gt;format&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;String json&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-         &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-             &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; MAPPER&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;readValue&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;json&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; JsonWrapResult&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-         &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;catch&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Exception e&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-             e&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;printStackTrace&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;();&lt;/span&gt;
-         &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-         &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-     &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-     &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; JsonWrapResult &lt;span style=&#34;color:#a6e22e&#34;&gt;formatToList&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;String jsonData&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; Class&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;?&amp;gt;&lt;/span&gt; clazz&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-         &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-             JsonNode jsonNode &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; MAPPER&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;readTree&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;jsonData&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-             JsonNode data &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; jsonNode&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;get&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;data&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-             Object obj &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-             &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;data&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;isArray&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; data&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;size&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; 0&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-                 obj &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; MAPPER&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;readValue&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;data&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;traverse&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(),&lt;/span&gt;
-                         MAPPER&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;getTypeFactory&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;constructCollectionType&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;List&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; clazz&lt;span style=&#34;color:#f92672&#34;&gt;));&lt;/span&gt;
-             &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-             &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; build&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;jsonNode&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;get&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;status&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;).&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;intValue&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(),&lt;/span&gt; jsonNode&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;get&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;msg&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;).&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;asText&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(),&lt;/span&gt; obj&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-         &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;catch&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Exception e&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-             &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-         &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-     &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-     &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; String &lt;span style=&#34;color:#a6e22e&#34;&gt;getOk&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-         &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; ok&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-     &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-     &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;setOk&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;String ok&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-         &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;ok&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ok&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-     &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
- &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
       
     </item>
     

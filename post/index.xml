@@ -6,7 +6,16 @@
     <description>Recent content in Posts on H&amp;W</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 10 Aug 2022 11:53:41 +0800</lastBuildDate><atom:link href="http://hyyfrank.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 11 Aug 2022 11:53:41 +0800</lastBuildDate><atom:link href="http://hyyfrank.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[跬步2] debounce with promise </title>
+      <link>http://hyyfrank.github.io/post/frontend/%E8%B7%AC%E6%AD%A5-2/</link>
+      <pubDate>Thu, 11 Aug 2022 11:53:41 +0800</pubDate>
+      
+      <guid>http://hyyfrank.github.io/post/frontend/%E8%B7%AC%E6%AD%A5-2/</guid>
+      <description>先写个debounce const _debounce = (fn, delay, immediate=false) =&amp;gt; { let timer; return (...args) =&amp;gt; { const callNow = immediate &amp;amp;&amp;amp; !timer; clearTimeout(timer); timer = setTimeout(() =&amp;gt; { timer = null; if (!immediate) fn(...args); }, delay); if (callNow) fn(...args); }; }; debounce with promise 如果我在拖动鼠标的时候，触发deb</description>
+    </item>
+    
     <item>
       <title>[跬步1] debounce, throttle </title>
       <link>http://hyyfrank.github.io/post/frontend/%E8%B7%AC%E6%AD%A5-1/</link>
@@ -14,6 +23,15 @@
       
       <guid>http://hyyfrank.github.io/post/frontend/%E8%B7%AC%E6%AD%A5-1/</guid>
       <description>debounce &amp;amp; throttle lodash API _.debounce(func, [wait=0], [options={}]) func (Function): 要防抖动的函数。 [wait=0] (number): 需要延迟的毫秒数。 [options={}] (Object): 选项对象。 [options.leading=false] (boolean): 指定在延迟开始前调用，默认false。 [options.maxWait] (number): 设置 func 允许被延迟的最大</description>
+    </item>
+    
+    <item>
+      <title>FFMPEG</title>
+      <link>http://hyyfrank.github.io/post/algorithms/ffmpeg/</link>
+      <pubDate>Fri, 04 Mar 2022 10:36:30 +0800</pubDate>
+      
+      <guid>http://hyyfrank.github.io/post/algorithms/ffmpeg/</guid>
+      <description>基本组成 AVFormat: 包含绝大多数的媒体封装格式，封装和解封装（编译enable） AVCodec: 包含绝大多数的编解码格式（第三方要另外安装，比如x264, libfd</description>
     </item>
     
     <item>
@@ -167,24 +185,6 @@
       
       <guid>http://hyyfrank.github.io/post/spring/java-with-spring-4/</guid>
       <description>增加多个环境支持 目录结构如下： └── resources ├── application-dev.properties ├── application-pre-prod.properties ├── application-prod.properties ├── application-staging.properties ├── application-test.properties ├── application.properties ├── customize.properties 对于每个配置文件会包含热加载，log, database, mybatis, redis, k</description>
-    </item>
-    
-    <item>
-      <title>Java With Spring (三)</title>
-      <link>http://hyyfrank.github.io/post/spring/java-with-spring-3/</link>
-      <pubDate>Sat, 28 Jul 2018 09:33:39 +0800</pubDate>
-      
-      <guid>http://hyyfrank.github.io/post/spring/java-with-spring-3/</guid>
-      <description>配置kombok 介绍：Lombok 是一个jar包，可以节约很多敲代码的工作 安装其实很简单，就是IDEA里找到插件，安装一下 增加pom的依赖 &amp;lt;dependency&amp;gt;</description>
-    </item>
-    
-    <item>
-      <title>Java With Spring (二)</title>
-      <link>http://hyyfrank.github.io/post/spring/java-with-spring-2/</link>
-      <pubDate>Sat, 21 Jul 2018 09:33:39 +0800</pubDate>
-      
-      <guid>http://hyyfrank.github.io/post/spring/java-with-spring-2/</guid>
-      <description>增删改查 作为一个简单的脚手架程序，我们先从最基本的功能开始，增删改查，返回json,包装JSON数据 配置好依赖，可以看到我们仅有最简单的三个</description>
     </item>
     
   </channel>

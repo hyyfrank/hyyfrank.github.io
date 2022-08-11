@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Archive - H&amp;W</title>
+  <title>[跬步2] debounce with promise  - H&amp;W</title>
   
   
 
@@ -24,7 +24,8 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="hyyfrank" />
-  <meta name="description" content="Hugo theme jane example site." />
+  <meta name="description" content="先写个debounce const _debounce = (fn, delay, immediate=false) =&amp;gt; { let timer; return (...args) =&amp;gt; { const callNow = immediate &amp;amp;&amp;amp; !timer; clearTimeout(timer); timer = setTimeout(() =&amp;gt; { timer = null; if (!immediate) fn(...args); }, delay); if (callNow) fn(...args); }; }; debounce with promise 如果我在拖动鼠标的时候，触发deb" />
+
   <meta name="keywords" content="Hugo, theme, jane" />
 
 
@@ -35,8 +36,8 @@
 <meta name="generator" content="Hugo 0.84.3" />
 
 
-<link rel="canonical" href="http://hyyfrank.github.io/post/" />
-<link href="/post/index.xml" rel="alternate" type="application/rss+xml" title="H&amp;W" />
+<link rel="canonical" href="http://hyyfrank.github.io/post/frontend/%E8%B7%AC%E6%AD%A5-2/" />
+
 
 
 
@@ -63,15 +64,20 @@
 <link rel="stylesheet" href="/css/custom.css">
 
 
-<meta property="og:title" content="Posts" />
-<meta property="og:description" content="Hugo theme jane example site." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://hyyfrank.github.io/post/" />
+<meta property="og:title" content="[跬步2] debounce with promise " />
+<meta property="og:description" content="先写个debounce const _debounce = (fn, delay, immediate=false) =&gt; { let timer; return (...args) =&gt; { const callNow = immediate &amp;&amp; !timer; clearTimeout(timer); timer = setTimeout(() =&gt; { timer = null; if (!immediate) fn(...args); }, delay); if (callNow) fn(...args); }; }; debounce with promise 如果我在拖动鼠标的时候，触发deb" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://hyyfrank.github.io/post/frontend/%E8%B7%AC%E6%AD%A5-2/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-08-11T11:53:41&#43;08:00" />
+<meta property="article:modified_time" content="2022-08-12T11:53:41&#43;08:00" />
 
-<meta itemprop="name" content="Posts">
-<meta itemprop="description" content="Hugo theme jane example site."><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Posts"/>
-<meta name="twitter:description" content="Hugo theme jane example site."/>
+<meta itemprop="name" content="[跬步2] debounce with promise ">
+<meta itemprop="description" content="先写个debounce const _debounce = (fn, delay, immediate=false) =&gt; { let timer; return (...args) =&gt; { const callNow = immediate &amp;&amp; !timer; clearTimeout(timer); timer = setTimeout(() =&gt; { timer = null; if (!immediate) fn(...args); }, delay); if (callNow) fn(...args); }; }; debounce with promise 如果我在拖动鼠标的时候，触发deb"><meta itemprop="datePublished" content="2022-08-11T11:53:41&#43;08:00" />
+<meta itemprop="dateModified" content="2022-08-12T11:53:41&#43;08:00" />
+<meta itemprop="wordCount" content="703">
+<meta itemprop="keywords" content="javascript,跬步," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="[跬步2] debounce with promise "/>
+<meta name="twitter:description" content="先写个debounce const _debounce = (fn, delay, immediate=false) =&gt; { let timer; return (...args) =&gt; { const callNow = immediate &amp;&amp; !timer; clearTimeout(timer); timer = setTimeout(() =&gt; { timer = null; if (!immediate) fn(...args); }, delay); if (callNow) fn(...args); }; }; debounce with promise 如果我在拖动鼠标的时候，触发deb"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -212,7 +218,7 @@
   <ul id="menu" class="menu">
     
     
-        <li class="menu-item active">
+        <li class="menu-item">
         
           
           
@@ -270,179 +276,173 @@
     <main id="main" class="main bg-llight">
       <div class="content-wrapper">
         <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">[跬步2] debounce with promise </h1>
+      
+      <div class="post-meta">
+        <time datetime="2022-08-11" class="post-time">
+          2022-08-11
+        </time>
+        <div class="post-category">
+            <a href="http://hyyfrank.github.io/categories/frontend/"> frontend </a>
+            
+          </div>
+        
+
+        
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    
+    <div class="post-content">
+      <h2 id="先写个debounce">先写个debounce</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">  <span style="color:#66d9ef">const</span> <span style="color:#ae81ff">_</span><span style="color:#a6e22e">debounce</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">fn</span>, <span style="color:#a6e22e">delay</span>, <span style="color:#a6e22e">immediate</span><span style="color:#f92672">=</span><span style="color:#66d9ef">false</span>) =&gt; {
+      <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">timer</span>;
+      <span style="color:#66d9ef">return</span> (...<span style="color:#a6e22e">args</span>) =&gt; {
+          <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">callNow</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">immediate</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">timer</span>;
+          <span style="color:#a6e22e">clearTimeout</span>(<span style="color:#a6e22e">timer</span>);
+          <span style="color:#a6e22e">timer</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">setTimeout</span>(() =&gt; {
+              <span style="color:#a6e22e">timer</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>; 
+              <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">immediate</span>) <span style="color:#a6e22e">fn</span>(...<span style="color:#a6e22e">args</span>); 
+          }, <span style="color:#a6e22e">delay</span>);
+          <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">callNow</span>) <span style="color:#a6e22e">fn</span>(...<span style="color:#a6e22e">args</span>);
+      };
+  };
+</code></pre></div><h2 id="debounce-with-promise">debounce with promise</h2>
+<ul>
+<li>如果我在拖动鼠标的时候，触发debounce, 但是其中的函数是去调用某个api，这样这个函数就是异步的，是一个promise,
+如果这个时候我想只执行最后一个promise，那我的debounce改怎么写，为什么这样问，因为我们看到lodash里边对调用的fn
+其实是有一个判断是不是函数的步骤的<code>if (typeof func !== 'function') {throw new TypeError('Expected a function')}</code>
+所以，如果是个promise我们需要重写一下，逻辑也是很简单的，如下：</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">debounce_promise_last</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">fn</span>, <span style="color:#a6e22e">delay</span>) =&gt; {
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">timer</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+  <span style="color:#66d9ef">return</span> (...<span style="color:#a6e22e">args</span>) =&gt; {
+    <span style="color:#a6e22e">clearTimeout</span>(<span style="color:#a6e22e">timer</span>);
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Promise((<span style="color:#a6e22e">resolve</span>) =&gt; {
+      <span style="color:#a6e22e">timer</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">setTimeout</span>(
+        () =&gt; <span style="color:#a6e22e">resolve</span>(<span style="color:#a6e22e">fn</span>(...<span style="color:#a6e22e">args</span>)),
+        <span style="color:#a6e22e">delay</span>,
+      );
+    });
+  };
+}
+</code></pre></div><ul>
+<li>如果我还是需要所有的promise,每个promise之间有一个ms的间隔</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">debounce_promise_all</span>(<span style="color:#a6e22e">fn</span>, <span style="color:#a6e22e">delay</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>) {
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">timer</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">resolves</span> <span style="color:#f92672">=</span> [];
+  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">function</span> (...<span style="color:#a6e22e">args</span>) {    
+    <span style="color:#a6e22e">clearTimeout</span>(<span style="color:#a6e22e">timer</span>);
+    <span style="color:#a6e22e">timer</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">setTimeout</span>(() =&gt; {
+      <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">fn</span>(...<span style="color:#a6e22e">args</span>);
+      <span style="color:#a6e22e">resolves</span>.<span style="color:#a6e22e">forEach</span>(<span style="color:#a6e22e">r</span> =&gt; <span style="color:#a6e22e">r</span>(<span style="color:#a6e22e">result</span>));
+      <span style="color:#a6e22e">resolves</span> <span style="color:#f92672">=</span> [];
+    }, <span style="color:#a6e22e">delay</span>);
+
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Promise(<span style="color:#a6e22e">r</span> =&gt; <span style="color:#a6e22e">resolves</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">r</span>));
+  };
+}
+</code></pre></div><ul>
+<li>其实如果是api调用，也有一种常见情况就是我们用throttle来保证一段时间内只有一个调用，
+这里其实还有更复杂的情况，比如cancel情况，retry情况，特别retry的时候，是不是用指数退化算法
+当然，如果promise量很大的时候，比如我们碰到过一次1000多个promise,那要做的更复杂，需要考虑如下情况：
+<ul>
+<li>第一，给promise分组,我们一般20个promise放一组</li>
+<li>第二，每个promise有一个唯一ID,我们结合task给了一个唯一的ID</li>
+<li>第三，记录每个promise的日志，方便错误追溯，我们放splunk log里</li>
+<li>第四，是否需要cancel</li>
+<li>第五，retry的逻辑，因为我们api是ajax请求，结合指数退化算法来做重试的时延是比较合适的</li>
+</ul>
+</li>
+<li>这里代码就和具体业务相关了，就不贴出来了</li>
+</ul>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">hyyfrank</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+      2022-08-12
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">Apache-2.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="http://hyyfrank.github.io/tags/javascript/">javascript</a>
+          <a href="http://hyyfrank.github.io/tags/%E8%B7%AC%E6%AD%A5/">跬步</a>
           
-<section id="archive" class="archive">
-    
-      <div class="collection-title">
-        <h2 class="archive-year">2019</h2>
-      </div>
+        </div>
 
-    <div class="archive-post">
-      <time datetime="2019-09-02" class="archive-post-time">
-        2019-09-02
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/docker/docker/" class="archive-post-link">
-          [Docker] container研究
-        </a>
-      </span>
-    </div>
-    
-
-    <div class="archive-post">
-      <time datetime="2019-08-21" class="archive-post-time">
-        2019-08-21
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/frontend/react-with-webpack-8/" class="archive-post-link">
-          React With Webpack(八)
-        </a>
-      </span>
-    </div>
-    
-
-    <div class="archive-post">
-      <time datetime="2019-08-19" class="archive-post-time">
-        2019-08-19
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/frontend/react-with-webpack-7/" class="archive-post-link">
-          React With Webpack(七)
-        </a>
-      </span>
-    </div>
-    
-
-    <div class="archive-post">
-      <time datetime="2019-08-18" class="archive-post-time">
-        2019-08-18
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/frontend/react-with-webpack-6/" class="archive-post-link">
-          React With Webpack(六)
-        </a>
-      </span>
-    </div>
-    
-
-    <div class="archive-post">
-      <time datetime="2019-08-15" class="archive-post-time">
-        2019-08-15
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/frontend/react-with-webpack-5/" class="archive-post-link">
-          React With Webpack(五)
-        </a>
-      </span>
-    </div>
-    
-
-    <div class="archive-post">
-      <time datetime="2019-08-13" class="archive-post-time">
-        2019-08-13
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/frontend/react-with-webpack-4/" class="archive-post-link">
-          React With Webpack(四)
-        </a>
-      </span>
-    </div>
-    
-
-    <div class="archive-post">
-      <time datetime="2019-08-10" class="archive-post-time">
-        2019-08-10
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/frontend/react-with-webpack-3/" class="archive-post-link">
-          React With Webpack(三)
-        </a>
-      </span>
-    </div>
-    
-
-    <div class="archive-post">
-      <time datetime="2019-08-08" class="archive-post-time">
-        2019-08-08
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/frontend/react-with-webpack-2/" class="archive-post-link">
-          React With Webpack(二)
-        </a>
-      </span>
-    </div>
-    
-
-    <div class="archive-post">
-      <time datetime="2019-08-06" class="archive-post-time">
-        2019-08-06
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/frontend/react-with-webpack-1/" class="archive-post-link">
-          React With Webpack(一)
-        </a>
-      </span>
-    </div>
-    
-      <div class="collection-title">
-        <h2 class="archive-year">2018</h2>
-      </div>
-
-    <div class="archive-post">
-      <time datetime="2018-08-04" class="archive-post-time">
-        2018-08-04
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/spring/java-with-spring-4/" class="archive-post-link">
-          Java With Spring (四)
-        </a>
-      </span>
-    </div></section>
-
-
-
-
-
-
-  
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-  <nav class="pagination">
-    <ul>
       
-      <li >
-        <a href="/post/">1</a>
-      </li>
-      
-      <li  class="active" >
-        <a href="/post/page/2/">2</a>
-      </li>
-      
-      <li >
-        <a href="/post/page/3/">3</a>
-      </li>
-      
-    </ul>
-  </nav>
+      <nav class="post-nav">
+        
+        
+          <a class="next" href="/post/frontend/%E8%B7%AC%E6%AD%A5-1/">
+            <span class="next-text nav-default">[跬步1] debounce, throttle </span>
+            <span class="prev-text nav-mobile">Next</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
 
   
   
 
+  
+  
 
+  
 
+  
+  
 
+  
+
+  
+
+  
+
+    
+
+  
 
         </div>
       </div>

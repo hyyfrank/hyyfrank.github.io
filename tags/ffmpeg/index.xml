@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ffmpeg on H&amp;W</title>
+    <link>http://hyyfrank.github.io/tags/ffmpeg/</link>
+    <description>Recent content in ffmpeg on H&amp;W</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 04 Mar 2022 10:36:30 +0800</lastBuildDate><atom:link href="http://hyyfrank.github.io/tags/ffmpeg/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>FFMPEG</title>
+      <link>http://hyyfrank.github.io/post/algorithms/ffmpeg/</link>
+      <pubDate>Fri, 04 Mar 2022 10:36:30 +0800</pubDate>
+      
+      <guid>http://hyyfrank.github.io/post/algorithms/ffmpeg/</guid>
+      <description>基本组成 AVFormat: 包含绝大多数的媒体封装格式，封装和解封装（编译enable） AVCodec: 包含绝大多数的编解码格式（第三方要另外安装，比如x264, libfd</description>
+    </item>
+    
+  </channel>
+</rss>

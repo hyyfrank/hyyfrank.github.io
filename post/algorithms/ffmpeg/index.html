@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>[Docker] container研究 - H&amp;W</title>
+  <title>FFMPEG - H&amp;W</title>
   
   
 
@@ -24,7 +24,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="hyyfrank" />
-  <meta name="description" content="PPT 组内分享的PPT conttainer namespace linux control group UnionFS veth 容器应该具备哪些东西 隔离文件系统： 通过 chroot 命令切换根目录的挂载点 隔离网络： 为了分布式环境下的通讯： 要有独立的 I" />
+  <meta name="description" content="基本组成 AVFormat: 包含绝大多数的媒体封装格式，封装和解封装（编译enable） AVCodec: 包含绝大多数的编解码格式（第三方要另外安装，比如x264, libfd" />
 
   <meta name="keywords" content="Hugo, theme, jane" />
 
@@ -36,7 +36,7 @@
 <meta name="generator" content="Hugo 0.84.3" />
 
 
-<link rel="canonical" href="http://hyyfrank.github.io/post/docker/docker/" />
+<link rel="canonical" href="http://hyyfrank.github.io/post/algorithms/ffmpeg/" />
 
 
 
@@ -64,20 +64,20 @@
 <link rel="stylesheet" href="/css/custom.css">
 
 
-<meta property="og:title" content="[Docker] container研究" />
-<meta property="og:description" content="PPT 组内分享的PPT conttainer namespace linux control group UnionFS veth 容器应该具备哪些东西 隔离文件系统： 通过 chroot 命令切换根目录的挂载点 隔离网络： 为了分布式环境下的通讯： 要有独立的 I" />
+<meta property="og:title" content="FFMPEG" />
+<meta property="og:description" content="基本组成 AVFormat: 包含绝大多数的媒体封装格式，封装和解封装（编译enable） AVCodec: 包含绝大多数的编解码格式（第三方要另外安装，比如x264, libfd" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://hyyfrank.github.io/post/docker/docker/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2019-09-02T23:03:48&#43;08:00" />
-<meta property="article:modified_time" content="2019-09-02T23:03:48&#43;08:00" />
+<meta property="og:url" content="http://hyyfrank.github.io/post/algorithms/ffmpeg/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-03-04T10:36:30&#43;08:00" />
+<meta property="article:modified_time" content="2022-03-04T13:36:30&#43;08:00" />
 
-<meta itemprop="name" content="[Docker] container研究">
-<meta itemprop="description" content="PPT 组内分享的PPT conttainer namespace linux control group UnionFS veth 容器应该具备哪些东西 隔离文件系统： 通过 chroot 命令切换根目录的挂载点 隔离网络： 为了分布式环境下的通讯： 要有独立的 I"><meta itemprop="datePublished" content="2019-09-02T23:03:48&#43;08:00" />
-<meta itemprop="dateModified" content="2019-09-02T23:03:48&#43;08:00" />
-<meta itemprop="wordCount" content="703">
-<meta itemprop="keywords" content="docker,container,UnionFS,Veth,clone," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="[Docker] container研究"/>
-<meta name="twitter:description" content="PPT 组内分享的PPT conttainer namespace linux control group UnionFS veth 容器应该具备哪些东西 隔离文件系统： 通过 chroot 命令切换根目录的挂载点 隔离网络： 为了分布式环境下的通讯： 要有独立的 I"/>
+<meta itemprop="name" content="FFMPEG">
+<meta itemprop="description" content="基本组成 AVFormat: 包含绝大多数的媒体封装格式，封装和解封装（编译enable） AVCodec: 包含绝大多数的编解码格式（第三方要另外安装，比如x264, libfd"><meta itemprop="datePublished" content="2022-03-04T10:36:30&#43;08:00" />
+<meta itemprop="dateModified" content="2022-03-04T13:36:30&#43;08:00" />
+<meta itemprop="wordCount" content="878">
+<meta itemprop="keywords" content="ffmpeg," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="FFMPEG"/>
+<meta name="twitter:description" content="基本组成 AVFormat: 包含绝大多数的媒体封装格式，封装和解封装（编译enable） AVCodec: 包含绝大多数的编解码格式（第三方要另外安装，比如x264, libfd"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -279,14 +279,14 @@
           <article class="post bg-white">
     
     <header class="post-header">
-      <h1 class="post-title">[Docker] container研究</h1>
+      <h1 class="post-title">FFMPEG</h1>
       
       <div class="post-meta">
-        <time datetime="2019-09-02" class="post-time">
-          2019-09-02
+        <time datetime="2022-03-04" class="post-time">
+          2022-03-04
         </time>
         <div class="post-category">
-            <a href="http://hyyfrank.github.io/categories/docker/"> docker </a>
+            <a href="http://hyyfrank.github.io/categories/ffmpeg/"> ffmpeg </a>
             
           </div>
         
@@ -304,60 +304,99 @@
 
     
     <div class="post-content">
-      <h2 id="ppt">PPT</h2>
+      <h2 id="基本组成">基本组成</h2>
 <ul>
-<li><a href="/images/tom.key"><strong>组内分享的PPT</strong></a></li>
-</ul>
-<h2 id="conttainer">conttainer</h2>
-<ul>
-<li><code>namespace</code></li>
-<li><code>linux control group</code></li>
-<li><code>UnionFS</code></li>
-<li><code>veth</code></li>
-</ul>
-<ul>
-<li>容器应该具备哪些东西
-<ul>
-<li>隔离文件系统： 通过 chroot 命令切换根目录的挂载点</li>
-<li>隔离网络： 为了分布式环境下的通讯： 要有独立的 IP、端口和路由 veth, 每个容器用有其独立的网络设备，IP 地址，IP 路由表，/proc/net 目录，端口号等等。这也使得一个 host 上多个容器内的同一个应用都绑定到各自容器的 80 端口上</li>
-<li>主机名：需要一个主机名方便在网络中标识自己</li>
-<li>IPC: 每个容器有其自己的 System V IPC 和 POSIX 消息队列文件系统，因此，只有在同一个 IPC namespace 的进程之间才能互相通信</li>
-<li>用户权限: 在 user namespace 中的进程的用户和组 ID 可以和在 host 上不同； 每个 container 可以有不同的 user 和 group id；一个 host 上的非特权用户可以成为 user namespace 中的特权用户</li>
-</ul>
+<li>
+<p>AVFormat: 包含绝大多数的媒体封装格式，封装和解封装（编译enable）</p>
 </li>
-<li>容器主要的部分
-<ul>
-<li><code>namespace</code>
-<ul>
-<li>UTS, IPC, PID, NETWORK, MOUNT, USER</li>
-</ul>
+<li>
+<p>AVCodec: 包含绝大多数的编解码格式（第三方要另外安装，比如x264, libfdk_aac等）</p>
 </li>
-<li><code>cgroup</code>
-<ul>
-<li>CPU, Memory, Blkio, Device&hellip;</li>
-</ul>
+<li>
+<p>AVFilter: 音频，视频，字幕等滤镜处理模块，可以有多个输入输出，e.g, crop flip使用的是同一个滤镜处理线性链，split和overlay使用的另一个滤镜处理线性链，可以理解为第一个分号，把视频流拆成2部分，第一部分标签main,第二部分叫tmp;第二个分号，把tmp作为输入，通过crop和vflip处理后，放到flip的标签里，第三个分号则是把main标签和flip标签合并作为输入，输出到output里面，最后完成镜像的效果</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">ffmpeg</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">i</span> <span style="color:#a6e22e">INPUT</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">vf</span> <span style="color:#e6db74">&#34;split [main][tmp]; [tmp] crop=iw:ih/2:0:0, vflip [flip]; [main][flip] overlay=0:H/2&#34;</span> <span style="color:#a6e22e">OUTPUT</span>
+</code></pre></div></li>
+<li>
+<p>视频图像计算模块swscale: 图像缩放和像素格式转换的功能</p>
 </li>
-<li><code>UnionFS</code>
-<ul>
-<li>aufs(ubuntu), btrfs(suse), vfs, devicemapper(centos), overlayer2(centos,ubuntu)</li>
-</ul>
-</li>
-<li><code>veth</code>
-<ul>
-<li>bridge, host, container, none</li>
-</ul>
+<li>
+<p>音频转换模块swresample: 音频采样，音频通道布局转换，布局调整</p>
 </li>
 </ul>
-</li>
-<li>容器实现
+<h2 id="ffmpeg工作流程">ffmpeg工作流程</h2>
 <ul>
-<li>容器是特殊的进程</li>
-<li><code>int clone(int (*fn)(void*), void *child_stack, int flags, void*arg);</code></li>
-<li>Fork = Clone + CLONE_VM | CLONE_VFORK | SIGHILD (NOTE: Fork和Clone都是对sys_clone的封装，所以其实这里表达有少许不准确)</li>
-<li>fork是从调用点继续执行，clone是从fn(args)继续执行，因为子进程和父进程共享内存，但是维护单独的变量副本，所以需要为子进程单独分配栈，就是<code>child_stack</code>指针指向的位置，flags有两个作用，低位字节可以放返回信号，flags和docker相关的flag就是上述的UTS, IPC, PID, NETWORK, MOUNT, USER对应的标签<code>CLONE_NEWUTS</code>,<code>CLONE_NEWIPC</code>,<code>CLONE_NEWPID</code>,<code>CLONE_NEWNET</code>,<code>CLONE_NEWNS</code>,<code>CLONE_NEWUSER</code></li>
-<li>cgroup包含着对资源的控制，对应linux下是在<code>/sys/fs/cgroup</code>目录下</li>
-<li>UnionFS对应overlay2FS的路径是<code>sudo ls /var/lib/docker/image/overlay2/layerdb/${id}</code></li>
-<li>veth:虚拟网卡</li>
+<li>读取文件</li>
+<li>解封装 Demuxer</li>
+<li>解码 Decoder</li>
+<li>转换参数 Encoder</li>
+<li>封装 Muxer</li>
+<li>写入文件</li>
+</ul>
+<h2 id="ffmpeg的编解码工具ffmpeg">FFmpeg的编解码工具ffmpeg</h2>
+<ul>
+<li>
+<p>主要注意格式就行</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"> <span style="color:#a6e22e">ffmpeg</span> [<span style="color:#a6e22e">options</span>] [[<span style="color:#a6e22e">infile</span> <span style="color:#a6e22e">options</span>] <span style="color:#f92672">-</span><span style="color:#a6e22e">i</span> <span style="color:#a6e22e">infile</span>]... {[<span style="color:#a6e22e">outfile</span> <span style="color:#a6e22e">options</span>] <span style="color:#a6e22e">outfile</span>}...
+ <span style="color:#a6e22e">ffmpeg</span> [<span style="color:#a6e22e">全局参数</span>] 
+ [[<span style="color:#a6e22e">输入文件参数</span>] <span style="color:#f92672">-</span><span style="color:#a6e22e">i</span> [<span style="color:#a6e22e">输入文件</span>]] 
+ [[<span style="color:#a6e22e">输出文件参数</span>]    [<span style="color:#a6e22e">输出文件</span>]]
+</code></pre></div></li>
+</ul>
+<h2 id="ffmpeg的播放器ffplay">FFmpeg的播放器ffplay</h2>
+<ul>
+<li>FFmpeg提供播放各种流和媒体文件(avformat, avcodec), ffplay需要SDL-2支持才能完整使用</li>
+</ul>
+<h2 id="ffmpeg多媒体分析器ffprobe">FFmpeg多媒体分析器ffprobe</h2>
+<ul>
+<li>多媒体分析工具可以查询以下信息：
+<ul>
+<li>音频参数（编码格式）</li>
+<li>视频参数 （编码格式）</li>
+<li>媒体容器的参数信息（时长，复合码率）</li>
+<li>媒体文件中每个包长度，类型，帧的信息等</li>
+</ul>
+</li>
+</ul>
+<h2 id="build-from-source">build from source</h2>
+<ul>
+<li>
+<p>我只需要mp4,h264,libfdk_aac,其他的暂时不需要，指定如下编译选项</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">.<span style="color:#f92672">/</span><span style="color:#a6e22e">configure</span> <span style="color:#f92672">--</span><span style="color:#a6e22e">disable</span><span style="color:#f92672">-</span><span style="color:#a6e22e">filters</span> <span style="color:#f92672">--</span><span style="color:#a6e22e">disable</span><span style="color:#f92672">-</span><span style="color:#a6e22e">encoders</span> <span style="color:#f92672">--</span><span style="color:#a6e22e">disable</span><span style="color:#f92672">-</span><span style="color:#a6e22e">decoders</span> <span style="color:#f92672">--</span><span style="color:#a6e22e">disable</span><span style="color:#f92672">-</span><span style="color:#a6e22e">hwaccels</span> <span style="color:#f92672">--</span><span style="color:#a6e22e">disable</span><span style="color:#f92672">-</span><span style="color:#a6e22e">muxers</span> <span style="color:#f92672">--</span><span style="color:#a6e22e">disable</span><span style="color:#f92672">-</span><span style="color:#a6e22e">demuxers</span> <span style="color:#f92672">--</span><span style="color:#a6e22e">disable</span><span style="color:#f92672">-</span><span style="color:#a6e22e">parsers</span> <span style="color:#f92672">--</span><span style="color:#a6e22e">disable</span><span style="color:#f92672">-</span><span style="color:#a6e22e">bsfs</span> <span style="color:#f92672">--</span><span style="color:#a6e22e">disable</span><span style="color:#f92672">-</span><span style="color:#a6e22e">protocols</span> <span style="color:#f92672">--</span><span style="color:#a6e22e">disable</span><span style="color:#f92672">-</span><span style="color:#a6e22e">indevs</span> <span style="color:#f92672">--</span><span style="color:#a6e22e">disable</span><span style="color:#f92672">-</span><span style="color:#a6e22e">devices</span> <span style="color:#f92672">--</span><span style="color:#a6e22e">enable</span><span style="color:#f92672">-</span><span style="color:#a6e22e">libx264</span> <span style="color:#f92672">--</span><span style="color:#a6e22e">enable</span><span style="color:#f92672">-</span><span style="color:#a6e22e">libfdk_aac</span> <span style="color:#f92672">--</span><span style="color:#a6e22e">enable</span><span style="color:#f92672">-</span><span style="color:#a6e22e">gpl</span> <span style="color:#f92672">--</span><span style="color:#a6e22e">enable</span><span style="color:#f92672">-</span><span style="color:#a6e22e">nonfree</span> <span style="color:#f92672">--</span><span style="color:#a6e22e">enable</span><span style="color:#f92672">-</span><span style="color:#a6e22e">muxer</span><span style="color:#f92672">=</span><span style="color:#a6e22e">mp4</span>
+</code></pre></div></li>
+<li>
+<p>安装完毕，查看编码器，解码器，封装，解封装和通讯协议的支持</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">.<span style="color:#f92672">/</span><span style="color:#a6e22e">configure</span> <span style="color:#f92672">--</span><span style="color:#a6e22e">list</span><span style="color:#f92672">-</span><span style="color:#a6e22e">encoders</span>
+.<span style="color:#f92672">/</span><span style="color:#a6e22e">configure</span> <span style="color:#f92672">--</span><span style="color:#a6e22e">list</span><span style="color:#f92672">-</span><span style="color:#a6e22e">decoders</span>
+.<span style="color:#f92672">/</span><span style="color:#a6e22e">configure</span> <span style="color:#f92672">--</span><span style="color:#a6e22e">list</span><span style="color:#f92672">-</span><span style="color:#a6e22e">muxers</span>
+.<span style="color:#f92672">/</span><span style="color:#a6e22e">configure</span> <span style="color:#f92672">--</span><span style="color:#a6e22e">list</span><span style="color:#f92672">-</span><span style="color:#a6e22e">demuxers</span>
+.<span style="color:#f92672">/</span><span style="color:#a6e22e">configure</span> <span style="color:#f92672">--</span><span style="color:#a6e22e">list</span><span style="color:#f92672">-</span><span style="color:#a6e22e">protocols</span>
+</code></pre></div></li>
+</ul>
+<h2 id="常用命令">常用命令</h2>
+<ul>
+<li>
+<p>查看ffmpeg的格式和支持情况</p>
+</li>
+<li>
+<p>查询支持情况</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">ffmpeg</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">formats</span> <span style="color:#f92672">|</span> <span style="color:#a6e22e">grep</span> <span style="color:#a6e22e">aac</span> .. <span style="color:#a6e22e">or</span> <span style="color:#a6e22e">mp4</span> <span style="color:#a6e22e">or</span> <span style="color:#a6e22e">webm</span>
+<span style="color:#a6e22e">ffmpeg</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">codes</span> <span style="color:#f92672">|</span> <span style="color:#a6e22e">grep</span> <span style="color:#a6e22e">h264</span>
+<span style="color:#a6e22e">ffmpeg</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">encoders</span> <span style="color:#f92672">|</span> <span style="color:#a6e22e">grep</span> <span style="color:#a6e22e">libx264</span>
+<span style="color:#a6e22e">ffmpeg</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">filters</span> <span style="color:#f92672">|</span> <span style="color:#a6e22e">grep</span> <span style="color:#a6e22e">h264</span>
+<span style="color:#a6e22e">ffmpeg</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">h</span> <span style="color:#a6e22e">muxer</span><span style="color:#f92672">=</span><span style="color:#a6e22e">flv</span>
+<span style="color:#a6e22e">ffmpeg</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">h</span> <span style="color:#a6e22e">demuxer</span><span style="color:#f92672">=</span><span style="color:#a6e22e">flv</span>
+<span style="color:#a6e22e">ffmpeg</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">h</span> <span style="color:#a6e22e">encoder</span><span style="color:#f92672">=</span><span style="color:#a6e22e">h264</span>
+<span style="color:#a6e22e">ffmpeg</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">h</span> <span style="color:#a6e22e">decoder</span><span style="color:#f92672">=</span><span style="color:#a6e22e">h264</span>
+</code></pre></div></li>
+<li>
+<p>常见使用</p>
+<ul>
+<li>提取音频 <code>ffmpeg -i source.mp4 -vn -c:a copy target.aac</code></li>
+<li>格式转化 <code>ffmpeg -i source.rmvb -vcodec mpeg4 -b:v 200k -r 15 -an target.mp4</code></li>
+<li>调整码率 <code>ffmpeg -i source.mp4 -minrate 964K -maxrate 3856K -bufsize 2000K target.mp4</code></li>
+<li>改分辨率 <code>ffmpeg -i source.mp4 -vf scale=480:-1 target.mp4</code> (1080p -&gt; 480p)</li>
+<li>视频截图 <code>ffmpeg -y -i source.mp4 -ss 00:01:24 -t 00:00:01 target.jpg</code></li>
+<li>裁剪视频 <code>ffmpeg -ss [start] -i [input] -t [duration] -c copy [output]</code></li>
 </ul>
 </li>
 </ul>
@@ -374,7 +413,7 @@
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-      2019-09-02
+      2022-03-04
       
     </span>
   </p>
@@ -391,18 +430,14 @@
 
     <footer class="post-footer">
       <div class="post-tags">
-          <a href="http://hyyfrank.github.io/tags/docker/">docker</a>
-          <a href="http://hyyfrank.github.io/tags/container/">container</a>
-          <a href="http://hyyfrank.github.io/tags/unionfs/">UnionFS</a>
-          <a href="http://hyyfrank.github.io/tags/veth/">Veth</a>
-          <a href="http://hyyfrank.github.io/tags/clone/">clone</a>
+          <a href="http://hyyfrank.github.io/tags/ffmpeg/">ffmpeg</a>
           
         </div>
 
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/ops/https-self-sign-certificate/">
+          <a class="prev" href="/post/frontend/%E8%B7%AC%E6%AD%A5-1/">
             
             <i class="iconfont">
               <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
@@ -412,12 +447,12 @@
 </svg>
 
             </i>
-            <span class="prev-text nav-default">[Autodesk] How to create https self-signed certificate</span>
+            <span class="prev-text nav-default">[跬步1] debounce, throttle </span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
         
-          <a class="next" href="/post/frontend/react-with-webpack-8/">
-            <span class="next-text nav-default">React With Webpack(八)</span>
+          <a class="next" href="/post/linux/play-with-openssl/">
+            <span class="next-text nav-default">Compile openssl from source</span>
             <span class="prev-text nav-mobile">Next</span>
             
             <i class="iconfont">

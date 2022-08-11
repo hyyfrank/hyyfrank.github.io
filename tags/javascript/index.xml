@@ -6,7 +6,16 @@
     <description>Recent content in javascript on H&amp;W</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 10 Aug 2022 11:53:41 +0800</lastBuildDate><atom:link href="http://hyyfrank.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 11 Aug 2022 11:53:41 +0800</lastBuildDate><atom:link href="http://hyyfrank.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[跬步2] debounce with promise </title>
+      <link>http://hyyfrank.github.io/post/frontend/%E8%B7%AC%E6%AD%A5-2/</link>
+      <pubDate>Thu, 11 Aug 2022 11:53:41 +0800</pubDate>
+      
+      <guid>http://hyyfrank.github.io/post/frontend/%E8%B7%AC%E6%AD%A5-2/</guid>
+      <description>先写个debounce const _debounce = (fn, delay, immediate=false) =&amp;gt; { let timer; return (...args) =&amp;gt; { const callNow = immediate &amp;amp;&amp;amp; !timer; clearTimeout(timer); timer = setTimeout(() =&amp;gt; { timer = null; if (!immediate) fn(...args); }, delay); if (callNow) fn(...args); }; }; debounce with promise 如果我在拖动鼠标的时候，触发deb</description>
+    </item>
+    
     <item>
       <title>[跬步1] debounce, throttle </title>
       <link>http://hyyfrank.github.io/post/frontend/%E8%B7%AC%E6%AD%A5-1/</link>
