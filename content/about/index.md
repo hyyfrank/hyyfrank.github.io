@@ -1,10 +1,30 @@
 ---
-title: "About"
-date: 2021-08-03T22:13:10+08:00
+title: "Resume"
+date: 2022-03-03T22:13:10+08:00
 draft: false
 ---
 
-> 激水之疾 ，至于漂石者，势也；鸷鸟之（疾）〔击〕，至于毁折者，节也。是故善战者，其势险，其节短；势如弩，节如发机。
+# Profile
+Advanced web developer with more than 5 year experience in structuring, design and implementing interactive websites.Able to complete projects both frontend site and backend site effectively and satisfy customers with attractive, user-friendly website.
+# Work Experience
+  * GLP
+  * AUTODESK
+  * LUFAX
+  * DELL
+# Eduction
+  * Fudan University 
+  * Shandong Technology and Business University
+# Skillset
+  * React
+  * Node
+  * Python
+  * Java
+  * Jenkins
+  * Groovy
+  * Nginx
+  * Spring
+  * Docker
+  * Kubernate
 
-hello, 欢迎来到我的博客，我的博客主要是记录一些技术日记和读书笔记，欢迎交流。
+
 
