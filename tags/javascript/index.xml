@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>javascript on H&amp;W</title>
+    <link>http://hyyfrank.github.io/tags/javascript/</link>
+    <description>Recent content in javascript on H&amp;W</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 10 Aug 2022 11:53:41 +0800</lastBuildDate><atom:link href="http://hyyfrank.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[跬步1] debounce, throttle </title>
+      <link>http://hyyfrank.github.io/post/frontend/%E8%B7%AC%E6%AD%A5-1/</link>
+      <pubDate>Wed, 10 Aug 2022 11:53:41 +0800</pubDate>
+      
+      <guid>http://hyyfrank.github.io/post/frontend/%E8%B7%AC%E6%AD%A5-1/</guid>
+      <description>debounce &amp;amp; throttle lodash API _.debounce(func, [wait=0], [options={}]) func (Function): 要防抖动的函数。 [wait=0] (number): 需要延迟的毫秒数。 [options={}] (Object): 选项对象。 [options.leading=false] (boolean): 指定在延迟开始前调用，默认false。 [options.maxWait] (number): 设置 func 允许被延迟的最大</description>
+    </item>
+    
+  </channel>
+</rss>
