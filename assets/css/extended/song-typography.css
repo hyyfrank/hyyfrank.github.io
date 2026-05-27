@@ -193,9 +193,13 @@ body.post-pages:not(.list) .paginav .title {
   letter-spacing: 0.05em;
 }
 
-/* 暗色：暖米字，靛青链接 */
+/* 暗色：暖米字，靛青链接（单篇 / About / Category 一致） */
 :root[data-theme="dark"] body.post-pages:not(.list),
-html.post-particles-dark body.post-pages:not(.list) {
+:root[data-theme="dark"] body.post-pages.about-bg,
+:root[data-theme="dark"] body.post-pages.category-bg.list,
+html.post-particles-dark body.post-pages:not(.list),
+html.post-particles-dark body.post-pages.about-bg,
+html.post-particles-dark body.post-pages.category-bg.list {
   --song-ink: #f0e8dc;
   --song-heading: #f5efe4;
   --song-body: #ddd4c8;

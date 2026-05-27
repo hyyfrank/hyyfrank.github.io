@@ -1,0 +1,9 @@
+{{- define "main" }}
+<article class="about-page">
+  {{- if eq .Lang "zh" }}
+    {{- partial "about-page-zh.html" . -}}
+  {{- else }}
+    {{- partial "about-page-en.html" . -}}
+  {{- end }}
+</article>
+{{- end }}

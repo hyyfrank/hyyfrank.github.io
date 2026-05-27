@@ -20,6 +20,14 @@ languageCode = "en"
   label = "English"
   locale = "en"
   title = "H&W"
+  contentDir = "content/en"
+
+[languages.zh]
+  weight = 2
+  label = "繁體中文"
+  locale = "zh-Hant"
+  title = "H&W"
+  contentDir = "content/zh"
 
 [taxonomies]
   tag = "tags"
@@ -33,22 +41,31 @@ languageCode = "en"
   priority = 0.5
   filename = "sitemap.xml"
 
-[[menu.main]]
+[[languages.en.menu.main]]
   name = "Tech"
   url = "/post/"
   weight = 10
-[[menu.main]]
-  name = "Tags"
-  url = "/tags/"
-  weight = 20
-[[menu.main]]
+[[languages.en.menu.main]]
   name = "Categories"
   url = "/categories/"
-  weight = 30
-[[menu.main]]
+  weight = 20
+[[languages.en.menu.main]]
   name = "About"
   url = "/about/"
-  weight = 40
+  weight = 30
+
+[[languages.zh.menu.main]]
+  name = "技術"
+  url = "/post/"
+  weight = 10
+[[languages.zh.menu.main]]
+  name = "分類"
+  url = "/categories/"
+  weight = 20
+[[languages.zh.menu.main]]
+  name = "關於"
+  url = "/about/"
+  weight = 30
 
 [params]
   env = "production"

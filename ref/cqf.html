@@ -1,0 +1,1602 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yanyi Huang - Senior Software Engineer II</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        /* 布达拉宫配色 - 云峰白 + 柔金 + 天空蓝 + 藏褐 */
+        --cloud-white: #f5f5f0; /* 云峰白 - 主墙体 */
+        --cloud-white-dark: #e8e8e3;
+        --soft-gold: #f5b952; /* 柔金 - 弱化金色 */
+        --soft-gold-light: #e0d4bc;
+        --soft-gold-dark: #f3a108;
+        --tibetan-brown: #5a4a3a; /* 藏褐 - 窗框装饰 */
+        --sky-blue: #6b9bbd; /* 柔和天空蓝 */
+        --sky-blue-light: #8fb0c9;
+        --sky-blue-dark: #4a7a9a;
+        --ink-black: #2a2a2a; /* 墨色 - 主要文字 */
+        --warm-gray: #9a8f85; /* 暖灰 - 次要文字 */
+        --stone-gray: #d4d0c8; /* 石灰色 - 边框 */
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI",
+          sans-serif;
+        line-height: 1.6;
+        color: var(--ink-black);
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.95) 0%,
+          rgba(232, 232, 227, 0.9) 100%
+        );
+        min-height: 100vh;
+        padding: 40px 20px;
+      }
+
+      .resume-container {
+        max-width: 8.5in;
+        margin: 0 auto;
+        background: var(--cloud-white);
+        border-radius: 10px;
+        box-shadow: 0 15px 50px rgba(184, 168, 138, 0.15);
+        overflow: hidden;
+      }
+
+      /* Header Section */
+      .header {
+        display: flex;
+        align-items: center;
+        padding: 40px 40px 30px;
+        background: var(--cloud-white);
+        border-bottom: 1px solid var(--soft-gold);
+      }
+
+      .header-photo {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        overflow: hidden;
+        /* border: 2px solid var(--soft-gold); */
+        background: var(--cloud-white);
+        flex-shrink: 0;
+        margin-right: 30px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .header-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .header-info {
+        flex: 1;
+      }
+
+      .header-name {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: var(--ink-black);
+        letter-spacing: 0.02em;
+        line-height: 1.2;
+      }
+
+      .header-title {
+        font-size: 1rem;
+        color: var(--sky-blue-dark);
+        font-weight: 600;
+        margin-top: 6px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .header-cqf {
+        font-size: 0.85rem;
+        color: var(--soft-gold-dark);
+        font-weight: 600;
+        margin-top: 4px;
+        letter-spacing: 0.05em;
+      }
+
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-top: 14px;
+      }
+
+      .download-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.25s ease;
+      }
+
+      .download-pdf-btn {
+        background: linear-gradient(
+          135deg,
+          var(--sky-blue) 0%,
+          var(--sky-blue-dark) 100%
+        );
+        color: var(--cloud-white);
+        box-shadow: 0 3px 10px rgba(107, 155, 189, 0.3);
+      }
+
+      .download-pdf-btn:hover {
+        background: linear-gradient(
+          135deg,
+          var(--sky-blue-dark) 0%,
+          var(--sky-blue) 100%
+        );
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(107, 155, 189, 0.4);
+      }
+
+      .download-word-btn {
+        background: linear-gradient(135deg, #2b579a 0%, #1e3f6f 100%);
+        color: var(--cloud-white);
+        box-shadow: 0 3px 10px rgba(43, 87, 154, 0.3);
+      }
+
+      .download-word-btn:hover {
+        background: linear-gradient(135deg, #1e3f6f 0%, #2b579a 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(43, 87, 154, 0.4);
+      }
+
+      .download-btn .icon {
+        font-size: 1rem;
+      }
+
+      /* Profile Summary - Full Width Section */
+      .profile-section {
+        background: linear-gradient(
+          135deg,
+          var(--cloud-white) 0%,
+          var(--cloud-white-dark) 50%,
+          var(--stone-gray) 100%
+        );
+        padding: 35px 40px;
+        /* border-top: 1px solid var(--soft-gold); */
+        border-bottom: 1px solid var(--soft-gold);
+      }
+
+      .profile-content {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .profile-text {
+        font-size: 1rem;
+        line-height: 1.8;
+        color: var(--ink-black);
+        font-weight: 400;
+      }
+
+      .profile-cqf {
+        font-size: 0.85rem;
+        color: var(--soft-gold-dark);
+        font-weight: 600;
+        margin-top: 8px;
+      }
+
+      /* Main Content Grid */
+      .main-content {
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        min-height: 11in;
+      }
+
+      /* Left Sidebar */
+      .sidebar {
+        background: var(--cloud-white-dark);
+        padding: 16px 24px;
+        border-right: 1px solid var(--stone-gray);
+      }
+
+      .sidebar-section {
+        margin-bottom: 18px;
+      }
+      .sidebar-skills {
+        margin-top: 0;
+        padding-top: 30px;
+      }
+      .section-language {
+        margin-top: 18px;
+        padding-top: 18px;
+      }
+      .contact-section .sidebar-title {
+        padding-bottom: 10px;
+        margin-bottom: 18px;
+      }
+
+      .sidebar-title {
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--ink-black);
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        margin-bottom: 16px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid var(--soft-gold);
+      }
+
+      /* Contact Info */
+      .contact-list {
+        list-style: none;
+      }
+
+      .contact-section {
+        margin-top: 12px;
+        /* padding-top: 20px; */
+        /* border-top: 1px dashed var(--stone-gray); */
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 12px;
+        font-size: 0.85rem;
+        color: var(--ink-black);
+      }
+
+      .contact-item .icon {
+        width: 18px;
+        text-align: center;
+        font-size: 1rem;
+      }
+
+      .contact-item a {
+        color: var(--ink-black);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+
+      .contact-item a:hover {
+        color: var(--sky-blue);
+      }
+
+      /* Skills */
+      .skills-list {
+        list-style: none;
+      }
+
+      .skills-list li {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 10px;
+        font-size: 0.85rem;
+        color: var(--ink-black);
+        letter-spacing: 0.02em;
+        word-spacing: 0.05em;
+      }
+
+      .skills-list li::before {
+        content: "✓";
+        color: var(--soft-gold-dark);
+        font-weight: 700;
+        font-size: 0.85rem;
+      }
+
+      /* Languages */
+      .languages-list {
+        list-style: none;
+      }
+
+      .languages-list li {
+        margin-bottom: 14px;
+        font-size: 0.85rem;
+      }
+
+      .language-name {
+        display: block;
+        font-weight: 600;
+        color: var(--ink-black);
+        margin-bottom: 4px;
+      }
+
+      .language-level {
+        display: block;
+        font-size: 0.8rem;
+        color: var(--warm-gray);
+      }
+
+      .language-bar {
+        height: 5px;
+        background: var(--stone-gray);
+        border-radius: 3px;
+        overflow: hidden;
+        margin-top: 5px;
+      }
+
+      .language-bar-fill {
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          var(--soft-gold) 0%,
+          var(--sky-blue) 100%
+        );
+        border-radius: 3px;
+      }
+
+      /* Right Content */
+      .content {
+        padding: 25px 30px;
+        background: #fff;
+      }
+
+      .content-section {
+        margin-bottom: 32px;
+      }
+      .eduction-detail {
+        margin-top: 0px !important;
+        padding-top: 10px !important;
+      }
+
+      .content-section:last-child {
+        margin-bottom: 0;
+      }
+
+      .content-section:first-child {
+        padding-top: 0;
+      }
+
+      .content-section:not(:first-child) {
+        margin-top: 20px;
+        padding-top: 35px;
+        border-top: 1px solid var(--stone-gray);
+      }
+
+      .content-title {
+        font-size: 0.95rem;
+        font-weight: 800;
+        color: var(--ink-black);
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        margin-bottom: 22px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--soft-gold);
+      }
+
+      /* Experience Items */
+      .experience-item {
+        margin-bottom: 26px;
+      }
+      .datayes {
+        margin-top: 20px;
+      }
+
+      .experience-item:last-child {
+        margin-bottom: 0;
+      }
+
+      /* GLP 和 Lujiazui 经验添加额外间距 */
+      .experience-item[data-company="GLP"],
+      .experience-item[data-company="Lujiazui"] {
+        margin-top: 0px;
+        padding-top: 24px;
+        /* border-top: 1px dashed var(--stone-gray); */
+      }
+
+      .experience-header {
+        margin-bottom: 10px;
+      }
+
+      .experience-company {
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--ink-black);
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+      }
+
+      .experience-role {
+        font-size: 0.9rem;
+        color: var(--sky-blue-dark);
+        font-weight: 600;
+        margin-top: 3px;
+      }
+
+      .experience-meta {
+        font-size: 0.75rem;
+        color: #7f4109;
+        margin-top: 4px;
+      }
+
+      .experience-description {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .experience-description li {
+        position: relative;
+        padding-left: 18px;
+        margin-bottom: 6px;
+        font-size: 0.85rem;
+        color: var(--ink-black);
+        line-height: 1.6;
+      }
+
+      .experience-description li::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: var(--soft-gold-dark);
+        font-weight: bold;
+        font-size: 1.1rem;
+        line-height: 1.4;
+      }
+
+      /* Education Items */
+      .education-item {
+        margin-bottom: 16px;
+      }
+
+      /* Certifications Section */
+      .certifications-section {
+        margin-top: 32px;
+        padding-top: 35px;
+        border-top: 1px solid var(--stone-gray);
+      }
+
+      .certifications-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        margin-top: 20px;
+      }
+
+      .certification-item {
+        background: var(--cloud-white);
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+
+      .certification-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+      }
+
+      .certification-image {
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+        background: #fff;
+      }
+
+      .certification-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .certification-info {
+        padding: 15px;
+      }
+
+      .certification-name {
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: var(--ink-black);
+        margin-bottom: 5px;
+      }
+
+      .certification-issuer {
+        font-size: 0.75rem;
+        color: var(--sky-blue-dark);
+        margin-bottom: 3px;
+      }
+
+      .certification-date {
+        font-size: 0.7rem;
+        color: var(--warm-gray);
+      }
+
+      @media print {
+        .certification-item:hover {
+          transform: none;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .certifications-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .education-degree {
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: var(--ink-black);
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+      }
+
+      .education-school {
+        font-size: 0.85rem;
+        color: var(--sky-blue-dark);
+        font-weight: 600;
+        margin-top: 3px;
+      }
+
+      .education-meta {
+        font-size: 0.75rem;
+        color: var(--warm-gray);
+        margin-top: 4px;
+      }
+
+      /* Print Styles */
+      @media print {
+        body {
+          background: var(--cloud-white);
+          padding: 0;
+        }
+
+        .resume-container {
+          box-shadow: none;
+          max-width: 100%;
+          border-radius: 0;
+        }
+
+        .header {
+          background: var(--cloud-white) !important;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+
+        .profile-section {
+          background: linear-gradient(
+            135deg,
+            var(--cloud-white) 0%,
+            var(--cloud-white-dark) 50%,
+            var(--stone-gray) 100%
+          ) !important;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+
+        .sidebar {
+          background: var(--cloud-white-dark) !important;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+
+        .header-actions,
+        .download-pdf-btn {
+          display: none !important;
+        }
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .header {
+          flex-direction: column;
+          text-align: center;
+          padding: 30px 20px;
+        }
+
+        .header-photo {
+          margin-right: 0;
+          margin-bottom: 20px;
+        }
+
+        .header-name {
+          font-size: 2rem;
+        }
+
+        .main-content {
+          grid-template-columns: 1fr;
+        }
+
+        .sidebar {
+          border-right: none;
+          border-bottom: 1px solid var(--stone-gray);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="resume-container">
+      <!-- Header -->
+      <header class="header">
+        <div class="header-photo">
+          <img src="./images/head.jpg" alt="Yanyi Huang" />
+        </div>
+        <div class="header-info">
+          <h1 class="header-name">Yanyi Huang</h1>
+          <p class="header-title">Quantitative Developer / CQF Candidate</p>
+          <p class="header-cqf">CQF Candidate, Expected July 2026</p>
+          <div class="header-actions">
+            <button
+              class="download-btn download-pdf-btn"
+              onclick="downloadPDF()"
+            >
+              <span class="icon">📄</span>
+              <span>Download as PDF</span>
+            </button>
+            <button
+              class="download-btn download-word-btn"
+              onclick="downloadWord()"
+            >
+              <span class="icon">📝</span>
+              <span>Download as Word</span>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Profile Summary - Full Width Section -->
+      <section class="profile-section">
+        <div class="profile-content">
+          <p class="profile-text">
+            Quantitative developer and CQF Candidate (Expected July 2026) with
+            strong background in Python, big data analytics, and financial risk
+            analysis. Over 10 years of experience in designing and implementing
+            large-scale data processing systems, ETL pipelines, and machine
+            learning models. Combines Master's in Computer Science with
+            Bachelor's in Mathematics to deliver data-driven solutions for
+            financial and insurance domains. Proficient in data cleaning,
+            real-time/offline data analysis, and generating actionable insights
+            from complex datasets.
+          </p>
+        </div>
+      </section>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <!-- Left Sidebar -->
+        <aside class="sidebar">
+          <!-- Contact -->
+          <section class="sidebar-section contact-section">
+            <h2 class="sidebar-title">CONTACT</h2>
+            <ul class="contact-list">
+              <li class="contact-item">
+                <span class="icon">✉️</span>
+                <a href="mailto:hyyfrank@gmail.com">hyyfrank@gmail.com</a>
+              </li>
+              <li class="contact-item">
+                <span class="icon">📱</span>
+                <a href="tel:+85269398754">+852 6939 8754</a>
+              </li>
+              <li class="contact-item">
+                <span class="icon">📍</span>
+                <span>Hong Kong, China</span>
+              </li>
+            </ul>
+          </section>
+
+          <!-- Languages -->
+          <section class="sidebar-section section-language">
+            <h2 class="sidebar-title">LANGUAGES</h2>
+            <ul class="languages-list">
+              <li>
+                <span class="language-name">Mandarin</span>
+                <span class="language-level">Native</span>
+                <div class="language-bar">
+                  <div class="language-bar-fill" style="width: 100%"></div>
+                </div>
+              </li>
+              <li>
+                <span class="language-name">Cantonese</span>
+                <span class="language-level">Native</span>
+                <div class="language-bar">
+                  <div class="language-bar-fill" style="width: 100%"></div>
+                </div>
+              </li>
+              <li>
+                <span class="language-name">English</span>
+                <span class="language-level">Professional Working</span>
+                <div class="language-bar">
+                  <div class="language-bar-fill" style="width: 80%"></div>
+                </div>
+              </li>
+            </ul>
+          </section>
+
+          <!-- Skills -->
+          <section class="sidebar-section sidebar-skills">
+            <h2 class="sidebar-title">SKILLS</h2>
+            <ul class="skills-list">
+              <li>Python / Pandas / NumPy / SciPy</li>
+              <li>Data Analysis / ETL / Data Pipeline</li>
+              <li>Machine Learning / PyTorch / YOLO</li>
+              <li>Big Data: HBase / Hive / Kafka / JStorm</li>
+              <li>Database: MySQL / MongoDB / Redis</li>
+              <li>Monitoring: InfluxDB / Grafana</li>
+              <li>Cloud: AWS / Docker / CI/CD / Jenkins / Spinnaker</li>
+              <li>Financial: Backtesting / Trading Systems / Risk Analysis</li>
+              <li>Web: Node.js / Nest.js / React</li>
+              <li>Agile / Scrum</li>
+            </ul>
+          </section>
+        </aside>
+
+        <!-- Right Content -->
+        <main class="content">
+          <!-- Professional Experience -->
+          <section class="content-section">
+            <h2 class="content-title">PROFESSIONAL EXPERIENCE</h2>
+
+            <div class="experience-item">
+              <div class="experience-header">
+                <div class="experience-company">HKU, Hong Kong</div>
+                <div class="experience-role">IT Technician</div>
+                <div class="experience-meta">Aug 2025 — Present</div>
+              </div>
+              <ul class="experience-description">
+                <li>
+                  Develop internal software systems including CMS based on
+                  Drupal and PHP for content management
+                </li>
+                <li>
+                  Build full-stack applications using Next.js, Node.js, and
+                  Nest.js for internal business processes
+                </li>
+                <li>
+                  Design and implement RBAC (Role-Based Access Control)
+                  permission system for secure resource management
+                </li>
+              </ul>
+            </div>
+
+            <div class="experience-item">
+              <div class="experience-header">
+                <div class="experience-company">FWD, Hong Kong</div>
+                <div class="experience-role">
+                  Full Stack Engineer & Tech Lead
+                </div>
+                <div class="experience-meta">Oct 2022 — Feb 2025</div>
+              </div>
+              <ul class="experience-description">
+                <li>
+                  Led data analysis initiatives for lead generation, resulting
+                  in 25% increase in qualified leads through customer
+                  segmentation
+                </li>
+                <li>
+                  Built Python-based data pipelines for processing insurance
+                  claims and policy data on AWS
+                </li>
+                <li>
+                  Implemented analytics dashboards for tracking sales
+                  performance and risk metrics
+                </li>
+              </ul>
+            </div>
+
+            <div class="experience-item" data-company="GLP">
+              <div class="experience-header">
+                <div class="experience-company">GLP, Shanghai</div>
+                <div class="experience-role">
+                  Full Stack Software Engineer & Lead
+                </div>
+                <div class="experience-meta">Jun 2021 — Aug 2022</div>
+              </div>
+              <ul class="experience-description">
+                <li>
+                  Developed computer vision algorithms using YOLOv5 and PyTorch
+                  for object detection from video streams
+                </li>
+                <li>
+                  Led data cleaning and preprocessing initiatives: identified
+                  dirty data, performed re-labeling and retraining to improve
+                  model accuracy
+                </li>
+                <li>
+                  Built data analysis pipelines to process and validate
+                  large-scale image datasets before feeding to ML models
+                </li>
+                <li>
+                  Implemented data quality monitoring systems to detect
+                  anomalies and ensure training data integrity
+                </li>
+                <li>
+                  Solar PV & Energy Storage Optimization Project: Collected and
+                  analyzed multi-source data including weather patterns,
+                  historical electricity peak demand, and sunshine duration;
+                  leveraged NumPy and SciPy for statistical analysis and
+                  algorithmic curve fitting to model energy generation and
+                  consumption patterns, delivering optimal energy storage
+                  solutions that maximized ROI and grid stability
+                </li>
+              </ul>
+            </div>
+
+            <div class="experience-item">
+              <div class="experience-header">
+                <div class="experience-company">Autodesk, Shanghai</div>
+                <div class="experience-role">Senior Software Engineer II</div>
+                <div class="experience-meta">Jun 2018 — Jan 2021</div>
+              </div>
+              <ul class="experience-description">
+                <li>
+                  Managed large-scale CI/CD pipeline migration from TeamCity to
+                  Jenkins + Spinnaker on AWS cloud
+                </li>
+                <li>
+                  Designed and maintained complex build scripts using
+                  PowerShell, Ruby, Shell, and Python for automated deployments
+                </li>
+                <li>
+                  Configured cloud infrastructure using Docker and AWS services
+                  for high availability and cost optimization
+                </li>
+                <li>
+                  Implemented monitoring and alerting systems for pipeline
+                  health and deployment success tracking
+                </li>
+              </ul>
+            </div>
+
+            <div class="experience-item">
+              <div class="experience-header">
+                <div class="experience-company">
+                  ZhongAn Online P&C Insurance, Shanghai
+                </div>
+                <div class="experience-role">
+                  Senior Software Engineer & Leader
+                </div>
+                <div class="experience-meta">Mar 2017 — Apr 2018</div>
+              </div>
+              <ul class="experience-description">
+                <li>
+                  Built end-to-end data pipeline: event tracking → data analysis
+                  → database storage → report generation for insurance analytics
+                </li>
+                <li>
+                  Implemented real-time and offline data processing using JStorm
+                  (Alibaba's stream processing) and DataX for data
+                  synchronization
+                </li>
+                <li>
+                  Designed and maintained large-scale data storage systems using
+                  HBase and Hive for petabyte-scale insurance data
+                </li>
+                <li>
+                  Developed automated ETL workflows to clean, transform, and
+                  aggregate data from Kafka streams to final analytics reports
+                </li>
+              </ul>
+            </div>
+
+            <div class="experience-item datayes">
+              <div class="experience-header">
+                <div class="experience-company">Datayes, Shanghai</div>
+                <div class="experience-role">Software Developer</div>
+                <div class="experience-meta">Aug 2016 — Feb 2017</div>
+              </div>
+              <ul class="experience-description">
+                <li>
+                  Developed Python-based backtesting platform for quantitative
+                  trading strategies with historical market data
+                </li>
+                <li>
+                  Built investment portfolio management product for tracking and
+                  optimizing asset allocation
+                </li>
+                <li>
+                  Created research and development platform for financial
+                  analysts to design and test trading strategies
+                </li>
+                <li>
+                  Implemented real-time market data retrieval and strategy
+                  execution systems using Python
+                </li>
+              </ul>
+            </div>
+
+            <div class="experience-item" data-company="Lujiazui">
+              <div class="experience-header">
+                <div class="experience-company">
+                  Shanghai Lujiazui International Financial Asset Exchange
+                </div>
+                <div class="experience-role">Software Developer</div>
+                <div class="experience-meta">Jun 2015 — May 2016</div>
+              </div>
+              <ul class="experience-description">
+                <li>Developed microservices architecture with 20+ services</li>
+                <li>
+                  Implemented Git workflow for managing quick and emergency
+                  releases
+                </li>
+                <li>
+                  Collaborated with Mobile Team using jsbridge for hybrid
+                  applications
+                </li>
+              </ul>
+            </div>
+
+            <div class="experience-item">
+              <div class="experience-header">
+                <div class="experience-company">DELL, Shanghai</div>
+                <div class="experience-role">Software Analyst</div>
+                <div class="experience-meta">Aug 2012 — Jun 2014</div>
+              </div>
+              <ul class="experience-description">
+                <li>
+                  Developed PHP applications using JavaScript, CMS, MySQL, and
+                  Drupal
+                </li>
+                <li>
+                  Implemented digital marketing solutions using TMS and
+                  Salesforce
+                </li>
+                <li>
+                  Applied A/B testing to optimize website based on customer
+                  preferences
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- Education -->
+          <section class="content-section eduction-detail">
+            <h2 class="content-title">EDUCATION</h2>
+
+            <div class="education-item">
+              <div class="education-degree">Master in Computer Science</div>
+              <div class="education-school">Fudan University, Shanghai</div>
+              <div class="education-meta">Sep 2008 — Jan 2012</div>
+            </div>
+
+            <div class="education-item">
+              <div class="education-degree">Bachelor in Mathematics</div>
+              <div class="education-school">
+                Shandong Technology and Business University
+              </div>
+              <div class="education-meta">Sep 2004 — Jul 2008</div>
+            </div>
+
+            <div class="education-item">
+              <div class="education-degree">
+                CQF (Certificate in Quantitative Finance) Candidate
+              </div>
+              <div class="education-school">Expected Completion: July 2026</div>
+            </div>
+          </section>
+
+          <!-- Other Projects -->
+          <!-- <section class="content-section">
+            <h2 class="content-title">OTHER PROJECTS</h2>
+
+            <div class="experience-item">
+              <div class="experience-header">
+                <div class="experience-company">
+                  AI-Powered Automated Car Marketing System
+                </div>
+                <div class="experience-role">
+                  LangChain & LangGraph Automation Pipeline
+                </div>
+              </div>
+              <ul class="experience-description">
+                <li>
+                  Implemented automated customer inquiry handling system that
+                  triggers instant notifications to sales team upon receiving
+                  price requests from potential buyers
+                </li>
+                <li>
+                  Built follow-up reminder system that prompts sales staff to
+                  engage with leads and automatically generates feedback
+                  tracking based on chat history and conversation records
+                </li>
+                <li>
+                  Developed scheduled tasks to analyze lead quality and
+                  effectiveness, enabling continuous follow-up on high-potential
+                  customers
+                </li>
+                <li>
+                  Created automated email campaign system that sends
+                  personalized inquiry emails to assess customer purchase
+                  intent, with AI-powered tracking of email open rates and
+                  responses
+                </li>
+                <li>
+                  Established direct contact workflow for interested customers,
+                  providing payment instructions and banking details for
+                  transaction completion
+                </li>
+                <li>
+                  Integrated logistics system API to coordinate vehicle shipping
+                  and delivery to customer locations, completing the end-to-end
+                  sales process
+                </li>
+              </ul>
+            </div>
+          </section> -->
+
+          <!-- Certifications -->
+          <section class="content-section certifications-section">
+            <h2 class="content-title">CERTIFICATIONS</h2>
+
+            <div class="certifications-grid">
+              <div class="certification-item">
+                <div class="certification-image">
+                  <img
+                    src="./ref/cert2.jpg"
+                    alt="Neural Networks and Deep Learning Certificate"
+                  />
+                </div>
+                <div class="certification-info">
+                  <div class="certification-name">
+                    Neural Networks and Deep Learning
+                  </div>
+                  <div class="certification-issuer">
+                    DeepLearning.AI / Coursera (Andrew Ng)
+                  </div>
+                  <div class="certification-date">Completed</div>
+                </div>
+              </div>
+
+              <div class="certification-item">
+                <div class="certification-image">
+                  <img
+                    src="./ref/cert1.jpg"
+                    alt="Site Reliability Engineering Certificate"
+                  />
+                </div>
+                <div class="certification-info">
+                  <div class="certification-name">
+                    Site Reliability Engineering: Measuring and Managing
+                    Reliability
+                  </div>
+                  <div class="certification-issuer">
+                    Google Cloud / Coursera
+                  </div>
+                  <div class="certification-date">Oct 31, 2019</div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script>
+      function downloadPDF() {
+        console.log("Download PDF clicked");
+        const element = document.querySelector(".resume-container");
+        const btn = document.querySelector(".header-actions");
+
+        // 检查 html2pdf 是否加载成功
+        if (typeof html2pdf === "undefined") {
+          console.error("html2pdf library not loaded");
+          alert("PDF library is loading, please try again in a moment");
+          return;
+        }
+
+        // 隐藏按钮
+        if (btn) btn.style.display = "none";
+
+        const opt = {
+          margin: [0, 0, 0, 0],
+          filename: "Yanyi_Huang_Resume.pdf",
+          image: { type: "jpeg", quality: 0.85 },
+          html2canvas: {
+            scale: 1.5,
+            useCORS: true,
+            letterRendering: true,
+            allowTaint: false,
+            logging: false,
+            enableLinks: false,
+            fontFace: {
+              useSVG: true,
+            },
+          },
+          jsPDF: {
+            unit: "in",
+            format: "letter",
+            orientation: "portrait",
+            compress: true,
+          },
+          pagebreak: {
+            mode: ["avoid-all"],
+          },
+        };
+
+        console.log("Starting PDF generation...");
+        html2pdf()
+          .set(opt)
+          .from(element)
+          .save()
+          .then(() => {
+            console.log("PDF saved successfully");
+            // 恢复按钮显示
+            if (btn) btn.style.display = "flex";
+          })
+          .catch((err) => {
+            console.error("Error generating PDF:", err);
+            if (btn) btn.style.display = "flex";
+          });
+      }
+
+      async function downloadWord() {
+        console.log("Download Word clicked");
+
+        // ---- helpers ----
+        function imageToBase64(imgEl) {
+          return new Promise((resolve) => {
+            if (imgEl.src.startsWith("data:")) {
+              resolve(imgEl.src);
+              return;
+            }
+            const canvas = document.createElement("canvas");
+            const w = imgEl.naturalWidth || imgEl.width;
+            const h = imgEl.naturalHeight || imgEl.height;
+            if (w === 0 || h === 0) {
+              resolve(imgEl.src);
+              return;
+            }
+            canvas.width = w;
+            canvas.height = h;
+            const ctx = canvas.getContext("2d");
+            try {
+              ctx.drawImage(imgEl, 0, 0, w, h);
+              resolve(canvas.toDataURL("image/jpeg", 0.85));
+            } catch (_) {
+              resolve(imgEl.src);
+            }
+          });
+        }
+
+        // Collect data from the live DOM (so content changes are reflected)
+        function getText(selector) {
+          const el = document.querySelector(selector);
+          return el ? el.textContent.trim() : "";
+        }
+
+        const name = getText(".header-name");
+        const title = getText(".header-title");
+        const cqf = getText(".header-cqf");
+        const profile = getText(".profile-text");
+
+        // Contact
+        const contactItems = [];
+        document.querySelectorAll(".contact-list .contact-item").forEach((li) => {
+          const icon = li.querySelector(".icon");
+          const link = li.querySelector("a");
+          const span = li.querySelector("span:last-child");
+          if (link) {
+            contactItems.push({
+              icon: icon ? icon.textContent.trim() : "",
+              text: link.textContent.trim(),
+              href: link.getAttribute("href") || "",
+            });
+          } else if (span && span !== icon) {
+            contactItems.push({
+              icon: icon ? icon.textContent.trim() : "",
+              text: span.textContent.trim(),
+              href: "",
+            });
+          }
+        });
+
+        // Skills
+        const skills = [];
+        document.querySelectorAll(".skills-list li").forEach((li) => {
+          skills.push(li.textContent.trim());
+        });
+
+        // Languages
+        const languages = [];
+        document.querySelectorAll(".languages-list li").forEach((li) => {
+          const nameEl = li.querySelector(".language-name");
+          const levelEl = li.querySelector(".language-level");
+          const barEl = li.querySelector(".language-bar-fill");
+          languages.push({
+            name: nameEl ? nameEl.textContent.trim() : "",
+            level: levelEl ? levelEl.textContent.trim() : "",
+            width: barEl ? barEl.style.width : "0%",
+          });
+        });
+
+        // Experience
+        const experiences = [];
+        document.querySelectorAll(".content-section:first-of-type .experience-item").forEach((item) => {
+          const company = item.querySelector(".experience-company");
+          const role = item.querySelector(".experience-role");
+          const meta = item.querySelector(".experience-meta");
+          const bullets = [];
+          item.querySelectorAll(".experience-description li").forEach((li) => {
+            bullets.push(li.textContent.trim());
+          });
+          experiences.push({
+            company: company ? company.textContent.trim() : "",
+            role: role ? role.textContent.trim() : "",
+            meta: meta ? meta.textContent.trim() : "",
+            bullets: bullets,
+          });
+        });
+
+        // Education
+        const educations = [];
+        document.querySelectorAll(".education-item").forEach((item) => {
+          const degree = item.querySelector(".education-degree");
+          const school = item.querySelector(".education-school");
+          const meta = item.querySelector(".education-meta");
+          educations.push({
+            degree: degree ? degree.textContent.trim() : "",
+            school: school ? school.textContent.trim() : "",
+            meta: meta ? meta.textContent.trim() : "",
+          });
+        });
+
+        // Certifications
+        const certifications = [];
+        document.querySelectorAll(".certification-item").forEach((item) => {
+          const img = item.querySelector(".certification-image img");
+          const nameEl = item.querySelector(".certification-name");
+          const issuer = item.querySelector(".certification-issuer");
+          const date = item.querySelector(".certification-date");
+          certifications.push({
+            imgSrc: img ? img.getAttribute("src") || "" : "",
+            name: nameEl ? nameEl.textContent.trim() : "",
+            issuer: issuer ? issuer.textContent.trim() : "",
+            date: date ? date.textContent.trim() : "",
+          });
+        });
+
+        // Convert images to base64
+        const photoImg = document.querySelector(".header-photo img");
+        const photoBase64 = photoImg ? await imageToBase64(photoImg) : "";
+
+        for (let i = 0; i < certifications.length; i++) {
+          const certImg = document.querySelectorAll(".certification-image img")[i];
+          if (certImg) {
+            certifications[i].imgBase64 = await imageToBase64(certImg);
+          }
+        }
+
+        // ---- Build Word HTML with table-based layout & mso-compatible CSS ----
+        function esc(str) {
+          return String(str)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;");
+        }
+
+        function buildSkillsHTML() {
+          return skills
+            .map(
+              (s) =>
+                `<tr><td style="padding:0 0 10px 0;font-size:10pt;color:#2a2a2a;font-family:'Segoe UI',-apple-system,sans-serif;">` +
+                `<span style="color:#f3a108;font-weight:bold;margin-right:6px;">✓</span>${esc(s)}</td></tr>`
+            )
+            .join("");
+        }
+
+        function buildLanguagesHTML() {
+          return languages
+            .map((l) => {
+              const pct = parseInt(l.width) || 0;
+              return (
+                `<tr><td style="padding:0 0 14px 0;font-size:10pt;color:#2a2a2a;font-family:'Segoe UI',-apple-system,sans-serif;">` +
+                `<p style="margin:0;font-weight:600;">${esc(l.name)}</p>` +
+                `<p style="margin:0 0 4px 0;font-size:9pt;color:#9a8f85;">${esc(l.level)}</p>` +
+                `<table cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;"><tr>` +
+                `<td style="width:${pct}%;height:5px;background:#f5b952;border-radius:3px;"></td>` +
+                `<td style="width:${100 - pct}%;height:5px;background:#d4d0c8;border-radius:3px;"></td>` +
+                `</tr></table></td></tr>`
+              );
+            })
+            .join("");
+        }
+
+        function buildContactHTML() {
+          return contactItems
+            .map((c) => {
+              const content = c.href
+                ? `<a href="${esc(c.href)}" style="color:#2a2a2a;text-decoration:none;">${esc(c.text)}</a>`
+                : esc(c.text);
+              return `<tr><td style="padding:0 0 12px 0;font-size:10pt;color:#2a2a2a;font-family:'Segoe UI',-apple-system,sans-serif;">${esc(c.icon)}&nbsp;&nbsp;${content}</td></tr>`;
+            })
+            .join("");
+        }
+
+        function buildExperienceHTML() {
+          return experiences
+            .map((exp, i) => {
+              const bulletsHTML = exp.bullets
+                .map(
+                  (b) =>
+                    `<tr><td style="padding:0 0 5px 0;font-size:10pt;color:#2a2a2a;line-height:1.6;font-family:'Segoe UI',-apple-system,sans-serif;">` +
+                    `<span style="color:#f3a108;font-weight:bold;font-size:11pt;">• </span>${esc(b)}</td></tr>`
+                )
+                .join("");
+              const isFirst = i === 0;
+              return (
+                `<tr><td style="padding:0 0 22px 0;${isFirst ? "" : "border-top:1px solid #d4d0c8;"}padding-top:${isFirst ? "0" : "16px"};">` +
+                `<p style="margin:0 0 8px 0;font-size:11pt;font-weight:700;color:#2a2a2a;text-transform:uppercase;letter-spacing:0.03em;font-family:'Segoe UI',-apple-system,sans-serif;">${esc(exp.company)}</p>` +
+                `<p style="margin:0 0 2px 0;font-size:10.5pt;color:#4a7a9a;font-weight:600;font-family:'Segoe UI',-apple-system,sans-serif;">${esc(exp.role)}</p>` +
+                `<p style="margin:0 0 8px 0;font-size:9pt;color:#7f4109;font-family:'Segoe UI',-apple-system,sans-serif;">${esc(exp.meta)}</p>` +
+                `<table cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;">${bulletsHTML}</table>` +
+                `</td></tr>`
+              );
+            })
+            .join("");
+        }
+
+        function buildEducationHTML() {
+          return educations
+            .map(
+              (ed) =>
+                `<tr><td style="padding:0 0 16px 0;">` +
+                `<p style="margin:0;font-size:10.5pt;font-weight:700;color:#2a2a2a;text-transform:uppercase;letter-spacing:0.03em;font-family:'Segoe UI',-apple-system,sans-serif;">${esc(ed.degree)}</p>` +
+                `<p style="margin:3px 0;font-size:10pt;color:#4a7a9a;font-weight:600;font-family:'Segoe UI',-apple-system,sans-serif;">${esc(ed.school)}</p>` +
+                `<p style="margin:4px 0 0 0;font-size:9pt;color:#9a8f85;font-family:'Segoe UI',-apple-system,sans-serif;">${esc(ed.meta)}</p>` +
+                `</td></tr>`
+            )
+            .join("");
+        }
+
+        function buildCertificationsHTML() {
+          return certifications
+            .map((cert) => {
+              const imgTag = cert.imgBase64
+                ? `<img src="${cert.imgBase64}" alt="" style="width:100%;height:auto;display:block;" />`
+                : "";
+              return (
+                `<td style="width:50%;vertical-align:top;padding:0 10px 0 0;">` +
+                `<table cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;background:#f5f5f0;border-radius:8px;border:1px solid #e8e8e3;">` +
+                `<tr><td style="padding:0;">${imgTag}</td></tr>` +
+                `<tr><td style="padding:10px 12px;">` +
+                `<p style="margin:0 0 4px 0;font-size:10pt;font-weight:700;color:#2a2a2a;font-family:'Segoe UI',-apple-system,sans-serif;">${esc(cert.name)}</p>` +
+                `<p style="margin:0 0 2px 0;font-size:9pt;color:#4a7a9a;font-family:'Segoe UI',-apple-system,sans-serif;">${esc(cert.issuer)}</p>` +
+                `<p style="margin:0;font-size:8pt;color:#9a8f85;font-family:'Segoe UI',-apple-system,sans-serif;">${esc(cert.date)}</p>` +
+                `</td></tr></table></td>`
+              );
+            })
+            .join("");
+        }
+
+        const wordHTML = `\
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+      xmlns:w="urn:schemas-microsoft-com:office:word"
+      xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta charset="utf-8">
+<title>Yanyi Huang – Resume</title>
+<!--[if gte mso 9]><xml>
+<w:WordDocument>
+  <w:View>Print</w:View>
+  <w:Zoom>100</w:Zoom>
+  <w:DoNotOptimizeForBrowser/>
+</w:WordDocument>
+</xml><![endif]-->
+<style>
+  @page {
+    size: 8.5in 11in;
+    margin: 0.4in 0.45in;
+    mso-header-margin: 0;
+    mso-footer-margin: 0;
+  }
+  body {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+    line-height: 1.5;
+    color: #2a2a2a;
+  }
+  .resume-container {
+    width: 100%;
+    background: #f5f5f0;
+  }
+
+  /* ── Header ── */
+  .header-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-bottom: 1px solid #f5b952;
+  }
+  .header-table td { vertical-align: middle; }
+  .header-photo-cell {
+    width: 120px;
+    padding: 20px 24px 20px 24px;
+  }
+  .header-photo-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .header-info-cell {
+    padding: 20px 24px 20px 0;
+  }
+
+  /* ── Profile ── */
+  .profile-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #e8e8e3;
+    border-bottom: 1px solid #f5b952;
+  }
+  .profile-table td {
+    padding: 24px 28px;
+    font-size: 10.5pt;
+    line-height: 1.7;
+    color: #2a2a2a;
+  }
+
+  /* ── Main two-column via table ── */
+  .main-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .sidebar-cell {
+    width: 220px;
+    background: #e8e8e3;
+    padding: 18px 20px;
+    vertical-align: top;
+    border-right: 1px solid #d4d0c8;
+  }
+  .content-cell {
+    background: #ffffff;
+    padding: 20px 24px;
+    vertical-align: top;
+  }
+
+  /* ── Sidebar inner tables ── */
+  .sb-inner {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .sb-title-row td {
+    font-size: 9pt;
+    font-weight: 700;
+    color: #2a2a2a;
+    text-transform: uppercase;
+    letter-spacing: 1.2pt;
+    padding: 0 0 8px 0;
+    margin-bottom: 14px;
+    border-bottom: 1px solid #f5b952;
+  }
+  .sb-section-pad td { height: 18px; }
+
+  /* ── Right content ── */
+  .ct-title-row td {
+    font-size: 10.5pt;
+    font-weight: 800;
+    color: #2a2a2a;
+    text-transform: uppercase;
+    letter-spacing: 1.2pt;
+    padding: 0 0 8px 0;
+    border-bottom: 1px solid #f5b952;
+  }
+  .ct-section-pad td { height: 22px; }
+  .ct-cert-section-pad td { height: 32px; border-top: 1px solid #d4d0c8; padding-top: 24px; }
+
+  h1 { font-size: 22pt; font-weight: 800; color: #2a2a2a; margin: 0; letter-spacing: 0.3pt; }
+  h2 { font-size: 10pt; color: #4a7a9a; font-weight: 600; margin: 4px 0 0 0; text-transform: uppercase; letter-spacing: 0.8pt; }
+  h3 { font-size: 9pt; color: #f3a108; font-weight: 600; margin: 4px 0 0 0; }
+</style>
+</head>
+<body>
+<div class="resume-container">
+
+<!-- ── Header ── -->
+<table class="header-table" cellpadding="0" cellspacing="0" border="0">
+<tr>
+  <td class="header-photo-cell">
+    <img class="header-photo-img" src="${photoBase64}" alt="" />
+  </td>
+  <td class="header-info-cell">
+    <h1>${esc(name)}</h1>
+    <h2>${esc(title)}</h2>
+    <h3>${esc(cqf)}</h3>
+  </td>
+</tr>
+</table>
+
+<!-- ── Profile ── -->
+<table class="profile-table" cellpadding="0" cellspacing="0" border="0">
+<tr><td>${esc(profile)}</td></tr>
+</table>
+
+<!-- ── Main: sidebar + content ── -->
+<table class="main-table" cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td class="sidebar-cell">
+
+  <!-- CONTACT -->
+  <table class="sb-inner" cellpadding="0" cellspacing="0" border="0">
+    <tr class="sb-title-row"><td>CONTACT</td></tr>
+    ${buildContactHTML()}
+  </table>
+  <table class="sb-inner" cellpadding="0" cellspacing="0" border="0">
+    <tr class="sb-section-pad"><td></td></tr>
+  </table>
+
+  <!-- LANGUAGES -->
+  <table class="sb-inner" cellpadding="0" cellspacing="0" border="0">
+    <tr class="sb-title-row"><td>LANGUAGES</td></tr>
+    ${buildLanguagesHTML()}
+  </table>
+  <table class="sb-inner" cellpadding="0" cellspacing="0" border="0">
+    <tr class="sb-section-pad"><td></td></tr>
+  </table>
+
+  <!-- SKILLS -->
+  <table class="sb-inner" cellpadding="0" cellspacing="0" border="0">
+    <tr class="sb-title-row"><td>SKILLS</td></tr>
+    ${buildSkillsHTML()}
+  </table>
+
+</td>
+<td class="content-cell">
+
+  <!-- PROFESSIONAL EXPERIENCE -->
+  <table cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;">
+    <tr class="ct-title-row"><td>PROFESSIONAL EXPERIENCE</td></tr>
+    ${buildExperienceHTML()}
+  </table>
+
+  <!-- EDUCATION -->
+  <table cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;">
+    <tr class="ct-section-pad"><td></td></tr>
+    <tr class="ct-title-row"><td>EDUCATION</td></tr>
+    ${buildEducationHTML()}
+  </table>
+
+  <!-- CERTIFICATIONS -->
+  <table cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;">
+    <tr class="ct-cert-section-pad"><td class="ct-title-row">CERTIFICATIONS</td></tr>
+    <tr><td style="padding-top:14px;">
+      <table cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;">
+        <tr>${buildCertificationsHTML()}</tr>
+      </table>
+    </td></tr>
+  </table>
+
+</td>
+</tr>
+</table>
+
+</div>
+</body>
+</html>`;
+
+        const blob = new Blob(["﻿" + wordHTML], {
+          type: "application/msword",
+        });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = "Yanyi_Huang_Resume_CQF.doc";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+
+        console.log("Word document downloaded successfully");
+      }
+    </script>
+  </body>
+</html>

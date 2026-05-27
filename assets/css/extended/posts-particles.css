@@ -120,9 +120,11 @@ html.post-particles-dark body.post-pages.list .post-entry::before {
   );
 }
 
-/* —— Single post: song1 室内宋风背景 + 绢纸阅读区 —— */
+/* —— Single post / About: song 背景 + 绢纸阅读区 —— */
 /* 配色取自画面：暖白墙面、胡桃木、竹影灰褐、绢帛琥珀光 */
-body.post-pages:not(.list) {
+body.post-pages:not(.list),
+body.post-pages.about-bg,
+body.post-pages.category-bg.list {
   --song-ink: #2c2419;
   --song-heading: #252018;
   --song-body: #3a3228;
@@ -138,7 +140,9 @@ body.post-pages:not(.list) {
 }
 
 /* 全页固定背景 + 留白蒙版（上下更实、中间透一点见景） */
-body.post-pages:not(.list)::before {
+body.post-pages:not(.list)::before,
+body.post-pages.about-bg::before,
+body.post-pages.category-bg.list::before {
   content: "";
   position: fixed;
   inset: 0;
@@ -157,22 +161,86 @@ body.post-pages:not(.list)::before {
 
 body.post-pages:not(.list) .header,
 body.post-pages:not(.list) .main,
-body.post-pages:not(.list) .footer {
+body.post-pages:not(.list) .footer,
+body.post-pages.about-bg .header,
+body.post-pages.about-bg .main,
+body.post-pages.about-bg .footer,
+body.post-pages.category-bg.list .header,
+body.post-pages.category-bg.list .main,
+body.post-pages.category-bg.list .footer {
   position: relative;
   z-index: 1;
 }
 
-body.post-pages:not(.list) .header {
+body.post-pages:not(.list) .header,
+body.post-pages.about-bg .header,
+body.post-pages.category-bg.list .header {
   background: rgba(252, 248, 240, 0.72);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--song-paper-edge);
 }
 
-body.post-pages:not(.list) .footer {
+body.post-pages:not(.list) .footer,
+body.post-pages.about-bg .footer,
+body.post-pages.category-bg.list .footer {
   background: rgba(252, 248, 240, 0.65);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+}
+
+/* About: content card on song background (like category page-header) */
+body.post-pages.about-bg .about-page .about-card {
+  background: var(--song-paper);
+  border: 1px solid var(--song-paper-edge);
+  box-shadow: 0 6px 24px rgba(44, 36, 25, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+body.post-pages.about-bg .about-page .about-name,
+body.post-pages.about-bg .about-page h2 {
+  color: var(--song-heading);
+}
+
+body.post-pages.about-bg .about-page p,
+body.post-pages.about-bg .about-page li {
+  color: var(--song-body);
+}
+
+body.post-pages.about-bg .about-page .about-tagline {
+  color: var(--song-link);
+}
+
+body.post-pages.about-bg .about-page .about-contact a {
+  color: var(--song-link);
+}
+
+body.post-pages.about-bg .about-page .tech-tags li {
+  background: color-mix(in srgb, var(--song-paper) 75%, transparent);
+  border-color: var(--song-paper-edge);
+  color: var(--song-body);
+}
+
+/* Category list: page title + cards on song background */
+body.post-pages.category-bg.list .page-header {
+  padding: 0.75rem clamp(0.75rem, 2vw, 1rem);
+  margin-bottom: 1rem;
+  border-radius: var(--radius);
+  background: var(--song-paper);
+  border: 1px solid var(--song-paper-edge);
+  box-shadow: 0 6px 24px rgba(44, 36, 25, 0.06);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+body.post-pages.category-bg.list .page-header h1 {
+  color: var(--song-heading);
+}
+
+body.post-pages.category-bg.list .post-entry {
+  background: color-mix(in srgb, var(--song-paper) 88%, transparent);
+  border: 1px solid var(--song-paper-edge);
 }
 
 body.post-pages:not(.list) .post-single {
@@ -311,9 +379,13 @@ body.post-pages:not(.list) details.toc a {
   color: var(--song-link);
 }
 
-/* 暗色主题：深褐蒙版 + 暖米字（仍衬室内暖调） */
+/* 暗色主题：深褐蒙版 + 暖米字（About / Category 共用） */
 :root[data-theme="dark"] body.post-pages:not(.list),
-html.post-particles-dark body.post-pages:not(.list) {
+:root[data-theme="dark"] body.post-pages.about-bg,
+:root[data-theme="dark"] body.post-pages.category-bg.list,
+html.post-particles-dark body.post-pages:not(.list),
+html.post-particles-dark body.post-pages.about-bg,
+html.post-particles-dark body.post-pages.category-bg.list {
   --song-ink: #e8e2d5;
   --song-heading: #f5f0e6;
   --song-body: #d4cdc2;
@@ -329,13 +401,94 @@ html.post-particles-dark body.post-pages:not(.list) {
 }
 
 :root[data-theme="dark"] body.post-pages:not(.list) .header,
-html.post-particles-dark body.post-pages:not(.list) .header {
+:root[data-theme="dark"] body.post-pages.about-bg .header,
+:root[data-theme="dark"] body.post-pages.category-bg.list .header,
+html.post-particles-dark body.post-pages:not(.list) .header,
+html.post-particles-dark body.post-pages.about-bg .header,
+html.post-particles-dark body.post-pages.category-bg.list .header {
   background: rgba(32, 28, 24, 0.82);
 }
 
 :root[data-theme="dark"] body.post-pages:not(.list) .footer,
-html.post-particles-dark body.post-pages:not(.list) .footer {
+:root[data-theme="dark"] body.post-pages.about-bg .footer,
+:root[data-theme="dark"] body.post-pages.category-bg.list .footer,
+html.post-particles-dark body.post-pages:not(.list) .footer,
+html.post-particles-dark body.post-pages.about-bg .footer,
+html.post-particles-dark body.post-pages.category-bg.list .footer {
   background: rgba(32, 28, 24, 0.78);
+}
+
+/* Category 暗色：与 About 一致的绢纸卡片，不用 post 列表的霓虹 hover */
+:root[data-theme="dark"] body.post-pages.category-bg.list .page-header,
+:root[data-theme="dark"] body.post-pages.category-bg.list .post-entry,
+html.post-particles-dark body.post-pages.category-bg.list .page-header,
+html.post-particles-dark body.post-pages.category-bg.list .post-entry {
+  background: var(--song-paper);
+  border-color: var(--song-paper-edge);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.28);
+}
+
+:root[data-theme="dark"] body.post-pages.category-bg.list .page-header h1,
+:root[data-theme="dark"] body.post-pages.category-bg.list .post-entry .entry-header h2,
+html.post-particles-dark body.post-pages.category-bg.list .page-header h1,
+html.post-particles-dark body.post-pages.category-bg.list .post-entry .entry-header h2 {
+  color: var(--song-heading);
+}
+
+:root[data-theme="dark"] body.post-pages.category-bg.list .post-entry .entry-content,
+:root[data-theme="dark"] body.post-pages.category-bg.list .post-entry .entry-footer,
+:root[data-theme="dark"] body.post-pages.category-bg.list .breadcrumbs,
+html.post-particles-dark body.post-pages.category-bg.list .post-entry .entry-content,
+html.post-particles-dark body.post-pages.category-bg.list .post-entry .entry-footer,
+html.post-particles-dark body.post-pages.category-bg.list .breadcrumbs {
+  color: var(--song-body);
+}
+
+:root[data-theme="dark"] body.post-pages.category-bg.list .breadcrumbs a,
+html.post-particles-dark body.post-pages.category-bg.list .breadcrumbs a {
+  color: var(--song-link);
+}
+
+:root[data-theme="dark"] body.post-pages.category-bg.list .post-entry::before,
+html.post-particles-dark body.post-pages.category-bg.list .post-entry::before {
+  background: linear-gradient(
+    125deg,
+    rgba(168, 140, 100, 0.18) 0%,
+    rgba(155, 184, 204, 0.12) 50%,
+    rgba(168, 140, 100, 0.2) 100%
+  );
+}
+
+:root[data-theme="dark"] body.post-pages.category-bg.list .post-entry:hover,
+:root[data-theme="dark"] body.post-pages.category-bg.list .post-entry:focus-within,
+html.post-particles-dark body.post-pages.category-bg.list .post-entry:hover,
+html.post-particles-dark body.post-pages.category-bg.list .post-entry:focus-within {
+  transform: translate3d(0, -2px, 0);
+  border-color: rgba(168, 140, 100, 0.35);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.32);
+}
+
+:root[data-theme="dark"] body.post-pages.category-bg.list .post-entry:hover::before,
+:root[data-theme="dark"] body.post-pages.category-bg.list .post-entry:focus-within::before,
+html.post-particles-dark body.post-pages.category-bg.list .post-entry:hover::before,
+html.post-particles-dark body.post-pages.category-bg.list .post-entry:focus-within::before {
+  opacity: 0.4;
+}
+
+:root[data-theme="dark"] body.post-pages.category-bg.list .post-entry:hover .entry-header h2,
+:root[data-theme="dark"] body.post-pages.category-bg.list .post-entry:focus-within .entry-header h2,
+html.post-particles-dark body.post-pages.category-bg.list .post-entry:hover .entry-header h2,
+html.post-particles-dark body.post-pages.category-bg.list .post-entry:focus-within .entry-header h2 {
+  color: var(--song-heading);
+}
+
+:root[data-theme="dark"] body.post-pages.category-bg.list .post-entry:hover .entry-content,
+:root[data-theme="dark"] body.post-pages.category-bg.list .post-entry:focus-within .entry-content,
+:root[data-theme="dark"] body.post-pages.category-bg.list .post-entry:hover .entry-footer,
+:root[data-theme="dark"] body.post-pages.category-bg.list .post-entry:focus-within .entry-footer,
+html.post-particles-dark body.post-pages.category-bg.list .post-entry:hover .entry-content,
+html.post-particles-dark body.post-pages.category-bg.list .post-entry:hover .entry-footer {
+  color: var(--song-body);
 }
 
 :root[data-theme="dark"] body.post-pages:not(.list) .post-content,

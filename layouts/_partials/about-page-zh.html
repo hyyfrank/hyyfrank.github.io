@@ -1,0 +1,74 @@
+{{- $cv := resources.Get "pdf/cv.pdf" -}}
+{{- $head := resources.Get "images/head.jpg" -}}
+<div class="about-card">
+  <header class="about-header">
+    <img class="about-avatar" src="{{ $head.RelPermalink }}" alt="黄焱艺"
+      {{- with $head }} width="{{ .Width }}" height="{{ .Height }}"{{- end }} />
+    <div>
+      <h1 class="about-name">黄焱艺</h1>
+      <p class="about-tagline">全栈工程师 · 走向量化</p>
+      <span class="about-badge">CQF 在读 · 预计 2026 年 7 月完成</span>
+    </div>
+  </header>
+
+  <p class="about-lead">
+    这里是 H&amp;W 技术博客。我写过前台、做过后台、扛过运维与大数据，如今把更多精力放在量化方向——用数据、模型和市场逻辑把问题想清楚。
+  </p>
+
+  <h2>一路走过来</h2>
+  <div class="about-journey">
+    <p>
+      早期以 <strong>全栈开发</strong> 为主：React、Node 做产品与接口，数据库和部署自己一条龙。在戴尔及之后几家公司，从页面到服务都摸过一遍。
+    </p>
+    <p>
+      <strong>运维与平台</strong> 在欧特克阶段很集中：AWS 上的 CI/CD、Jenkins / Spinnaker、Docker，以及大量 Python / Shell / Ruby 脚本，让发布可重复、可观测。
+    </p>
+    <p>
+      <strong>大数据与分析</strong> 在众安、富卫、普洛斯等经历里落地：Kafka、Hive、HBase、ETL，以及把保险和业务数据做成报表与看板；在普洛斯也做过视觉与数据质量相关的工作。
+    </p>
+    <p>
+      <strong>量化</strong> 是现在的重心：通联数据的回测与数据平台、CQF 系统学习，以及用 Python 做分析、风险与策略验证。数学本科 + 计算机硕士，是底子；工程经历是试验场。
+    </p>
+  </div>
+
+  <h2>技术栈</h2>
+  <ul class="tech-tags">
+    <li>Python · Pandas · NumPy · SciPy</li>
+    <li>React · Node.js · Nest.js · Next.js</li>
+    <li>MySQL · MongoDB · Redis</li>
+    <li>Kafka · Hive · HBase · ETL</li>
+    <li>AWS · Docker · Jenkins · CI/CD</li>
+    <li>PyTorch · 机器学习流水线</li>
+    <li>InfluxDB · Grafana</li>
+    <li>回测 · 数据分析</li>
+  </ul>
+
+  <h2>教育</h2>
+  <p>
+    复旦大学计算机科学硕士 · CQF（量化金融证书）在读。
+  </p>
+
+  <h2>兴趣</h2>
+  <ul class="about-interests">
+    <li>爬山，喜欢在自然里走长路</li>
+    <li>偏爱唐宋风格的建筑——线条克制、木构与比例感</li>
+    <li>钢琴与吉他，多半是放松时用</li>
+    <li>徒步与冥想，用来清空脑袋、慢下来</li>
+  </ul>
+
+  <h2>联系</h2>
+  <ul class="about-contact">
+    <li><a href="mailto:hyyfrank@gmail.com">hyyfrank@gmail.com</a></li>
+    <li><a href="https://github.com/hyyfrank" rel="noopener noreferrer">GitHub</a></li>
+    <li>中国香港</li>
+  </ul>
+
+  {{- with $cv }}
+  <div class="about-actions">
+    <a class="btn-cv" href="{{ .RelPermalink }}" download="Huang_Yanyi_CV.pdf">
+      <span aria-hidden="true">📄</span>
+      下载简历（PDF）
+    </a>
+  </div>
+  {{- end }}
+</div>

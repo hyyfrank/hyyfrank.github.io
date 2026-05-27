@@ -1,0 +1,81 @@
+{{- $cv := resources.Get "pdf/cv.pdf" -}}
+{{- $head := resources.Get "images/head.jpg" -}}
+<div class="about-card">
+  <header class="about-header">
+    <img class="about-avatar" src="{{ $head.RelPermalink }}" alt="Yanyi Huang"
+      {{- with $head }} width="{{ .Width }}" height="{{ .Height }}"{{- end }} />
+    <div>
+      <h1 class="about-name">Yanyi Huang</h1>
+      <p class="about-tagline">Full-stack engineer · exploring quantitative finance</p>
+      <span class="about-badge">CQF candidate · expected July 2026</span>
+    </div>
+  </header>
+
+  <p class="about-lead">
+    I write code, ship systems, and learn in public on this blog. After years across the stack—frontend,
+    backend, DevOps, and big data—I am focusing on quantitative work: data, models, and markets.
+  </p>
+
+  <h2>Where I have been</h2>
+  <div class="about-journey">
+    <p>
+      I started as a <strong>full-stack developer</strong>: React and Node on the web, APIs and databases
+      behind the scenes. At Dell and later startups I built products end to end—from UI to deployment.
+    </p>
+    <p>
+      <strong>Operations and platform</strong> became a major thread at Autodesk: CI/CD on AWS, Jenkins and
+      Spinnaker, Docker, and the glue scripts (Python, Shell, Ruby) that keep releases predictable.
+    </p>
+    <p>
+      <strong>Big data and analytics</strong> showed up at ZhongAn and FWD—Kafka, Hive, HBase, ETL pipelines,
+      and dashboards that turn messy insurance and business data into something teams can act on. At GLP I also
+      worked on computer vision and data quality for ML.
+    </p>
+    <p>
+      <strong>Quantitative finance</strong> is the direction now: backtesting and data platforms at Datayes,
+      ongoing CQF study, and Python for analysis, risk, and systematic thinking. Math undergrad plus CS
+      graduate school is the foundation; industry experience is the lab.
+    </p>
+  </div>
+
+  <h2>Tech stack</h2>
+  <ul class="tech-tags">
+    <li>Python · Pandas · NumPy · SciPy</li>
+    <li>React · Node.js · Nest.js · Next.js</li>
+    <li>MySQL · MongoDB · Redis</li>
+    <li>Kafka · Hive · HBase · ETL</li>
+    <li>AWS · Docker · Jenkins · CI/CD</li>
+    <li>PyTorch · ML pipelines</li>
+    <li>InfluxDB · Grafana</li>
+    <li>Backtesting · data analysis</li>
+  </ul>
+
+  <h2>Education</h2>
+  <p>
+    M.S. Computer Science, Fudan University · CQF (Certificate in Quantitative Finance), in progress.
+  </p>
+
+  <h2>Outside of work</h2>
+  <ul class="about-interests">
+    <li>Mountain hiking and long walks in nature</li>
+    <li>Tang and Song dynasty architecture—calm lines, wood, and proportion</li>
+    <li>Piano and guitar, mostly for unwinding</li>
+    <li>Hiking trails and quiet meditation to reset</li>
+  </ul>
+
+  <h2>Contact</h2>
+  <ul class="about-contact">
+    <li><a href="mailto:hyyfrank@gmail.com">hyyfrank@gmail.com</a></li>
+    <li><a href="https://github.com/hyyfrank" rel="noopener noreferrer">GitHub</a></li>
+    <li>Hong Kong</li>
+  </ul>
+
+  {{- with $cv }}
+  <div class="about-actions">
+    <a class="btn-cv" href="{{ .RelPermalink }}" download="Yanyi_Huang_CV.pdf">
+      <span aria-hidden="true">📄</span>
+      Download résumé (PDF)
+    </a>
+  </div>
+  {{- end }}
+</div>

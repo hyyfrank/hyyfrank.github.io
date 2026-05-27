@@ -1,1 +1,62 @@
 {{- partial "post_random_bg.html" . -}}
+{{- if eq .Layout "about" -}}
+<link rel="stylesheet" href="{{ "css/about.css" | absURL }}">
+{{- end -}}
+<style>
+  .lang-menu {
+    display: inline-flex;
+    align-items: stretch;
+    padding: 0;
+    border-radius: 999px;
+    border: 1px solid rgba(145, 136, 120, 0.35);
+    margin-left: 10px;
+    height: 20px;
+    overflow: hidden;
+    background: transparent;
+    min-height: 30px;
+  }
+
+  .lang-menu li {
+    list-style: none;
+    margin: 0;
+    display: flex;
+  }
+
+  .lang-menu li.active-lang-item {
+    background-color: rgb(10 235 91 / 14%);
+  }
+
+  html[data-theme="dark"] .lang-menu li.active-lang-item {
+    background-color: rgb(42 232 111 / 39%);
+  }
+
+  .lang-menu a {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+    height: 20px;
+    border-radius: 0;
+    text-decoration: none;
+    color: var(--secondary);
+    font-size: 12px;
+    line-height: 1;
+    /* background: transparent; */
+    transition: background 0.2s ease;
+  }
+
+  .lang-menu li + li a {
+    border-left: 1px solid rgba(145, 136, 120, 0.45);
+  }
+
+  .lang-menu a.active-lang {
+    color: var(--primary);
+    box-shadow: none;
+  }
+
+  .lang-menu a:not(.active-lang):hover {
+    background: rgba(212, 206, 194, 0.35);
+  }
+</style>

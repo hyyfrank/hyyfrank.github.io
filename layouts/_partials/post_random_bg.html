@@ -1,14 +1,29 @@
-{{- /* Static site: one background per article (picked at build time from song*.jpg) */ -}}
+{{- /* Build-time background from assets/images/song*.jpg */ -}}
 {{- $mainSections := site.Params.mainSections | default (slice "post") -}}
-{{- if and (eq .Kind "page") (in $mainSections .Section) -}}
-  {{- $bgs := sort (resources.Match "images/song*.jpg") "Name" -}}
-  {{- if $bgs -}}
+{{- $bgs := sort (resources.Match "images/song*.jpg") "Name" -}}
+{{- if $bgs -}}
+  {{- $aboutBg := resources.Get "images/song3.jpg" | default (index $bgs 0) -}}
+  {{- $categoryBg := resources.Get "images/song7.jpg" | default (index $bgs 1) -}}
+  {{- $selector := "" -}}
+  {{- $bg := "" -}}
+
+  {{- if and (eq .Kind "page") (in $mainSections .Section) -}}
     {{- $idx := mod (hash.FNV32a .RelPermalink) (len $bgs) -}}
-    {{- $bg := index $bgs $idx -}}
-    <style>
-      body.post-pages:not(.list) {
-        --post-bg-url: url("{{ $bg.RelPermalink | absURL }}");
-      }
-    </style>
+    {{- $bg = index $bgs $idx -}}
+    {{- $selector = "body.post-pages:not(.list)" -}}
+  {{- else if eq .Layout "about" -}}
+    {{- $bg = $aboutBg -}}
+    {{- $selector = "body.post-pages.about-bg" -}}
+  {{- else if eq .Type "categories" -}}
+    {{- $bg = $categoryBg -}}
+    {{- $selector = "body.post-pages.category-bg.list" -}}
+  {{- end -}}
+
+  {{- with $bg -}}
+  <style>
+    {{ $selector }} {
+      --post-bg-url: url("{{ .RelPermalink | absURL }}");
+    }
+  </style>
   {{- end -}}
 {{- end -}}

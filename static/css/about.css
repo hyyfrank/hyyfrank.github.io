@@ -1,0 +1,205 @@
+/* About page — concise profile */
+.about-page {
+  --ab-cloud: #f5f5f0;
+  --ab-cloud-dark: #e8e8e3;
+  --ab-gold: #f5b952;
+  --ab-gold-dark: #f3a108;
+  --ab-sky: #4a7a9a;
+  --ab-ink: #2a2a2a;
+  --ab-muted: #9a8f85;
+  --ab-border: #d4d0c8;
+  max-width: 42rem;
+  margin: 0 auto 2.5rem;
+  padding: 0 0.5rem;
+}
+
+html[data-theme="dark"] .about-page {
+  --ab-cloud: #2a2a2e;
+  --ab-cloud-dark: #1e1e22;
+  --ab-ink: #e8e8e3;
+  --ab-muted: #a8a29a;
+  --ab-border: #45454a;
+  --ab-sky: #8fb0c9;
+}
+
+.about-page .about-card {
+  background: var(--ab-cloud);
+  border: 1px solid var(--ab-border);
+  border-radius: 12px;
+  padding: 2rem 1.75rem;
+  box-shadow: 0 12px 40px rgba(184, 168, 138, 0.1);
+}
+
+html[data-theme="dark"] .about-page .about-card {
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.25);
+}
+
+.about-page .about-header {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--ab-gold);
+}
+
+.about-page .about-avatar {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: var(--ab-cloud-dark);
+}
+
+.about-page .about-name {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--ab-ink);
+  letter-spacing: 0.02em;
+}
+
+.about-page .about-tagline {
+  margin: 0.35rem 0 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ab-sky);
+  letter-spacing: 0.04em;
+}
+
+.about-page .about-badge {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ab-gold-dark);
+}
+
+.about-page h2 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ab-ink);
+  margin: 1.75rem 0 0.75rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--ab-gold);
+}
+
+.about-page h2:first-of-type {
+  margin-top: 0;
+}
+
+.about-page p,
+.about-page li {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--ab-ink);
+}
+
+.about-page .about-lead {
+  font-size: 1.02rem;
+  margin: 0;
+}
+
+.about-page .about-journey p {
+  margin: 0 0 0.85rem;
+}
+
+.about-page .about-journey p:last-child {
+  margin-bottom: 0;
+}
+
+.about-page .tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.about-page .tech-tags li {
+  font-size: 0.8rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  background: var(--ab-cloud-dark);
+  border: 1px solid var(--ab-border);
+  color: var(--ab-ink);
+  line-height: 1.4;
+}
+
+.about-page .about-interests {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.about-page .about-interests li {
+  position: relative;
+  padding-left: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.about-page .about-interests li::before {
+  content: "·";
+  position: absolute;
+  left: 0;
+  color: var(--ab-gold-dark);
+  font-weight: bold;
+}
+
+.about-page .about-contact {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.about-page .about-contact li {
+  margin-bottom: 0.4rem;
+}
+
+.about-page .about-contact a {
+  color: var(--ab-sky);
+  text-decoration: none;
+}
+
+.about-page .about-contact a:hover {
+  text-decoration: underline;
+}
+
+.about-page .about-actions {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--ab-border);
+}
+
+.about-page .btn-cv {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--ab-cloud);
+  background: linear-gradient(135deg, #6b9bbd 0%, var(--ab-sky) 100%);
+  box-shadow: 0 3px 12px rgba(107, 155, 189, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.about-page .btn-cv:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 16px rgba(107, 155, 189, 0.45);
+  color: var(--ab-cloud);
+}
+
+@media (max-width: 520px) {
+  .about-page .about-header {
+    flex-direction: column;
+    text-align: center;
+  }
+}
