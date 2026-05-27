@@ -11,6 +11,9 @@ mainSections = ["post"]
 # Each post gets a background from assets/images/song*.jpg (stable per URL).
 # Optional front matter override: songBg = "song5" or songBg = "song5.jpg"
 
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
 [pagination]
   pagerSize = 5
 
@@ -55,6 +58,11 @@ languageCode = "en"
   name = "About"
   url = "/about/"
   weight = 30
+[[languages.en.menu.main]]
+  name = "Search"
+  url = "/search/"
+  weight = 35
+  identifier = "search"
 
 [[languages.zh.menu.main]]
   name = "技術"
@@ -68,6 +76,11 @@ languageCode = "en"
   name = "關於"
   url = "/about/"
   weight = 30
+[[languages.zh.menu.main]]
+  name = "搜索"
+  url = "/search/"
+  weight = 35
+  identifier = "search"
 
 [params]
   env = "production"
@@ -88,6 +101,17 @@ languageCode = "en"
   ShowCodeCopyButtons = true
   ShowToc = true
   TocOpen = false
+
+  # Fuse.js full-text search (/search/, /zh/search/)
+  # threshold lower = stricter (0.35 was too fuzzy: "docker" matched "document", "docs")
+  [params.fuseOpts]
+    isCaseSensitive = false
+    includeMatches = false
+    minMatchCharLength = 2
+    threshold = 0.22
+    ignoreLocation = true
+    distance = 50
+    limit = 12
 
   [params.homeInfoParams]
     Title = "H&W"
