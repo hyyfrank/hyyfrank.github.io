@@ -2,12 +2,12 @@
 title: "[Autodesk] debounce with promise"
 date: 2022-08-11T11:53:41+08:00
 lastmod: 2022-08-12T11:53:41+08:00
-draft: false
+draft: true
 tags: ["javascript"]
 categories: ["frontend"]
 ---
 
-## A basic debounce
+## A Basic debounce
 
 ```javascript
 const _debounce = (fn, delay, immediate = false) => {
@@ -26,7 +26,9 @@ const _debounce = (fn, delay, immediate = false) => {
 
 ## debounce with promise
 
-When debounce fires during mouse drag but the wrapped function calls an API and returns a **Promise**, you often want only the **last** call to run. Lodash’s `debounce` requires `func` to be a function:
+If you trigger debounce while dragging the mouse, but the wrapped function calls an API and returns a **Promise**, you often want to run **only the last** invocation. How should debounce be written for that?
+
+Lodash’s `debounce` checks that `func` is a function:
 
 ```javascript
 if (typeof func !== 'function') {
@@ -34,7 +36,7 @@ if (typeof func !== 'function') {
 }
 ```
 
-For async work you need a small variant:
+For async work you need a small variant. The idea is straightforward:
 
 ### Only the last Promise
 
@@ -44,13 +46,16 @@ const debounce_promise_last = (fn, delay) => {
   return (...args) => {
     clearTimeout(timer);
     return new Promise((resolve) => {
-      timer = setTimeout(() => resolve(fn(...args)), delay);
+      timer = setTimeout(
+        () => resolve(fn(...args)),
+        delay,
+      );
     });
   };
 };
 ```
 
-### Every call gets a Promise, flushed together
+### Every call gets a Promise, flushed together after delay
 
 ```javascript
 function debounce_promise_all(fn, delay = 0) {
@@ -63,6 +68,7 @@ function debounce_promise_all(fn, delay = 0) {
       resolves.forEach((r) => r(result));
       resolves = [];
     }, delay);
+
     return new Promise((r) => resolves.push(r));
   };
 }
@@ -70,12 +76,14 @@ function debounce_promise_all(fn, delay = 0) {
 
 ## API calls: throttle, cancel, retry
 
-For APIs, **throttle** is common when you want at most one request per window. Harder cases include **cancel** and **retry** (often exponential backoff). With very large promise counts (we once had **1000+**), you typically need:
+For API calls, **throttle** is also common when you want at most one request per time window.
 
-1. Batch promises (e.g. 20 per group)
-2. Unique IDs per promise / task
-3. Per-promise logging (we used Splunk)
-4. Cancel semantics
-5. Retry with backoff for Ajax
+More involved cases include **cancel** and **retry** (often with exponential backoff). When the number of promises is very large—for example, we once had **1000+** concurrent promises—you need more structure:
 
-Implementation is product-specific; no sample code here.
+1. **Batch promises** — e.g. 20 per group.
+2. **Unique IDs** — tie each promise to a task id.
+3. **Logging** — per-promise logs for debugging (we sent ours to Splunk).
+4. **Cancel** — whether in-flight work should be aborted.
+5. **Retry** — for Ajax APIs, exponential backoff for retry delays is a good fit.
+
+The implementation is tightly coupled to the product; no sample code here.

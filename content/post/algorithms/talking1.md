@@ -1,5 +1,5 @@
 ---
-title: "Algorithm Guy Always Good?"
+title: "[GLP] Why it runing slow?"
 date: 2021-07-07T11:36:45+08:00
 lastmod: 2021-08-07T11:36:45+08:00
 draft: true

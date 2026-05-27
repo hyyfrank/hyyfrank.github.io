@@ -1,15 +1,15 @@
 ---
-title: "Play With Nginx (一)"
+title: "Build Nginx From Source(1)"
 date: 2017-01-07T12:33:21+08:00
 lastmod: 2017-07-07T19:33:29+08:00
-draft: true
-tags: ["git"]
-categories: ["git"]
+draft: false
+tags: ["DevOps"]
+categories: ["Devops"]
 ---
 
 ## 1. TODO LIST
 
-- `how to configure nginx when set up`
+- `build nginx from source`
 - `how to optimize the parameter`
 - `how nginx process the request`
 - `how to apply rolling log`
