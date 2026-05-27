@@ -963,6 +963,20 @@
                 href="https://yy-tech.online/zh/post/nginx-series-1/"
                 />
   </url><url>
+    <loc>https://yy-tech.online/zh/search/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://yy-tech.online/search/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-Hant"
+                href="https://yy-tech.online/zh/search/"
+                />
+  </url><url>
     <loc>https://yy-tech.online/zh/post/</loc>
     <lastmod>2026-05-28T00:53:02+08:00</lastmod>
     <changefreq>weekly</changefreq>
