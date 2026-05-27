@@ -1,6 +1,6 @@
 {{ define "main" }}
 <header class="page-header">
-  <h1>{{ .Title | default "Posts" }}</h1>
+  <h1>{{ .Title | default "Post" }}</h1>
 </header>
 
 {{ $pages := .RegularPagesRecursive.ByDate.Reverse }}

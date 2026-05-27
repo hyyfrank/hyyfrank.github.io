@@ -1,7 +1,4 @@
 ---
-title: "English Posts"
+title: "Post"
 draft: false
 ---
-
-English posts index.
-
