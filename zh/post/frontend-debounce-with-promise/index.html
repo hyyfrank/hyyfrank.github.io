@@ -1,0 +1,122 @@
+<!doctype html><html lang=zh dir=auto data-theme=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>[Autodesk] 用 Promise 做防抖 | H&amp;W</title><meta name=keywords content="javascript"><meta name=description content="基础防抖
+
+
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+
+
+const _debounce = (fn, delay, immediate = false) => {
+  let timer;
+  return (...args) => {
+    const callNow = immediate && !timer;
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      timer = null;
+      if (!immediate) fn(...args);
+    }, delay);
+    if (callNow) fn(...args);
+  };
+};
+
+
+带 Promise 的防抖
+拖拽鼠标时若频繁触发防抖，而被包装函数会请求 API 并返回 Promise，往往只希望最后一次调用生效。Lodash 的 debounce 会校验 func 必须是函数："><meta name=author content="hyyfrank"><link rel=canonical href=https://yy-tech.online/zh/post/frontend-debounce-with-promise/><link crossorigin=anonymous href=/assets/css/stylesheet.a89f2cc1ff4d9870ef1a5019f34e163ff928e2bb52e7d0d8f8a29c5f538a731d.css integrity="sha256-qJ8swf9NmHDvGlAZ804WP/ko4rtS59DY+KKcX1OKcx0=" rel="preload stylesheet" as=style><link rel=icon href=https://yy-tech.online/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://yy-tech.online/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://yy-tech.online/favicon-32x32.png><link rel=apple-touch-icon href=https://yy-tech.online/apple-touch-icon.png><link rel=mask-icon href=https://yy-tech.online/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://yy-tech.online/post/frontend-debounce-with-promise/><link rel=alternate hreflang=zh href=https://yy-tech.online/zh/post/frontend-debounce-with-promise/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"?document.querySelector("html").dataset.theme="dark":localStorage.getItem("pref-theme")==="light"?document.querySelector("html").dataset.theme="light":window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><style>zgotmplz{--post-bg-url:url("https://yy-tech.online/images/song13.jpg")}</style><style>.lang-menu{display:inline-flex;align-items:stretch;padding:0;border-radius:999px;border:1px solid rgba(145,136,120,.35);margin-left:10px;height:20px;overflow:hidden;background:0 0;min-height:30px}.lang-menu li{list-style:none;margin:0;display:flex}.lang-menu li.active-lang-item{background-color:rgb(10 235 91/14%)}html[data-theme=dark] .lang-menu li.active-lang-item{background-color:rgb(42 232 111/39%)}.lang-menu a{position:relative;z-index:1;display:inline-flex;align-items:center;justify-content:center;padding:0 10px;height:20px;border-radius:0;text-decoration:none;color:var(--secondary);font-size:12px;line-height:1;transition:background .2s ease}.lang-menu li+li a{border-left:1px solid rgba(145,136,120,.45)}.lang-menu a.active-lang{color:var(--primary);box-shadow:none}.lang-menu a:not(.active-lang):hover{background:rgba(212,206,194,.35)}</style><meta property="og:url" content="https://yy-tech.online/zh/post/frontend-debounce-with-promise/"><meta property="og:site_name" content="H&W"><meta property="og:title" content="[Autodesk] 用 Promise 做防抖"><meta property="og:description" content="基础防抖 1 2 3 4 5 6 7 8 9 10 11 12 const _debounce = (fn, delay, immediate = false) => { let timer; return (...args) => { const callNow = immediate && !timer; clearTimeout(timer); timer = setTimeout(() => { timer = null; if (!immediate) fn(...args); }, delay); if (callNow) fn(...args); }; }; 带 Promise 的防抖 拖拽鼠标时若频繁触发防抖，而被包装函数会请求 API 并返回 Promise，往往只希望最后一次调用生效。Lodash 的 debounce 会校验 func 必须是函数："><meta property="og:locale" content="zh_Hant"><meta property="og:type" content="article"><meta property="article:section" content="post"><meta property="article:published_time" content="2022-08-11T11:53:41+08:00"><meta property="article:modified_time" content="2026-05-28T00:53:02+08:00"><meta property="article:tag" content="Javascript"><meta name=twitter:card content="summary"><meta name=twitter:title content="[Autodesk] 用 Promise 做防抖"><meta name=twitter:description content="基础防抖 1 2 3 4 5 6 7 8 9 10 11 12 const _debounce = (fn, delay, immediate = false) => { let timer; return (...args) => { const callNow = immediate && !timer; clearTimeout(timer); timer = setTimeout(() => { timer = null; if (!immediate) fn(...args); }, delay); if (callNow) fn(...args); }; }; 带 Promise 的防抖 拖拽鼠标时若频繁触发防抖，而被包装函数会请求 API 并返回 Promise，往往只希望最后一次调用生效。Lodash 的 debounce 会校验 func 必须是函数："><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"中文文章","item":"https://yy-tech.online/zh/post/"},{"@type":"ListItem","position":2,"name":"[Autodesk] 用 Promise 做防抖","item":"https://yy-tech.online/zh/post/frontend-debounce-with-promise/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"[Autodesk] 用 Promise 做防抖","name":"[Autodesk] 用 Promise 做防抖","description":"基础防抖 1 2 3 4 5 6 7 8 9 10 11 12 const _debounce = (fn, delay, immediate = false) =\u0026gt; { let timer; return (...args) =\u0026gt; { const callNow = immediate \u0026amp;\u0026amp; !timer; clearTimeout(timer); timer = setTimeout(() =\u0026gt; { timer = null; if (!immediate) fn(...args); }, delay); if (callNow) fn(...args); }; }; 带 Promise 的防抖 拖拽鼠标时若频繁触发防抖，而被包装函数会请求 API 并返回 Promise，往往只希望最后一次调用生效。Lodash 的 debounce 会校验 func 必须是函数：\n","keywords":["javascript"],"articleBody":"基础防抖 1 2 3 4 5 6 7 8 9 10 11 12 const _debounce = (fn, delay, immediate = false) =\u003e { let timer; return (...args) =\u003e { const callNow = immediate \u0026\u0026 !timer; clearTimeout(timer); timer = setTimeout(() =\u003e { timer = null; if (!immediate) fn(...args); }, delay); if (callNow) fn(...args); }; }; 带 Promise 的防抖 拖拽鼠标时若频繁触发防抖，而被包装函数会请求 API 并返回 Promise，往往只希望最后一次调用生效。Lodash 的 debounce 会校验 func 必须是函数：\n1 2 3 if (typeof func !== 'function') { throw new TypeError('Expected a function'); } 异步场景可以这样写：\n只保留最后一次 Promise 1 2 3 4 5 6 7 8 9 10 11 12 const debounce_promise_last = (fn, delay) =\u003e { let timer = null; return (...args) =\u003e { clearTimeout(timer); return new Promise((resolve) =\u003e { timer = setTimeout( () =\u003e resolve(fn(...args)), delay, ); }); }; }; 每次调用都返回 Promise，延迟后一起 resolve 1 2 3 4 5 6 7 8 9 10 11 12 13 14 function debounce_promise_all(fn, delay = 0) { let timer = null; let resolves = []; return function (...args) { clearTimeout(timer); timer = setTimeout(() =\u003e { const result = fn(...args); resolves.forEach((r) =\u003e r(result)); resolves = []; }, delay); return new Promise((r) =\u003e resolves.push(r)); }; } API 调用：节流、取消、重试 调 API 时常用节流限制单位时间内的请求次数。更复杂的情况包括取消和重试（指数退避）。当并发 Promise 非常多（例如 1000+）时，通常需要：\n分批处理（如每批 20 个）； 为每个 Promise 绑定任务 ID； 单条日志便于排查（我们使用 Splunk）； 设计取消策略； Ajax 重试使用指数退避。 实现与产品逻辑耦合较紧，此处不展开示例代码。\n","wordCount":"441","inLanguage":"zh","datePublished":"2022-08-11T11:53:41+08:00","dateModified":"2026-05-28T00:53:02+08:00","author":{"@type":"Person","name":"hyyfrank"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://yy-tech.online/zh/post/frontend-debounce-with-promise/"},"publisher":{"@type":"Organization","name":"H\u0026W","logo":{"@type":"ImageObject","url":"https://yy-tech.online/favicon.ico"}}}</script></head><body class=post-pages id=top><header class=header><nav class=header-nav><div class=logo><a href=https://yy-tech.online/ accesskey=h title="H&amp;W (Alt + H)">H&amp;W</a><div class=logo-switches><button id=theme-toggle class=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
+<svg class="moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg class="sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button><span class=nav-sep>|</span><ul class=lang-menu><li><a href=https://yy-tech.online/ title=English aria-label=English>En</a></li></ul></div></div><ul id=menu class=menu><li><a href=https://yy-tech.online/zh/post/ title=技術><span>技術</span></a></li><li><a href=https://yy-tech.online/zh/categories/ title=分類><span>分類</span></a></li><li><a href=https://yy-tech.online/zh/about/ title=關於><span>關於</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><h1 class="post-title entry-hint-parent">[Autodesk] 用 Promise 做防抖</h1><div class=post-meta><span title='2022-08-11 11:53:41 +0800 HKT'>2022年8月11日</span>&nbsp;·&nbsp;<span>hyyfrank</span>&nbsp;|&nbsp;<span>语言:</span><ul class=i18n_list><li><a href=https://yy-tech.online/post/frontend-debounce-with-promise/>En</a></li></ul></div></header><div class="post-content md-content"><h2 id=基础防抖>基础防抖<a hidden class=anchor aria-hidden=true href=#基础防抖>#</a></h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kr>const</span> <span class=nx>_debounce</span> <span class=o>=</span> <span class=p>(</span><span class=nx>fn</span><span class=p>,</span> <span class=nx>delay</span><span class=p>,</span> <span class=nx>immediate</span> <span class=o>=</span> <span class=kc>false</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kd>let</span> <span class=nx>timer</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=p>(...</span><span class=nx>args</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>callNow</span> <span class=o>=</span> <span class=nx>immediate</span> <span class=o>&amp;&amp;</span> <span class=o>!</span><span class=nx>timer</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>clearTimeout</span><span class=p>(</span><span class=nx>timer</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=nx>timer</span> <span class=o>=</span> <span class=nx>setTimeout</span><span class=p>(()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nx>timer</span> <span class=o>=</span> <span class=kc>null</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>      <span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=nx>immediate</span><span class=p>)</span> <span class=nx>fn</span><span class=p>(...</span><span class=nx>args</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span> <span class=nx>delay</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=nx>callNow</span><span class=p>)</span> <span class=nx>fn</span><span class=p>(...</span><span class=nx>args</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=p>};</span>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=带-promise-的防抖>带 Promise 的防抖<a hidden class=anchor aria-hidden=true href=#带-promise-的防抖>#</a></h2><p>拖拽鼠标时若频繁触发防抖，而被包装函数会请求 API 并返回 <strong>Promise</strong>，往往只希望<strong>最后一次</strong>调用生效。Lodash 的 <code>debounce</code> 会校验 <code>func</code> 必须是函数：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=k>if</span> <span class=p>(</span><span class=k>typeof</span> <span class=nx>func</span> <span class=o>!==</span> <span class=s1>&#39;function&#39;</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>throw</span> <span class=k>new</span> <span class=nx>TypeError</span><span class=p>(</span><span class=s1>&#39;Expected a function&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>异步场景可以这样写：</p><h3 id=只保留最后一次-promise>只保留最后一次 Promise<a hidden class=anchor aria-hidden=true href=#只保留最后一次-promise>#</a></h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kr>const</span> <span class=nx>debounce_promise_last</span> <span class=o>=</span> <span class=p>(</span><span class=nx>fn</span><span class=p>,</span> <span class=nx>delay</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kd>let</span> <span class=nx>timer</span> <span class=o>=</span> <span class=kc>null</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=p>(...</span><span class=nx>args</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>clearTimeout</span><span class=p>(</span><span class=nx>timer</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=k>new</span> <span class=nb>Promise</span><span class=p>((</span><span class=nx>resolve</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nx>timer</span> <span class=o>=</span> <span class=nx>setTimeout</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>        <span class=p>()</span> <span class=p>=&gt;</span> <span class=nx>resolve</span><span class=p>(</span><span class=nx>fn</span><span class=p>(...</span><span class=nx>args</span><span class=p>)),</span>
+</span></span><span class=line><span class=cl>        <span class=nx>delay</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=p>});</span>
+</span></span><span class=line><span class=cl>  <span class=p>};</span>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=每次调用都返回-promise延迟后一起-resolve>每次调用都返回 Promise，延迟后一起 resolve<a hidden class=anchor aria-hidden=true href=#每次调用都返回-promise延迟后一起-resolve>#</a></h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kd>function</span> <span class=nx>debounce_promise_all</span><span class=p>(</span><span class=nx>fn</span><span class=p>,</span> <span class=nx>delay</span> <span class=o>=</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kd>let</span> <span class=nx>timer</span> <span class=o>=</span> <span class=kc>null</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=kd>let</span> <span class=nx>resolves</span> <span class=o>=</span> <span class=p>[];</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=kd>function</span> <span class=p>(...</span><span class=nx>args</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>clearTimeout</span><span class=p>(</span><span class=nx>timer</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=nx>timer</span> <span class=o>=</span> <span class=nx>setTimeout</span><span class=p>(()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=kr>const</span> <span class=nx>result</span> <span class=o>=</span> <span class=nx>fn</span><span class=p>(...</span><span class=nx>args</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>      <span class=nx>resolves</span><span class=p>.</span><span class=nx>forEach</span><span class=p>((</span><span class=nx>r</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=nx>r</span><span class=p>(</span><span class=nx>result</span><span class=p>));</span>
+</span></span><span class=line><span class=cl>      <span class=nx>resolves</span> <span class=o>=</span> <span class=p>[];</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span> <span class=nx>delay</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=k>new</span> <span class=nb>Promise</span><span class=p>((</span><span class=nx>r</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=nx>resolves</span><span class=p>.</span><span class=nx>push</span><span class=p>(</span><span class=nx>r</span><span class=p>));</span>
+</span></span><span class=line><span class=cl>  <span class=p>};</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=api-调用节流取消重试>API 调用：节流、取消、重试<a hidden class=anchor aria-hidden=true href=#api-调用节流取消重试>#</a></h2><p>调 API 时常用<strong>节流</strong>限制单位时间内的请求次数。更复杂的情况包括<strong>取消</strong>和<strong>重试</strong>（指数退避）。当并发 Promise 非常多（例如 <strong>1000+</strong>）时，通常需要：</p><ol><li>分批处理（如每批 20 个）；</li><li>为每个 Promise 绑定任务 ID；</li><li>单条日志便于排查（我们使用 Splunk）；</li><li>设计取消策略；</li><li>Ajax 重试使用指数退避。</li></ol><p>实现与产品逻辑耦合较紧，此处不展开示例代码。</p></div><footer class=post-footer><ul class=post-tags><li><a href=https://yy-tech.online/zh/tags/javascript/>Javascript</a></li></ul></footer></article></main><footer class=footer><span>&copy; 2026 <a href=https://yy-tech.online/zh/>H&amp;W</a></span> ·
+<span>Powered by
+<a href="https://gohugo.io/?utm_source=papermod" rel=noopener target=_blank>Hugo</a> &
+<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top id=top-link class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey=g><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up"><polyline points="17 11 12 6 7 11"/><polyline points="17 18 12 13 7 18"/></svg>
+</a><script src=https://yy-tech.online/js/lang-pill.js defer></script><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var toplink=document.getElementById("top-link");window.onscroll=function(){const e=window.innerHeight;document.body.scrollTop>e||document.documentElement.scrollTop>e?toplink.classList.remove("hidden"):toplink.classList.add("hidden")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{const e=document.querySelector("html");e.dataset.theme==="dark"?(e.dataset.theme="light",localStorage.setItem("pref-theme","light")):(e.dataset.theme="dark",localStorage.setItem("pref-theme","dark"))})</script></body></html>

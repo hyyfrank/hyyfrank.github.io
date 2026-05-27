@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Container on H&amp;W</title>
+    <link>https://yy-tech.online/zh/tags/container/</link>
+    <description>Recent content in Container on H&amp;W</description>
+    <generator>Hugo</generator>
+    <language>zh-Hant</language>
+    <lastBuildDate>Thu, 28 May 2026 00:53:02 +0800</lastBuildDate>
+    <atom:link href="https://yy-tech.online/zh/tags/container/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Docker] container研究</title>
+      <link>https://yy-tech.online/zh/post/docker-container-study/</link>
+      <pubDate>Mon, 02 Sep 2019 23:03:48 +0800</pubDate>
+      <guid>https://yy-tech.online/zh/post/docker-container-study/</guid>
+      <description>&lt;h2 id=&#34;ppt&#34;&gt;PPT&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://yy-tech.online/images/tom.key&#34;&gt;&lt;strong&gt;组内分享的PPT&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;conttainer&#34;&gt;conttainer&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;namespace&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;linux control group&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;UnionFS&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;veth&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;容器应该具备哪些东西
+&lt;ul&gt;
+&lt;li&gt;隔离文件系统： 通过 chroot 命令切换根目录的挂载点&lt;/li&gt;
+&lt;li&gt;隔离网络： 为了分布式环境下的通讯： 要有独立的 IP、端口和路由 veth, 每个容器用有其独立的网络设备，IP 地址，IP 路由表，/proc/net 目录，端口号等等。这也使得一个 host 上多个容器内的同一个应用都绑定到各自容器的 80 端口上&lt;/li&gt;
+&lt;li&gt;主机名：需要一个主机名方便在网络中标识自己&lt;/li&gt;
+&lt;li&gt;IPC: 每个容器有其自己的 System V IPC 和 POSIX 消息队列文件系统，因此，只有在同一个 IPC namespace 的进程之间才能互相通信&lt;/li&gt;
+&lt;li&gt;用户权限: 在 user namespace 中的进程的用户和组 ID 可以和在 host 上不同； 每个 container 可以有不同的 user 和 group id；一个 host 上的非特权用户可以成为 user namespace 中的特权用户&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;容器主要的部分
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;namespace&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;UTS, IPC, PID, NETWORK, MOUNT, USER&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cgroup&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;CPU, Memory, Blkio, Device&amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;UnionFS&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;aufs(ubuntu), btrfs(suse), vfs, devicemapper(centos), overlayer2(centos,ubuntu)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;veth&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;bridge, host, container, none&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;容器实现
+&lt;ul&gt;
+&lt;li&gt;容器是特殊的进程&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;int clone(int (*fn)(void*), void *child_stack, int flags, void*arg);&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Fork = Clone + CLONE_VM | CLONE_VFORK | SIGHILD (NOTE: Fork和Clone都是对sys_clone的封装，所以其实这里表达有少许不准确)&lt;/li&gt;
+&lt;li&gt;fork是从调用点继续执行，clone是从fn(args)继续执行，因为子进程和父进程共享内存，但是维护单独的变量副本，所以需要为子进程单独分配栈，就是&lt;code&gt;child_stack&lt;/code&gt;指针指向的位置，flags有两个作用，低位字节可以放返回信号，flags和docker相关的flag就是上述的UTS, IPC, PID, NETWORK, MOUNT, USER对应的标签&lt;code&gt;CLONE_NEWUTS&lt;/code&gt;,&lt;code&gt;CLONE_NEWIPC&lt;/code&gt;,&lt;code&gt;CLONE_NEWPID&lt;/code&gt;,&lt;code&gt;CLONE_NEWNET&lt;/code&gt;,&lt;code&gt;CLONE_NEWNS&lt;/code&gt;,&lt;code&gt;CLONE_NEWUSER&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;cgroup包含着对资源的控制，对应linux下是在&lt;code&gt;/sys/fs/cgroup&lt;/code&gt;目录下&lt;/li&gt;
+&lt;li&gt;UnionFS对应overlay2FS的路径是&lt;code&gt;sudo ls /var/lib/docker/image/overlay2/layerdb/${id}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;veth:虚拟网卡&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+  </channel>
+</rss>

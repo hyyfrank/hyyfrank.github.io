@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Bit-Hacks on H&amp;W</title>
+    <link>https://yy-tech.online/zh/tags/bit-hacks/</link>
+    <description>Recent content in Bit-Hacks on H&amp;W</description>
+    <generator>Hugo</generator>
+    <language>zh-Hant</language>
+    <lastBuildDate>Thu, 28 May 2026 00:53:02 +0800</lastBuildDate>
+    <atom:link href="https://yy-tech.online/zh/tags/bit-hacks/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bit Twiddling Hacks 常用位运算技巧总结</title>
+      <link>https://yy-tech.online/zh/post/bit-twiddling-hacks-summary/</link>
+      <pubDate>Wed, 27 May 2026 22:15:00 +0800</pubDate>
+      <guid>https://yy-tech.online/zh/post/bit-twiddling-hacks-summary/</guid>
+      <description>&lt;h1 id=&#34;bit-twiddling-hacks-常用位运算技巧总结&#34;&gt;Bit Twiddling Hacks 常用位运算技巧总结&lt;/h1&gt;
+&lt;p&gt;来源整理自 &lt;a href=&#34;https://graphics.stanford.edu/~seander/bithacks.html&#34;&gt;Bit Twiddling Hacks&lt;/a&gt;，这里只归纳工程里最常见、最实用的一批技巧。&lt;br&gt;
+风格保持和 &lt;code&gt;common-algorithm-patterns.md&lt;/code&gt; 一致：每个技巧只保留 &lt;strong&gt;解释&lt;/strong&gt; + &lt;strong&gt;代码框架（C++）&lt;/strong&gt;。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Flask on H&amp;W</title>
+    <link>https://yy-tech.online/zh/tags/flask/</link>
+    <description>Recent content in Flask on H&amp;W</description>
+    <generator>Hugo</generator>
+    <language>zh-Hant</language>
+    <lastBuildDate>Thu, 28 May 2026 00:53:02 +0800</lastBuildDate>
+    <atom:link href="https://yy-tech.online/zh/tags/flask/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[GLP] Flask 搭配 MySQL（2）</title>
+      <link>https://yy-tech.online/zh/post/flask-with-mysql-2/</link>
+      <pubDate>Fri, 06 Aug 2021 23:36:30 +0800</pubDate>
+      <guid>https://yy-tech.online/zh/post/flask-with-mysql-2/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;接上篇，继续记录 JWT、权限与工程化细节。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;1-jwt-流程&#34;&gt;1. JWT 流程&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Access Token 短有效期&lt;/strong&gt;，提高安全性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;流程&#34;&gt;流程&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;登录换取 &lt;strong&gt;access token + refresh token&lt;/strong&gt;（refresh 放 HttpOnly、Secure、SameSite Cookie）。&lt;/li&gt;
+&lt;li&gt;请求携带 &lt;strong&gt;payload + access token&lt;/strong&gt;；access token 放内存，登出即清。&lt;/li&gt;
+&lt;li&gt;access 过期后用 refresh Cookie 换新 access。&lt;/li&gt;
+&lt;li&gt;access 常设约 1 分钟，缩小被盗用窗口。&lt;/li&gt;
+&lt;li&gt;参数加&lt;strong&gt;单向哈希&lt;/strong&gt;做完整性校验，最好带请求时间。&lt;/li&gt;
+&lt;li&gt;敏感头字段用 &lt;strong&gt;HMAC&lt;/strong&gt; 加密；刷新 token 时服务端同样校验 HMAC。&lt;/li&gt;
+&lt;li&gt;JWT 可存 &lt;strong&gt;Redis&lt;/strong&gt; 做吊销；我们对外提供无状态 API，未在服务端持久化会话。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;实现注意&#34;&gt;实现注意&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Set-Cookie&lt;/code&gt; 由&lt;strong&gt;服务端&lt;/strong&gt;设置，不要在前端 JS 里写 Cookie。&lt;/li&gt;
+&lt;li&gt;Cookie 必须 &lt;code&gt;HttpOnly&lt;/code&gt;、&lt;code&gt;Secure&lt;/code&gt;、&lt;code&gt;SameSite&lt;/code&gt;，否则后续请求可能带不上。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;取舍&#34;&gt;取舍&lt;/h3&gt;
+&lt;p&gt;refresh Cookie 更安全，但浏览器扩展仍可能读到 Cookie。无状态是为方便其他系统调用，属于有意取舍。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>[GLP] Flask 搭配 MySQL（1）</title>
+      <link>https://yy-tech.online/zh/post/flask-with-mysql-1/</link>
+      <pubDate>Tue, 03 Aug 2021 20:36:30 +0800</pubDate>
+      <guid>https://yy-tech.online/zh/post/flask-with-mysql-1/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;一个 Flask 后端脚手架。之前写的 Python 多是脚本，这次想搭一套像样的后端骨架。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;1-需要的能力&#34;&gt;1. 需要的能力&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;flask&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;blueprint&lt;/code&gt; 拆分路由&lt;/li&gt;
+&lt;li&gt;CORS&lt;/li&gt;
+&lt;li&gt;JSON 响应&lt;/li&gt;
+&lt;li&gt;方便调试&lt;/li&gt;
+&lt;li&gt;健康检查接口&lt;/li&gt;
+&lt;li&gt;日志&lt;/li&gt;
+&lt;li&gt;多环境配置&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;flake8&lt;/code&gt; 静态检查&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;yapf&lt;/code&gt; 格式化&lt;/li&gt;
+&lt;li&gt;JWT&lt;/li&gt;
+&lt;li&gt;密码哈希&lt;/li&gt;
+&lt;li&gt;MySQL&lt;/li&gt;
+&lt;li&gt;Sphinx 文档&lt;/li&gt;
+&lt;li&gt;Postman 集合&lt;/li&gt;
+&lt;li&gt;测试&lt;/li&gt;
+&lt;li&gt;XSS 防护（ORM + 转义）&lt;/li&gt;
+&lt;li&gt;参数完整性校验（SHA-1，防篡改）&lt;/li&gt;
+&lt;li&gt;时间戳校验（防重放）&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+  </channel>
+</rss>

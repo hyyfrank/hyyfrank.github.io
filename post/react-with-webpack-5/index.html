@@ -1,0 +1,242 @@
+<!doctype html><html lang=en dir=auto data-theme=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>React With Webpack (5) | H&amp;W</title><meta name=keywords content="webpack4,react18,babel,HMR,DevServer"><meta name=description content="
+This is a webpack 4 frontend architecture series focused on building a frontend scaffold from scratch.
+It shows how to combine popular modern technologies—React, Redux, webpack 4, and related tooling.
+It also covers project essentials such as .gitignore, code formatting, per-environment configuration,
+hot reload, debugging setup, and similar topics.
+
+How Webpack 4 Handles CSS
+
+github demo branch: feature/lesson5
+
+What We Need to Do
+
+Support CSS processing
+Extract CSS into separate CSS files
+Support CSS Modules
+Support modern CSS features (e.g. CSS Next)
+Support CSS style linting
+Remove unused CSS
+Use PostCSS for tasks such as autoprefixer and css-next
+Minimize CSS files
+
+Loaders and Plugins We Need
+
+Loaders transform module source code. They let you preprocess files when you import or “load” a module—similar to tasks in other build tools, and a powerful way to handle frontend build steps. Loaders can turn TypeScript into JavaScript, inline images into data URLs, or even let you import CSS directly from JavaScript modules!"><meta name=author content="hyyfrank"><link rel=canonical href=https://yy-tech.online/post/react-with-webpack-5/><link crossorigin=anonymous href=/assets/css/stylesheet.a89f2cc1ff4d9870ef1a5019f34e163ff928e2bb52e7d0d8f8a29c5f538a731d.css integrity="sha256-qJ8swf9NmHDvGlAZ804WP/ko4rtS59DY+KKcX1OKcx0=" rel="preload stylesheet" as=style><link rel=icon href=https://yy-tech.online/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://yy-tech.online/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://yy-tech.online/favicon-32x32.png><link rel=apple-touch-icon href=https://yy-tech.online/apple-touch-icon.png><link rel=mask-icon href=https://yy-tech.online/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://yy-tech.online/post/react-with-webpack-5/><link rel=alternate hreflang=zh href=https://yy-tech.online/zh/post/react-with-webpack-5/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"?document.querySelector("html").dataset.theme="dark":localStorage.getItem("pref-theme")==="light"?document.querySelector("html").dataset.theme="light":window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><style>zgotmplz{--post-bg-url:url("https://yy-tech.online/images/song15.jpg")}</style><style>.lang-menu{display:inline-flex;align-items:stretch;padding:0;border-radius:999px;border:1px solid rgba(145,136,120,.35);margin-left:10px;height:20px;overflow:hidden;background:0 0;min-height:30px}.lang-menu li{list-style:none;margin:0;display:flex}.lang-menu li.active-lang-item{background-color:rgb(10 235 91/14%)}html[data-theme=dark] .lang-menu li.active-lang-item{background-color:rgb(42 232 111/39%)}.lang-menu a{position:relative;z-index:1;display:inline-flex;align-items:center;justify-content:center;padding:0 10px;height:20px;border-radius:0;text-decoration:none;color:var(--secondary);font-size:12px;line-height:1;transition:background .2s ease}.lang-menu li+li a{border-left:1px solid rgba(145,136,120,.45)}.lang-menu a.active-lang{color:var(--primary);box-shadow:none}.lang-menu a:not(.active-lang):hover{background:rgba(212,206,194,.35)}</style><meta property="og:url" content="https://yy-tech.online/post/react-with-webpack-5/"><meta property="og:site_name" content="H&W"><meta property="og:title" content="React With Webpack (5)"><meta property="og:description" content="This is a webpack 4 frontend architecture series focused on building a frontend scaffold from scratch. It shows how to combine popular modern technologies—React, Redux, webpack 4, and related tooling. It also covers project essentials such as .gitignore, code formatting, per-environment configuration, hot reload, debugging setup, and similar topics.
+How Webpack 4 Handles CSS github demo branch: feature/lesson5 What We Need to Do Support CSS processing Extract CSS into separate CSS files Support CSS Modules Support modern CSS features (e.g. CSS Next) Support CSS style linting Remove unused CSS Use PostCSS for tasks such as autoprefixer and css-next Minimize CSS files Loaders and Plugins We Need Loaders transform module source code. They let you preprocess files when you import or “load” a module—similar to tasks in other build tools, and a powerful way to handle frontend build steps. Loaders can turn TypeScript into JavaScript, inline images into data URLs, or even let you import CSS directly from JavaScript modules!"><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="post"><meta property="article:published_time" content="2019-08-15T11:11:36+08:00"><meta property="article:modified_time" content="2026-05-28T00:53:02+08:00"><meta property="article:tag" content="Webpack4"><meta property="article:tag" content="React18"><meta property="article:tag" content="Babel"><meta property="article:tag" content="HMR"><meta property="article:tag" content="DevServer"><meta name=twitter:card content="summary"><meta name=twitter:title content="React With Webpack (5)"><meta name=twitter:description content="This is a webpack 4 frontend architecture series focused on building a frontend scaffold from scratch. It shows how to combine popular modern technologies—React, Redux, webpack 4, and related tooling. It also covers project essentials such as .gitignore, code formatting, per-environment configuration, hot reload, debugging setup, and similar topics.
+How Webpack 4 Handles CSS github demo branch: feature/lesson5 What We Need to Do Support CSS processing Extract CSS into separate CSS files Support CSS Modules Support modern CSS features (e.g. CSS Next) Support CSS style linting Remove unused CSS Use PostCSS for tasks such as autoprefixer and css-next Minimize CSS files Loaders and Plugins We Need Loaders transform module source code. They let you preprocess files when you import or “load” a module—similar to tasks in other build tools, and a powerful way to handle frontend build steps. Loaders can turn TypeScript into JavaScript, inline images into data URLs, or even let you import CSS directly from JavaScript modules!"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"English Posts","item":"https://yy-tech.online/post/"},{"@type":"ListItem","position":2,"name":"React With Webpack (5)","item":"https://yy-tech.online/post/react-with-webpack-5/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"React With Webpack (5)","name":"React With Webpack (5)","description":" This is a webpack 4 frontend architecture series focused on building a frontend scaffold from scratch. It shows how to combine popular modern technologies—React, Redux, webpack 4, and related tooling. It also covers project essentials such as .gitignore, code formatting, per-environment configuration, hot reload, debugging setup, and similar topics.\nHow Webpack 4 Handles CSS github demo branch: feature/lesson5 What We Need to Do Support CSS processing Extract CSS into separate CSS files Support CSS Modules Support modern CSS features (e.g. CSS Next) Support CSS style linting Remove unused CSS Use PostCSS for tasks such as autoprefixer and css-next Minimize CSS files Loaders and Plugins We Need Loaders transform module source code. They let you preprocess files when you import or “load” a module—similar to tasks in other build tools, and a powerful way to handle frontend build steps. Loaders can turn TypeScript into JavaScript, inline images into data URLs, or even let you import CSS directly from JavaScript modules!\n","keywords":["webpack4","react18","babel","HMR","DevServer"],"articleBody":" This is a webpack 4 frontend architecture series focused on building a frontend scaffold from scratch. It shows how to combine popular modern technologies—React, Redux, webpack 4, and related tooling. It also covers project essentials such as .gitignore, code formatting, per-environment configuration, hot reload, debugging setup, and similar topics.\nHow Webpack 4 Handles CSS github demo branch: feature/lesson5 What We Need to Do Support CSS processing Extract CSS into separate CSS files Support CSS Modules Support modern CSS features (e.g. CSS Next) Support CSS style linting Remove unused CSS Use PostCSS for tasks such as autoprefixer and css-next Minimize CSS files Loaders and Plugins We Need Loaders transform module source code. They let you preprocess files when you import or “load” a module—similar to tasks in other build tools, and a powerful way to handle frontend build steps. Loaders can turn TypeScript into JavaScript, inline images into data URLs, or even let you import CSS directly from JavaScript modules!\nloaders: sass-loader: converts Sass to CSS postcss-loader: PostCSS is powerful; think of it roughly as css → AST → plugins → output. Almost anything has a plugin. css-loader: The css-loader interprets @import and url() like import/require() and will resolve them. We use options such as modules and localIdentName. style-loader: Adds CSS to the DOM by injecting a ","wordCount":"824","inLanguage":"en","datePublished":"2019-08-15T11:11:36+08:00","dateModified":"2026-05-28T00:53:02+08:00","author":{"@type":"Person","name":"hyyfrank"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://yy-tech.online/post/react-with-webpack-5/"},"publisher":{"@type":"Organization","name":"H\u0026W","logo":{"@type":"ImageObject","url":"https://yy-tech.online/favicon.ico"}}}</script></head><body class=post-pages id=top><header class=header><nav class=header-nav><div class=logo><a href=https://yy-tech.online/ accesskey=h title="H&amp;W (Alt + H)">H&amp;W</a><div class=logo-switches><button id=theme-toggle class=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
+<svg class="moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg class="sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button><span class=nav-sep>|</span><ul class=lang-menu><li><a href=https://yy-tech.online/zh/ title=繁體中文 aria-label=繁體中文>Zh</a></li></ul></div></div><ul id=menu class=menu><li><a href=https://yy-tech.online/post/ title=Tech><span>Tech</span></a></li><li><a href=https://yy-tech.online/categories/ title=Categories><span>Categories</span></a></li><li><a href=https://yy-tech.online/about/ title=About><span>About</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><h1 class="post-title entry-hint-parent">React With Webpack (5)</h1><div class=post-meta><span title='2019-08-15 11:11:36 +0800 HKT'>August 15, 2019</span>&nbsp;·&nbsp;<span>hyyfrank</span>&nbsp;|&nbsp;<span>Translations:</span><ul class=i18n_list><li><a href=https://yy-tech.online/zh/post/react-with-webpack-5/>Zh</a></li></ul></div></header><div class="post-content md-content"><blockquote><p>This is a webpack 4 frontend architecture series focused on building a frontend scaffold from scratch.
+It shows how to combine popular modern technologies—React, Redux, webpack 4, and related tooling.
+It also covers project essentials such as <code>.gitignore</code>, code formatting, per-environment configuration,
+hot reload, debugging setup, and similar topics.</p></blockquote><h1 id=how-webpack-4-handles-css>How Webpack 4 Handles CSS<a hidden class=anchor aria-hidden=true href=#how-webpack-4-handles-css>#</a></h1><ul><li><a href=https://github.com/hyyfrank/webpack4>github demo</a> branch: feature/lesson5</li></ul><h2 id=what-we-need-to-do>What We Need to Do<a hidden class=anchor aria-hidden=true href=#what-we-need-to-do>#</a></h2><ul><li>Support CSS processing</li><li>Extract CSS into separate CSS files</li><li>Support CSS Modules</li><li>Support modern CSS features (e.g. CSS Next)</li><li>Support CSS style linting</li><li>Remove unused CSS</li><li>Use PostCSS for tasks such as autoprefixer and css-next</li><li>Minimize CSS files</li></ul><h2 id=loaders-and-plugins-we-need>Loaders and Plugins We Need<a hidden class=anchor aria-hidden=true href=#loaders-and-plugins-we-need>#</a></h2><blockquote><p>Loaders transform module source code. They let you preprocess files when you import or “load” a module—similar to tasks in other build tools, and a powerful way to handle frontend build steps. Loaders can turn TypeScript into JavaScript, inline images into data URLs, or even let you <code>import</code> CSS directly from JavaScript modules!</p></blockquote><ul><li><strong>loaders</strong>:<ul><li>sass-loader: converts Sass to CSS</li><li>postcss-loader: PostCSS is powerful; think of it roughly as css → AST → plugins → output. Almost anything has a plugin.</li><li>css-loader: <strong>The <code>css-loader</code> interprets <code>@import</code> and <code>url()</code> like <code>import/require()</code> and will resolve them.</strong> We use options such as <code>modules</code> and <code>localIdentName</code>.</li><li>style-loader: <strong>Adds CSS to the DOM by injecting a <code>&lt;style></code> tag</strong></li></ul></li><li><strong>plugins</strong>:<ul><li>mini-css-extract-plugin: extracts CSS into separate files</li><li>purifycss-webpack: removes unused CSS selectors</li><li>stylelint-webpack-plugin: lints CSS</li><li>optimize-css-assets-webpack-plugin: optimizes and minifies CSS during the webpack build; defaults to cssnano as the processor (cssnano is also a PostCSS plugin)</li></ul></li></ul><p>That’s enough theory—here is the code. To keep things clear, we pull CSS handling into its own file and merge it with <code>webpack-merge</code>. Below is the CSS setup:</p><p>We extract the config into a separate file. The older <code>extract-text-webpack-plugin</code> can still work; with webpack 4 you need <code>extract-text-webpack-plugin</code> at <code>^4.0.0-beta.0</code>. The commented-out bits below are for you to try. Webpack 4 recommends <code>mini-css-extract-plugin</code>, so we use that. Note that <code>mini-css-extract-plugin</code> does not support HMR, but we only use it in production, which is fine.</p><p><strong>Step 1: support <code>style-loader</code>, <code>css-loader</code>, <code>sass-loader</code></strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kr>const</span> <span class=nx>cssDevRules</span><span class=o>=</span><span class=p>[</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>loader</span><span class=o>:</span><span class=s1>&#39;style-loader&#39;</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>loader</span><span class=o>:</span><span class=s1>&#39;css-loader?modules&amp;localIdentName=[name]_[local]_[hash:base64:5]&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>loader</span><span class=o>:</span><span class=s1>&#39;sass-loader&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>];</span>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>cssProdRules</span><span class=o>=</span><span class=p>[</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>loader</span><span class=o>:</span> <span class=nx>MiniCssExtractPlugin</span><span class=p>.</span><span class=nx>loader</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>loader</span><span class=o>:</span><span class=s1>&#39;css-loader?modules&amp;localIdentName=[name]_[local]_[hash:base64:5]&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>loader</span><span class=o>:</span><span class=s1>&#39;sass-loader&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>];</span>
+</span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s2>&#34;is prod:&#34;</span><span class=o>+</span><span class=nx>isProd</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>baseConfig</span> <span class=o>=</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>module</span><span class=o>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>rules</span><span class=o>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>            <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=nx>test</span><span class=o>:</span> <span class=sr>/\.(css|sass|scss)$/</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=nx>use</span><span class=o>:</span> <span class=nx>isProd</span><span class=o>?</span> <span class=nx>cssProdRules</span><span class=o>:</span><span class=nx>cssDevRules</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=nx>exclude</span><span class=o>:</span> <span class=sr>/node_modules/</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=p>]</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=nx>plugins</span><span class=o>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>    <span class=p>],</span>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=css-support>CSS Support<a hidden class=anchor aria-hidden=true href=#css-support>#</a></h2><p><strong>Step 2: css-next / autoprefixer support</strong></p><p>Add <code>postcss-loader</code> for autoprefixer. To use the latest CSS features without a separate plugin, use <code>postcss-preset-env</code> per the official docs—it includes autoprefixer. <a href=https://github.com/csstools/postcss-preset-env>PostCSS Preset Env</a> turns modern CSS into something most browsers understand and adds polyfills based on browser targets.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>npm install postcss-preset-env
+</span></span></code></pre></td></tr></table></div></div><p>Update <code>postcss.config.js</code>:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=nx>module</span><span class=p>.</span><span class=nx>exports</span> <span class=o>=</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nx>plugins</span><span class=o>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;postcss-import&#34;</span><span class=o>:</span> <span class=p>{},</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;postcss-preset-env&#34;</span><span class=o>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nx>browsers</span><span class=o>:</span> <span class=s2>&#34;last 2 versions&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=nx>cssnano</span><span class=o>:</span> <span class=p>{}</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>loader</span><span class=o>:</span><span class=s1>&#39;postcss-loader&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nx>options</span><span class=o>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nx>sourceMap</span><span class=o>:</span> <span class=kc>true</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nx>config</span><span class=o>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=nx>path</span><span class=o>:</span> <span class=nx>__dirname</span> <span class=o>+</span> <span class=s1>&#39;/postcss.config.js&#39;</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=style-linting>Style Linting<a hidden class=anchor aria-hidden=true href=#style-linting>#</a></h2><p><strong>Step 3: add style-lint support</strong></p><p>Add stylelint to control code quality. Here we only wire it up; you define the rules yourself, or use <code>stylelint-config-standard</code> with the matching plugin.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kr>const</span> <span class=nx>StyleCssLintPlugin</span> <span class=o>=</span> <span class=nx>require</span><span class=p>(</span><span class=s2>&#34;stylelint-webpack-plugin&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>StyleLintPlugin</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>StyleCssLintPlugin</span><span class=p>({</span>
+</span></span><span class=line><span class=cl>  <span class=nx>configFile</span><span class=o>:</span> <span class=s2>&#34;.stylelintrc&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nx>context</span><span class=o>:</span> <span class=s2>&#34;src&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nx>files</span><span class=o>:</span> <span class=s2>&#34;**/*.scss&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nx>failOnError</span><span class=o>:</span> <span class=kc>false</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nx>quiet</span><span class=o>:</span> <span class=kc>false</span>
+</span></span><span class=line><span class=cl><span class=p>});</span>
+</span></span><span class=line><span class=cl><span class=nx>baseConfig</span><span class=p>.</span><span class=nx>plugins</span> <span class=o>=</span> <span class=p>[</span><span class=nx>StyleLintPlugin</span><span class=p>,</span> <span class=nx>MiniCssPlugin</span><span class=p>,</span> <span class=nx>OptimizeCSSPlugin</span><span class=p>];</span>
+</span></span></code></pre></td></tr></table></div></div><p>Add a <code>.stylelintrc</code> file; for now we use <code>stylelint-config-standard</code>:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;extends&#34;</span><span class=o>:</span> <span class=s2>&#34;stylelint-config-standard&#34;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=remove-redundant-css>Remove Redundant CSS<a hidden class=anchor aria-hidden=true href=#remove-redundant-css>#</a></h2><p><strong>Step 4: remove unused CSS</strong></p><p>PurifyCSS removes unused CSS. Some call this “CSS tree shaking”; either way, the idea is similar.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kr>const</span> <span class=nx>PurifyCSSPlugin</span> <span class=o>=</span> <span class=nx>require</span><span class=p>(</span><span class=s2>&#34;purifycss-webpack&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>PurifyCssPlugin</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>PurifyCSSPlugin</span><span class=p>({</span>
+</span></span><span class=line><span class=cl>  <span class=nx>paths</span><span class=o>:</span> <span class=nx>glob</span><span class=p>.</span><span class=nx>sync</span><span class=p>(</span><span class=nx>path</span><span class=p>.</span><span class=nx>join</span><span class=p>(</span><span class=nx>__dirname</span><span class=p>,</span> <span class=s2>&#34;../src/index.js&#34;</span><span class=p>)),</span>
+</span></span><span class=line><span class=cl>  <span class=nx>styleExtensions</span><span class=o>:</span> <span class=p>[</span><span class=s2>&#34;.css&#34;</span><span class=p>,</span> <span class=s2>&#34;.scss&#34;</span><span class=p>],</span>
+</span></span><span class=line><span class=cl>  <span class=nx>purifyOptions</span><span class=o>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>whitelist</span><span class=o>:</span> <span class=p>[</span><span class=s2>&#34;*purify*&#34;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>});</span>
+</span></span><span class=line><span class=cl><span class=nx>baseConfig</span><span class=p>.</span><span class=nx>plugins</span> <span class=o>=</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>  <span class=nx>MiniCssPlugin</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nx>PurifyCssPlugin</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nx>StyleLintPlugin</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nx>OptimizeCSSPlugin</span>
+</span></span><span class=line><span class=cl>  <span class=c1>// new ExtractTextPlugin(&#34;styles.css&#34;),
+</span></span></span><span class=line><span class=cl><span class=p>];</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=minimize-css>Minimize CSS<a hidden class=anchor aria-hidden=true href=#minimize-css>#</a></h2><p><strong>Step 5: minimize CSS</strong></p><p><code>optimize-css-assets-webpack-plugin</code></p><p><strong>cssProcessor</strong>: preprocessor that compresses and optimizes CSS; default is cssnano. It is a function that receives CSS and options and returns a promise.</p><p><strong>canPrint</strong>: <code>{bool}</code> whether the plugin logs to the console; default <code>true</code>.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kr>const</span> <span class=nx>OptimizeCSSAssetsPlugin</span> <span class=o>=</span> <span class=nx>require</span><span class=p>(</span><span class=s2>&#34;optimize-css-assets-webpack-plugin&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>OptimizeCSSPlugin</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>OptimizeCSSAssetsPlugin</span><span class=p>({</span>
+</span></span><span class=line><span class=cl>  <span class=nx>cssProcessor</span><span class=o>:</span> <span class=nx>cssnano</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nx>cssProcessorOptions</span><span class=o>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>discardComments</span><span class=o>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nx>removeAll</span><span class=o>:</span> <span class=kc>true</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// Run cssnano in safe mode to avoid
+</span></span></span><span class=line><span class=cl>    <span class=c1>// potentially unsafe transformations.
+</span></span></span><span class=line><span class=cl>    <span class=nx>safe</span><span class=o>:</span> <span class=kc>true</span>
+</span></span><span class=line><span class=cl>  <span class=p>},</span>
+</span></span><span class=line><span class=cl>  <span class=nx>canPrint</span><span class=o>:</span> <span class=kc>true</span>
+</span></span><span class=line><span class=cl><span class=p>});</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>baseConfig</span><span class=p>.</span><span class=nx>plugins</span> <span class=o>=</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>  <span class=nx>MiniCssPlugin</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nx>PurifyCssPlugin</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nx>StyleLintPlugin</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nx>OptimizeCSSPlugin</span>
+</span></span><span class=line><span class=cl>  <span class=c1>// new ExtractTextPlugin(&#34;styles.css&#34;),
+</span></span></span><span class=line><span class=cl><span class=p>];</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=wrap-up>Wrap-Up<a hidden class=anchor aria-hidden=true href=#wrap-up>#</a></h2><p>That covers the main pieces. For more, explore PostCSS plugins—or write your own. This series is about webpack, not PostCSS, so the rest is up to you.</p></div><footer class=post-footer><ul class=post-tags><li><a href=https://yy-tech.online/tags/webpack4/>Webpack4</a></li><li><a href=https://yy-tech.online/tags/react18/>React18</a></li><li><a href=https://yy-tech.online/tags/babel/>Babel</a></li><li><a href=https://yy-tech.online/tags/hmr/>HMR</a></li><li><a href=https://yy-tech.online/tags/devserver/>DevServer</a></li></ul></footer></article></main><footer class=footer><span>&copy; 2026 <a href=https://yy-tech.online/>H&amp;W</a></span> ·
+<span>Powered by
+<a href="https://gohugo.io/?utm_source=papermod" rel=noopener target=_blank>Hugo</a> &
+<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top id=top-link class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey=g><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up"><polyline points="17 11 12 6 7 11"/><polyline points="17 18 12 13 7 18"/></svg>
+</a><script src=https://yy-tech.online/js/lang-pill.js defer></script><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var toplink=document.getElementById("top-link");window.onscroll=function(){const e=window.innerHeight;document.body.scrollTop>e||document.documentElement.scrollTop>e?toplink.classList.remove("hidden"):toplink.classList.add("hidden")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{const e=document.querySelector("html");e.dataset.theme==="dark"?(e.dataset.theme="light",localStorage.setItem("pref-theme","light")):(e.dataset.theme="dark",localStorage.setItem("pref-theme","dark"))})</script></body></html>

@@ -1,0 +1,410 @@
+/* Resume / About page — scoped styles (from ref/cqf.html) */
+.about-resume {
+  --ar-cloud-white: #f5f5f0;
+  --ar-cloud-white-dark: #e8e8e3;
+  --ar-soft-gold: #f5b952;
+  --ar-soft-gold-dark: #f3a108;
+  --ar-sky-blue: #6b9bbd;
+  --ar-sky-blue-dark: #4a7a9a;
+  --ar-ink-black: #2a2a2a;
+  --ar-warm-gray: #9a8f85;
+  --ar-stone-gray: #d4d0c8;
+  --ar-meta-brown: #7f4109;
+  --ar-content-bg: #fff;
+  margin: 0 auto 2rem;
+  max-width: 8.5in;
+}
+
+html[data-theme="dark"] .about-resume {
+  --ar-cloud-white: #2a2a2e;
+  --ar-cloud-white-dark: #1e1e22;
+  --ar-ink-black: #e8e8e3;
+  --ar-warm-gray: #a8a29a;
+  --ar-stone-gray: #45454a;
+  --ar-meta-brown: #d4a574;
+  --ar-content-bg: #252528;
+  --ar-sky-blue-dark: #8fb0c9;
+}
+
+.about-resume .resume-container {
+  background: var(--ar-cloud-white);
+  border-radius: 10px;
+  box-shadow: 0 15px 50px rgba(184, 168, 138, 0.12);
+  overflow: hidden;
+}
+
+html[data-theme="dark"] .about-resume .resume-container {
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+}
+
+.about-resume .header {
+  display: flex;
+  align-items: center;
+  padding: 32px 32px 24px;
+  background: var(--ar-cloud-white);
+  border-bottom: 1px solid var(--ar-soft-gold);
+}
+
+.about-resume .header-photo {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--ar-cloud-white-dark);
+  flex-shrink: 0;
+  margin-right: 24px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.about-resume .header-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-resume .header-name {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--ar-ink-black);
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.about-resume .header-title {
+  font-size: 0.95rem;
+  color: var(--ar-sky-blue-dark);
+  font-weight: 600;
+  margin: 6px 0 0;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.about-resume .header-cqf {
+  font-size: 0.85rem;
+  color: var(--ar-soft-gold-dark);
+  font-weight: 600;
+  margin: 4px 0 0;
+}
+
+.about-resume .header-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.about-resume .download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.about-resume .download-pdf-btn {
+  background: linear-gradient(135deg, var(--ar-sky-blue) 0%, var(--ar-sky-blue-dark) 100%);
+  color: var(--ar-cloud-white);
+  box-shadow: 0 3px 10px rgba(107, 155, 189, 0.3);
+}
+
+.about-resume .download-pdf-btn:hover {
+  transform: translateY(-1px);
+}
+
+.about-resume .profile-section {
+  background: linear-gradient(
+    135deg,
+    var(--ar-cloud-white) 0%,
+    var(--ar-cloud-white-dark) 50%,
+    var(--ar-stone-gray) 100%
+  );
+  padding: 28px 32px;
+  border-bottom: 1px solid var(--ar-soft-gold);
+}
+
+.about-resume .profile-text {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--ar-ink-black);
+  margin: 0;
+  max-width: 900px;
+}
+
+.about-resume .main-content {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+}
+
+.about-resume .sidebar {
+  background: var(--ar-cloud-white-dark);
+  padding: 16px 20px;
+  border-right: 1px solid var(--ar-stone-gray);
+}
+
+.about-resume .sidebar-section {
+  margin-bottom: 16px;
+}
+
+.about-resume .sidebar-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--ar-ink-black);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin: 0 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--ar-soft-gold);
+}
+
+.about-resume .contact-list,
+.about-resume .skills-list,
+.about-resume .languages-list,
+.about-resume .experience-description {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.about-resume .contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 0.82rem;
+  color: var(--ar-ink-black);
+}
+
+.about-resume .contact-item a {
+  color: var(--ar-ink-black);
+  text-decoration: none;
+}
+
+.about-resume .contact-item a:hover {
+  color: var(--ar-sky-blue);
+}
+
+.about-resume .skills-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 0.82rem;
+  color: var(--ar-ink-black);
+}
+
+.about-resume .skills-list li::before {
+  content: "✓";
+  color: var(--ar-soft-gold-dark);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.about-resume .languages-list li {
+  margin-bottom: 12px;
+  font-size: 0.82rem;
+}
+
+.about-resume .language-name {
+  display: block;
+  font-weight: 600;
+  color: var(--ar-ink-black);
+}
+
+.about-resume .language-level {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--ar-warm-gray);
+  margin-bottom: 4px;
+}
+
+.about-resume .language-bar {
+  height: 5px;
+  background: var(--ar-stone-gray);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.about-resume .language-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--ar-soft-gold) 0%, var(--ar-sky-blue) 100%);
+  border-radius: 3px;
+}
+
+.about-resume .content {
+  padding: 22px 26px;
+  background: var(--ar-content-bg);
+}
+
+.about-resume .content-section {
+  margin-bottom: 28px;
+}
+
+.about-resume .content-section:not(:first-child) {
+  padding-top: 24px;
+  border-top: 1px solid var(--ar-stone-gray);
+}
+
+.about-resume .content-title {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--ar-ink-black);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0 0 18px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--ar-soft-gold);
+}
+
+.about-resume .experience-item {
+  margin-bottom: 22px;
+}
+
+.about-resume .experience-company {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--ar-ink-black);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.about-resume .experience-role {
+  font-size: 0.88rem;
+  color: var(--ar-sky-blue-dark);
+  font-weight: 600;
+  margin-top: 3px;
+}
+
+.about-resume .experience-meta {
+  font-size: 0.75rem;
+  color: var(--ar-meta-brown);
+  margin-top: 4px;
+}
+
+.about-resume .experience-description li {
+  position: relative;
+  padding-left: 16px;
+  margin-bottom: 5px;
+  font-size: 0.84rem;
+  line-height: 1.55;
+  color: var(--ar-ink-black);
+}
+
+.about-resume .experience-description li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--ar-soft-gold-dark);
+  font-weight: bold;
+}
+
+.about-resume .education-item {
+  margin-bottom: 14px;
+}
+
+.about-resume .education-degree {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--ar-ink-black);
+  text-transform: uppercase;
+}
+
+.about-resume .education-school {
+  font-size: 0.84rem;
+  color: var(--ar-sky-blue-dark);
+  font-weight: 600;
+  margin-top: 3px;
+}
+
+.about-resume .education-meta {
+  font-size: 0.75rem;
+  color: var(--ar-warm-gray);
+  margin-top: 4px;
+}
+
+.about-resume .certifications-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.about-resume .certification-item {
+  background: var(--ar-cloud-white);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--ar-stone-gray);
+}
+
+.about-resume .certification-image {
+  min-height: 120px;
+  background: var(--ar-cloud-white-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-resume .certification-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.about-resume .certification-info {
+  padding: 12px 14px;
+}
+
+.about-resume .certification-name {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--ar-ink-black);
+  margin-bottom: 4px;
+}
+
+.about-resume .certification-issuer {
+  font-size: 0.75rem;
+  color: var(--ar-sky-blue-dark);
+}
+
+.about-resume .certification-date {
+  font-size: 0.7rem;
+  color: var(--ar-warm-gray);
+  margin-top: 2px;
+}
+
+@media (max-width: 768px) {
+  .about-resume .header {
+    flex-direction: column;
+    text-align: center;
+    padding: 24px 16px;
+  }
+
+  .about-resume .header-photo {
+    margin: 0 0 16px;
+  }
+
+  .about-resume .main-content {
+    grid-template-columns: 1fr;
+  }
+
+  .about-resume .sidebar {
+    border-right: none;
+    border-bottom: 1px solid var(--ar-stone-gray);
+  }
+
+  .about-resume .certifications-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media print {
+  .about-resume .header-actions {
+    display: none !important;
+  }
+}

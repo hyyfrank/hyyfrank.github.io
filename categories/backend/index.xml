@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Backend on H&amp;W</title>
+    <link>https://yy-tech.online/categories/backend/</link>
+    <description>Recent content in Backend on H&amp;W</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 28 May 2026 00:53:02 +0800</lastBuildDate>
+    <atom:link href="https://yy-tech.online/categories/backend/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[GLP] Flask With MySQL (2)</title>
+      <link>https://yy-tech.online/post/flask-with-mysql-2/</link>
+      <pubDate>Fri, 06 Aug 2021 23:36:30 +0800</pubDate>
+      <guid>https://yy-tech.online/post/flask-with-mysql-2/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;A Flask starter scaffold — I had mostly written small Python scripts before, and this project was a chance to build a proper backend skeleton.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;1-jwt-token-flow&#34;&gt;1. JWT token flow&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Use &lt;strong&gt;short-lived access tokens&lt;/strong&gt; for better security.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;workflow&#34;&gt;Workflow&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Request &lt;strong&gt;access token + refresh token&lt;/strong&gt; (refresh token in a secure cookie: &lt;code&gt;HttpOnly&lt;/code&gt;, &lt;code&gt;Secure&lt;/code&gt;, &lt;code&gt;SameSite&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;Send requests with &lt;strong&gt;payload + access token&lt;/strong&gt;; keep the access token in memory (cleared on logout).&lt;/li&gt;
+&lt;li&gt;When the access token expires, use the refresh cookie to obtain a new access token.&lt;/li&gt;
+&lt;li&gt;Access tokens often live ~1 minute to limit window for MITM abuse.&lt;/li&gt;
+&lt;li&gt;Add a &lt;strong&gt;one-way hash&lt;/strong&gt; over parameters for integrity, ideally including request time.&lt;/li&gt;
+&lt;li&gt;Encrypt sensitive header fields with &lt;strong&gt;HMAC&lt;/strong&gt;; the backend uses HMAC when refreshing tokens.&lt;/li&gt;
+&lt;li&gt;JWTs can be stored in &lt;strong&gt;Redis&lt;/strong&gt; for revocation / allowlists; we aimed for a &lt;strong&gt;stateless&lt;/strong&gt; API for other systems to call, so we did not persist sessions server-side.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;implementation-notes&#34;&gt;Implementation notes&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Set-Cookie&lt;/code&gt; is set &lt;strong&gt;on the server&lt;/strong&gt;, not in client JS.&lt;/li&gt;
+&lt;li&gt;Cookies must use &lt;code&gt;HttpOnly&lt;/code&gt;, &lt;code&gt;Secure&lt;/code&gt;, and &lt;code&gt;SameSite&lt;/code&gt; or later requests may not send cookies correctly.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;security-trade-offs&#34;&gt;Security trade-offs&lt;/h3&gt;
+&lt;p&gt;This design improves security for the refresh cookie, but browser extensions can still read cookies in some cases. Going stateless is a deliberate compromise.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>[GLP] Flask With MySQL (1)</title>
+      <link>https://yy-tech.online/post/flask-with-mysql-1/</link>
+      <pubDate>Tue, 03 Aug 2021 20:36:30 +0800</pubDate>
+      <guid>https://yy-tech.online/post/flask-with-mysql-1/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;A Flask starter scaffold — I had mostly written small Python scripts before, and this project was a chance to build a proper backend skeleton.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;1-features-we-need&#34;&gt;1. Features we need&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;flask&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;blueprint&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;CORS&lt;/li&gt;
+&lt;li&gt;JSON responses&lt;/li&gt;
+&lt;li&gt;easy debugging&lt;/li&gt;
+&lt;li&gt;health check endpoint&lt;/li&gt;
+&lt;li&gt;logging&lt;/li&gt;
+&lt;li&gt;multiple environments&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;flake8&lt;/code&gt; for static analysis&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;yapf&lt;/code&gt; for formatting&lt;/li&gt;
+&lt;li&gt;JWT tokens&lt;/li&gt;
+&lt;li&gt;password hashing&lt;/li&gt;
+&lt;li&gt;MySQL&lt;/li&gt;
+&lt;li&gt;Sphinx docs&lt;/li&gt;
+&lt;li&gt;Postman collections&lt;/li&gt;
+&lt;li&gt;tests&lt;/li&gt;
+&lt;li&gt;XSS mitigation (ORM + escaping)&lt;/li&gt;
+&lt;li&gt;parameter integrity — SHA-1 (mitigate MITM tampering)&lt;/li&gt;
+&lt;li&gt;timestamp validation (replay / DoS-style attacks)&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Self-Signed on H&amp;W</title>
+    <link>https://yy-tech.online/zh/tags/self-signed/</link>
+    <description>Recent content in Self-Signed on H&amp;W</description>
+    <generator>Hugo</generator>
+    <language>zh-Hant</language>
+    <lastBuildDate>Thu, 28 May 2026 00:53:02 +0800</lastBuildDate>
+    <atom:link href="https://yy-tech.online/zh/tags/self-signed/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Autodesk] How to create https self-signed certificate</title>
+      <link>https://yy-tech.online/zh/post/https-self-signed-certificate/</link>
+      <pubDate>Tue, 07 Apr 2020 12:20:45 +0800</pubDate>
+      <guid>https://yy-tech.online/zh/post/https-self-signed-certificate/</guid>
+      <description>&lt;h2 id=&#34;动机&#34;&gt;动机&lt;/h2&gt;
+&lt;p&gt;公司内网想做一个小型的https，不想申请https证书，想自己做自验证的证书&lt;/p&gt;
+&lt;h2 id=&#34;关注点&#34;&gt;关注点&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;https的握手流程&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;img alt=&#34;react_redux&#34; loading=&#34;lazy&#34; src=&#34;https://yy-tech.online/images/ssl.png&#34;&gt;&lt;/li&gt;
+&lt;li&gt;浏览器尝试连接网站 &lt;a href=&#34;https://demowebsite.com&#34;&gt;https://demowebsite.com&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;demowebsite.com server 会把证书送回给浏览器。这个证书包含网站服务器的公钥，还有一些其他信息证明这个公钥属于网站&lt;/li&gt;
+&lt;li&gt;浏览器验证这个证书来确认他有正确的公钥&lt;/li&gt;
+&lt;li&gt;浏览器选择一个随机对称key K用来连接到服务器。客户端使用公钥加密K&lt;/li&gt;
+&lt;li&gt;服务端使用私钥解密K,这样客户端服务器都知道K,但是其他人不知道&lt;/li&gt;
+&lt;li&gt;接着任何从客户端发送到服务端的信息，都用K加密。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;自己做CA&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

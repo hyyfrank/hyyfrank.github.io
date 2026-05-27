@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Cache on H&amp;W</title>
+    <link>https://yy-tech.online/zh/tags/cache/</link>
+    <description>Recent content in Cache on H&amp;W</description>
+    <generator>Hugo</generator>
+    <language>zh-Hant</language>
+    <lastBuildDate>Thu, 28 May 2026 00:53:02 +0800</lastBuildDate>
+    <atom:link href="https://yy-tech.online/zh/tags/cache/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Autodesk] Play With bloomfilter</title>
+      <link>https://yy-tech.online/zh/post/play-with-bloomfilter/</link>
+      <pubDate>Fri, 07 Aug 2020 11:38:41 +0800</pubDate>
+      <guid>https://yy-tech.online/zh/post/play-with-bloomfilter/</guid>
+      <description>&lt;h1 id=&#34;bloomfilter概念&#34;&gt;BloomFilter概念&lt;/h1&gt;
+&lt;p&gt;布隆过滤器的原理是，当一个元素被加入集合时，通过K个散列函数将这个元素映射成一个位数组中的K个点，把它们置为1。检索时，我们只要看看这些点是不是都是1就（大约）知道集合中有没有它了：如果这些点有任何一个0，则被检元素一定不在；如果都是1，则被检元素很可能在。这就是布隆过滤器的基本思想。
+Bloom Filter跟单哈希函数Bit-Map不同之处在于：Bloom Filter使用了k个哈希函数，每个字符串跟k个bit对应。从而降低了冲突的概率。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

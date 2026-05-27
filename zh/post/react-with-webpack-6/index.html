@@ -1,0 +1,146 @@
+<!doctype html><html lang=zh dir=auto data-theme=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>React With Webpack(六) | H&amp;W</title><meta name=keywords content="webpack4,react18,babel,HMR,DevServer"><meta name=description content="
+这是一个webpack4的前端架构主题，主要涉及怎么从0到1构建前端脚手架
+如何把最新流行的技术整合在一起,涉及react,redux,webpack4相关技术
+也包含一些项目构建需要的东西，比如gitignore,code format，不同环境设置，
+热部署，调试环境等等问题"><meta name=author content="hyyfrank"><link rel=canonical href=https://yy-tech.online/zh/post/react-with-webpack-6/><link crossorigin=anonymous href=/assets/css/stylesheet.a89f2cc1ff4d9870ef1a5019f34e163ff928e2bb52e7d0d8f8a29c5f538a731d.css integrity="sha256-qJ8swf9NmHDvGlAZ804WP/ko4rtS59DY+KKcX1OKcx0=" rel="preload stylesheet" as=style><link rel=icon href=https://yy-tech.online/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://yy-tech.online/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://yy-tech.online/favicon-32x32.png><link rel=apple-touch-icon href=https://yy-tech.online/apple-touch-icon.png><link rel=mask-icon href=https://yy-tech.online/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://yy-tech.online/post/react-with-webpack-6/><link rel=alternate hreflang=zh href=https://yy-tech.online/zh/post/react-with-webpack-6/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"?document.querySelector("html").dataset.theme="dark":localStorage.getItem("pref-theme")==="light"?document.querySelector("html").dataset.theme="light":window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><style>zgotmplz{--post-bg-url:url("https://yy-tech.online/images/song15.jpg")}</style><style>.lang-menu{display:inline-flex;align-items:stretch;padding:0;border-radius:999px;border:1px solid rgba(145,136,120,.35);margin-left:10px;height:20px;overflow:hidden;background:0 0;min-height:30px}.lang-menu li{list-style:none;margin:0;display:flex}.lang-menu li.active-lang-item{background-color:rgb(10 235 91/14%)}html[data-theme=dark] .lang-menu li.active-lang-item{background-color:rgb(42 232 111/39%)}.lang-menu a{position:relative;z-index:1;display:inline-flex;align-items:center;justify-content:center;padding:0 10px;height:20px;border-radius:0;text-decoration:none;color:var(--secondary);font-size:12px;line-height:1;transition:background .2s ease}.lang-menu li+li a{border-left:1px solid rgba(145,136,120,.45)}.lang-menu a.active-lang{color:var(--primary);box-shadow:none}.lang-menu a:not(.active-lang):hover{background:rgba(212,206,194,.35)}</style><meta property="og:url" content="https://yy-tech.online/zh/post/react-with-webpack-6/"><meta property="og:site_name" content="H&W"><meta property="og:title" content="React With Webpack(六)"><meta property="og:description" content="这是一个webpack4的前端架构主题，主要涉及怎么从0到1构建前端脚手架 如何把最新流行的技术整合在一起,涉及react,redux,webpack4相关技术 也包含一些项目构建需要的东西，比如gitignore,code format，不同环境设置， 热部署，调试环境等等问题"><meta property="og:locale" content="zh_Hant"><meta property="og:type" content="article"><meta property="article:section" content="post"><meta property="article:published_time" content="2019-08-18T09:11:39+08:00"><meta property="article:modified_time" content="2026-05-28T00:53:02+08:00"><meta property="article:tag" content="Webpack4"><meta property="article:tag" content="React18"><meta property="article:tag" content="Babel"><meta property="article:tag" content="HMR"><meta property="article:tag" content="DevServer"><meta name=twitter:card content="summary"><meta name=twitter:title content="React With Webpack(六)"><meta name=twitter:description content="这是一个webpack4的前端架构主题，主要涉及怎么从0到1构建前端脚手架 如何把最新流行的技术整合在一起,涉及react,redux,webpack4相关技术 也包含一些项目构建需要的东西，比如gitignore,code format，不同环境设置， 热部署，调试环境等等问题"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"中文文章","item":"https://yy-tech.online/zh/post/"},{"@type":"ListItem","position":2,"name":"React With Webpack(六)","item":"https://yy-tech.online/zh/post/react-with-webpack-6/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"React With Webpack(六)","name":"React With Webpack(六)","description":" 这是一个webpack4的前端架构主题，主要涉及怎么从0到1构建前端脚手架 如何把最新流行的技术整合在一起,涉及react,redux,webpack4相关技术 也包含一些项目构建需要的东西，比如gitignore,code format，不同环境设置， 热部署，调试环境等等问题\n","keywords":["webpack4","react18","babel","HMR","DevServer"],"articleBody":" 这是一个webpack4的前端架构主题，主要涉及怎么从0到1构建前端脚手架 如何把最新流行的技术整合在一起,涉及react,redux,webpack4相关技术 也包含一些项目构建需要的东西，比如gitignore,code format，不同环境设置， 热部署，调试环境等等问题\nwebpack4 图片，字体 代码 https://github.com/hyyfrank/webpack4 branch: feature/lesson7\n准备 我们需要做什么\n支持 jpeg, jpg,gif,png 等文件格式\n图片处理成雪碧图\n压缩图片\n字体如何下载和处理\n需要什么 loader 和 plugin\nloader:\nfile-loader:可以解析文件中的 import/require()，转成 url，把文件打到 output 目录中\nurl-loader: 类似 file-loader,但是在文件大小（单位 byte）低于指定的限制时，可以返回一个 DataURL\nimg-loader:图片最小化的 loader,它有个依赖叫 imagemin，一般会和上面两个 loader 一起做图片的压缩\nsvg-url-loader:svg 文件是 xml 字符串，使用 base-64 不是必须的，使用 utf-8 编码比 base64 有一些好处，比如编码后短一点，使用 gzip 压缩的时候效果好点，浏览器解析 utf-8 比 base64 快\n第一步：先增加对图片的处理 1 2 3 4 5 6 7 8 9 10 11 12 13 14 { test: /\\.(jpe?g|png|gif)$/i, use:[ { loader: \"url-loader\", options:{ name: \"[name]-[hash:5].min.[ext]\", limit: 10000, // size \u003c= 20KB publicPath: \"images/\", outputPath: \"images/\" } }, ] } 第二步：处理图片压缩 这边对每一种格式都有一个 plugin，这些 plugin 都要 npm install 一下，然后具体的配置选项可以 github 上搜到，有图片优化需求的，要详细看一下各个选项\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 { test: /\\.(jpe?g|png|gif)$/i, use:[ { loader: \"url-loader\", options:{ name: \"[name]-[hash:5].min.[ext]\", limit: 10000, // size \u003c= 20KB publicPath: \"images/\", outputPath: \"images/\" } }, ] } 可以执行 npm run dev 查看之前图片的大小和压缩后的大小，发现确实变小了\n第三步：生成雪碧图 1 2 3 4 5 6 7 8 9 10 11 12 { loader:'postcss-loader', options: { sourceMap: true, config: { path: __dirname + '/postcss.config.js' }, plugins: [require(\"postcss-sprites\")({ spritePath: \"./dist/images\" })] }, }, 这里的 plugin 是为了生成雪碧图，效果如下： 第四步： 字体处理 去 google font 下载个字体，如果翻不了墙，可以自己其他地方下一个，然后用在线字体转换器转换下，然后就能转出 ttf|otf|eot|woff 各种格式，这样本地就有字体文件了，然后解析的话，使用下面这个代码就可以 1 2 3 4 5 6 7 8 9 10 11 12 13 { test: /.(ttf|otf|eot|svg|woff(2)?)(\\?[a-z0-9]+)?$/, exclude: /images/, /* dont want svg images from image folder to be included */ use: [ { loader: 'file-loader', options: { outputPath: 'fonts/', name: '[name][hash].[ext]', }, }, ], } 做完这个，就可以在 css 中包含自己的字体，自己可以命名下\n1 2 3 4 @font-face { font-family: \"frankfont\"; src: url(\"../fonts/RobotoCondensed-Regular.woff2\") format(\"woff2\"), url(\"../fonts/RobotoCondensed-Regular.woff\") format(\"woff\"); } 然后我们看一下使用的情况：\n1 2 3 4 5 6 7 8 .hello { font-family: frankfont Monaco Arial, Verdana, Tahoma, sans-serif; font-size: 20px; width: 300px; font-weight: bold; color: var(--color-black); background: rgba(153, 221, 153, 0.8); } 具体的效果：\n可以看到 hello css module 这句话，已经使用我们自己的字体了，图片压缩的效果和雪碧图生成效果如下：\n最后 OK，好了，大概该做的都做完了，这基本任务算是都能处理了，其实还有好多东西要做，有空会多写一些。\n","wordCount":"982","inLanguage":"zh","datePublished":"2019-08-18T09:11:39+08:00","dateModified":"2026-05-28T00:53:02+08:00","author":{"@type":"Person","name":"hyyfrank"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://yy-tech.online/zh/post/react-with-webpack-6/"},"publisher":{"@type":"Organization","name":"H\u0026W","logo":{"@type":"ImageObject","url":"https://yy-tech.online/favicon.ico"}}}</script></head><body class=post-pages id=top><header class=header><nav class=header-nav><div class=logo><a href=https://yy-tech.online/ accesskey=h title="H&amp;W (Alt + H)">H&amp;W</a><div class=logo-switches><button id=theme-toggle class=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
+<svg class="moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg class="sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button><span class=nav-sep>|</span><ul class=lang-menu><li><a href=https://yy-tech.online/ title=English aria-label=English>En</a></li></ul></div></div><ul id=menu class=menu><li><a href=https://yy-tech.online/zh/post/ title=技術><span>技術</span></a></li><li><a href=https://yy-tech.online/zh/categories/ title=分類><span>分類</span></a></li><li><a href=https://yy-tech.online/zh/about/ title=關於><span>關於</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><h1 class="post-title entry-hint-parent">React With Webpack(六)</h1><div class=post-meta><span title='2019-08-18 09:11:39 +0800 HKT'>2019年8月18日</span>&nbsp;·&nbsp;<span>hyyfrank</span>&nbsp;|&nbsp;<span>语言:</span><ul class=i18n_list><li><a href=https://yy-tech.online/post/react-with-webpack-6/>En</a></li></ul></div></header><div class="post-content md-content"><blockquote><p>这是一个webpack4的前端架构主题，主要涉及怎么从0到1构建前端脚手架
+如何把最新流行的技术整合在一起,涉及react,redux,webpack4相关技术
+也包含一些项目构建需要的东西，比如gitignore,code format，不同环境设置，
+热部署，调试环境等等问题</p></blockquote><h1 id=webpack4-图片字体>webpack4 图片，字体<a hidden class=anchor aria-hidden=true href=#webpack4-图片字体>#</a></h1><h2 id=代码>代码<a hidden class=anchor aria-hidden=true href=#代码>#</a></h2><p><a href=https://github.com/hyyfrank/webpack4>https://github.com/hyyfrank/webpack4</a> branch: feature/lesson7</p><h2 id=准备>准备<a hidden class=anchor aria-hidden=true href=#准备>#</a></h2><ul><li><p>我们需要做什么</p><ul><li><p>支持 jpeg, jpg,gif,png 等文件格式</p></li><li><p>图片处理成雪碧图</p></li><li><p>压缩图片</p></li><li><p>字体如何下载和处理</p></li></ul></li><li><p>需要什么 loader 和 plugin</p><ul><li><p><strong>loader</strong>:</p><ul><li><p>file-loader:可以解析文件中的 import<code>/</code>require()，转成 url，把文件打到 output 目录中</p></li><li><p>url-loader: 类似 file-loader,但是在文件大小（单位 byte）低于指定的限制时，可以返回一个 DataURL</p></li><li><p>img-loader:图片最小化的 loader,它有个依赖叫 imagemin，一般会和上面两个 loader 一起做图片的压缩</p></li><li><p>svg-url-loader:svg 文件是 xml 字符串，使用 base-64 不是必须的，使用 utf-8 编码比 base64 有一些好处，比如编码后短一点，使用 gzip 压缩的时候效果好点，浏览器解析 utf-8 比 base64 快</p></li></ul></li></ul></li></ul><h2 id=第一步先增加对图片的处理><strong>第一步</strong>：先增加对图片的处理<a hidden class=anchor aria-hidden=true href=#第一步先增加对图片的处理>#</a></h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>test</span><span class=o>:</span> <span class=sr>/\.(jpe?g|png|gif)$/i</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nx>use</span><span class=o>:</span><span class=p>[</span>
+</span></span><span class=line><span class=cl>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nx>loader</span><span class=o>:</span> <span class=s2>&#34;url-loader&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nx>options</span><span class=o>:</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=nx>name</span><span class=o>:</span> <span class=s2>&#34;[name]-[hash:5].min.[ext]&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=nx>limit</span><span class=o>:</span> <span class=mi>10000</span><span class=p>,</span> <span class=c1>// size &lt;= 20KB
+</span></span></span><span class=line><span class=cl>                <span class=nx>publicPath</span><span class=o>:</span> <span class=s2>&#34;images/&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=nx>outputPath</span><span class=o>:</span> <span class=s2>&#34;images/&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=第二步处理图片压缩><strong>第二步</strong>：处理图片压缩<a hidden class=anchor aria-hidden=true href=#第二步处理图片压缩>#</a></h2><p>这边对每一种格式都有一个 plugin，这些 plugin 都要 npm install 一下，然后具体的配置选项可以 github 上搜到，有图片优化需求的，要详细看一下各个选项</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>test</span><span class=o>:</span> <span class=sr>/\.(jpe?g|png|gif)$/i</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nx>use</span><span class=o>:</span><span class=p>[</span>
+</span></span><span class=line><span class=cl>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nx>loader</span><span class=o>:</span> <span class=s2>&#34;url-loader&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nx>options</span><span class=o>:</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=nx>name</span><span class=o>:</span> <span class=s2>&#34;[name]-[hash:5].min.[ext]&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=nx>limit</span><span class=o>:</span> <span class=mi>10000</span><span class=p>,</span> <span class=c1>// size &lt;= 20KB
+</span></span></span><span class=line><span class=cl>                <span class=nx>publicPath</span><span class=o>:</span> <span class=s2>&#34;images/&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=nx>outputPath</span><span class=o>:</span> <span class=s2>&#34;images/&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>可以执行 npm run dev 查看之前图片的大小和压缩后的大小，发现确实变小了</p><h2 id=第三步生成雪碧图><strong>第三步</strong>：生成雪碧图<a hidden class=anchor aria-hidden=true href=#第三步生成雪碧图>#</a></h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>loader</span><span class=o>:</span><span class=s1>&#39;postcss-loader&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nx>options</span><span class=o>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>sourceMap</span><span class=o>:</span> <span class=kc>true</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nx>config</span><span class=o>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nx>path</span><span class=o>:</span> <span class=nx>__dirname</span> <span class=o>+</span> <span class=s1>&#39;/postcss.config.js&#39;</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=nx>plugins</span><span class=o>:</span> <span class=p>[</span><span class=nx>require</span><span class=p>(</span><span class=s2>&#34;postcss-sprites&#34;</span><span class=p>)({</span>
+</span></span><span class=line><span class=cl>            <span class=nx>spritePath</span><span class=o>:</span> <span class=s2>&#34;./dist/images&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>})]</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl><span class=p>},</span>
+</span></span></code></pre></td></tr></table></div></div><p>这里的 plugin 是为了生成雪碧图，效果如下：
+<img alt="Screen Shot 2019-03-15 at 11.23.08 PM.png" loading=lazy src=https://upload-images.jianshu.io/upload_images/11577190-8efb3bbde7750c20.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240></p><h2 id=第四步-字体处理><strong>第四步</strong>： 字体处理<a hidden class=anchor aria-hidden=true href=#第四步-字体处理>#</a></h2><ol><li>去 google font 下载个字体，如果翻不了墙，可以自己其他地方下一个，然后用在线字体转换器转换下，然后就能转出 ttf|otf|eot|woff 各种格式，这样本地就有字体文件了，然后解析的话，使用下面这个代码就可以</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>test</span><span class=o>:</span> <span class=sr>/.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nx>exclude</span><span class=o>:</span> <span class=sr>/images/</span><span class=p>,</span>  <span class=cm>/* dont want svg images from image folder to be included */</span>
+</span></span><span class=line><span class=cl>    <span class=nx>use</span><span class=o>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nx>loader</span><span class=o>:</span> <span class=s1>&#39;file-loader&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nx>options</span><span class=o>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=nx>outputPath</span><span class=o>:</span> <span class=s1>&#39;fonts/&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=nx>name</span><span class=o>:</span> <span class=s1>&#39;[name][hash].[ext]&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=p>],</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>做完这个，就可以在 css 中包含自己的字体，自己可以命名下</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=err>@</span><span class=nx>font</span><span class=o>-</span><span class=nx>face</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nx>font</span><span class=o>-</span><span class=nx>family</span><span class=o>:</span> <span class=s2>&#34;frankfont&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=nx>src</span><span class=o>:</span> <span class=nx>url</span><span class=p>(</span><span class=s2>&#34;../fonts/RobotoCondensed-Regular.woff2&#34;</span><span class=p>)</span> <span class=nx>format</span><span class=p>(</span><span class=s2>&#34;woff2&#34;</span><span class=p>),</span>      		<span class=nx>url</span><span class=p>(</span><span class=s2>&#34;../fonts/RobotoCondensed-Regular.woff&#34;</span><span class=p>)</span> <span class=nx>format</span><span class=p>(</span><span class=s2>&#34;woff&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>然后我们看一下使用的情况：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl>    <span class=p>.</span><span class=nx>hello</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>     <span class=nx>font</span><span class=o>-</span><span class=nx>family</span><span class=o>:</span> <span class=nx>frankfont</span> <span class=nx>Monaco</span> <span class=nx>Arial</span><span class=p>,</span> <span class=nx>Verdana</span><span class=p>,</span> <span class=nx>Tahoma</span><span class=p>,</span> <span class=nx>sans</span><span class=o>-</span><span class=nx>serif</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>     <span class=nx>font</span><span class=o>-</span><span class=nx>size</span><span class=o>:</span> <span class=mi>20</span><span class=nx>px</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>     <span class=nx>width</span><span class=o>:</span> <span class=mi>300</span><span class=nx>px</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>     <span class=nx>font</span><span class=o>-</span><span class=nx>weight</span><span class=o>:</span> <span class=nx>bold</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>     <span class=nx>color</span><span class=o>:</span> <span class=kd>var</span><span class=p>(</span><span class=o>--</span><span class=nx>color</span><span class=o>-</span><span class=nx>black</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>     <span class=nx>background</span><span class=o>:</span> <span class=nx>rgba</span><span class=p>(</span><span class=mi>153</span><span class=p>,</span> <span class=mi>221</span><span class=p>,</span> <span class=mi>153</span><span class=p>,</span> <span class=mf>0.8</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>具体的效果：</p><p>可以看到 hello css module 这句话，已经使用我们自己的字体了，图片压缩的效果和雪碧图生成效果如下：</p><p><img alt="Screen Shot 2019-03-15 at 11.20.55 PM.png" loading=lazy src=https://upload-images.jianshu.io/upload_images/11577190-2f6d868cf74258f8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240></p><h2 id=最后>最后<a hidden class=anchor aria-hidden=true href=#最后>#</a></h2><p>OK，好了，大概该做的都做完了，这基本任务算是都能处理了，其实还有好多东西要做，有空会多写一些。</p></div><footer class=post-footer><ul class=post-tags><li><a href=https://yy-tech.online/zh/tags/webpack4/>Webpack4</a></li><li><a href=https://yy-tech.online/zh/tags/react18/>React18</a></li><li><a href=https://yy-tech.online/zh/tags/babel/>Babel</a></li><li><a href=https://yy-tech.online/zh/tags/hmr/>HMR</a></li><li><a href=https://yy-tech.online/zh/tags/devserver/>DevServer</a></li></ul></footer></article></main><footer class=footer><span>&copy; 2026 <a href=https://yy-tech.online/zh/>H&amp;W</a></span> ·
+<span>Powered by
+<a href="https://gohugo.io/?utm_source=papermod" rel=noopener target=_blank>Hugo</a> &
+<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top id=top-link class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey=g><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up"><polyline points="17 11 12 6 7 11"/><polyline points="17 18 12 13 7 18"/></svg>
+</a><script src=https://yy-tech.online/js/lang-pill.js defer></script><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var toplink=document.getElementById("top-link");window.onscroll=function(){const e=window.innerHeight;document.body.scrollTop>e||document.documentElement.scrollTop>e?toplink.classList.remove("hidden"):toplink.classList.add("hidden")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{const e=document.querySelector("html");e.dataset.theme==="dark"?(e.dataset.theme="light",localStorage.setItem("pref-theme","light")):(e.dataset.theme="dark",localStorage.setItem("pref-theme","dark"))})</script></body></html>

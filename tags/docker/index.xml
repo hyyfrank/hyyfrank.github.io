@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Docker on H&amp;W</title>
+    <link>https://yy-tech.online/tags/docker/</link>
+    <description>Recent content in Docker on H&amp;W</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 28 May 2026 00:53:02 +0800</lastBuildDate>
+    <atom:link href="https://yy-tech.online/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Docker] Container Internals</title>
+      <link>https://yy-tech.online/post/docker-container-study/</link>
+      <pubDate>Mon, 02 Sep 2019 23:03:48 +0800</pubDate>
+      <guid>https://yy-tech.online/post/docker-container-study/</guid>
+      <description>&lt;h2 id=&#34;slides&#34;&gt;Slides&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://yy-tech.online/images/tom.key&#34;&gt;&lt;strong&gt;Team sharing deck&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;container-building-blocks&#34;&gt;Container building blocks&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;namespace&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Linux &lt;strong&gt;control groups&lt;/strong&gt; (cgroups)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;UnionFS&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;veth&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;what-a-container-should-provide&#34;&gt;What a container should provide&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Filesystem isolation&lt;/strong&gt; — e.g. &lt;code&gt;chroot&lt;/code&gt; to change the root mount&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Network isolation&lt;/strong&gt; — for distributed apps: own IP, ports, routes; &lt;strong&gt;veth&lt;/strong&gt; pairs so each container has its own netdev, IP, routing table, &lt;code&gt;/proc/net&lt;/code&gt;, ports. Multiple containers on one host can each bind port 80 inside their own network namespace&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hostname&lt;/strong&gt; — UTS namespace for identity on the network&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;IPC&lt;/strong&gt; — separate System V IPC and POSIX message queues; only processes in the same IPC namespace can talk to each other&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;User IDs&lt;/strong&gt; — in a user namespace, UID/GID can differ from the host; an unprivileged host user can be “root” inside the container&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;main-pieces&#34;&gt;Main pieces&lt;/h3&gt;
+&lt;table&gt;
+	&lt;thead&gt;
+			&lt;tr&gt;
+					&lt;th&gt;Piece&lt;/th&gt;
+					&lt;th&gt;Details&lt;/th&gt;
+			&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+			&lt;tr&gt;
+					&lt;td&gt;&lt;strong&gt;namespace&lt;/strong&gt;&lt;/td&gt;
+					&lt;td&gt;UTS, IPC, PID, NETWORK, MOUNT, USER&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;&lt;strong&gt;cgroup&lt;/strong&gt;&lt;/td&gt;
+					&lt;td&gt;CPU, memory, blkio, devices, …&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;&lt;strong&gt;UnionFS&lt;/strong&gt;&lt;/td&gt;
+					&lt;td&gt;aufs (Ubuntu), btrfs (SUSE), vfs, devicemapper (CentOS), &lt;strong&gt;overlay2&lt;/strong&gt; (CentOS/Ubuntu)&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;&lt;strong&gt;veth&lt;/strong&gt;&lt;/td&gt;
+					&lt;td&gt;Docker network modes: bridge, host, container, none&lt;/td&gt;
+			&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;how-containers-are-implemented&#34;&gt;How containers are implemented&lt;/h3&gt;
+&lt;p&gt;A container is essentially a &lt;strong&gt;special process&lt;/strong&gt; created with &lt;code&gt;clone(2)&lt;/code&gt;:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

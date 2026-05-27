@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tags on H&amp;W</title>
+    <link>https://yy-tech.online/tags/</link>
+    <description>Recent content in Tags on H&amp;W</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 28 May 2026 00:53:02 +0800</lastBuildDate>
+    <atom:link href="https://yy-tech.online/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Algorithm</title>
+      <link>https://yy-tech.online/tags/algorithm/</link>
+      <pubDate>Wed, 27 May 2026 22:40:00 +0800</pubDate>
+      <guid>https://yy-tech.online/tags/algorithm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Bit</title>
+      <link>https://yy-tech.online/tags/bit/</link>
+      <pubDate>Wed, 27 May 2026 22:40:00 +0800</pubDate>
+      <guid>https://yy-tech.online/tags/bit/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Bit-Hacks</title>
+      <link>https://yy-tech.online/tags/bit-hacks/</link>
+      <pubDate>Wed, 27 May 2026 22:40:00 +0800</pubDate>
+      <guid>https://yy-tech.online/tags/bit-hacks/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cpp</title>
+      <link>https://yy-tech.online/tags/cpp/</link>
+      <pubDate>Wed, 27 May 2026 22:40:00 +0800</pubDate>
+      <guid>https://yy-tech.online/tags/cpp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Template</title>
+      <link>https://yy-tech.online/tags/template/</link>
+      <pubDate>Wed, 27 May 2026 22:02:00 +0800</pubDate>
+      <guid>https://yy-tech.online/tags/template/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Javascript</title>
+      <link>https://yy-tech.online/tags/javascript/</link>
+      <pubDate>Thu, 11 Aug 2022 11:53:41 +0800</pubDate>
+      <guid>https://yy-tech.online/tags/javascript/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Flask</title>
+      <link>https://yy-tech.online/tags/flask/</link>
+      <pubDate>Fri, 06 Aug 2021 23:36:30 +0800</pubDate>
+      <guid>https://yy-tech.online/tags/flask/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mysql</title>
+      <link>https://yy-tech.online/tags/mysql/</link>
+      <pubDate>Fri, 06 Aug 2021 23:36:30 +0800</pubDate>
+      <guid>https://yy-tech.online/tags/mysql/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Python</title>
+      <link>https://yy-tech.online/tags/python/</link>
+      <pubDate>Fri, 06 Aug 2021 23:36:30 +0800</pubDate>
+      <guid>https://yy-tech.online/tags/python/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Bigdata</title>
+      <link>https://yy-tech.online/tags/bigdata/</link>
+      <pubDate>Fri, 07 Aug 2020 11:38:41 +0800</pubDate>
+      <guid>https://yy-tech.online/tags/bigdata/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Bloomfilter</title>
+      <link>https://yy-tech.online/tags/bloomfilter/</link>
+      <pubDate>Fri, 07 Aug 2020 11:38:41 +0800</pubDate>
+      <guid>https://yy-tech.online/tags/bloomfilter/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cache</title>
+      <link>https://yy-tech.online/tags/cache/</link>
+      <pubDate>Fri, 07 Aug 2020 11:38:41 +0800</pubDate>
+      <guid>https://yy-tech.online/tags/cache/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Shell</title>
+      <link>https://yy-tech.online/tags/shell/</link>
+      <pubDate>Sun, 07 Jun 2020 11:33:39 +0800</pubDate>
+      <guid>https://yy-tech.online/tags/shell/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>CA</title>
+      <link>https://yy-tech.online/tags/ca/</link>
+      <pubDate>Tue, 07 Apr 2020 12:20:45 +0800</pubDate>
+      <guid>https://yy-tech.online/tags/ca/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Https</title>
+      <link>https://yy-tech.online/tags/https/</link>
+      <pubDate>Tue, 07 Apr 2020 12:20:45 +0800</pubDate>
+      <guid>https://yy-tech.online/tags/https/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Self-Signed</title>
+      <link>https://yy-tech.online/tags/self-signed/</link>
+      <pubDate>Tue, 07 Apr 2020 12:20:45 +0800</pubDate>
+      <guid>https://yy-tech.online/tags/self-signed/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Emscripten</title>
+      <link>https://yy-tech.online/tags/emscripten/</link>
+      <pubDate>Sat, 25 Jan 2020 11:53:41 +0800</pubDate>
+      <guid>https://yy-tech.online/tags/emscripten/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Service_worker</title>
+      <link>https://yy-tech.online/tags/service_worker/</link>
+      <pubDate>Sat, 25 Jan 2020 11:53:41 +0800</pubDate>
+      <guid>https://yy-tech.online/tags/service_worker/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Web_worker</title>
+      <link>https://yy-tech.online/tags/web_worker/</link>
+      <pubDate>Sat, 25 Jan 2020 11:53:41 +0800</pubDate>
+      <guid>https://yy-tech.online/tags/web_worker/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Webassembly</title>
+      <link>https://yy-tech.online/tags/webassembly/</link>
+      <pubDate>Sat, 25 Jan 2020 11:53:41 +0800</pubDate>
+      <guid>https://yy-tech.online/tags/webassembly/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Clone</title>
+      <link>https://yy-tech.online/tags/clone/</link>
+      <pubDate>Mon, 02 Sep 2019 23:03:48 +0800</pubDate>
+      <guid>https://yy-tech.online/tags/clone/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Container</title>
+      <link>https://yy-tech.online/tags/container/</link>
+      <pubDate>Mon, 02 Sep 2019 23:03:48 +0800</pubDate>
+      <guid>https://yy-tech.online/tags/container/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Docker</title>
+      <link>https://yy-tech.online/tags/docker/</link>
+      <pubDate>Mon, 02 Sep 2019 23:03:48 +0800</pubDate>
+      <guid>https://yy-tech.online/tags/docker/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>UnionFS</title>
+      <link>https://yy-tech.online/tags/unionfs/</link>
+      <pubDate>Mon, 02 Sep 2019 23:03:48 +0800</pubDate>
+      <guid>https://yy-tech.online/tags/unionfs/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Veth</title>
+      <link>https://yy-tech.online/tags/veth/</link>
+      <pubDate>Mon, 02 Sep 2019 23:03:48 +0800</pubDate>
+      <guid>https://yy-tech.online/tags/veth/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Babel</title>
+      <link>https://yy-tech.online/tags/babel/</link>
+      <pubDate>Wed, 21 Aug 2019 20:11:44 +0800</pubDate>
+      <guid>https://yy-tech.online/tags/babel/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>DevServer</title>
+      <link>https://yy-tech.online/tags/devserver/</link>
+      <pubDate>Wed, 21 Aug 2019 20:11:44 +0800</pubDate>
+      <guid>https://yy-tech.online/tags/devserver/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>HMR</title>
+      <link>https://yy-tech.online/tags/hmr/</link>
+      <pubDate>Wed, 21 Aug 2019 20:11:44 +0800</pubDate>
+      <guid>https://yy-tech.online/tags/hmr/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>React18</title>
+      <link>https://yy-tech.online/tags/react18/</link>
+      <pubDate>Wed, 21 Aug 2019 20:11:44 +0800</pubDate>
+      <guid>https://yy-tech.online/tags/react18/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Webpack4</title>
+      <link>https://yy-tech.online/tags/webpack4/</link>
+      <pubDate>Wed, 21 Aug 2019 20:11:44 +0800</pubDate>
+      <guid>https://yy-tech.online/tags/webpack4/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>DevOps</title>
+      <link>https://yy-tech.online/tags/devops/</link>
+      <pubDate>Sat, 07 Jan 2017 12:33:21 +0800</pubDate>
+      <guid>https://yy-tech.online/tags/devops/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Web_worker on H&amp;W</title>
+    <link>https://yy-tech.online/tags/web_worker/</link>
+    <description>Recent content in Web_worker on H&amp;W</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 28 May 2026 00:53:02 +0800</lastBuildDate>
+    <atom:link href="https://yy-tech.online/tags/web_worker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Autodesk] How Autodesk Uses WebAssembly</title>
+      <link>https://yy-tech.online/post/webassembly-autodesk/</link>
+      <pubDate>Sat, 25 Jan 2020 11:53:41 +0800</pubDate>
+      <guid>https://yy-tech.online/post/webassembly-autodesk/</guid>
+      <description>&lt;h2 id=&#34;what-is-webassembly&#34;&gt;What Is WebAssembly?&lt;/h2&gt;
+&lt;p&gt;WebAssembly (Wasm) is a portable, compact, fast-loading binary format for the web. C, C++, Rust, Go, Java, C#, and other toolchains can compile to Wasm and ship it to the browser to complement JavaScript. Real-world uses include large games, Google Earth, Magnum, Blazor, and &lt;strong&gt;AutoCAD on the web&lt;/strong&gt; — this post focuses on our AutoCAD case.&lt;/p&gt;
+&lt;h2 id=&#34;why-webassembly&#34;&gt;Why WebAssembly?&lt;/h2&gt;
+&lt;p&gt;Mainly &lt;strong&gt;performance&lt;/strong&gt;. JavaScript struggles with heavy CPU/memory work, drawing, and high concurrency. The platform has added pieces like &lt;code&gt;SharedArrayBuffer&lt;/code&gt;, but limits remain. We used Emscripten and asm.js, later &lt;strong&gt;Binaryen&lt;/strong&gt;, for roughly &lt;strong&gt;12–15%&lt;/strong&gt; overall speedup.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

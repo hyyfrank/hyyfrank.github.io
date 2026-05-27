@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Categories on H&amp;W</title>
+    <link>https://yy-tech.online/zh/categories/</link>
+    <description>Recent content in Categories on H&amp;W</description>
+    <generator>Hugo</generator>
+    <language>zh-Hant</language>
+    <lastBuildDate>Thu, 28 May 2026 00:53:02 +0800</lastBuildDate>
+    <atom:link href="https://yy-tech.online/zh/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Algorithm</title>
+      <link>https://yy-tech.online/zh/categories/algorithm/</link>
+      <pubDate>Wed, 27 May 2026 22:15:00 +0800</pubDate>
+      <guid>https://yy-tech.online/zh/categories/algorithm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Frontend</title>
+      <link>https://yy-tech.online/zh/categories/frontend/</link>
+      <pubDate>Thu, 11 Aug 2022 11:53:41 +0800</pubDate>
+      <guid>https://yy-tech.online/zh/categories/frontend/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Backend</title>
+      <link>https://yy-tech.online/zh/categories/backend/</link>
+      <pubDate>Fri, 06 Aug 2021 23:36:30 +0800</pubDate>
+      <guid>https://yy-tech.online/zh/categories/backend/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Technology</title>
+      <link>https://yy-tech.online/zh/categories/technology/</link>
+      <pubDate>Fri, 07 Aug 2020 11:38:41 +0800</pubDate>
+      <guid>https://yy-tech.online/zh/categories/technology/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Shell</title>
+      <link>https://yy-tech.online/zh/categories/shell/</link>
+      <pubDate>Sun, 07 Jun 2020 11:33:39 +0800</pubDate>
+      <guid>https://yy-tech.online/zh/categories/shell/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>DevOps</title>
+      <link>https://yy-tech.online/zh/categories/devops/</link>
+      <pubDate>Tue, 07 Apr 2020 12:20:45 +0800</pubDate>
+      <guid>https://yy-tech.online/zh/categories/devops/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Docker</title>
+      <link>https://yy-tech.online/zh/categories/docker/</link>
+      <pubDate>Mon, 02 Sep 2019 23:03:48 +0800</pubDate>
+      <guid>https://yy-tech.online/zh/categories/docker/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Linux</title>
+      <link>https://yy-tech.online/zh/categories/linux/</link>
+      <pubDate>Mon, 07 Aug 2017 12:33:21 +0800</pubDate>
+      <guid>https://yy-tech.online/zh/categories/linux/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
