@@ -2,7 +2,7 @@
 title: "Play With Redis (一)"
 date: 2017-05-07T12:33:21+08:00
 lastmod: 2017-09-07T19:33:29+08:00
-draft: false
+draft: true
 tags: ["redis"]
 categories: ["Redis"]
 ---

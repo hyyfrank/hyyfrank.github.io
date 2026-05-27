@@ -1,0 +1,14 @@
+{{- /* Static site: one background per article (picked at build time from song*.jpg) */ -}}
+{{- $mainSections := site.Params.mainSections | default (slice "post") -}}
+{{- if and (eq .Kind "page") (in $mainSections .Section) -}}
+  {{- $bgs := sort (resources.Match "images/song*.jpg") "Name" -}}
+  {{- if $bgs -}}
+    {{- $idx := mod (hash.FNV32a .RelPermalink) (len $bgs) -}}
+    {{- $bg := index $bgs $idx -}}
+    <style>
+      body.post-pages:not(.list) {
+        --post-bg-url: url("{{ $bg.RelPermalink | absURL }}");
+      }
+    </style>
+  {{- end -}}
+{{- end -}}

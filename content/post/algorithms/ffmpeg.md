@@ -2,7 +2,7 @@
 title: "FFMPEG"
 date: 2022-03-04T10:36:30+08:00
 lastmod: 2022-03-04T13:36:30+08:00
-draft: false
+draft: true
 tags: ["ffmpeg"]
 categories: [ "ffmpeg" ]
 ---

@@ -2,7 +2,7 @@
 title: "Play With Git (二)"
 date: 2017-02-07T12:33:21+08:00
 lastmod: 2017-08-07T19:33:29+08:00
-draft: false
+draft: true
 tags: ["git"]
 categories: ["git"]
 ---

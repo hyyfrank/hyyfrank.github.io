@@ -2,7 +2,7 @@
 title: "Flask With Mysql(一)"
 date: 2021-08-03T20:36:30+08:00
 lastmod: 2021-08-03T20:36:30+08:00
-draft: false
+draft: true
 tags: ["python","flask","mysql"]
 categories: [ "backend" ]
 ---

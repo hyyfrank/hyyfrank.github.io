@@ -1,0 +1,227 @@
+/* 宋风文章页排版 — 衬线正文 + 墨色体系，配 song 背景图 */
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap");
+
+body.post-pages:not(.list) {
+  /* 字体 */
+  --song-font-body: "Noto Serif SC", "Songti SC", "STSong", "SimSun", Georgia,
+    "Times New Roman", serif;
+  --song-font-ui: -apple-system, BlinkMacSystemFont, "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+
+  /* 墨色（暖褐底图上的「墨写绢本」） */
+  --song-ink: #1f1a15;
+  --song-heading: #2a221c;
+  --song-body: #3d342c;
+  --song-meta: #75665a;
+  --song-link: #2f5066;
+  --song-link-hover: #9a3b2e;
+  --song-accent: #6b5744;
+
+  font-family: var(--song-font-body);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.85;
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "kern" 1, "liga" 1;
+}
+
+/* 导航 / 页脚：无衬线，小字，不抢正文 */
+body.post-pages:not(.list) .header,
+body.post-pages:not(.list) .footer {
+  font-family: var(--song-font-ui);
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+}
+
+body.post-pages:not(.list) .logo a {
+  font-family: var(--brand-font, cursive);
+  letter-spacing: 0.03em;
+}
+
+/* 标题区 */
+body.post-pages:not(.list) .post-title {
+  font-family: var(--song-font-body);
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.38;
+  letter-spacing: 0.04em;
+  color: var(--song-heading);
+}
+
+body.post-pages:not(.list) .post-description {
+  font-size: 1.05rem;
+  font-weight: 400;
+  line-height: 1.72;
+  letter-spacing: 0.015em;
+  color: var(--song-meta);
+}
+
+body.post-pages:not(.list) .post-meta,
+body.post-pages:not(.list) .breadcrumbs {
+  font-family: var(--song-font-ui);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.55;
+  letter-spacing: 0.02em;
+  color: var(--song-meta);
+}
+
+body.post-pages:not(.list) .breadcrumbs a {
+  font-weight: 500;
+}
+
+/* 正文 */
+body.post-pages:not(.list) .post-content {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.88;
+  letter-spacing: 0.012em;
+  color: var(--song-body);
+}
+
+body.post-pages:not(.list) .post-content p,
+body.post-pages:not(.list) .post-content li {
+  margin-block: 0.85em 1.05em;
+}
+
+body.post-pages:not(.list) .post-content h1 {
+  font-size: 1.72rem;
+  font-weight: 600;
+  line-height: 1.42;
+  letter-spacing: 0.03em;
+  margin: 1.6em 0 0.75em;
+  color: var(--song-link-hover);
+}
+
+body.post-pages:not(.list) .post-content h2 {
+  font-size: 1.42rem;
+  font-weight: 600;
+  line-height: 1.45;
+  letter-spacing: 0.028em;
+  margin: 1.5em 0 0.65em;
+  color: var(--song-heading);
+}
+
+body.post-pages:not(.list) .post-content h3 {
+  font-size: 1.22rem;
+  font-weight: 500;
+  line-height: 1.48;
+  letter-spacing: 0.025em;
+  margin: 1.35em 0 0.55em;
+  color: var(--song-heading);
+}
+
+body.post-pages:not(.list) .post-content h4,
+body.post-pages:not(.list) .post-content h5,
+body.post-pages:not(.list) .post-content h6 {
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  margin: 1.2em 0 0.45em;
+  color: var(--song-accent);
+}
+
+body.post-pages:not(.list) .post-content strong {
+  font-weight: 600;
+  color: var(--song-ink);
+}
+
+body.post-pages:not(.list) .post-content em {
+  font-style: italic;
+  color: var(--song-meta);
+}
+
+body.post-pages:not(.list) .post-content a {
+  font-weight: 500;
+  text-underline-offset: 0.22em;
+  text-decoration-thickness: 1px;
+}
+
+body.post-pages:not(.list) .post-content blockquote {
+  font-size: 0.96em;
+  line-height: 1.78;
+  letter-spacing: 0.012em;
+  padding: 0.65em 1em;
+}
+
+body.post-pages:not(.list) .post-content blockquote p {
+  margin-block: 0.4em;
+}
+
+/* 代码块保持等宽，略缩小字号 */
+body.post-pages:not(.list) .post-content pre,
+body.post-pages:not(.list) .post-content code {
+  font-family: Monaco, Menlo, "Courier New", Courier, monospace !important;
+  font-size: 0.88em;
+  line-height: 1.65;
+  letter-spacing: 0;
+}
+
+body.post-pages:not(.list) .post-content :not(pre) > code {
+  font-size: 0.86em;
+  padding: 0.12em 0.35em;
+}
+
+/* 目录 */
+body.post-pages:not(.list) details.toc {
+  font-family: var(--song-font-ui);
+  font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+}
+
+body.post-pages:not(.list) details.toc .title {
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+/* 标签 / 页脚 */
+body.post-pages:not(.list) .post-tags a,
+body.post-pages:not(.list) .post-footer,
+body.post-pages:not(.list) .paginav {
+  font-family: var(--song-font-ui);
+  font-size: 13px;
+  letter-spacing: 0.015em;
+}
+
+body.post-pages:not(.list) .paginav .title {
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+/* 暗色：暖米字，靛青链接 */
+:root[data-theme="dark"] body.post-pages:not(.list),
+html.post-particles-dark body.post-pages:not(.list) {
+  --song-ink: #f0e8dc;
+  --song-heading: #f5efe4;
+  --song-body: #ddd4c8;
+  --song-meta: #a89e92;
+  --song-link: #9bb8cc;
+  --song-link-hover: #d4a88c;
+  --song-accent: #c4b09a;
+}
+
+:root[data-theme="dark"] body.post-pages:not(.list) .post-content h1,
+html.post-particles-dark body.post-pages:not(.list) .post-content h1 {
+  color: #e8c4a8;
+}
+
+@media (max-width: 768px) {
+  body.post-pages:not(.list) {
+    font-size: 16px;
+  }
+
+  body.post-pages:not(.list) .post-title {
+    font-size: 1.65rem;
+    letter-spacing: 0.04em;
+  }
+
+  body.post-pages:not(.list) .post-content {
+    font-size: 16px;
+    line-height: 1.82;
+  }
+}

@@ -37,15 +37,55 @@
 * {
   box-sizing: border-box;
 }
-body {
-  background-image: url('../images/bg.png');
 
+body {
+  font-family: Monaco, "Courier New", Courier, monospace;
+  background-image: url('../images/bg.png');
   background-color: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   overflow: hidden;
+}
+
+.site-brand {
+  margin: 0 0 0.5rem;
+  font-family: "Snell Roundhand", "SignPainter", "Bradley Hand", "Herculanum", cursive;
+  font-size: clamp(3rem, 14vw, 5.5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: 0.06em;
+  background: linear-gradient(
+    115deg,
+    #ff6b9d 0%,
+    #c44dff 22%,
+    #4dabf7 48%,
+    #38d9a9 74%,
+    #ffd43b 100%
+  );
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: brand-gradient-shift 8s ease-in-out infinite;
+  filter: drop-shadow(0 2px 12px rgba(0, 0, 0, 0.15));
+}
+
+.site-brand .amp {
+  padding: 0 0.08em;
+  font-style: italic;
+  transform: scale(1.15);
+}
+
+@keyframes brand-gradient-shift {
+  0%,
+  100% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
 }
 .wrp {
   height: 80vh;

@@ -2,7 +2,7 @@
 title: "[Emacs] Play With Emacs(一)"
 date: 2020-09-02T23:03:48+08:00
 lastmod: 2020-09-02T23:03:48+08:00
-draft: false
+draft: true
 tags: ["emacs"]
 categories: [ "emacs" ]
 ---

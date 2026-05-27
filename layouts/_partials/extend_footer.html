@@ -1,0 +1,6 @@
+{{- /* particles.js — only on /post/ list page */ -}}
+{{- $mainSections := site.Params.mainSections | default (slice "post") -}}
+{{- if and (in $mainSections .Section) (ne .Kind "page") -}}
+<script src="{{ "js/particles.min.js" | absURL }}" defer></script>
+<script src="{{ "js/posts-particles.js" | absURL }}" defer></script>
+{{- end -}}

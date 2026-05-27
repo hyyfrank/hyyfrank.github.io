@@ -1,0 +1,58 @@
+/* Site-wide: Monaco on macOS */
+:root {
+  --site-font: Monaco, "Courier New", Courier, monospace;
+  --brand-font: "Snell Roundhand", "SignPainter", "Bradley Hand", "Herculanum", cursive;
+}
+
+body {
+  font-family: var(--site-font);
+}
+
+code,
+pre,
+.chroma,
+kbd,
+samp {
+  font-family: Monaco, Menlo, "Courier New", Courier, monospace !important;
+}
+
+/* Header logo + home hero title */
+.logo a,
+.home-info .entry-header h1 {
+  font-family: var(--brand-font);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  background: linear-gradient(
+    115deg,
+    #ff6b9d 0%,
+    #c44dff 28%,
+    #4dabf7 55%,
+    #38d9a9 82%,
+    #ffd43b 100%
+  );
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: brand-gradient-shift 8s ease-in-out infinite;
+}
+
+.logo a {
+  font-size: 1.35rem;
+}
+
+.home-info .entry-header h1 {
+  font-size: clamp(2rem, 6vw, 3rem);
+  line-height: 1.15;
+}
+
+@keyframes brand-gradient-shift {
+  0%,
+  100% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+}

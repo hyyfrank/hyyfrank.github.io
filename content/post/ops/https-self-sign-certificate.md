@@ -2,7 +2,7 @@
 title: "[Autodesk] How to create https self-signed certificate"
 date: 2020-04-07T12:20:45+08:00
 lastmod: 2020-05-07T12:20:45+08:00
-draft: false
+draft: true
 tags: ["https","CA", "Self-Signed"]
 categories: ["DevOps"]
 ---

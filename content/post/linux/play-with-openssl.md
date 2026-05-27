@@ -2,7 +2,7 @@
 title: "Compile openssl from source"
 date: 2021-09-07T18:29:48+08:00
 lastmod: 2021-09-07T19:29:48+08:00
-draft: false
+draft: true
 tags: ["openssl"]
 categories: ["linux"]
 ---
