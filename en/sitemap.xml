@@ -109,7 +109,7 @@
                 />
   </url><url>
     <loc>https://yy-tech.online/</loc>
-    <lastmod>2026-05-28T00:53:02+08:00</lastmod>
+    <lastmod>2026-05-28T02:01:18+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -964,7 +964,7 @@
                 />
   </url><url>
     <loc>https://yy-tech.online/post/</loc>
-    <lastmod>2026-05-28T00:53:02+08:00</lastmod>
+    <lastmod>2026-05-28T02:01:18+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -979,6 +979,7 @@
                 />
   </url><url>
     <loc>https://yy-tech.online/search/</loc>
+    <lastmod>2026-05-28T01:25:02+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
     <xhtml:link
