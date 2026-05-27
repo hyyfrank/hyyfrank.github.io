@@ -8,6 +8,8 @@ hasCJKLanguage = true
 enableGitInfo = true
 
 mainSections = ["post"]
+# Each post gets a background from assets/images/song*.jpg (stable per URL).
+# Optional front matter override: songBg = "song5" or songBg = "song5.jpg"
 
 [pagination]
   pagerSize = 5

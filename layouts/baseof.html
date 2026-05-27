@@ -7,6 +7,7 @@
 {{- $isPostListPage := and $isPostPage (ne .Kind "page") -}}
 {{- $isAboutPage := eq .Layout "about" -}}
 {{- $isCategoryPage := eq .Type "categories" -}}
+{{- $isArticlePage := and (eq .Kind "page") $isPostPage -}}
 
 <!DOCTYPE html>
 {{- $theme := site.Params.defaultTheme | default "auto" }}
@@ -25,7 +26,7 @@
 {{- if (or (ne .Kind `page` ) (eq .Layout `archives`) (eq .Layout `search`)) }}
 <body class="list{{- if or $isPostPage $isCategoryPage }} post-pages{{- end }}{{- if $isCategoryPage }} category-bg{{- end }}" id="top">
 {{- else }}
-<body{{- if or $isPostPage $isAboutPage }} class="post-pages{{- if $isAboutPage }} about-bg{{- end }}"{{- end }} id="top">
+<body{{- if or $isPostPage $isAboutPage }} class="post-pages{{- if $isArticlePage }} article-bg{{- end }}{{- if $isAboutPage }} about-bg{{- end }}"{{- end }} id="top">
 {{- end }}
     {{- if $isPostListPage }}
     <div id="particles-js" aria-hidden="true"></div>

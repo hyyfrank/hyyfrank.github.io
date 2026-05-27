@@ -1,4 +1,4 @@
-{{- /* Build-time background from assets/images/song*.jpg */ -}}
+{{- /* Per-page background from assets/images/song*.jpg */ -}}
 {{- $mainSections := site.Params.mainSections | default (slice "post") -}}
 {{- $bgs := sort (resources.Match "images/song*.jpg") "Name" -}}
 {{- if $bgs -}}
@@ -7,10 +7,20 @@
   {{- $selector := "" -}}
   {{- $bg := "" -}}
 
+  {{- /* Blog post: one song image per article (stable hash, or front matter songBg) */ -}}
   {{- if and (eq .Kind "page") (in $mainSections .Section) -}}
-    {{- $idx := mod (hash.FNV32a .RelPermalink) (len $bgs) -}}
-    {{- $bg = index $bgs $idx -}}
-    {{- $selector = "body.post-pages:not(.list)" -}}
+    {{- $selector = "body.post-pages.article-bg" -}}
+    {{- with .Params.songBg -}}
+      {{- $name := . -}}
+      {{- if not (strings.HasSuffix $name ".jpg") -}}
+        {{- $name = printf "%s.jpg" $name -}}
+      {{- end -}}
+      {{- $bg = resources.Get (printf "images/%s" $name) -}}
+    {{- end -}}
+    {{- if not $bg -}}
+      {{- $idx := mod (hash.FNV32a .RelPermalink) (len $bgs) -}}
+      {{- $bg = index $bgs $idx -}}
+    {{- end -}}
   {{- else if eq .Layout "about" -}}
     {{- $bg = $aboutBg -}}
     {{- $selector = "body.post-pages.about-bg" -}}
