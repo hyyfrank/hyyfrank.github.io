@@ -11,9 +11,6 @@ aliases:
 
 # Bit Twiddling Hacks Summary
 
-This note summarizes practical techniques from [Bit Twiddling Hacks](https://graphics.stanford.edu/~seander/bithacks.html).  
-It follows the same style as `common-algorithm-patterns.md`: each topic has **Explanation** + **C++ Framework**.
-
 ## 0) Preconditions and Portability
 
 ### Explanation
