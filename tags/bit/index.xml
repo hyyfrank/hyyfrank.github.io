@@ -6,7 +6,7 @@
     <description>Recent content in Bit on H&amp;W</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 28 May 2026 00:53:02 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 28 May 2026 15:45:01 +0800</lastBuildDate>
     <atom:link href="https://yy-tech.online/tags/bit/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Bit Twiddling Hacks Summary</title>
@@ -14,8 +14,6 @@
       <pubDate>Wed, 27 May 2026 22:40:00 +0800</pubDate>
       <guid>https://yy-tech.online/post/bit-twiddling-hacks-summary/</guid>
       <description>&lt;h1 id=&#34;bit-twiddling-hacks-summary&#34;&gt;Bit Twiddling Hacks Summary&lt;/h1&gt;
-&lt;p&gt;This note summarizes practical techniques from &lt;a href=&#34;https://graphics.stanford.edu/~seander/bithacks.html&#34;&gt;Bit Twiddling Hacks&lt;/a&gt;.&lt;br&gt;
-It follows the same style as &lt;code&gt;common-algorithm-patterns.md&lt;/code&gt;: each topic has &lt;strong&gt;Explanation&lt;/strong&gt; + &lt;strong&gt;C++ Framework&lt;/strong&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;0-preconditions-and-portability&#34;&gt;0) Preconditions and Portability&lt;/h2&gt;
 &lt;h3 id=&#34;explanation&#34;&gt;Explanation&lt;/h3&gt;
 &lt;p&gt;Bit hacks are highly sensitive to integer representation and shift semantics:&lt;/p&gt;

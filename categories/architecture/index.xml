@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Architecture on H&amp;W</title>
+    <link>https://yy-tech.online/categories/architecture/</link>
+    <description>Recent content in Architecture on H&amp;W</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 28 May 2026 15:45:01 +0800</lastBuildDate>
+    <atom:link href="https://yy-tech.online/categories/architecture/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>From CORBA to Cloud-Native: Evolving Tech, Enduring Distributed Systems Principles</title>
+      <link>https://yy-tech.online/post/corba-heterogeneous-distributed-systems-evolution/</link>
+      <pubDate>Thu, 28 May 2015 14:54:00 +0800</pubDate>
+      <guid>https://yy-tech.online/post/corba-heterogeneous-distributed-systems-evolution/</guid>
+      <description>&lt;p&gt;This post revisits a system we built years ago: a CORBA-based distributed component assembly platform.&lt;br&gt;
+It is easy to label it as &amp;ldquo;legacy tech,&amp;rdquo; but that misses the point. The core problems we solved then are still with us today; only the implementation style has changed.&lt;/p&gt;
+&lt;h2 id=&#34;project-snapshot-a-heterogeneous-component-assembly-system&#34;&gt;Project Snapshot: A Heterogeneous Component Assembly System&lt;/h2&gt;
+&lt;p&gt;The system had four core components:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A bus component&lt;/li&gt;
+&lt;li&gt;A UI component&lt;/li&gt;
+&lt;li&gt;A database component&lt;/li&gt;
+&lt;li&gt;A server component&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;These components were implemented in different languages (C++ and Java) and interoperated through CORBA middleware.&lt;br&gt;
+We also built four Eclipse plugins for distributed application assembly, configuration, and deployment.&lt;br&gt;
+A naming/registry-like service handled service registration and discovery.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

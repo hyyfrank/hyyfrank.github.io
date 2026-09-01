@@ -6,8 +6,15 @@
     <description>Recent content in Categories on H&amp;W</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 28 May 2026 00:53:02 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 01 Sep 2026 23:30:00 +0800</lastBuildDate>
     <atom:link href="https://yy-tech.online/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Quant</title>
+      <link>https://yy-tech.online/categories/quant/</link>
+      <pubDate>Tue, 01 Sep 2026 23:30:00 +0800</pubDate>
+      <guid>https://yy-tech.online/categories/quant/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Algorithm</title>
       <link>https://yy-tech.online/categories/algorithm/</link>
@@ -62,6 +69,13 @@
       <link>https://yy-tech.online/categories/linux/</link>
       <pubDate>Mon, 07 Aug 2017 12:33:21 +0800</pubDate>
       <guid>https://yy-tech.online/categories/linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Architecture</title>
+      <link>https://yy-tech.online/categories/architecture/</link>
+      <pubDate>Thu, 28 May 2015 14:54:00 +0800</pubDate>
+      <guid>https://yy-tech.online/categories/architecture/</guid>
       <description></description>
     </item>
   </channel>

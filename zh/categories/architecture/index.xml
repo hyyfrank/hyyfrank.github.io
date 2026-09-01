@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Architecture on H&amp;W</title>
+    <link>https://yy-tech.online/zh/categories/architecture/</link>
+    <description>Recent content in Architecture on H&amp;W</description>
+    <generator>Hugo</generator>
+    <language>zh-Hant</language>
+    <lastBuildDate>Thu, 28 May 2026 15:45:01 +0800</lastBuildDate>
+    <atom:link href="https://yy-tech.online/zh/categories/architecture/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>从 CORBA 到云原生：异构分布式系统的技术演化与不变思想</title>
+      <link>https://yy-tech.online/zh/post/corba-heterogeneous-distributed-systems-evolution/</link>
+      <pubDate>Thu, 28 May 2015 14:54:00 +0800</pubDate>
+      <guid>https://yy-tech.online/zh/post/corba-heterogeneous-distributed-systems-evolution/</guid>
+      <description>&lt;p&gt;这篇文章想复盘一个我们曾经做过的系统：一个基于 CORBA 的分布式构件组装平台。&lt;br&gt;
+很多人会把它简单归类为“老技术”，但如果只看技术名词，很容易错过真正有价值的部分：我们当年解决的问题，今天依然存在，只是实现手段发生了变化。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

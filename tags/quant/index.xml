@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Quant on H&amp;W</title>
+    <link>https://yy-tech.online/tags/quant/</link>
+    <description>Recent content in Quant on H&amp;W</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 01 Sep 2026 23:30:00 +0800</lastBuildDate>
+    <atom:link href="https://yy-tech.online/tags/quant/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Intraday Trend Following and Conditional Mean Reversion</title>
+      <link>https://yy-tech.online/post/intraday-trend-following-and-conditional-mean-reversion/</link>
+      <pubDate>Tue, 01 Sep 2026 23:30:00 +0800</pubDate>
+      <guid>https://yy-tech.online/post/intraday-trend-following-and-conditional-mean-reversion/</guid>
+      <description>Transparent 30-minute trend and mean-reversion rules on QQQ fail out of sample after costs; the same signals are still routed through a fail-closed IBKR paper-trading process.</description>
+    </item>
+    <item>
+      <title>Pricing Options using Monte Carlo Simulation</title>
+      <link>https://yy-tech.online/post/pricing-european-and-binary-options-using-monte-carlo-simulation/</link>
+      <pubDate>Thu, 28 May 2026 16:01:00 +0800</pubDate>
+      <guid>https://yy-tech.online/post/pricing-european-and-binary-options-using-monte-carlo-simulation/</guid>
+      <description>&lt;h1 id=&#34;pricing-european-and-binary-options-using-monte-carlo-simulation&#34;&gt;Pricing European and Binary Options using Monte Carlo Simulation&lt;/h1&gt;
+&lt;h2 id=&#34;1-introduction&#34;&gt;1. Introduction&lt;/h2&gt;
+&lt;p&gt;This report investigates the pricing of European and Binary call options using Monte Carlo simulation under the risk-neutral framework. According to the Fundamental Theorem of Asset Pricing, the value of an option $V(S,t)$ is the expected value of its discounted payoff under the risk-neutral measure $\mathbb{Q}$:&lt;/p&gt;
+&lt;p&gt;$$V(S, t) = e^{-r(T-t)} \mathbb{E}^\mathbb{Q} [\text{Payoff}(S_T)]$$&lt;/p&gt;
+&lt;p&gt;We assume the underlying asset follows Geometric Brownian Motion (GBM) governed by the Stochastic Differential Equation (SDE):
+$$dS_t = r S_t dt + \sigma S_t dW_t$$
+where $r$ is the risk-free rate, $\sigma$ is the volatility, and $dW_t$ is a Wiener process.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

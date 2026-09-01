@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Trend-Following on H&amp;W</title>
+    <link>https://yy-tech.online/tags/trend-following/</link>
+    <description>Recent content in Trend-Following on H&amp;W</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 01 Sep 2026 23:30:00 +0800</lastBuildDate>
+    <atom:link href="https://yy-tech.online/tags/trend-following/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Intraday Trend Following and Conditional Mean Reversion</title>
+      <link>https://yy-tech.online/post/intraday-trend-following-and-conditional-mean-reversion/</link>
+      <pubDate>Tue, 01 Sep 2026 23:30:00 +0800</pubDate>
+      <guid>https://yy-tech.online/post/intraday-trend-following-and-conditional-mean-reversion/</guid>
+      <description>Transparent 30-minute trend and mean-reversion rules on QQQ fail out of sample after costs; the same signals are still routed through a fail-closed IBKR paper-trading process.</description>
+    </item>
+  </channel>
+</rss>

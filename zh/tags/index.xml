@@ -6,8 +6,99 @@
     <description>Recent content in Tags on H&amp;W</description>
     <generator>Hugo</generator>
     <language>zh-Hant</language>
-    <lastBuildDate>Thu, 28 May 2026 00:53:02 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 01 Sep 2026 23:30:00 +0800</lastBuildDate>
     <atom:link href="https://yy-tech.online/zh/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Backtesting</title>
+      <link>https://yy-tech.online/zh/tags/backtesting/</link>
+      <pubDate>Tue, 01 Sep 2026 23:30:00 +0800</pubDate>
+      <guid>https://yy-tech.online/zh/tags/backtesting/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mean-Reversion</title>
+      <link>https://yy-tech.online/zh/tags/mean-reversion/</link>
+      <pubDate>Tue, 01 Sep 2026 23:30:00 +0800</pubDate>
+      <guid>https://yy-tech.online/zh/tags/mean-reversion/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>QQQ</title>
+      <link>https://yy-tech.online/zh/tags/qqq/</link>
+      <pubDate>Tue, 01 Sep 2026 23:30:00 +0800</pubDate>
+      <guid>https://yy-tech.online/zh/tags/qqq/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Quant</title>
+      <link>https://yy-tech.online/zh/tags/quant/</link>
+      <pubDate>Tue, 01 Sep 2026 23:30:00 +0800</pubDate>
+      <guid>https://yy-tech.online/zh/tags/quant/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Transaction-Costs</title>
+      <link>https://yy-tech.online/zh/tags/transaction-costs/</link>
+      <pubDate>Tue, 01 Sep 2026 23:30:00 +0800</pubDate>
+      <guid>https://yy-tech.online/zh/tags/transaction-costs/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Trend-Following</title>
+      <link>https://yy-tech.online/zh/tags/trend-following/</link>
+      <pubDate>Tue, 01 Sep 2026 23:30:00 +0800</pubDate>
+      <guid>https://yy-tech.online/zh/tags/trend-following/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ewma</title>
+      <link>https://yy-tech.online/zh/tags/ewma/</link>
+      <pubDate>Thu, 28 May 2026 17:25:00 +0800</pubDate>
+      <guid>https://yy-tech.online/zh/tags/ewma/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Finance</title>
+      <link>https://yy-tech.online/zh/tags/finance/</link>
+      <pubDate>Thu, 28 May 2026 17:25:00 +0800</pubDate>
+      <guid>https://yy-tech.online/zh/tags/finance/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Risk-Management</title>
+      <link>https://yy-tech.online/zh/tags/risk-management/</link>
+      <pubDate>Thu, 28 May 2026 17:25:00 +0800</pubDate>
+      <guid>https://yy-tech.online/zh/tags/risk-management/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Var</title>
+      <link>https://yy-tech.online/zh/tags/var/</link>
+      <pubDate>Thu, 28 May 2026 17:25:00 +0800</pubDate>
+      <guid>https://yy-tech.online/zh/tags/var/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Monte-Carlo</title>
+      <link>https://yy-tech.online/zh/tags/monte-carlo/</link>
+      <pubDate>Thu, 28 May 2026 16:01:00 +0800</pubDate>
+      <guid>https://yy-tech.online/zh/tags/monte-carlo/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Numerical-Methods</title>
+      <link>https://yy-tech.online/zh/tags/numerical-methods/</link>
+      <pubDate>Thu, 28 May 2026 16:01:00 +0800</pubDate>
+      <guid>https://yy-tech.online/zh/tags/numerical-methods/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Options</title>
+      <link>https://yy-tech.online/zh/tags/options/</link>
+      <pubDate>Thu, 28 May 2026 16:01:00 +0800</pubDate>
+      <guid>https://yy-tech.online/zh/tags/options/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Algorithm</title>
       <link>https://yy-tech.online/zh/tags/algorithm/</link>
@@ -223,6 +314,34 @@
       <link>https://yy-tech.online/zh/tags/devops/</link>
       <pubDate>Sat, 07 Jan 2017 12:33:21 +0800</pubDate>
       <guid>https://yy-tech.online/zh/tags/devops/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Architecture</title>
+      <link>https://yy-tech.online/zh/tags/architecture/</link>
+      <pubDate>Thu, 28 May 2015 14:54:00 +0800</pubDate>
+      <guid>https://yy-tech.online/zh/tags/architecture/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Corba</title>
+      <link>https://yy-tech.online/zh/tags/corba/</link>
+      <pubDate>Thu, 28 May 2015 14:54:00 +0800</pubDate>
+      <guid>https://yy-tech.online/zh/tags/corba/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Distributed-System</title>
+      <link>https://yy-tech.online/zh/tags/distributed-system/</link>
+      <pubDate>Thu, 28 May 2015 14:54:00 +0800</pubDate>
+      <guid>https://yy-tech.online/zh/tags/distributed-system/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Microservice</title>
+      <link>https://yy-tech.online/zh/tags/microservice/</link>
+      <pubDate>Thu, 28 May 2015 14:54:00 +0800</pubDate>
+      <guid>https://yy-tech.online/zh/tags/microservice/</guid>
       <description></description>
     </item>
   </channel>
